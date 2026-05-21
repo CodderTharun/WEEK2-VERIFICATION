@@ -1,0 +1,1067 @@
+---
+title: Git
+description: Complete Git and GitHub Resource
+---
+
+import { Code, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Git & GitHub
+
+### Introduction to Git
+
+Git is a Distributed Version Control System (DVCS) used to track changes in files and collaborate with multiple developers.
+
+Git helps developers:
+
+- Track code history
+- Restore previous versions
+- Work on multiple features simultaneously
+- Collaborate efficiently
+- Manage software development professionally
+
+![Distributed Git Architecture](/IT/git/distributed-git-architecture.png)
+
+---
+
+## Version Control System
+
+A Version Control System (VCS) records changes made to files over time.
+
+### A. Without Version Control
+
+- Previous code versions are lost
+- Collaboration becomes difficult
+- Bugs are hard to trace
+- Recovery becomes impossible
+
+### B. With Git
+
+- Every change is tracked
+- Developers can collaborate safely
+- Previous versions can be restored anytime
+
+---
+
+## Distributed Version Control System
+
+Git is distributed because every developer has a complete copy of the repository.
+
+### Advantages
+
+- Faster operations
+- Offline work possible
+- Better backup system
+- Easy branching and merging
+
+![Centralized vs Distributed VCS](/IT/git/centralized-vs-distributed-vcs.png)
+
+---
+
+## Installing Git
+
+### A. Linux
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+sudo apt-get install git
+```
+
+  </TabItem>
+</Tabs>
+
+### B. Windows
+
+Download from:
+
+<Tabs>
+  <TabItem label="Text">
+
+```text
+https://git-scm.com/downloads
+```
+
+  </TabItem>
+</Tabs>
+
+### C. Verify Installation
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+git --version
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## First-Time Git Configuration
+
+### A. Set Username
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+git config --global user.name "Your Name"
+```
+
+  </TabItem>
+</Tabs>
+
+### B. Set Email
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+git config --global user.email "your@email.com"
+```
+
+  </TabItem>
+</Tabs>
+
+### C. Check Configuration
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+git config --list
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Git Workflow
+
+Git workflow consists of three main stages:
+
+<Tabs>
+  <TabItem label="Text">
+
+```text
+Working Directory → Staging Area → Repository
+```
+
+  </TabItem>
+</Tabs>
+
+### Workflow Steps
+
+1. Create or modify files
+2. Add files to staging area
+3. Commit changes permanently
+
+![Git Workflow Diagram](/IT/git/git-workflow-diagram.png)
+
+---
+
+## File States in Git
+
+Files in Git can exist in three states.
+
+### A. Modified
+
+The file has been changed but not staged.
+
+### B. Staged
+
+The file is prepared for the next commit.
+
+### C. Committed
+
+The file snapshot is permanently stored in Git history.
+
+![Git File States](/IT/git/git-file-states.png)
+
+---
+
+## Repository Initialization
+
+Initialize a new Git repository.
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+git init
+```
+
+  </TabItem>
+</Tabs>
+
+This creates a hidden `.git` directory that stores all Git metadata.
+
+---
+
+## Staging and Committing
+
+### A. Add Files
+
+Add a single file:
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+git add filename
+```
+
+  </TabItem>
+</Tabs>
+
+Add all files:
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+git add .
+```
+
+  </TabItem>
+</Tabs>
+
+### B. Commit Changes
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+git commit -m "Commit message"
+```
+
+  </TabItem>
+</Tabs>
+
+Example:
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+git commit -m "Added login functionality"
+```
+
+  </TabItem>
+</Tabs>
+
+---
+## Git Status
+
+Check repository status.
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+git status
+```
+
+  </TabItem>
+</Tabs>
+
+This shows:
+
+- Modified files
+- Staged files
+- Untracked files
+- Current branch
+
+![Git Status Output](/IT/git/git-status-output.png)
+
+---
+
+## Git Log
+
+View commit history.
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+git log
+```
+
+  </TabItem>
+</Tabs>
+
+Compact version:
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+git log --oneline
+```
+
+  </TabItem>
+</Tabs>
+
+Graph view:
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+git log --oneline --graph --all
+```
+
+  </TabItem>
+</Tabs>
+
+![Git Log Graph](/IT/git/git-log-graph.png)
+
+---
+
+## The Staging Area
+
+The staging area acts as a temporary preparation zone before committing.
+
+### Important Concept
+
+<Tabs>
+  <TabItem label="Text">
+
+```text
+git add creates a snapshot of the current file state
+```
+
+  </TabItem>
+</Tabs>
+
+Even after staging, files can still be modified.
+
+---
+
+## Undoing Changes
+
+### A. Unstage a File
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+git reset HEAD filename
+```
+
+  </TabItem>
+</Tabs>
+
+Removes file from staging area while keeping modifications.
+
+### B. Discard Changes
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+git checkout -- filename
+```
+
+  </TabItem>
+</Tabs>
+
+**Warning**
+
+This permanently removes changes.
+
+---
+
+## Removing Files
+
+### A. Remove File Completely
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+git rm filename
+```
+
+  </TabItem>
+</Tabs>
+
+Removes:
+
+- File from working directory
+- File from Git tracking
+
+### B. Remove Only from Git
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+git rm --cached filename
+```
+
+  </TabItem>
+</Tabs>
+
+The file remains on the computer but Git stops tracking it.
+
+---
+
+## Viewing Differences
+
+### A. Compare Working Directory and Staging Area
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+git diff
+```
+
+  </TabItem>
+</Tabs>
+
+### B. Compare Staging Area and Last Commit
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+git diff --cached
+```
+
+  </TabItem>
+</Tabs>
+
+### C. Compare Working Directory and Last Commit
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+git diff HEAD
+```
+
+  </TabItem>
+</Tabs>
+
+![Git Diff Workflow](/IT/git/git-diff-workflow.png)
+
+---
+## .gitignore
+
+The `.gitignore` file tells Git which files or folders should not be tracked.
+
+### A. Example
+
+<Tabs>
+  <TabItem label="gitignore">
+
+```txt
+node_modules/
+.env
+*.log
+*.pyc
+```
+
+  </TabItem>
+</Tabs>
+
+### B. Commonly Ignored Files
+
+- Temporary files
+- Build files
+- Environment variables
+- Logs
+- Dependencies
+
+---
+
+## Branching
+
+Branches allow developers to work on features independently.
+
+### A. Default Branch Names
+
+<Tabs>
+  <TabItem label="Text">
+
+```txt
+main
+```
+
+  </TabItem>
+</Tabs>
+
+Older naming:
+
+<Tabs>
+  <TabItem label="Text">
+
+```text
+master
+```
+
+  </TabItem>
+</Tabs>
+
+### B. View Branches
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+git branch
+```
+
+  </TabItem>
+</Tabs>
+
+### C. Create Branch
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+git branch feature-login
+```
+
+  </TabItem>
+</Tabs>
+
+### D. Switch Branch
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+git checkout feature-login
+```
+
+  </TabItem>
+</Tabs>
+
+### E. Create and Switch Branch
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+git checkout -b feature-login
+```
+
+  </TabItem>
+</Tabs>
+
+### F. Delete Branch
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+git branch -d feature-login
+```
+
+  </TabItem>
+</Tabs>
+
+![Git Branching Diagram](/IT/git/git-branching-diagram.png)
+
+---
+
+## Git Stash
+
+Git stash temporarily stores unfinished changes.
+
+### A. Save Changes
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+git stash
+```
+
+  </TabItem>
+</Tabs>
+
+### B. Restore Changes
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+git stash pop
+```
+
+  </TabItem>
+</Tabs>
+
+Useful when switching branches quickly.
+
+---
+
+## HEAD Pointer
+
+HEAD is a special pointer that refers to the current branch or commit.
+
+### Example
+
+<Tabs>
+  <TabItem label="Text">
+
+```text
+HEAD → main
+```
+
+  </TabItem>
+</Tabs>
+
+When switching branches, HEAD moves automatically.
+
+---
+
+## Merging
+
+Merging combines two branches together.
+
+### Example
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+git checkout main
+git merge feature-login
+```
+
+  </TabItem>
+</Tabs>
+
+Git creates a merge commit that combines histories.
+
+![Git Merge Diagram](/IT/git/git-merge-diagram.png)
+---
+
+## Merge Conflicts
+
+Merge conflicts happen when two branches modify the same section of code differently.
+
+### A. Conflict Markers
+
+<Tabs>
+  <TabItem label="Text">
+
+```text
+<<<<<<< HEAD
+Current branch code
+=======
+Incoming branch code
+>>>>>>> branch-name
+```
+
+  </TabItem>
+</Tabs>
+
+### B. Steps to Resolve Conflicts
+
+1. Open conflicting file
+2. Edit manually
+3. Remove conflict markers
+4. Add file
+5. Commit changes
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+git add filename
+git commit
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Rebasing
+
+Rebasing moves commits from one branch onto another base branch.
+
+### A. Command
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+git rebase main
+```
+
+  </TabItem>
+</Tabs>
+
+### B. Advantages
+
+- Cleaner history
+- Linear commit structure
+
+### C. Important Warning
+
+Never rebase shared or public branches.
+
+### D. Reason
+
+Rebasing rewrites commit history and can break collaboration.
+
+![Merge vs Rebase](/IT/git/merge-vs-rebase.png)
+
+---
+
+## Git Reset
+
+Git reset moves HEAD to another commit.
+
+### A. Soft Reset
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+git reset --soft commitID
+```
+
+  </TabItem>
+</Tabs>
+
+Keeps:
+
+- Staging area
+- Working files
+
+### B. Mixed Reset
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+git reset --mixed commitID
+```
+
+  </TabItem>
+</Tabs>
+
+Keeps:
+
+- Working files
+
+Removes:
+
+- Staging area
+
+### C. Hard Reset
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+git reset --hard commitID
+```
+
+  </TabItem>
+</Tabs>
+
+Deletes:
+
+- Staging area
+- Working directory changes
+
+**Warning**
+
+This operation can permanently delete work.
+
+---
+## Remote Repositories
+
+Remote repositories are repositories hosted online.
+
+### A. Example Platforms
+
+- GitHub
+- GitLab
+- Bitbucket
+
+### B. Add Remote
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+git remote add origin repositoryURL
+```
+
+  </TabItem>
+</Tabs>
+
+### C. View Remotes
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+git remote -v
+```
+
+  </TabItem>
+</Tabs>
+
+### D. Remove Remote
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+git remote remove origin
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## GitHub SSH Setup
+
+SSH authentication avoids repeated password entry.
+
+### A. Generate SSH Key
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+ssh-keygen -t rsa -C "your@email.com"
+```
+
+  </TabItem>
+</Tabs>
+
+### B. Add SSH Key
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+ssh-add ~/.ssh/id_rsa
+```
+
+  </TabItem>
+</Tabs>
+
+### C. View Public Key
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+cat ~/.ssh/id_rsa.pub
+```
+
+  </TabItem>
+</Tabs>
+
+Paste this key into GitHub SSH settings.
+
+![GitHub SSH Setup](/IT/git/github-ssh-setup1.png)
+![GitHub SSH Setup](/IT/git/github-ssh-setup2.png)
+
+---
+
+## Creating a GitHub Repository
+
+### A. Steps
+
+1. Open GitHub
+2. Click "New Repository"
+3. Enter repository name
+4. Copy repository URL
+
+![Create GitHub Repository](/IT/git/github-create-repository.png)
+### B. Push Existing Project
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+git remote add origin URL
+git push -u origin main
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Push, Pull, and Fetch
+
+### A. Push
+
+Uploads commits to remote repository.
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+git push origin main
+```
+
+  </TabItem>
+</Tabs>
+
+### B. Fetch
+
+Downloads latest changes without merging.
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+git fetch origin
+```
+
+  </TabItem>
+</Tabs>
+
+### C. Pull
+
+Fetches and merges changes.
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+git pull origin main
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Remote Tracking Branches
+
+### A. Example
+
+<Tabs>
+  <TabItem label="Text">
+
+```text
+origin/main
+```
+
+  </TabItem>
+</Tabs>
+
+Tracks the remote branch locally.
+
+### B. After Fetching
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+git merge origin/main
+```
+
+  </TabItem>
+</Tabs>
+
+or:
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+git rebase origin/main
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Team Workflow
+
+### Standard Team Workflow
+
+1. Clone repository
+2. Create feature branch
+3. Make changes
+4. Commit changes
+5. Push branch
+6. Create Pull Request
+7. Code Review
+8. Merge into main
+
+![Team Workflow Git](/IT/git/team-workflow-git.png)
+
+---
+
+## Best Practices
+
+### A. Commit Frequently
+
+Small commits are easier to manage.
+
+### B. Write Clear Commit Messages
+
+Bad:
+
+<Tabs>
+  <TabItem label="Text">
+
+```text
+fixed stuff
+```
+
+  </TabItem>
+</Tabs>
+
+Good:
+
+<Tabs>
+  <TabItem label="Text">
+
+```text
+Fixed authentication bug in login module
+```
+
+  </TabItem>
+</Tabs>
+
+### C. Use Feature Branches
+
+Avoid direct work on the main branch.
+
+### D. Pull Before Push
+
+Reduces merge conflicts.
+
+### E. Never Push Secrets
+
+Do not push:
+
+- API keys
+- Passwords
+- Environment files
+
+---
+
+## Git Cheat Sheet
+
+![Git Cheat Sheet](/IT/git/git-cheat-sheet.png)
+
+![Solo Workflow Git](/IT/git/solo-workflow-git.png)
+
+---

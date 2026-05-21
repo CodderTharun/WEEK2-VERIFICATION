@@ -1,0 +1,2324 @@
+---
+title: Digital Electronics
+---
+
+import { Code, Tabs, TabItem } from '@astrojs/starlight/components';
+
+### **Digital Electronics**
+Digital electronics is the branch of electronics concerned with the study and design of electronic systems that operate using digital signals, which take discrete values, typically in binary form (0 and 1).
+
+Examples:
+- Computer
+- Calculator
+- Digital Clock
+- Microprocessor
+
+---
+
+## Signals
+
+A signal is a function that represents the variation of a physical quantity with respect to an independent variable such as time, space or any other parameter.
+
+It conveys information about a system.
+
+Examples include voltage, current and sound.
+
+### Types of Signals
+
+#### 1. Analog Signal
+
+An analog signal is continuous in both time and amplitude and can take infinite values within a given range. It varies smoothly and represents real-world physical quantities.
+
+Examples:
+- Audio signal
+- Temperature variation
+- Sinusoidal signal
+
+#### 2. Digital Signal
+
+A digital signal is discrete in both time and amplitude and takes only finite values (usually 0 and 1). It is less affected by noise and widely used in digital systems.
+
+Examples:
+- Computer data
+- Digital communication signals
+
+---
+
+## Boolean Algebra
+
+Boolean algebra is a system of rules and laws used for simplification of logical expressions involving binary variables (0 and 1).
+
+### Laws
+
+#### 1. Complementary Law
+
+A variable combined with its complement gives 1 in OR operation and 0 in AND operation.
+
+$$
+A + A' = 1
+$$
+
+$$
+A \cdot A' = 0
+$$
+
+
+#### 2. AND Law
+
+AND operation with 1 gives the same variable, and with 0 gives 0.
+
+$$
+A \cdot 1 = A
+$$
+
+$$
+A \cdot 0 = 0
+$$
+
+
+#### 3. OR Law
+
+OR operation with 0 gives the same variable, and with 1 gives 1.
+
+$$
+A + 0 = A
+$$
+
+$$
+A + 1 = 1
+$$
+
+
+#### 4. Commutative Law
+
+The order of variables does not affect the result.
+
+$$
+A + B = B + A
+$$
+
+$$
+A \cdot B = B \cdot A
+$$
+
+
+#### 5. Associative Law
+
+The grouping of variables does not affect the result.
+
+$$
+(A + B) + C = A + (B + C)
+$$
+
+$$
+(A \cdot B) \cdot C = A \cdot (B \cdot C)
+$$
+
+#### 6. Distributive Law
+
+Multiplication distributes over addition and vice versa.
+
+$$
+A \cdot (B + C) = AB + AC
+$$
+
+$$
+A + (B \cdot C) = (A + B)(A + C)
+$$
+
+
+#### 7. De Morgan’s Law
+
+The complement of a product is equal to the sum of complements and vice versa.
+
+$$
+(A \cdot B)' = A' + B'
+$$
+
+$$
+(A + B)' = A' \cdot B'
+$$
+
+---
+
+## Boolean Expressions
+
+### A. Product Term
+
+Logical AND of variables.
+
+Examples:
+- \(AB\)
+- \(A'B\)
+
+
+### B. Sum Term
+
+Logical OR of variables.
+
+$$
+A + B
+$$
+
+
+## Sum of Products (SOP)
+
+SOP is a Boolean expression where product terms are combined using OR.
+
+General form:
+
+$$
+Y = AB + A'C + BC
+$$
+
+### Types of SOP
+
+#### 1. Canonical SOP
+
+Contains all variables (minterms).
+
+#### 2. Minimal SOP
+
+Simplified form using Boolean laws or K-map.
+
+
+### SOP Conversion Steps
+
+1. Identify rows where output = 1
+2. Write product terms
+3. Add all terms
+
+---
+
+## Product of Sums (POS)
+
+POS is a Boolean expression where sum terms are combined using AND.
+
+### Types of POS
+
+#### 1. Canonical POS
+
+Contains all variables (maxterms).
+
+#### 2. Minimal POS
+
+Simplified expression.
+
+---
+
+## POS Conversion Steps
+
+1. Identify rows where output = 0
+2. Write sum terms
+3. Multiply all terms
+
+---
+
+## Dual Form
+
+Dual is obtained by:
+- Replacing \(+\) with \(\cdot\)
+- Replacing \(\cdot\) with \(+\)
+- Replacing 0 with 1 and 1 with 0
+
+---
+
+## Number System
+
+A number system represents numbers using digits and a base (radix).
+
+### Types of Number Systems
+
+#### 1. Binary Number System
+
+The base of binary number system is 2.
+
+Digits used:
+- 0
+- 1
+
+Examples:
+- \(11001_2\)
+- \(0101_2\)
+
+---
+
+#### 2. Octal Number System
+
+The base of octal number system is 8.
+
+Digits used:
+- 0
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+
+Examples:
+- \(157_8\)
+- \(2312_8\)
+- \(110_8\)
+
+---
+
+#### 3. Decimal Number System
+
+The base of decimal number system is 10.
+
+Digits used:
+- 0 to 9
+
+Examples:
+- \(157_{10}\)
+- \(6587_{10}\)
+- \(110_{10}\)
+
+---
+
+#### 4. Hexadecimal Number System
+
+The base of hexadecimal number system is 16.
+
+Digits used:
+- 0 to 9
+- A
+- B
+- C
+- D
+- E
+- F
+
+Examples:
+- \(157_{16}\)
+- \(2312_{16}\)
+- \(ABC5_{16}\)
+- \(BDEF_{16}\)
+
+---
+
+<div align="center">
+  <img
+    src="/ECE/DE1.png"
+    alt="Digital Electronics Diagram"
+    width="60%"
+  />
+</div>
+
+---
+
+## Basic Terminology
+
+### A. Radix Point
+
+The radix point is used to separate the integer part and the fractional part of a number.
+
+
+### B. Base (Radix)
+
+The base or radix of a number system is the total number of distinct symbols used to represent numbers.
+
+Examples:
+- Decimal → Base 10
+- Binary → Base 2
+
+
+### C. Most Significant Bit (MSB)
+
+The most significant bit is the leftmost bit in a binary number, having the highest place value.
+
+
+### D. Least Significant Bit (LSB)
+
+The least significant bit is the rightmost bit in a binary number, having the lowest place value.
+
+
+### E. Bit
+
+A bit (binary digit) is the smallest unit of data and can have a value of 0 or 1.
+
+Example:
+- 0
+- 1
+
+
+### F. Nibble
+
+A nibble is a group of four bits.
+
+Examples:
+- 0110
+- 1110
+
+
+### G. Byte
+
+A byte is a group of eight bits.
+
+Examples:
+- 01101101
+- 11010011
+
+## Arithmetic Operations
+
+### Binary Arithmetic
+
+Binary arithmetic includes:
+- Addition
+- Subtraction
+- Multiplication
+- Division
+
+
+#### 1. Binary Addition
+
+Rules for binary addition:
+
+```text
+0 + 0 = 0
+0 + 1 = 1
+1 + 0 = 1
+1 + 1 = 0 with carry 1
+```
+
+#### 2. Binary Subtraction
+
+Rules for binary subtraction:
+
+```text
+0 - 0 = 0
+0 - 1 = 1 with borrow 1
+1 - 0 = 1
+1 - 1 = 0
+```
+
+#### 3. Binary Multiplication
+
+Rules for binary multiplication:
+
+```text
+0 × 0 = 0
+0 × 1 = 0
+1 × 0 = 0
+1 × 1 = 1
+```
+
+#### 4. Binary Division
+
+Rules for binary division:
+
+```text
+0 ÷ 0 = not defined
+0 ÷ 1 = 0
+1 ÷ 0 = not defined
+1 ÷ 1 = 1
+```
+
+#### 5. 1’s Complement of Binary Numbers
+
+The 1’s complement of a binary number is formed by inverting all its bits, i.e., replacing every 0 with 1 and every 1 with 0.
+
+Example:
+
+$$
+(101101)_2 = (010010)_2
+$$
+
+
+#### 6. 2’s Complement of Binary Numbers
+
+The 2’s complement of a binary number is obtained by adding 1 to the 1’s complement of the number.
+
+Example:
+
+$$
+(101101)_2
+$$
+
+$$
+1's\ Complement = (010010)_2
+$$
+
+$$
+2's\ Complement = (010011)_2
+$$
+
+
+#### 7. Binary Codes
+
+##### a. Digital Codes or Binary Codes
+
+A group of binary digits is known as a binary code or a digital code.
+
+
+##### b. Numeric Code
+
+Digital code represented by the number is known as a numeric code.
+
+
+<div align="center">
+  <img
+    src="/ECE/DE2.png"
+    alt="Binary Codes"
+    width="60%"
+  />
+</div>
+
+---
+
+## Weighted Codes
+
+Weighted codes are binary codes in which each bit position is assigned a specific weight.
+The value of the code is determined by the sum of the weights corresponding to the bits that are 1.
+In these codes, each decimal digit is represented using a group of four bits.
+Example:
+
+In the 8421 (BCD) code, the bit positions have weights 8, 4, 2, and 1 from left to right.
+
+$$
+1001 = 8 + 0 + 0 + 1 = 9
+$$
+
+---
+
+## Non-Weighted Codes
+
+The non-weighted codes are not positionally weighted.
+
+**Examples:**
+
+* Excess-3 (XS-3)
+* Gray Codes
+
+---
+
+## Excess-3 Code
+
+Excess-3 codes are non-weighted and can be obtained by adding 3 to each decimal digit.
+
+**Steps**
+
+1. Find the decimal equivalent of the binary number.
+2. Add (+3) to each digit.
+3. Convert the result back to binary.
+
+---
+
+## Gray Code
+
+Gray code is a non-weighted code, which means there is no specific weight assigned to the bit position.
+
+### A. Applications
+
+* Analog to digital conversion
+* Input / output devices
+* Error reduction in data transmission
+
+
+### B. Binary to Gray Code Conversion
+
+1. MSB of gray code = MSB of binary number
+2. XOR adjacent bits
+3. Continue till LSB
+
+
+<div align="center">
+  <img
+    src="/ECE/DE3.png"
+    alt="Binary to Gray Code"
+    width="60%"
+  />
+</div>
+
+
+### C. Gray Code to Binary Conversion
+
+1. MSB remains same
+2. XOR previous binary bit with gray bit
+3. Repeat until all bits are converted
+
+
+<div align="center">
+  <img
+    src="/ECE/DE4.png"
+    alt="Gray to Binary Conversion"
+    width="60%"
+  />
+</div>
+
+### D. Decimal to Binary Conversion
+
+Example:
+Convert decimal number (13_{10}) to binary.
+
+Method:
+
+* Divide repeatedly by 2
+* Record remainders
+* Read from bottom to top
+
+
+<div align="center">
+  <img
+    src="/ECE/DE5.png"
+    alt="Decimal to Binary Conversion"
+    width="60%"
+  />
+</div>
+
+
+### E. Binary to Decimal Conversion
+
+Convert binary number (101101_2) to decimal.
+
+Rules:
+
+* LSB has weight (2^0)
+* MSB has weight $2^{N-1}$
+
+<div align="center">
+  <img
+    src="/ECE/DE6.png"
+    alt="Binary to Decimal Conversion"
+    width="60%"
+  />
+</div>
+
+
+### F. Reflective Codes
+
+A code is said to be reflective when:
+
+* Code for 9 is complement of 0
+* 8 for 1
+* 7 for 2
+* 6 for 3
+* 5 for 4
+
+Examples:
+
+* 2421 code
+* Excess-3 code
+
+---
+
+<div align="center">
+  <img
+    src="/ECE/DE7.png"
+    alt="Reflective Codes"
+    width="60%"
+  />
+</div>
+
+---
+
+### G. Sequential Codes
+
+A code is said to be sequential when each succeeding code is binary number greater than its preceding code.
+
+Examples:
+
+* 8421 code
+* Excess-3 code
+
+
+
+### H. Parity Codes
+
+Parity code is used for detecting errors during transmission of binary information.
+
+The parity bit is added so that total number of 1’s becomes either odd or even.
+
+#### Types of Parity Codes
+
+1. Even parity code
+2. Odd parity code
+
+##### a. Even Parity Code
+
+If total number of 1 bits including parity bit is even, it is called even parity code.
+
+
+##### b. Odd Parity Code
+
+If total number of 1 bits including parity bit is odd, it is called odd parity code.
+
+<div align="center">
+  <img
+    src="/ECE/DE8.png"
+    alt="Parity Codes"
+    width="60%"
+  />
+</div>
+
+---
+
+## LOGIC GATES
+
+Logic gates are basic electronic circuits that perform logical operations on one or more binary inputs to produce a single output.
+
+### A. AND Gate
+
+An AND gate is a basic logic gate that produces an output of 1 only when all its input signals are 1; otherwise, it produces an output of 0.
+
+<div align="center">
+  <img
+    src="/ECE/DE9.png"
+    alt="AND Gate"
+    width="60%"
+  />
+</div>
+
+### B. OR Gate
+
+An OR gate is a basic logic gate that produces an output of 1 if at least one of its input signals is 1; otherwise, it produces an output of 0.
+
+<div align="center">
+  <img
+    src="/ECE/DE10.png"
+    alt="OR Gate"
+    width="60%"
+  />
+</div>
+
+### C. NOT Gate
+
+A NOT gate is a basic logic gate that produces the complement of the input signal, reversing its logic state.
+
+<div align="center">
+  <img
+    src="/ECE/DE11.png"
+    alt="NOT Gate"
+    width="60%"
+  />
+</div>
+
+### D. NAND Gate
+
+A NAND gate is a logic gate that produces the complement of the AND operation, giving an output of 0 only when all inputs are 1.
+
+<div align="center">
+  <img
+    src="/ECE/DE12.png"
+    alt="NAND Gate"
+    width="60%"
+  />
+</div>
+
+### E. NOR Gate
+
+A NOR gate is a logic gate that produces the complement of the OR operation, giving an output of 1 only when all inputs are 0.
+
+<div align="center">
+  <img
+    src="/ECE/DE13.png"
+    alt="NOR Gate"
+    width="60%"
+  />
+</div>
+
+### F. XOR Gate
+
+An XOR (Exclusive OR) gate is a logic gate that produces an output of 1 when the inputs are different and 0 when they are the same.
+
+<div align="center">
+  <img
+    src="/ECE/DE14.png"
+    alt="XOR Gate"
+    width="60%"
+  />
+</div>
+
+### G. XNOR Gate
+
+An XNOR (Exclusive NOR) gate is a logic gate that produces an output of 1 when the input signals are the same and 0 when they are different.
+
+<div align="center">
+  <img
+    src="/ECE/DE15.png"
+    alt="XNOR Gate"
+    width="60%"
+  />
+</div>
+
+---
+
+## Realization Using Universal Gates
+
+Universal gates are logic gates that are capable of implementing any Boolean function without the need for other types of gates. Among all logic gates, NAND and NOR are called universal gates because they can be combined in different ways to realize basic gates like AND, OR, and NOT, as well as more complex digital circuits. This means that any digital system can be designed using only NAND gates or only NOR gates, making them highly versatile and widely used in digital electronics.
+
+### A. Realization Using NAND Gate
+
+<div align="center">
+  <img
+    src="/ECE/DE16.png"
+    alt="Realization Using NAND Gate"
+    width="60%"
+  />
+</div>
+
+### B. Realization Using NOR Gate
+
+<div align="center">
+  <img
+    src="/ECE/DE17.png"
+    alt="Realization Using NOR Gate"
+    width="60%"
+  />
+</div>
+
+---
+
+## K-MAP
+
+A Karnaugh Map (K-Map) is a graphical technique used to simplify Boolean expressions by grouping adjacent cells that represent 1s (for SOP) or 0s (for POS).
+
+### A. Purpose of K-Map
+
+- To obtain simplified Sum of Products (SOP) or Product of Sums (POS) expressions
+- To reduce the number of terms and variables in a Boolean expression
+- To design simpler and more efficient logic circuits
+
+### B. K-Map Simplification
+
+Boolean algebra simplification is not always unique, so K-Map is used to obtain a minimal expression.
+The number of cells in a K-Map is equal to:
+
+$$
+2^n
+$$
+
+where \(n\) is the number of input variables.
+K-Map can be used for both SOP and POS forms, where 1’s are grouped in SOP and 0’s are grouped in POS.
+Only adjacent cells (horizontal or vertical) are grouped, and diagonal grouping is not allowed.
+Grouping must be done in powers of 2 such as 2, 4, 8, and 16, with preference given to the largest possible groups.
+For SOP form, cells corresponding to minterms are filled with 1’s, while for POS form, cells corresponding to maxterms are filled with 0’s.
+The K-Map is first drawn based on the number of variables, and then values are filled according to the given expression or truth table.
+Adjacent cells are grouped in rectangular form to simplify the expression.
+From the groups, product terms are obtained for SOP form and sum terms are obtained for POS form.
+Binary combinations can be represented in decimal form, for example:
+
+```text
+000 → 0
+011 → 3
+110 → 6
+```
+
+The expression can also be written in compact form using notation such as:
+
+$$
+Y = \Pi M(0, 3, 6)
+$$
+
+### Note
+
+* K-maps can take wither POS form or SOP form
+* In SOP form 1's are need to be grouped
+* Only adjacent cells will be considered for grouping
+* Diagonal cells should not be grouped
+* Grouping can be done using 2 variables, 4 variables, 8 variables, 16 variables etc.
+* Highest priority for grouping maximum variables in the above denomination
+* Variables are 0's for POS form and 1's for SOP form
+
+<div align="center">
+  <img
+    src="/ECE/DE18.png"
+    alt="K-Map"
+    width="60%"
+  />
+</div>
+
+<div align="center">
+  <img
+    src="/ECE/DE19.png"
+    alt="K-Map"
+    width="60%"
+  />
+</div>
+
+---
+
+
+## Sequential Circuits
+
+A sequential circuit is formed by interconnecting logic gates along with memory elements. Unlike combinational circuits, its output depends not only on the present input signals but also on past inputs (stored states), thereby producing output based on both current input and previous history.
+
+---
+
+## Combinational Circuits
+
+A combinational circuit is formed by interconnecting logic gates. These gates respond directly to the input signals and generate output signals accordingly, converting the given binary input data into the desired output data.
+
+<div align="center">
+  <img
+    src="/ECE/DE20.png"
+    alt="Digital Circuits"
+    width="60%"
+  />
+</div>
+
+---
+
+## Adders
+
+### A. Half Adder
+
+A half adder is a combinational circuit with two binary inputs x and y, and two outputs: sum S and carry C. The inputs represent the bits to be added, while the outputs represent the result of the addition.The carry output C is 1 only when both inputs are 1. The sum output S gives the least significant bit of the result and is 1 when the inputs are different.
+
+<div align="center">
+  <img
+    src="/ECE/DE21.png"
+    alt="Half Adder"
+    width="60%"
+  />
+</div>
+
+### B. Full Adder
+
+A full adder is a combinational circuit used to add three binary bits: two significant bits and a carry from the previous stage. It is essential for adding n-bit binary numbers, where addition is performed bit by bit from right to left, starting with the least significant bit.
+
+The full adder has three inputs x, y, and z (carry-in), and two outputs: sum S and carry C. The sum output represents the least significant bit of the result, while the carry output represents the carry generated for the next higher bit.
+
+The sum S is 1 when an odd number of inputs are 1 (i.e., one or all three inputs are 1). The carry C is 1 when at least two inputs are 1.
+
+<div align="center">
+  <img
+    src="/ECE/DE22.png"
+    alt="Full Adder"
+    width="60%"
+  />
+</div>
+
+<div align="center">
+  <img
+    src="/ECE/DE23.png"
+    alt="Full Adder"
+    width="60%"
+  />
+</div>
+
+---
+
+## Subtractor
+
+### A. Half Subtractor
+
+A half subtractor is a combinational circuit used to subtract two binary bits. It has two inputs, x (minuend) and y (subtrahend), and two outputs: Difference (D) and Borrow (B).
+
+The difference is 1 when the inputs are different. The borrow is 1 when x = 0 and y = 1.
+
+<div align="center">
+  <img
+    src="/ECE/DE24.png"
+    alt="Half Subtractor"
+    width="60%"
+  />
+</div>
+
+### B. Full Subtractor
+
+A full subtractor is a combinational circuit used to subtract three binary bits: x (minuend), y (subtrahend), and z (borrow-in). It produces two outputs: Difference (D) and Borrow (B).
+The difference is 1 when the number of 1s in the inputs is odd. The borrow is 1 when y or z is greater than x.
+
+<div align="center">
+  <img
+    src="/ECE/DE25.png"
+    alt="Full Subtractor"
+    width="60%"
+  />
+</div>
+
+---
+
+## Parallel Adder
+
+A parallel adder is a combinational circuit used to add two binary numbers simultaneously. It consists of multiple full adders connected in cascade, where each full adder adds corresponding bits of the inputs along with the carry from the previous stage.
+In an n-bit parallel adder, n full adders are used. Each stage adds two bits and an input carry, producing a sum and an output carry. The carry output of one stage is connected to the carry input of the next higher stage.
+All bits are added at the same time, but carry propagation occurs from the least significant bit (LSB) to the most significant bit (MSB).
+
+<div align="center">
+  <img
+    src="/ECE/DE26.png"
+    alt="Parallel Adder"
+    width="60%"
+  />
+</div>
+
+---
+
+## Carry Look Ahead Adder
+
+A carry look-ahead adder is an advanced combinational circuit designed to add binary numbers faster by reducing the delay caused by carry propagation.
+
+It improves speed by generating carry signals in advance using generate (G) and propagate (P) functions:
+
+$$
+G = x \cdot y
+$$
+
+$$
+P = x + y
+$$
+
+Using these, the carry for each stage is calculated directly without waiting for the previous carry.
+It significantly reduces addition time compared to a ripple (parallel) adder by computing carries in advance instead of waiting for them to propagate sequentially.
+
+<div align="center">
+  <img
+    src="/ECE/DE27.png"
+    alt="Carry Look Ahead Adder"
+    width="60%"
+  />
+</div>
+
+### A. Ripple Carry Adder
+
+A ripple carry adder is a combinational circuit used to add two binary numbers using multiple full adders connected in series.
+Each full adder adds corresponding bits along with a carry input. The carry output from one stage is passed to the next stage, causing the carry to “ripple” from the least significant bit (LSB) to the most significant bit (MSB).
+The main drawback is delay, as each stage must wait for the carry from the previous stage before producing its result.
+
+<div align="center">
+  <img
+    src="/ECE/DE28.png"
+    alt="Ripple Carry Adder"
+    width="60%"
+  />
+</div>
+
+---
+
+## Decoder
+
+A decoder is a combinational circuit that converts binary input data into a unique output line. For n input variables, a decoder produces up to (2^n) output lines, where only one output is active at a time for a given input combination.
+It is used to identify or select one specific output based on the input pattern.
+
+Each output corresponds to a minterm of the input variables, making decoders useful in memory addressing and data selection.
+
+<div align="center">
+  <img
+    src="/ECE/DE29.png"
+    alt="Decoder"
+    width="60%"
+  />
+</div>
+
+---
+
+## Encoder
+
+An encoder is a combinational circuit that converts multiple input lines into a smaller number of output lines (binary code). It performs the reverse operation of a decoder.
+For (2^n) input lines, an encoder produces n output lines. At any time, only one input is active, and the output represents the binary equivalent of the active input.
+Encoders are used to reduce the number of data lines in digital systems.
+
+<div align="center">
+  <img
+    src="/ECE/DE30.png"
+    alt="Encoder"
+    width="60%"
+  />
+</div>
+
+---
+
+## Multiplexer (MUX)
+
+A multiplexer (MUX) is a combinational circuit used to select one input from many input lines and send it to a single output line. It has multiple input lines, one output line, and selection lines that decide which input is connected to the output according to their binary values. Generally, a multiplexer contains 2^n input lines and n selection lines. Because it selects one data input from several inputs and transfers it to the output, it is also known as a data selector.
+
+
+<div align="center">
+  <img
+    src="/ECE/DE100.png"
+    alt="Multiplexer"
+    width="60%"
+  />
+</div>
+
+---
+### A. 2-to-1 Line Multiplexer
+
+A 2-to-1 line multiplexer consists of:
+
+- Two data input lines: $I_0$ and $I_1$
+- One select line: $S$
+- One output line: $Y$
+
+The select line determines which input is connected to the output.
+
+#### Operation
+
+- When $S = 0$, the upper AND gate is enabled and $I_0$ is connected to the output.
+- When $S = 1$, the lower AND gate is enabled and $I_1$ is connected to the output.
+
+<div align="center">
+  <img
+    src="/ECE/DE101.png"
+    alt="Multiplexer"
+    width="60%"
+  />
+</div>
+
+---
+
+### B. 4-to-1 Line Multiplexer
+
+A 4-to-1 line multiplexer has:
+
+- Four $(2^n)$ input lines
+- Two $(n)$ select lines
+- One output line
+
+It is a multiplexer consisting of four input channels, where information from one of the channels can be selected and transmitted to the output line according to the select input combinations.
+
+Selection of one among the four input channels is possible using two select inputs.
+
+Each of the four inputs:
+
+$$
+I_0 \text{ through } I_3
+$$
+
+is applied to one input of an AND gate.
+
+The select lines:
+
+$$
+S_1 \text{ and } S_0
+$$
+
+are decoded to select a particular AND gate.
+
+The outputs of all AND gates are connected to a single OR gate that provides the one-line output.
+
+<div align="center">
+  <img
+    src="/ECE/DE102.png"
+    alt="Multiplexer"
+    width="60%"
+  />
+</div>
+
+### C. 8-to-1 Multiplexer
+
+An 8-to-1 Multiplexer $(8{:}1\ \text{MUX})$ is a combinational circuit that selects one input from eight input lines:
+
+$$
+I_0 \text{ to } I_7
+$$
+
+and transfers it to a single output line:
+
+$$
+Y
+$$
+
+It consists of:
+
+- Eight input lines
+- Three select lines: $S_2, S_1,$ and $S_0$
+- One enable input: $E$
+- One output line: $Y$
+
+The select lines determine which input is connected to the output.
+
+- When $E = 1$, the selected input appears at the output.
+- When $E = 0$, the output is disabled.
+
+The circuit is widely used in digital systems for data selection and signal routing.
+
+<div align="center">
+  <img
+    src="/ECE/DE103.png"
+    alt="Multiplexer"
+    width="80%"
+    style={{
+      border: "2px solid #999",
+      borderRadius: "10px",
+      padding: "6px",
+    }}
+  />
+</div>
+
+
+
+<div align="center">
+  <img
+    src="/ECE/DE109.png"
+    alt="Multiplexer"
+    width="80%"
+    style={{
+      border: "2px solid #999",
+      borderRadius: "10px",
+      padding: "6px",
+    }}
+  />
+</div>
+
+<div align="center">
+  <img
+    src="/ECE/DE31.png"
+    alt="Multiplexer"
+    width="80%"
+    style={{
+      border: "2px solid #999",
+      borderRadius: "10px",
+      padding: "6px",
+    }}
+  />
+</div>
+
+---
+
+## Demultiplexer (DEMUX)
+
+A demultiplexer is a combinational circuit that takes a single input and distributes it to one of many output lines.
+It uses select lines to determine which output line will receive the input. For (2^n) output lines, a demultiplexer requires n select lines.
+A demultiplexer acts as a data distributor, sending one input signal to one of many outputs.
+
+<div align="center">
+  <img
+    src="/ECE/DE32.png"
+    alt="Demultiplexer"
+    width="80%"
+  />
+</div>
+
+#### 1-to-8 Demultiplexer
+
+A 1-to-8 demultiplexer has:
+
+- One input line: $D_{in}$
+- Eight output lines: $Y_0$ to $Y_7$
+- Three select lines: $S_2, S_1,$ and $S_0$
+
+It distributes a single input line to one of the eight output lines depending on the select input combinations.
+
+The select lines determine which output line receives the input signal.
+
+The truth table of the 1-to-8 demultiplexer is shown below.
+
+<div align="center">
+  <img
+    src="/ECE/DE104.png"
+    alt="Demultiplexer"
+    width="80%"
+  />
+</div>
+
+---
+
+## Sequential Circuits:
+
+Sequential circuits are digital circuits that store and use previous state information to determine their next state. They are commonly used in digital systems to implement state machines, timers, counters, and memory elements and are essential components in digital systems design.
+Sequential circuits are commonly used in digital systems to implement state machines, timers, counters, and memory elements.
+The memory elements in sequential circuits can be implemented using flip-flops, which are circuits that store binary values and maintain their state even when the inputs change.
+Unlike combinational circuits, which only depend on the current input values to produce outputs, sequential circuits depend on both the current inputs and the previous state stored in memory elements.
+Sequential circuit is a combinational logic circuit that consists of inputs variable (X), logic gates (Computational circuit), and output variable (Z).
+
+<div align="center">
+  <img
+    src="/ECE/DE33.png"
+    alt="Sequential Circuits"
+    width="60%"
+  />
+</div>
+
+A combinational circuit produces an output based on input variables only, but a sequential circuit produces an output based on current input and previous output variables. That means sequential circuits include memory elements that are capable of storing binary information. That binary information defines the state of the sequential circuit at that time. A latch capable of storing one bit of information.
+
+### Types of Sequential Circuits
+
+There are two types of sequential circuits
+
+#### 1. Asynchronous Sequential Circuit
+
+These circuits do not use a clock signal but use the pulses of the inputs. These circuits are faster than synchronous sequential circuits because there is a clock pulse and changes their state immediately when there is a change in the input signal. We use asynchronous sequential circuits when speed of operation is important and independent of internal clock pulse.
+
+<div align="center">
+  <img
+    src="/ECE/DE34.png"
+    alt="Asynchronous Sequential Circuit"
+    width="60%"
+  />
+</div>
+
+But these circuits are more difficult to design and their output is uncertain.
+
+#### 2. Synchronous Sequential Circuit
+
+These circuits use clock signal and level inputs (or pulsed) (with restrictions on pulse width and circuit propagation). The output pulse is the same duration as the clock pulse for the clocked sequential circuits. Since they wait for the next clock pulse to arrive to perform the next operation, these circuits are a bit slower compared to asynchronous. Level output changes state at the start of an input pulse and remains in that until the next input or clock pulse.
+
+<div align="center">
+  <img
+    src="/ECE/DE35.png"
+    alt="Synchronous Sequential Circuit"
+    width="60%"
+  />
+</div>
+
+We use synchronous sequential circuits in synchronous counters, flip flops, and in the design of MOORE-MEALY state management machines. We use sequential circuits to design Counters, Registers, RAM, MOORE/MEALY Machine and other state retaining machines.
+
+---
+
+## Latches and Types of Latches
+
+Latches are digital circuits that store a single bit of information and hold its value until it is updated by new input signals. They are used in digital systems as temporary storage elements to store binary information. Latches can be implemented using various digital logic gates, such as AND, OR, NOT, NAND, and NOR gates.
+Latches are widely used in digital systems for various applications, including data storage, control circuits, and flip-flop circuits. They are often used in combination with other digital circuits to implement sequential circuits, such as state machines and memory elements.
+Latches are basic storage elements that operate with signal levels (rather than signal transitions). Latches controlled by a clock transition are flip-flops. Latches are level-sensitive devices. Latches are useful for the design of the asynchronous sequential circuit. Latches are sequential circuits with two stable states. These are sensitive to the input voltage applied and do not depend on the clock pulse. Flip flops that do not use clock pulse are referred to as latch.
+
+###  Types of Latches
+
+In digital electronics different types of latches are:
+
+- SR Latches
+- Gated SR Latches
+- D Latches
+- Gated D Latches
+- JK Latches
+- T Laches
+
+#### 1. SR Latch
+
+S-R latches i.e., Set-Reset latches are the simplest form of latches and are implemented using two inputs: S (Set) and R (Reset). The S input sets the output to 1, while the R input resets the output to 0. When both S and R inputs are at 1, the latch is said to be in an "undefined" state. They are also known as preset and clear states. The SR latch forms the basic building blocks of all other types of flip-flops.
+
+##### a. Truth Table of SR Latch:
+
+The below table represents the truth table of SR latch.
+
+<div align="center">
+  <img
+    src="/ECE/DE36.png"
+    alt="Truth Table of SR Latch"
+    width="60%"
+  />
+</div>
+
+##### b. Logic Diagram of SR Latch
+
+SR Latch is a logic circuit with:
+
+- 2 cross-coupled NOR gate or 2 cross-coupled NAND gate.
+- 2 input S for SET and R for RESET
+- 2 output Q, Q'.
+
+The below logic diagram represents the SR latch using a NAND gate.
+
+<div align="center">
+  <img
+    src="/ECE/DE37.png"
+    alt="SR Latch using NAND Gate"
+    width="60%"
+  />
+</div>
+
+The below logic diagram represents SR latch using NOR Gate.
+
+<div align="center">
+  <img
+    src="/ECE/DE38.png"
+    alt="SR Latch using NOR Gate"
+    width="60%"
+  />
+</div>
+
+##### c. Different Cases of SR Latch
+
+The different cases of SR latch are discussed below.
+
+1. **Case 1: S' = R' = 1 (S = R = 0)**
+
+If Q = 1, Q and R' inputs for 2nd NAND gate are both 1.
+
+If Q = 0, Q and R' inputs for 2nd NAND gate are 0 and 1 respectively.
+
+<div align="center">
+  <img
+    src="/ECE/DE39.png"
+    alt="Case 1 SR Latch"
+    width="60%"
+  />
+</div>
+
+2. **Case 2: S' = 0, R' = 1 (S = 1, R = 0)**
+
+As S' = 0, the output of 1st NAND gate, Q = 1 (SET state).
+
+In the second NAND gate, as Q and R' inputs are 1, Q'=0.
+
+<div align="center">
+  <img
+    src="/ECE/DE40.png"
+    alt="Case 2 SR Latch"
+    width="60%"
+  />
+</div>
+
+3. **Case 3: S' = 1, R' = 0 (S = 0, R = 1)**
+
+As R'=0, the output of 2nd NAND gate, Q' = 1.
+
+In the first NAND gate, as Q and S' inputs are 1, Q = 0 (RESET state).
+
+<div align="center">
+  <img
+    src="/ECE/DE41.png"
+    alt="Case 3 SR Latch"
+    width="60%"
+  />
+</div>
+
+4. **Case 4: S' = R' = 0 (S = R = 1)**
+
+When S = R = 1, both Q and Q' becomes 1 which is not allowed. So, the input condition is prohibited.
+
+#### 2. Gated SR Latch:
+
+A Gated SR latch is a SR latch with enable input which works when enable is 1 and retains the previous state when enable is 0.
+
+##### a. Truth Table of Gated SR Latch:
+
+The below table represents the truth table of Gated SR latch.
+
+<div align="center">
+  <img
+    src="/ECE/DE42.png"
+    alt="Truth Table of Gated SR Latch"
+    width="60%"
+  />
+</div>
+
+##### b. Logic Diagram of Gated SR Latch
+
+The below logic diagram represents the gated SR latch.
+
+<div align="center">
+  <img
+    src="/ECE/DE43.png"
+    alt="Gated SR Latch"
+    width="60%"
+  />
+</div>
+
+#### 3. D Latch
+
+D latches are also known as transparent latches and are implemented using two inputs: D (Data) and a clock signal. The output of the latch follows the input at the D terminal as long as the clock signal is high. When the clock signal goes low, the output of the latch is stored and held until the next rising edge of the clock.
+
+##### a. Truth Table of D Latch:
+
+The below table represents the truth table of D latch.
+
+<div align="center">
+  <img
+    src="/ECE/DE44.png"
+    alt="Truth Table of D Latch"
+    width="60%"
+  />
+</div>
+
+##### b. Logic Diagram of D Latch:
+
+The below logic diagram represents the D latch.
+
+<div align="center">
+  <img
+    src="/ECE/DE45.png"
+    alt="D Latch"
+    width="60%"
+  />
+</div>
+
+#### 4. Gated D Latch:
+
+D latch is similar to SR latch with some modifications made. Here, the inputs are complements of each other. The D latch stands for "data latch" as this latch stores a single bit temporarily.
+
+##### a. Truth Table of Gated D Latch:
+
+The below table represents the truth table of Gated D latch.
+
+| Enable | D | Qn | Qn+1 | STATE |
+|---|---|---|---|---|
+| 1 | 0 | x | 0 | RESET |
+| 1 | 1 | x | 1 | SET |
+| 0 | x | x | Q(n) | No Change |
+
+##### b. Characteristics Equation:
+
+$$
+Q_{n+1} = EN.D + EN'.Q_n
+$$
+
+##### c. Logic Diagram of Gated D Latch
+
+The below logic diagram represents the gated D latch.
+
+<div align="center">
+  <img
+    src="/ECE/DE46.png"
+    alt="Gated D Latch"
+    width="60%"
+  />
+</div>
+
+#### 5. JK Latch
+
+JK latch has two inputs J and K. The output gets toggled when the J and K inputs are high. JK latch is just like SR latch, but it eliminates the undefined state of SR latch.
+
+##### a. Truth Table of JK Latch
+
+The below table represents the truth table of JK latch.
+
+| J | K | Qn+1 | Comment |
+|---|---|---|---|
+| 0 | 0 | Q | No change |
+| 0 | 1 | 0 | Reset |
+| 1 | 0 | 1 | Set |
+| 1 | 1 | Q' | Toggle |
+
+##### b. Logic Diagram of JK Latch
+
+The below logic diagram represents the JK latch.
+
+<div align="center">
+  <img
+    src="/ECE/DE47.png"
+    alt="JK Latch"
+    width="60%"
+  />
+</div>
+
+#### 6. T Latch:
+
+When the JK inputs of JK latch are shorted we get the T latch. In T latch the outputs are toggled when the inputs are high.
+
+##### a. Logic Diagram of T Latch
+
+The below logic diagram represents the T latch.
+
+<div align="center">
+  <img
+    src="/ECE/DE48.png"
+    alt="T Latch"
+    width="60%"
+  />
+</div>
+
+##### b. Advantages of Latches:
+
+Some of the advantages of latches are listed below.
+
+- Easy to Implement: Latches are simple digital circuits that can be easily implemented using basic digital logic gates.
+- Low Power Consumption: Latches consume less power compared to other sequential circuits such as flip-flops.
+- High Speed: Latches can operate at high speeds, making them suitable for use in high-speed digital systems.
+- Low Cost: Latches are inexpensive to manufacture and can be used in low-cost digital systems.
+- Versatility: Latches can be used for various applications, such as data storage, control circuits, and flip-flop circuits.
+
+##### c. Disadvantages of Latches:
+
+Some of the disadvantages of latches are listed below.
+
+- No Clock: Latches do not have a clock signal to synchronize their operations, making their behavior unpredictable.
+- Unstable State: Latches can sometimes enter into an unstable state when both inputs are at 1. This can result in unexpected behavior in the digital system.
+- Complex Timing: The timing of latches can be complex and difficult to specify, making them less suitable for real-time control applications.
+
+---
+## Flip Flop
+
+### TYPES OF FLIP-FLOPS:
+
+There are different types of flipflops depending on how their inputs and clock pulses cause transition between two states. We will discuss four different types of flipflops in this chapter, viz., SR, D, JK, and T. Basically D, JK, and T are three different modifications of the SR flipflop.
+
+#### 1. S-R (Set-Reset) Flip-flop:
+
+An SR flipflop has two inputs named Set (S) and Reset (R), and two outputs Q and Q'. The outputs are complement of each other, i.e., if one of the outputs is 0 then the other should be 1. This can be implemented using NAND or NOR gates. The block diagram of an SR flipflop is shown in Figure below:
+
+<div align="center">
+  <img
+    src="/ECE/DE49.png"
+    alt="SR Flip Flop"
+    width="60%"
+  />
+</div>
+
+##### a. S-R Flip-flop Based on NOR Gates:
+
+An SR flip-flop can be constructed with NOR gates at ease by connecting the NOR gates back to back as shown in Figure below. The crosscoupled connections from the output of gate 1 to the input of gate 2 constitute a feedback path. This circuit is not clocked and is classified as an asynchronous sequential circuit. The truth table for the SR flipflop based on a NOR gate is shown in the table below
+
+<div align="center">
+  <img
+    src="/ECE/DE50.png"
+    alt="SR Flip Flop Based on NOR Gates"
+    width="60%"
+  />
+</div>
+
+<div align="center">
+  <img
+    src="/ECE/DE51.png"
+    alt="SR Flip Flop Truth Table"
+    width="60%"
+  />
+</div>
+
+##### b. CLOCKED S-R FLIP-FLOP:
+
+Generally, synchronous circuits change their states only when clock pulses are present. The operation of the basic flipflop can be modified by including an additional input to control the behavior of the circuit. Such a circuit is shown below:
+
+<div align="center">
+  <img
+    src="/ECE/DE52.png"
+    alt="Clocked SR Flip Flop"
+    width="60%"
+  />
+</div>
+
+The circuit shown above consists of two AND gates. The clock input is connected to both of the AND gates, resulting in LOW outputs when the clock input is LOW. In this situation the changes in S and R inputs will not affect the state (Q) of the flipflop. On the other hand, if the clock input is HIGH, the changes in S and R will be passed over by the AND gates and they will cause changes in the output (Q) of the flipflop. This way, any information, either 1 or 0, can be stored in the flipflop by applying a HIGH clock input and be retained for any desired period of time by applying a LOW at the clock input. This type of flipflop is called a clocked S-R flip flop. Such a clocked SR flip flop made up of two AND gates and two NOR gates is shown in Figure below:
+
+<div align="center">
+  <img
+    src="/ECE/DE53.png"
+    alt="Clocked SR Flip Flop using AND and NOR Gates"
+    width="60%"
+  />
+</div>
+
+<div align="center">
+  <img
+    src="/ECE/DE54.png"
+    alt="Clocked SR Flip Flop"
+    width="60%"
+  />
+</div>
+
+<div align="center">
+  <img
+    src="/ECE/DE55.png"
+    alt="Clocked SR Flip Flop Truth Table"
+    width="60%"
+  />
+</div>
+
+#### Characteristic Table of an S-R Flip-flop:
+
+<div align="center">
+  <img
+    src="/ECE/DE56.png"
+    alt="Characteristic Table of SR Flip Flop"
+    width="60%"
+  />
+</div>
+
+<div align="center">
+  <img
+    src="/ECE/DE57.png"
+    alt="SR Flip Flop"
+    width="60%"
+  />
+</div>
+
+#### 2. CLOCKED D FLIP-FLOP:
+
+One way to eliminate the undesirable condition of the indeterminate state in the SR latch is to ensure that inputs S and R are never equal to 1 at the same time. This is done in the D latch. The D flipflop has only one input referred to as the D (data) input & two outputs as usual Q and Q'. It transfers the data at the input after the delay of one clock pulse at the output Q. So in some cases the input is referred to as a delay input and the flipflop gets the name delay (D) flipflop. It can be easily constructed from an SR flipflop by simply incorporating an inverter between S and R such that the input of the inverter is at the S end & the output of the inverter is at the R end. We can get rid of the undefined condition, i.e., S = R = 1 condition, of the SR flipflop in the D flip flop. The D flipflop is either used as a delay device or as a latch to store one bit of binary information. The truth table of D flipflop is given in the table below. The structure of the D flipflop is shown in Figure below, which is being constructed using NAND gates. The same structure can be constructed using only NOR gates.
+
+<div align="center">
+  <img
+    src="/ECE/DE58.png"
+    alt="Clocked D Flip Flop"
+    width="60%"
+  />
+</div>
+
+Case 1. If the CLK input is low, the value of the D input has no effect, since the S and R inputs of the basic NAND flipflop are kept as 1.
+
+Case 2. If the CLK = 1 and D = 1, the NAND gate 1 produces 0, which forces the output of NAND gate 3 as 1.On the other hand, both the inputs of NAND gate 2 are 1, which gives the output of gate 2 as 0. Hence, output of NAND gate 4 is forced to be 1, i.e., Q = 1, whereas both the inputs of gate 5 are 1 and the output is 0, i.e., Q' = 0. Hence, we find that when D = 1, after one clock pulse passes Q = 1, which means the output follows D.
+
+Case 3. If the CLK = 1, and D = 0, the NAND gate 1 produces 1. Hence both the inputs of NAND gate 3 are 1, which gives the output of gate 3 as 0. On the other hand, D = 0 forces the output of NAND gate 2 to be 1. Hence the output of NAND gate 5 is forced to be 1, i.e., Q' = 1, whereas both the inputs of gate 4 are 1 and the output is 0, i.e., Q = 0. Hence, we find that when D = 0, after one clock pulse passes Q = 0, which means the output again follows D. A simple way to construct a D flipflop using an SR flipflop is shown in Figure below. The logic symbol of a D flipflop is shown in Figure below. A D flipflop is most often used in the construction of sequential circuits like registers.
+
+<div align="center">
+  <img
+    src="/ECE/DE59.png"
+    alt="D Flip Flop"
+    width="60%"
+  />
+</div>
+
+#### Characteristic Table of a D Flip-flop:
+
+<div align="center">
+  <img
+    src="/ECE/DE60.png"
+    alt="Characteristic Table of D Flip Flop"
+    width="60%"
+  />
+</div>
+
+#### 3. J-K FLIP-FLOP:
+
+A JK flipflop has very similar characteristics to an SR flipflop. The only difference is that the undefined condition for an SR flipflop, i.e., $S_n = R_n = 1$ condition, is also included in this case. Inputs J and K behave like inputs S and R to set and reset the flipflop respectively. When $J = K = 1$, the flipflop is said to be in a toggle state, which means the output switches to its complementary state every time a clock passes.
+
+The data inputs are J and K, which are ANDed with Q' and Q respectively to obtain the inputs for S and R respectively. A JK flipflop thus obtained is shown in Figure below.
+
+#### An SR flipflop converted into a JK flipflop:
+
+<div align="center">
+  <img
+    src="/ECE/DE61.png"
+    alt="SR to JK Flip Flop"
+    width="60%"
+  />
+</div>
+
+<div align="center">
+  <img
+    src="/ECE/DE62.png"
+    alt="JK Flip Flop"
+    width="60%"
+  />
+</div>
+
+Case 1. When the clock is applied and $J = 0$, whatever the value of $Q'_n$ (0 or 1), the output of NAND gate 1 is 1. Similarly, when $K = 0$, whatever the value of $Q_n$ (0 or 1), the output of gate 2 is also 1. Therefore, when $J = 0$ and $K = 0$, the inputs to the basic flipflop are $S = 1$ and $R = 1$. This condition forces the flipflop to remain in the same state.
+
+Case 2. When the clock is applied and $J = 0$ and $K = 1$ & the previous state of the flipflop is reset (i.e., $Q_n = 0$ and $Q'_n = 1$), then $S = 1$ and $R = 1$. Since $S = 1$ and $R = 1$, the basic flipflop does not alter the state and remains in the reset state. But if the flipflop is in set condition (i.e., $Q_n = 1$ & $Q'_n = 0$), then $S = 1$ and $R = 0$. Since $S = 1$ and $R = 0$, the basic flipflop changes its state and resets.
+
+Case 3. When the clock is applied and $J = 1$ and $K = 0$ and the previous state of the flipflop is reset (i.e., $Q_n = 0$ and $Q'_n = 1$), then $S = 0$ and $R = 1$. Since $S = 0$ and $R = 1$, the basic flipflop changes its state and goes to the set state. But if the flipflop is already in set condition (i.e., $Q_n = 1$ and $Q'_n = 0$), then $S = 1$ and $R = 1$. Since $S = 1$ and $R = 1$, the basic flipflop does not alter its state and remains in the set state.
+
+Case 4. When the clock is applied and $J = 1$ and $K = 1$ and the previous state of the flipflop is reset (i.e., $Q_n = 0$ and $Q'_n = 1$), then $S = 0$ and $R = 1$. Since $S = 0$ and $R = 1$, the basic flipflop changes its state and goes to the set state. But if the flipflop is already in set condition (i.e., $Q_n = 1$ and $Q'_n = 0$), then $S = 1$ and $R = 0$. Since $S = 1$ and $R = 0$, the basic flipflop changes its state and goes to the reset state. So we find that for $J = 1$ and $K = 1$, the flipflop toggles its state from set to reset and vice versa. Toggle means to switch to the opposite state.
+
+#### Characteristic Table of a J-K Flip-flop
+
+<div align="center">
+  <img
+    src="/ECE/DE63.png"
+    alt="Characteristic Table of JK Flip Flop"
+    width="60%"
+  />
+</div>
+
+#### Race-around Condition of a J-K Flip-flop:
+
+The inherent difficulty of an SR flipflop (i.e., $S = R = 1$) is eliminated by using the feedback connections from the outputs to the inputs of gate 1 and gate 2 as discussed in JK flipflop. Truth tables JK flipflop were formed with the assumption that the inputs do not change during the clock pulse ($CLK = 1$). But the consideration is not true because of the feedback connections. Consider, for example, that the inputs are $J = K = 1$ and $Q = 1$, and a pulse as shown in Figure below is applied at the clock input.
+
+<div align="center">
+  <img
+    src="/ECE/DE64.png"
+    alt="Race Around Condition"
+    width="60%"
+  />
+</div>
+
+Consider, for example, that the inputs are $J = K = 1$ and $Q = 1$, and a pulse as shown above is applied at the clock input. After a time interval $\Delta t$ equal to the propagation delay through two NAND gates in series, the outputs will change to $Q = 0$. So now we have $J = K = 1$ and $Q = 0$. After another time interval of $\Delta t$ the output will change back to $Q = 1$. Hence, we conclude that for the time duration of $t_p$ of the clock pulse, the output will oscillate between 0 and 1. Hence, at the end of the clock pulse, the value of the output is not certain. This situation is referred to as a race-around condition.
+
+$$
+Q_{n+1} = JQ'_n + K'Q_n
+$$
+
+Generally, the propagation delay of TTL gates is of the order of nanoseconds. So if the clock pulse is of the order of microseconds, then the output will change thousands of times within the clock pulse. This racearound condition can be avoided if
+
+$$
+t_p < \Delta t < T
+$$
+
+Due to the small propagation delay of the ICs it may be difficult to satisfy the above condition. A more practical way to avoid the problem is to use the masterslave (MS)
+
+#### 4. Master-Slave J-K Flip-flop:
+
+A masterslave (MS) flipflop is shown in Figure below. Basically, a masterslave flipflop is a system of two flipflops—one being designated as master and the other is the slave. From the figure below we see that a clock pulse is applied to the master and the inverted form of the same clock pulse is applied to the slave. When $CLK = 1$, the first flipflop (i.e., the master) is enabled and the outputs $Q_m$ and $Q'_m$ respond to the inputs J and K according to the table shown in Figure 7.13. At this time the second flipflop (i.e., the slave) is disabled because the CLK is LOW to the second flipflop. Similarly, when CLK becomes LOW, the master becomes disabled and the slave becomes active, since now the CLK to it is HIGH. Therefore, the outputs Q and Q' follow the outputs $Q_m$ and $Q'_m$ respectively. Since the second flipflop just follows the first one, it is referred to as a slave and the first one is called the master. Hence, the configuration is referred to as a masterslave (MS) flip flop.
+
+<div align="center">
+  <img
+    src="/ECE/DE65.png"
+    alt="Master Slave JK Flip Flop"
+    width="60%"
+  />
+</div>
+
+In this type of circuit configuration the inputs to the gates 5 and 6 do not change at the time of application of the clock pulse. Hence the racearound condition does not exist. The state of the masterslave flipflop, shown in above Figure, changes at the negative transition (trailing edge) of the clock pulse. Hence, it becomes negative triggering a masterslave flipflop. This can be changed to a positive edge triggering flipflop by adding two inverters to the system—one before the clock pulse is applied to the master and an additional one in between the master and the slave. The logic symbol of a negative edge masterslave is shown in Figure below.
+
+<div align="center">
+  <img
+    src="/ECE/DE66.png"
+    alt="Negative Edge Triggered Master Slave Flip Flop"
+    width="60%"
+  />
+</div>
+
+The system of master slave flip-flops is not restricted to JK master slave only. There may be an SR masterslave or a D masterslave, etc., in all of them the slave is an SR flipflop, whereas the master changes to JK or SR or D flipflops.
+
+#### 5. T Flip-flop:
+
+With a slight modification of a JK flipflop, we can construct a new flipflop called a T flipflop. If the two inputs J and K of a JK flipflop are tied together; it is referred to as a T flipflop. Hence, a T flipflop has only one input T and two outputs Q and Q'. The name T flipflop actually indicates the fact that the flipflop has the ability to toggle. It has actually only two states—toggle state and memory state. Since there are only two states, a T flipflop is a very good option to use in counter design and in sequential circuits design where switching an operation is required. The truth table of a T flipflop is given below:
+
+<div align="center">
+  <img
+    src="/ECE/DE67.png"
+    alt="T Flip Flop"
+    width="60%"
+  />
+</div>
+
+If the T input is in 0 state (i.e., $J = K = 0$) prior to a clock pulse, the Q output will not change with the clock pulse. On the other hand, if the T input is in 1 state (i.e., $J = K = 1$) prior to a clock pulse, the Q output will change to Q' with the clock pulse. In other words, we may say that, if $T = 1$ and the device is clocked, then the output toggles its state. The truth table shows that when $T = 0$, then $Q_{n+1} = Q_n$, i.e., the next state is the same as the present state and no change occurs. When $T = 1$, then $Q_{n+1} = Q'_n$, i.e., the state of the flipflop is complemented. The circuit diagram of a T flipflop and the block diagram of the T flipflop is shown below:
+
+<div align="center">
+  <img
+    src="/ECE/DE68.png"
+    alt="T Flip Flop Circuit"
+    width="60%"
+  />
+</div>
+
+#### Characteristic Table of a T Flip-flop:
+
+<div align="center">
+  <img
+    src="/ECE/DE69.png"
+    alt="Characteristic Table of T Flip Flop"
+    width="60%"
+  />
+</div>
+
+<div align="center">
+  <img
+    src="/ECE/DE70.png"
+    alt="T Flip Flop"
+    width="60%"
+  />
+</div>
+
+#### EXCITATION TABLE OF A FLIP-FLOP:
+
+<div align="center">
+  <img
+    src="/ECE/DE71.png"
+    alt="Excitation Table"
+    width="60%"
+  />
+</div>
+
+---
+
+## INTERCONVERSION OF FLIP-FLOPS:
+
+In many applications, we are being given a type of flipflop, whereas we may require some other type. In such cases we may have to convert the given flipflop to our required flipflop. Now we may follow a general model for such conversions of flipflops. The model is shown in below From the model we see that it is required to design the conversion logic for converting new input definitions into input codes that will cause the given flip flop to work like the desired flipflop. To design the conversion logic we need to combine the excitation table for both flipflops and make a truth table with data input(s) and Q as the inputs and the input(s) of the given flipflop as the output(s).
+
+<div align="center">
+  <img
+    src="/ECE/DE72.png"
+    alt="Interconversion of Flip Flops"
+    width="60%"
+  />
+</div>
+
+### A. Conversion of an S-R Flip-flop to a D Flip-flop:
+
+<div align="center">
+  <img
+    src="/ECE/DE73.png"
+    alt="SR to D Flip Flop"
+    width="60%"
+  />
+</div>
+
+### B. Conversion of an S-R Flip-fl op to a J-K Flip-flop:
+
+<div align="center">
+  <img
+    src="/ECE/DE74.png"
+    alt="SR to JK Flip Flop"
+    width="60%"
+  />
+</div>
+
+<div align="center">
+  <img
+    src="/ECE/DE75.png"
+    alt="SR to JK Flip Flop"
+    width="60%"
+  />
+</div>
+
+### C. Conversion of an S-R Flip-flop to a T Flip-flop
+
+<div align="center">
+  <img
+    src="/ECE/DE76.png"
+    alt="SR to T Flip Flop"
+    width="60%"
+  />
+</div>
+
+<div align="center">
+  <img
+    src="/ECE/DE77.png"
+    alt="SR to T Flip Flop"
+    width="60%"
+  />
+</div>
+
+### D. Conversion of a D Flip-flop to an S-R Flip-flop 
+
+<div align="center">
+  <img
+    src="/ECE/DE78.png"
+    alt="D to SR Flip Flop"
+    width="60%"
+  />
+</div>
+
+---
+
+## REGISTERS
+
+A register is a group of binary storage cells capable of holding binary information. A group of flipflops constitutes a register, since each flipflop can work as a binary cell. An n-bit register, has n flipflops and is capable of holding n-bits information. In addition to flipflops a register can have a combinational part that performs data processing tasks.
+
+Register:
+- A set of n flipflops
+- Each flipflop stores one bit
+- Two basic functions: data storage and data movement.
+
+### A. Shift Register
+ A register that allows each of the flipflops to pass the stored information to its adjacent neighbor.
+
+Counter: A register that goes through a predetermined sequence of states.
+
+#### Shift Registers in Digital Logic:
+
+A shift register is a group of flip-flops connected in series to store and shift multiple bits of data either left or right with clock pulses.
+The registers which will shift the bits to the left are called “Shift left registers”.
+The registers which will shift the bits to the right are called “Shift right registers”.
+
+---
+#### 1. Serial-In Serial-Out Shift Register (SISO)
+
+A Serial-In Serial-Out (SISO) shift register accepts data one bit at a time through a single input line and outputs data serially using a series of flip-flops triggered by the same clock signal.
+
+The primary use of a SISO shift register is to act as a delay element.
+
+###### Features
+
+- Data enters one bit at a time in serial form.
+- Data leaves one bit at a time in serial form.
+- Typically constructed using multiple D flip-flops connected in series.
+- All flip-flops are synchronized using a common clock signal.
+
+<div>
+<img
+    src="/ECE/DE77.png"
+    alt="Bidirectional Shift Register"
+    width="80%"
+  />
+</div>
+
+---
+
+#### 2. Serial-In Parallel-Out Shift Register (SIPO)
+
+A Serial-In Parallel-Out (SIPO) shift register accepts data serially through a single input line and produces all bits simultaneously as parallel outputs using multiple synchronized flip-flops.
+
+The primary use of a SIPO shift register is to convert serial data into parallel data.
+
+###### Features
+
+- Data is entered one bit at a time in serial form.
+- All stored bits are available simultaneously as parallel outputs.
+- Constructed using multiple D flip-flops connected in series.
+- All flip-flops operate using a common clock signal.
+- Includes a Clear $(CLR)$ signal to reset all flip-flops.
+
+<div>
+<img
+    src="/ECE/DE78.png"
+    alt="Bidirectional Shift Register"
+    width="80%"
+  />
+</div>
+
+---
+
+#### 3. Parallel-In Serial-Out Shift Register (PISO)
+
+A Parallel-In Serial-Out (PISO) shift register accepts parallel data simultaneously into multiple flip-flops and shifts the data out serially through a single output line.
+
+The primary use of a PISO shift register is to convert parallel data into serial data.
+
+###### Features
+
+- Data is loaded simultaneously in parallel form.
+- Data is shifted out one bit at a time in serial form.
+- Constructed using multiple D flip-flops.
+- Multiplexers are used to select between parallel input data and the output of the previous flip-flop.
+- All flip-flops operate using a common clock signal.
+
+<div>
+<img
+    src="/ECE/DE79.png"
+    alt="Bidirectional Shift Register"
+    width="80%"
+  />
+</div>
+---
+
+#### 4. Parallel-In Parallel-Out Shift Register (PIPO)
+
+A Parallel-In Parallel-Out (PIPO) shift register accepts and outputs data simultaneously across all flip-flops without serial shifting.
+
+The primary use of a PIPO shift register is temporary data storage and delay operations.
+
+###### Features
+
+- Data is loaded simultaneously in parallel form.
+- Data is retrieved simultaneously from all flip-flops.
+- Constructed using multiple D flip-flops without interconnections between them.
+- All flip-flops are controlled using a common clock signal.
+- Includes a Clear $(CLR)$ signal to reset all flip-flops.
+
+
+<div>
+<img
+    src="/ECE/DE80.png"
+    alt="Bidirectional Shift Register"
+    width="80%"
+  />
+</div>
+
+
+
+---
+#### 5. Bidirectional Shift Register:
+
+A Bidirectional Shift Register can shift binary data either to the left or right, enabling multiplication or division by 2 based on the selected mode.
+
+Mode 1 (high) shifts data right (division by 2); Mode 0 (low) shifts data left (multiplication by 2).
+
+Composed of four D flip-flops with inputs at both ends and gates controlled by mode signal to enable directional shifting.
+
+
+<div align="center">
+  <img
+    src="/ECE/DE81.png"
+    alt="Bidirectional Shift Register"
+    width="60%"
+  />
+</div>
+
+#### 6. Universal Shift Register:
+
+A Universal Shift Register is an N-bit register that supports both left and right shifting as well as parallel loading, using N flip-flops and N multiplexers with shared select lines to control the data flow.
+
+It combines the features of bidirectional and unidirectional shift registers, enabling versatile data manipulation (shift left, shift right, parallel load, and hold).
+
+Each flip-flop is connected to a multiplexer, and all multiplexers are controlled by common select lines to determine the register's operation mode.
+
+#### Universal Shift Register
+
+<div align="center">
+  <img
+    src="/ECE/DE82.png"
+    alt="Universal Shift Register"
+    width="60%"
+  />
+</div>
+
+---
+
+## Shift Register Counter:
+
+Shift Register Counters are the shift registers in which the outputs are connected back to the inputs in order to produce particular sequences. There are basically two types:
+
+- Ring Counter
+- Johnson Counter
+
+### A. Ring Counter:
+
+A ring counter is basically a shift register counter in which the output of the first flip-flop is connected to the next flip-flop and so on and the output of the last flip-flop is again fed back to the input of the first flip-flop. The data pattern within the shift register will circulate as long as clock pulses are applied.
+
+# Ring Counter Truth Table
+
+The circuit consists of four D flip-flops which are connected. The data pattern will repeat after every four clock pulses as shown in the truth table. A Ring counter is generally used because it is self-decoding.
+
+<div align="center">
+  <img
+    src="/ECE/DE83.png"
+    alt="Ring Counter Truth Table"
+    width="60%"
+  />
+</div>
+
+#### Ring Counter
+
+<div align="center">
+  <img
+    src="/ECE/DE84.png"
+    alt="Ring Counter"
+    width="60%"
+  />
+</div>
+
+### B. Johnson Counter:
+
+A Johnson counter is basically a shift register counter in which the output of the first flip flop is connected to the next flip flop and so on and the inverted output of the last flip flop is again fed back to the input of the first flip flop. They are also known as twisted ring counters.
+
+#### Johnson Counter Truth Table
+
+<div align="center">
+  <img
+    src="/ECE/DE85.png"
+    alt="Johnson Counter Truth Table"
+    width="60%"
+  />
+</div>
+
+An n-stage Johnson counter yields a count sequence of $2n$ different states, thus also known as a mod-$2n$ counter. The circuit consists of four D flip-flops which are connected, the data pattern will repeat every eight clock pulses. It only needs n number of flip-flops to generate a sequence of $2n$ states.
+
+#### Johnson Counter
+
+<div align="center">
+  <img
+    src="/ECE/DE86.png"
+    alt="Johnson Counter"
+    width="60%"
+  />
+</div>
+
+A counter is a digital electronic device that counts the number of times an event occurs using a clock signal. With each clock pulse, the count changes, such as in an up counter where the count increases by one. Counters are built using flip-flops and can follow fixed or custom sequences like 0, 1, 3, 2. They can also act as frequency dividers by reducing the input clock frequency. Counters are sequential circuits that count pulses in binary or BCD form and mainly perform counting, timing, and sequencing functions.
+
+---
+
+## Counter Classification:
+
+### A. Asynchronous Counter
+
+In an asynchronous counter, there is no common (universal) clock for all flip-flops; only the first flip-flop is driven by the main clock, and each subsequent flip-flop is triggered by the output of the previous one, causing the count to ripple through the circuit.
+
+<div align="center">
+  <img
+    src="/ECE/DE87.png"
+    alt="Asynchronous Counter"
+    width="60%"
+  />
+</div>
+
+From the timing diagram, Q0 changes immediately at the rising edge of the clock, Q1 changes at the rising edge of Q0, and the same pattern continues for Q2 and Q3. This step-by-step change creates a ripple effect through the flip-flops, which is why it is called a ripple counter or serial counter. A ripple counter is a cascade of flip-flops where the output of one flip-flop acts as the clock input for the next.
+
+### B. Synchronous Counter
+
+Unlike an asynchronous counter, a synchronous counter uses a single global clock that drives all flip-flops simultaneously, so all outputs change in parallel. Its main advantage is that it can operate at higher frequencies because it does not suffer from cumulative delay, as the same clock is applied to every flip-flop. Hence, it is also called a parallel counter.
+
+#### Synchronous counter circuit
+
+<div align="center">
+  <img
+    src="/ECE/DE88.png"
+    alt="Synchronous Counter Circuit"
+    width="60%"
+  />
+</div>
+
+#### Timing diagram of synchronous counter
+
+<div align="center">
+  <img
+    src="/ECE/DE89.png"
+    alt="Timing Diagram of Synchronous Counter"
+    width="60%"
+  />
+</div>
+
+From the circuit diagram, Q0 responds to every falling edge of the clock, Q1 depends on Q0, Q2 depends on both Q1 and Q0, and Q3 depends on Q2, Q1, and Q0, so all flip-flops change state simultaneously under the same clock signal.
+
+---
+
+## Decade Counter:
+
+Counts ten states and then resets to its initial state. The most common decade counter counts from 0 to 9, but it can also be designed to count any ten states within 0 to 15 in a 4-bit counter before resetting.
+
+### Truth table for simple decade counter:
+
+### Decade counter circuit diagram
+
+<div align="center">
+  <img
+    src="/ECE/DE90.png"
+    alt="Decade Counter"
+    width="60%"
+  />
+</div>
+
+From the circuit diagram, a NAND gate is connected to Q3 and Q1 and its output is fed to the clear input because the binary representation of 10 is 1010. When Q3 and Q1 both become 1, the NAND gate output goes low, activating the clear input, so the counter resets at 10 and starts counting again from 0.
+
+Important point: Number of flip flops used in counter are always greater than equal to $(\log_2 n)$ where $n = \text{number of states in counter}$.
+
+---
+
+## Finite State Machines
+
+Finite State Machines (FSMs) are the fundamental building blocks of various digital and computing systems. They provide a systematic approach to model the behavior of sequential circuits and help control different processes in digital systems.
+
+---
+
+### A. What is a Finite State Machine?
+
+A Finite State Machine (FSM) is a mathematical model used to explain and understand the behavior of a digital system.
+
+More specifically, it is a structured and systematic model that describes the behavior of a sequential circuit existing in a finite number of states at a given point in time.
+
+In simple words, a synchronous sequential circuit is called a Finite State Machine if it has a finite number of states.
+
+The transition between these states takes place based on internal or external inputs, resulting in predictable and systematic changes in system behavior.
+
+---
+
+### B. Components of a Finite State Machine
+
+#### 1. Finite States
+
+Finite states are the distinct modes or conditions of a system. Each state represents a specific behavior of the system.
+
+In digital systems, states are generally represented using symbols or labels.
+
+
+#### 2. State Transitions
+
+A state transition is the change from one state to another.
+
+These transitions occur based on specific inputs or conditions and are generally triggered by events associated with rules that determine the next state of the system.
+
+
+#### 3. State Diagram
+
+The behavior and state transitions of a finite state machine can be represented graphically using a state diagram.
+
+
+#### 4. Inputs
+
+Inputs are external signals that trigger state transitions in the system.
+
+These inputs can come from sensors, keyboards, microphones, switches, or other user input devices.
+
+
+#### 5. Outputs
+
+Outputs are the results produced by the system based on the current state and inputs.
+
+These outputs may control actuators, trigger events, or provide feedback to the external environment.
+
+---
+
+### C. Types of Finite State Machine
+
+There are two main types of finite state machines:
+
+1. Mealy State Machine
+2. Moore State Machine
+
+
+#### 1. Mealy State Machine
+
+A Finite State Machine is called a Mealy State Machine if its outputs depend on:
+
+- Present state
+- Present input
+
+The block diagram of the Mealy State Machine is shown in the figure below.
+
+<div align="center">
+  <img
+    src="/ECE/DE105.png"
+    alt="Digital Electronics Diagram"
+    width="80%"
+  />
+</div>
+As shown in the figure, there are two main parts present in the Mealy State Machine:
+
+- Combinational logic circuit
+- Memory element
+
+The memory element is used to provide a part of the previous outputs and present states as inputs to the combinational logic circuit.
+
+Based on the present inputs and present states, the Mealy State Machine produces outputs. Therefore, the outputs are valid only during the positive or negative transition of the clock signal.
+
+##### State Diagram of Mealy State Machine
+
+The state diagram of the Mealy State Machine is shown in the figure below.
+
+<div align="center">
+  <img
+    src="/ECE/DE106.png"
+    alt="Digital Electronics Diagram"
+    width="80%"
+  />
+</div>
+In the above figure, there are three states namely:
+
+- $A$
+- $B$
+- $C$
+
+These states are represented inside circles, where each circle corresponds to one state.
+
+The state transitions between these states are represented using directed lines.
+
+Here:
+
+$$
+0/0,\ 1/0,\ 1/1
+$$
+
+denote:
+
+$$
+\text{Input / Output}
+$$
+
+In the figure, each state has two possible transitions based on the input value.
+
+In general, the number of states required in a Mealy State Machine is less than or equal to the number of states required in a Moore State Machine.
+
+For every Mealy State Machine, there exists an equivalent Moore State Machine.
+
+---
+
+#### 2. Moore State Machine
+
+A Finite State Machine is called a Moore State Machine if its outputs depend only on the present states.
+
+The block diagram of the Moore State Machine is shown in the figure below.
+
+<div align="center">
+  <img
+    src="/ECE/DE107.png"
+    alt="Digital Electronics Diagram"
+    width="60%"
+  />
+</div>
+
+As shown in above figure, there are two parts presents in a Moore state machine. Those are combinational logic and memory. In this case, the present inputs and present states determine the next states. So, based on next states, Moore state machine produces the outputs. Therefore, the outputs will be valid only after transition of the state.
+
+##### State Diagram of Moore State Machine
+The state diagram of Moore state machine is shown in the following figure
+
+
+<div align="center">
+  <img
+    src="/ECE/DE108.png"
+    alt="Digital Electronics Diagram"
+    width="60%"
+  />
+</div>
+
+In the above figure, there are four states namely:
+
+- $A$
+- $B$
+- $C$
+- $D$
+
+These states and their corresponding outputs are represented inside circles.
+
+Only the input values are labeled on each state transition.
+
+In the figure, each state has two possible transitions based on the input value.
+
+In general, the number of states required in a Moore State Machine is greater than or equal to the number of states required in a Mealy State Machine.
+
+For every Moore State Machine, there exists an equivalent Mealy State Machine.
+
+Therefore, either of them can be used depending on the system requirements.

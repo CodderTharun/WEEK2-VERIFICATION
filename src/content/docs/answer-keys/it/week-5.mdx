@@ -1,0 +1,113 @@
+---
+title: IT Department - Week 5 Answer Keys
+description: Solutions and answer keys for IT Department Week 5 problems
+---
+
+# IT Department - Week 5 Answer Keys
+
+## Data Structures and Algorithms (DSA)
+
+### Problem Set 1: Comprehensive Problems
+**Q1: LCS (Longest Common Subsequence)**
+```
+DP[i][j] represents LCS length of first i and j characters
+If s1[i] == s2[j]: DP[i][j] = DP[i-1][j-1] + 1
+Else: DP[i][j] = max(DP[i-1][j], DP[i][j-1])
+```
+
+**Q2: Maximum Subarray Sum (Kadane's)**
+```
+max_current = max(num, max_current + num)
+max_global = max(max_global, max_current)
+Time: O(n), Space: O(1)
+```
+
+## Computer Networks (CN)
+
+### Problem Set 1: Network Architecture
+**Q1: BGP (Border Gateway Protocol)**
+```
+Answer: Inter-domain routing protocol
+- Autonomous System Path Selection
+- Policy-based routing
+- Slower but more flexible than IGP
+```
+
+**Q2: QoS (Quality of Service)**
+```
+Answer: Ensure service level
+- Bandwidth reservation
+- Priority queuing
+- Traffic shaping
+```
+
+## Object-Oriented Programming (OOPS)
+
+### Problem Set 1: Advanced Design
+**Q1: MVC Pattern**
+```
+Answer: Model-View-Controller
+- Model: Data representation
+- View: UI presentation
+- Controller: Business logic
+```
+
+**Q2: Dependency Injection**
+```
+Answer: Reduce tight coupling
+- Inject dependencies through constructor
+- Improves testability
+```
+
+## Operating Systems (OS)
+
+### Problem Set 1: System Integration
+**Q1: IPC (Inter-Process Communication)**
+```
+Methods:
+1. Pipes: Unidirectional
+2. Sockets: Network-based
+3. Shared Memory: Fast but complex
+4. Message Queues: Asynchronous
+```
+
+**Q2: Synchronization Primitives**
+```
+- Semaphore: Counter-based synchronization
+- Mutex: Binary semaphore
+- Monitor: Higher-level abstraction
+```
+
+## Database Management Systems (DBMS)
+
+### Problem Set 1: Advanced Database Concepts
+**Q1: Sharding Strategy**
+```
+Answer: Horizontal partitioning
+- Hash-based sharding
+- Range-based sharding
+- Directory-based sharding
+```
+
+**Q2: CAP Theorem**
+```
+Answer: Cannot simultaneously guarantee:
+- Consistency: All nodes same data
+- Availability: System always responds
+- Partition Tolerance: Network failures
+→ Choose 2 of 3 in practice
+```
+
+---
+
+## Final Review
+
+| Concept | Mastery Level |
+|---------|--------------|
+| Algorithm Complexity | Must understand Big-O notation |
+| Protocol Stacks | OSI/TCP-IP layer understanding |
+| Design Patterns | Apply appropriately to problems |
+| OS Concepts | Process/Thread/Memory management |
+| Database | Query optimization and scaling |
+
+**Completion:** Advanced concepts proficiency achieved for Week 5

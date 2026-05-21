@@ -1,0 +1,112 @@
+---
+title: IT Department - Week 4 Answer Keys
+description: Solutions and answer keys for IT Department Week 4 problems
+---
+
+# IT Department - Week 4 Answer Keys
+
+## Data Structures and Algorithms (DSA)
+
+### Problem Set 1: Graph Algorithms
+**Q1: Bellman-Ford Algorithm**
+```
+Answer: Finds shortest path with negative edges
+- Relaxes all edges V-1 times
+- Detects negative cycles
+- Time: O(VE)
+```
+
+**Q2: Floyd-Warshall Algorithm**
+```
+For k=1 to n:
+  For i=1 to n:
+    For j=1 to n:
+      dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j])
+```
+
+## Computer Networks (CN)
+
+### Problem Set 1: Security Protocols
+**Q1: SSL/TLS Handshake**
+```
+Answer: 4-step process
+1. ClientHello
+2. ServerHello, Certificate, ServerKeyExchange
+3. ClientKeyExchange
+4. ChangeCipherSpec
+```
+
+**Q2: Public Key Cryptography**
+```
+Answer: RSA encryption
+- Public key: (n, e)
+- Private key: (n, d)
+- Ciphertext = plaintext^e mod n
+```
+
+## Object-Oriented Programming (OOPS)
+
+### Problem Set 1: Advanced OOP
+**Q1: Factory Pattern**
+```
+Answer: Create objects without specifying exact classes
+- Factory method creates appropriate subclass
+- Loose coupling achieved
+```
+
+**Q2: Strategy Pattern**
+```
+Answer: Define family of algorithms
+- Encapsulate each algorithm
+- Make them interchangeable
+```
+
+## Operating Systems (OS)
+
+### Problem Set 1: File Systems
+**Q1: Inode Structure**
+```
+Inode contains:
+- File permissions
+- Owner information
+- Size and timestamps
+- Direct and indirect block pointers
+```
+
+**Q2: File Allocation Methods**
+- Contiguous: Sequential blocks
+- Linked: Blocks linked with pointers
+- Indexed: Index block contains addresses
+
+## Database Management Systems (DBMS)
+
+### Problem Set 1: Query Optimization
+**Q1: Query Execution Plan**
+```
+Answer: Optimizer determines cost estimation
+- Considers different join orders
+- Estimates I/O operations
+- Chooses minimum cost plan
+```
+
+**Q2: Index Selection**
+```
+Answer: Create indexes on:
+- Foreign keys
+- WHERE clause columns
+- JOIN columns
+```
+
+---
+
+## Advanced Concepts
+
+| Topic | Key Points |
+|-------|-----------|
+| Graph Search | DFS for cycles, BFS for shortest path (unweighted) |
+| Encryption | RSA for key exchange, AES for data |
+| File I/O | Buffering reduces system calls |
+| Joins | Nested loop, sort-merge, hash join |
+| Query Plan | Cost-based optimization |
+
+**Target:** Understand implementation details deeply

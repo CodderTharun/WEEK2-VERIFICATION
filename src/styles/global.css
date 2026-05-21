@@ -1,0 +1,784 @@
+@import "@fontsource-variable/inter/index.css";
+@import "katex/dist/katex.min.css";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+/* ============================================================
+   Theme — Starlight + starlight-theme-rapide
+   Light: Blue palette | Dark: Orange-yellow palette
+   Font: Inter throughout
+   ============================================================ */
+
+/* ----------------------------------------------------------
+   INTER FONT — import + apply universally
+   ---------------------------------------------------------- */
+
+:root {
+  --sl-font: 'Inter', system-ui, sans-serif;
+
+  --sl-font-mono:
+    'JetBrains Mono',
+    'Fira Code',
+    'Cascadia Code',
+    monospace;
+}
+code,
+pre,
+pre code,
+.expressive-code,
+.expressive-code code,
+.tab,
+.shiki {
+  font-family: var(--sl-font-mono) !important;
+}
+table tr:nth-child(even) {
+  background: transparent !important;
+}
+
+/* Inter on absolutely everything — sidebar, search, nav, content, code */
+*,
+*::before,
+*::after {
+  font-family: 'Inter', system-ui, sans-serif !important;
+}
+
+/* ----------------------------------------------------------
+   LIGHT MODE — blues (#023047 navy, #219ebc teal, #8ecae6 sky)
+   ---------------------------------------------------------- */
+:root,
+[data-theme='light'] {
+  --sl-color-accent-low:     #daf0f7;
+  --sl-color-accent:         #219ebc;
+  --sl-color-accent-high:    #023047;
+
+  --sl-color-bg:             #f4fafd;
+  --sl-color-bg-nav:         #e8f4f9;
+  --sl-color-bg-sidebar:     #edf6fb;
+  --sl-color-bg-inline-code: #d6ecf5;
+  --sl-color-hairline-light: #b8dced;
+  --sl-color-hairline-shade: #8ecae6;
+
+  --rapide-accent:           #219ebc;
+  --rapide-accent-dark:      #023047;
+  --accent:                  #219ebc;
+  --accent-2:                #1a86a0;
+  --accent-3:                #8ecae6;
+}
+
+/* ----------------------------------------------------------
+   DARK MODE — orange-yellows (#fb8500, #ffb703)
+   ---------------------------------------------------------- */
+[data-theme='dark'] {
+  /* Accent */
+  --sl-color-accent-low:     #0f172a;
+  --sl-color-accent:         #60a5fa;
+  --sl-color-accent-high:    #ffffff;
+
+  /* VS Code Blue Dark Backgrounds */
+  --sl-color-bg:             #0b1220;
+  --sl-color-bg-nav:         #111827;
+  --sl-color-bg-sidebar:     #0f172a;
+  --sl-color-bg-inline-code: #172554;
+
+  /* Borders */
+  --sl-color-hairline-light: #1e293b;
+  --sl-color-hairline-shade: #172033;
+
+  /* Text */
+  --sl-color-white:          #f8fafc;
+  --sl-color-gray-1:         #e2e8f0;
+  --sl-color-gray-2:         #cbd5e1;
+  --sl-color-gray-3:         #94a3b8;
+  --sl-color-gray-4:         #64748b;
+  --sl-color-gray-5:         #334155;
+  --sl-color-gray-6:         #1e293b;
+  --sl-color-black:          #020617;
+
+  /* Accent System */
+  --rapide-accent:           #60a5fa;
+  --rapide-accent-dark:      #3b82f6;
+
+  --accent:                  #60a5fa;
+  --accent-2:                #3b82f6;
+  --accent-3:                #93c5fd;
+}
+
+/* ----------------------------------------------------------
+   SMOOTH TRANSITIONS
+   ---------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  transition-property: background-color, border-color, box-shadow, opacity;
+  transition-duration: 180ms;
+  transition-timing-function: ease;
+}
+
+/* ----------------------------------------------------------
+   HEADER
+   ---------------------------------------------------------- */
+
+header.header {
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+
+/* ---------------- LIGHT MODE ---------------- */
+
+[data-theme='light'] header.header {
+  background-color: rgba(247, 254, 255, 0.82);
+
+  border-bottom: 1px solid rgba(33, 158, 188, 0.12);
+
+  box-shadow:
+    0 1px 0 rgba(33, 158, 188, 0.05),
+    0 6px 24px rgba(2, 48, 71, 0.05);
+}
+
+
+/* ---------------- DARK MODE ---------------- */
+
+[data-theme='dark'] header.header {
+
+  background-color: rgba(15, 23, 42, 0.78);
+
+  border-bottom: 1px solid rgba(96, 165, 250, 0.08);
+
+  box-shadow:
+    0 1px 0 rgba(96, 165, 250, 0.04),
+    0 10px 30px rgba(0, 0, 0, 0.45);
+}
+/* ----------------------------------------------------------
+   LEFT SIDEBAR
+   ---------------------------------------------------------- */
+
+/* ---------------- LIGHT MODE ---------------- */
+
+[data-theme='light'] .sidebar {
+  background-color: #f2fdff;
+
+  border-right: 1px solid rgba(33, 158, 188, 0.10);
+
+  box-shadow:
+    inset -1px 0 0 rgba(255,255,255,0.4);
+}
+
+
+/* ---------------- DARK MODE ---------------- */
+
+[data-theme='dark'] .sidebar {
+
+  background-color: #0f172a;
+
+  border-right: 1px solid rgba(96, 165, 250, 0.08);
+
+  box-shadow:
+    inset -1px 0 0 rgba(255,255,255,0.02);
+}
+
+
+/* ----------------------------------------------------------
+   SIDEBAR LINKS
+   ---------------------------------------------------------- */
+
+.sidebar a {
+
+  border-radius: 8px;
+
+  transition:
+    background-color 180ms ease,
+    color 160ms ease,
+    border-color 180ms ease;
+
+  border-inline-start: 2px solid transparent;
+}
+
+
+/* ---------------- LIGHT HOVER ---------------- */
+
+[data-theme='light'] .sidebar a:hover {
+
+  background-color: rgba(33, 158, 188, 0.08);
+}
+
+
+/* ---------------- DARK HOVER ---------------- */
+
+[data-theme='dark'] .sidebar a:hover {
+
+  background-color: rgba(96, 165, 250, 0.08);
+}
+
+
+/* ----------------------------------------------------------
+   ACTIVE ITEM — LIGHT
+   ---------------------------------------------------------- */
+
+[data-theme='light'] .sidebar a[aria-current='page'],
+[data-theme='light'] nav a[aria-current='page'] {
+
+  border-inline-start-color: #219ebc !important;
+
+  background-color: rgba(33, 158, 188, 0.12) !important;
+
+  color: #023047 !important;
+
+  border-radius: 0 8px 8px 0;
+}
+
+
+/* ----------------------------------------------------------
+   ACTIVE ITEM — DARK
+   ---------------------------------------------------------- */
+
+[data-theme='dark'] .sidebar a[aria-current='page'],
+[data-theme='dark'] nav a[aria-current='page'] {
+
+  border-inline-start-color: #60a5fa !important;
+
+  background-color: rgba(96, 165, 250, 0.14) !important;
+
+  color: #f8fafc !important;
+
+  border-radius: 0 8px 8px 0;
+}
+/* ----------------------------------------------------------
+   RIGHT SIDEBAR (ToC)
+   ---------------------------------------------------------- */
+
+/* ---------------- LIGHT MODE ---------------- */
+
+[data-theme='light'] .right-sidebar {
+
+  border-left: 1px solid rgba(33, 158, 188, 0.10);
+
+  background: rgba(255,255,255,0.45);
+
+  backdrop-filter: blur(10px);
+}
+
+
+/* ---------------- DARK MODE ---------------- */
+
+[data-theme='dark'] .right-sidebar {
+
+  border-left: 1px solid rgba(96, 165, 250, 0.08);
+
+  background: rgba(15, 23, 42, 0.35);
+
+  backdrop-filter: blur(10px);
+}
+
+
+/* Active ToC item — Light */
+
+[data-theme='light'] .right-sidebar a[aria-current='true'] {
+
+  border-inline-start-color: #219ebc !important;
+
+  color: #023047 !important;
+}
+
+
+/* Active ToC item — Dark */
+
+[data-theme='dark'] .right-sidebar a[aria-current='true'] {
+
+  border-inline-start-color: #60a5fa !important;
+
+  color: #f8fafc !important;
+}
+
+
+
+/* ==========================================================
+   BUTTONS
+   ========================================================== */
+
+.sl-button,
+.hero .action a {
+
+  background-color: var(--sl-color-accent);
+
+  border-color: var(--sl-color-accent);
+
+  border-radius: 8px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.01em;
+
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 220ms ease,
+    transform 160ms ease;
+}
+
+
+/* Hover Animation */
+
+.sl-button:hover,
+.hero .action a:hover {
+
+  transform: translateY(-2px);
+}
+
+
+/* ---------------- LIGHT MODE BUTTONS ---------------- */
+
+[data-theme='light'] .sl-button,
+[data-theme='light'] .hero .action a {
+
+  box-shadow:
+    0 2px 10px rgba(33, 158, 188, 0.12);
+}
+
+
+[data-theme='light'] .sl-button:hover,
+[data-theme='light'] .hero .action a:hover {
+
+  background-color: #023047;
+
+  border-color: #023047;
+
+  box-shadow:
+    0 6px 18px rgba(2, 48, 71, 0.20);
+}
+
+
+/* ---------------- DARK MODE BUTTONS ---------------- */
+
+[data-theme='dark'] .sl-button,
+[data-theme='dark'] .hero .action a {
+
+  background-color: #60a5fa;
+
+  border-color: #60a5fa;
+
+  color: white;
+
+  box-shadow:
+    0 2px 12px rgba(96, 165, 250, 0.18);
+}
+
+
+[data-theme='dark'] .sl-button:hover,
+[data-theme='dark'] .hero .action a:hover {
+
+  background-color: #3b82f6;
+
+  border-color: #3b82f6;
+
+  box-shadow:
+    0 6px 22px rgba(96, 165, 250, 0.28);
+}
+
+/* ----------------------------------------------------------
+   BADGES
+   ---------------------------------------------------------- */
+
+.sl-badge {
+
+  border-radius: 6px;
+
+  font-size: 0.72em;
+
+  font-weight: 500;
+
+  letter-spacing: 0.03em;
+
+  padding: 0.2rem 0.55rem;
+
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 160ms ease;
+}
+
+
+/* ---------------- LIGHT MODE ---------------- */
+
+[data-theme='light'] .sl-badge {
+
+  background-color: rgba(33, 158, 188, 0.10);
+
+  border: 1px solid rgba(33, 158, 188, 0.22);
+
+  color: #0b4f6c;
+}
+
+
+/* ---------------- DARK MODE ---------------- */
+
+[data-theme='dark'] .sl-badge {
+
+  background-color: rgba(96, 165, 250, 0.10);
+
+  border: 1px solid rgba(96, 165, 250, 0.22);
+
+  color: #bfdbfe;
+}
+
+
+
+/* ----------------------------------------------------------
+   CODE BLOCKS
+   ---------------------------------------------------------- */
+
+.expressive-code .frame,
+pre {
+
+  border-radius: 10px;
+
+  overflow: hidden;
+
+  transition:
+    border-color 180ms ease,
+    box-shadow 220ms ease,
+    background-color 180ms ease;
+}
+
+
+/* ---------------- LIGHT MODE ---------------- */
+
+[data-theme='light'] .expressive-code .frame,
+[data-theme='light'] pre {
+
+  background: #ffffff;
+
+  border: 1px solid rgba(33, 158, 188, 0.08);
+
+  border-left: 3px solid #219ebc !important;
+
+  box-shadow:
+    -2px 0 10px rgba(33, 158, 188, 0.08),
+    0 4px 18px rgba(0, 0, 0, 0.04);
+}
+
+
+/* ---------------- DARK MODE ---------------- */
+
+[data-theme='dark'] .expressive-code .frame,
+[data-theme='dark'] pre {
+
+  background: #111827 !important;
+
+  border: 1px solid #1e293b;
+
+  border-left: 3px solid #60a5fa !important;
+
+  box-shadow:
+    -2px 0 12px rgba(96, 165, 250, 0.10),
+    0 6px 24px rgba(0, 0, 0, 0.45);
+}
+
+/* ----------------------------------------------------------
+   SEARCH HIGHLIGHT
+   ---------------------------------------------------------- */
+
+mark,
+::highlight(search-result) {
+
+  color: inherit;
+
+  border-radius: 4px;
+
+  padding: 0.08em 0.22em;
+
+  transition:
+    background-color 180ms ease,
+    color 160ms ease;
+}
+
+
+/* ---------------- LIGHT MODE ---------------- */
+
+[data-theme='light'] mark {
+
+  background-color: rgba(33, 158, 188, 0.16);
+
+  color: #023047;
+}
+
+
+/* ---------------- DARK MODE ---------------- */
+
+[data-theme='dark'] mark {
+
+  background-color: rgba(96, 165, 250, 0.18);
+
+  color: #f8fafc;
+}
+
+
+
+/* ----------------------------------------------------------
+   CONTENT
+   ---------------------------------------------------------- */
+
+.sl-markdown-content {
+
+  line-height: 1.85;
+
+  font-size: 0.95rem;
+
+  color: var(--sl-color-gray-1);
+}
+
+
+/* ----------------------------------------------------------
+   HEADINGS
+   ---------------------------------------------------------- */
+
+.sl-markdown-content h1,
+.sl-markdown-content h2,
+.sl-markdown-content h3,
+.sl-markdown-content h4 {
+
+  font-weight: 650;
+
+  letter-spacing: -0.02em;
+
+  line-height: 1.25;
+}
+
+
+/* Heading spacing */
+
+.sl-markdown-content h1 {
+  margin-bottom: 1rem;
+}
+
+.sl-markdown-content h2,
+.sl-markdown-content h3 {
+  margin-top: 2rem;
+}
+
+
+/* ----------------------------------------------------------
+   HORIZONTAL RULE
+   ---------------------------------------------------------- */
+
+.sl-markdown-content hr {
+
+  border-color: var(--sl-color-hairline-light);
+
+  opacity: 0.45;
+
+  margin: 2.5rem 0;
+}
+
+
+/* ----------------------------------------------------------
+   BLOCKQUOTES — LIGHT
+   ---------------------------------------------------------- */
+
+[data-theme='light'] .sl-markdown-content blockquote {
+
+  border-inline-start: 3px solid #219ebc;
+
+  background-color: rgba(33, 158, 188, 0.06);
+
+  border-radius: 0 8px 8px 0;
+
+  padding: 0.9em 1.3em;
+
+  color: #0b4f6c;
+}
+
+
+/* ----------------------------------------------------------
+   BLOCKQUOTES — DARK
+   ---------------------------------------------------------- */
+
+[data-theme='dark'] .sl-markdown-content blockquote {
+
+  border-inline-start: 3px solid #60a5fa;
+
+  background-color: rgba(96, 165, 250, 0.08);
+
+  border-radius: 0 8px 8px 0;
+
+  padding: 0.9em 1.3em;
+
+  color: #dbeafe;
+}
+
+/* ----------------------------------------------------------
+   SCROLLBAR
+   ---------------------------------------------------------- */
+
+::-webkit-scrollbar {
+
+  width: 6px;
+
+  height: 6px;
+}
+
+
+/* Track */
+
+::-webkit-scrollbar-track {
+
+  background: transparent;
+}
+
+
+/* ---------------- LIGHT MODE ---------------- */
+
+[data-theme='light'] ::-webkit-scrollbar-thumb {
+
+  background-color: rgba(33, 158, 188, 0.22);
+
+  border-radius: 999px;
+
+  border: 1px solid transparent;
+}
+
+
+/* ---------------- DARK MODE ---------------- */
+
+[data-theme='dark'] ::-webkit-scrollbar-thumb {
+
+  background-color: rgba(96, 165, 250, 0.20);
+
+  border-radius: 999px;
+
+  border: 1px solid transparent;
+}
+
+
+/* Hover */
+
+[data-theme='light'] ::-webkit-scrollbar-thumb:hover {
+
+  background-color: rgba(33, 158, 188, 0.48);
+}
+
+
+[data-theme='dark'] ::-webkit-scrollbar-thumb:hover {
+
+  background-color: rgba(96, 165, 250, 0.42);
+}
+
+
+
+/* ----------------------------------------------------------
+   FOCUS RING
+   ---------------------------------------------------------- */
+
+:focus-visible {
+
+  outline: 2px solid var(--sl-color-accent);
+
+  outline-offset: 3px;
+
+  border-radius: 6px;
+
+  transition:
+    outline-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+
+/* Glow effect */
+
+[data-theme='light'] :focus-visible {
+
+  box-shadow:
+    0 0 0 4px rgba(33, 158, 188, 0.12);
+}
+
+
+[data-theme='dark'] :focus-visible {
+
+  box-shadow:
+    0 0 0 4px rgba(96, 165, 250, 0.14);
+}
+
+
+
+/* ----------------------------------------------------------
+   SIDEBAR TYPOGRAPHY
+   ---------------------------------------------------------- */
+
+:root {
+
+  --sl-sidebar-item-font-size: 13px;
+
+  --sl-sidebar-group-font-size: 16px;
+}
+
+
+/* ----------------------------------------------------------
+   WEEK LEVEL ITEMS
+   ---------------------------------------------------------- */
+
+.sl-sidebar .sl-sidebar-group .sl-sidebar-group summary {
+
+  font-size: 13px !important;
+
+  font-weight: 500;
+
+  letter-spacing: -0.01em;
+}
+
+
+/* ----------------------------------------------------------
+   TOP LEVEL DEPARTMENTS
+   ---------------------------------------------------------- */
+
+.sl-sidebar > ul > li > details > summary {
+
+  font-size: 16px !important;
+
+  font-weight: 650;
+
+  letter-spacing: -0.02em;
+}
+/* ==========================================================
+   MOBILE FIXES
+   ========================================================== */
+
+@media (max-width: 768px) {
+
+  .pagination-links,
+  .sl-link-button,
+  .tabs,
+  .tablist {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 0.5rem;
+  }
+
+  .pagination-links a,
+  .sl-link-button,
+  .tab {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .hero {
+    overflow: hidden;
+  }
+
+  h1 {
+    line-height: 1.1;
+    font-size: 2.2rem !important;
+  }
+
+  .hero .actions {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+}
+
+img {
+  display: block;
+  margin: 20px auto;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  padding: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}

@@ -1,0 +1,99 @@
+---
+title: ECE Department - Week 2 Answer Keys
+description: Solutions and answer keys for ECE Department Week 2 problems
+---
+
+# ECE Department - Week 2 Answer Keys
+
+## Digital Logic
+
+**Q1: Design 4-bit Adder**
+```
+Half-Adder: Sum = A⊕B, Carry = A·B
+Full-Adder: Cascaded half-adders
+Carry propagation delay = 2n gate delays
+```
+
+**Q2: Flip-Flop Conversions**
+```
+SR → JK: Use SR = J, Kbar outputs
+JK → D: D = J⊕(K·Q')
+T → D: T flip-flop counter application
+```
+
+## Microprocessors
+
+**Q1: 8085 Timing Diagram**
+```
+T-states breakdown:
+- Memory read: 3 T-states
+- Memory write: 3 T-states
+- I/O operations: 4 T-states
+```
+
+**Q2: Instruction Cycle**
+```
+Fetch → Decode → Execute → Write-back
+Time varies: 4T to 16T states per instruction
+```
+
+## Signals and Systems
+
+**Q1: Laplace Transform**
+```
+L{f(t)} = ∫₀^∞ f(t)·e^(-st) dt
+Common transforms: 1→1/s, t→1/s², e^(-at)→1/(s+a)
+```
+
+**Q2: Transfer Function**
+```
+H(s) = Y(s)/X(s)
+Used for system analysis and design
+Poles determine stability
+```
+
+## Communications
+
+**Q1: Nyquist Theorem**
+```
+Sampling rate ≥ 2 × Bandwidth
+Prevents aliasing
+Determines signal reconstruction capability
+```
+
+**Q2: Entropy Calculation**
+```
+H = -Σ(p_i × log₂(p_i))
+Maximum when all symbols equally likely
+Used in information theory
+```
+
+## Power Electronics
+
+**Q1: Converter Analysis**
+```
+Buck: Vo = D·Vs (D = duty cycle)
+Boost: Vo = Vs/(1-D)
+Buck-Boost: Vo = -D·Vs/(1-D)
+```
+
+**Q2: UPS Design**
+```
+Answer: Uninterruptible Power Supply
+- Battery charging circuit
+- Inverter for AC conversion
+- Switchover logic
+```
+
+---
+
+## Calculation Reference
+
+| Type | Formula |
+|------|---------|
+| Laplace | Transform table lookup |
+| Sampling | Fs ≥ 2·Fm |
+| Converter | Use steady-state analysis |
+| SCR | Gate trigger analysis |
+
+**Week 2 Complete:** Intermediate concepts verified

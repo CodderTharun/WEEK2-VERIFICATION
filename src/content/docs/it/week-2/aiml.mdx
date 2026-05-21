@@ -1,0 +1,459 @@
+---
+title: AIML Week 2
+---
+
+##  Machine Learning Fundamentals
+### A. Introduction to Machine Learning
+At its core, Machine Learning (ML) is the science and art of programming computers so they can learn directly from data. Instead of writing a traditional program with a long, complex list of strict rules, you feed the computer examples, and it automatically learns to identify the patterns.
+
+
+**Example:** A classic example is a spam filter. If you used traditional programming, you would have to manually write rules to block specific words like "free" or "credit card". With Machine Learning, the spam filter is simply given examples of spam emails and regular (ham) emails, and it learns on its own which word patterns are the best predictors of spam.
+
+
+### B. Types of ML
+Machine Learning systems are generally categorized based on the amount and type of supervision they receive during training.
+
+#### 1. Supervised
+In supervised learning, the training data fed to the algorithm already includes the desired solutions or "correct answers," which are called labels. The system learns the relationship between the inputs and these labels to make predictions on new data.
+
+**Examples:**
+Supervised Learning is like a teacher checking exam papers using an answer key. After checking many papers, the teacher learns which answers are correct and which are wrong.
+Similarly, in supervised learning, the computer is trained using data that already has correct answers (labeled data). The machine learns patterns from this data and later predicts answers for new data.
+Supervised Learning = Learning with correct answers already given.
+
+
+
+##### a. Classification
+Classification is a type of supervised learning where the goal is to sort data into specific, predefined categories.
+
+
+**Examples:** Classification is like sorting fruits into different baskets. Apples are kept in one basket, bananas in another, and oranges in another.
+Similarly, in machine learning, classification means placing data into different categories or classes based on its features.
+Example: Email → Spam or Not Spam, Photo → Cat or Dog, Student Result → Pass or Fail. Classification means identifying which category something belongs to.
+
+
+##### b. Regression
+Regression is a supervised learning task designed to predict a continuous, target numeric value based on a set of given input features (also called predictors).    
+
+**Examples:** Predicting house prices, temperature, salary, or rainfall. Regression means predicting a numerical value based on previous data. 
+
+#### 2. Unsupervised
+In unsupervised learning, the training data is completely unlabeled. The system learns without a "teacher," exploring the data to find hidden structures, patterns, or connections entirely on its own.
+
+**Example:**
+Grouping customers with similar shopping habits or grouping similar photos together.
+
+Unsupervised Learning means learning without guidance or labeled answers.
+
+
+##### a. Clustering
+Clustering involves feeding an algorithm unlabeled data so it can automatically identify similar instances and group them together into distinct clusters.
+
+
+**Example:** Grouping customers with similar buying habits or grouping similar photos together.
+
+##### b. Anomaly Detection
+Anomaly detection involves showing the system mostly normal data instances during training so it learns what a "normal" baseline looks like. When it encounters a new instance, it evaluates it to tell whether it looks normal or if it strongly deviates from the norm.
+
+**Example:** A system can be trained on normal purchasing patterns to automatically detect unusual credit card transactions and catch fraud. It can also be used to automatically catch manufacturing defects on a production line, or to remove extreme outliers from a dataset.
+
+
+#### 3. Reinforcement
+This type of learning works completely differently. The learning system, called an agent, is placed in an environment where it learns through trial and error. It gets rewards for good actions and penalties for bad ones, ultimately learning the best strategy to maximize its rewards over time.
+
+**Example:** Many robots use this to learn how to walk. 
+Another famous example is DeepMind’s AlphaGo program, which learned winning strategies for the complex board game of Go by analyzing millions of games and playing against itself.
+
+
+### C. Features vs Labels
+When preparing data for a supervised Machine Learning model, you are generally dealing with features and labels.
+
+
+#### 1. Labels
+The desired output or the "answer" you are trying to predict.
+
+**Example:** The actual price of a car, or the "spam"/"ham" category of an email.
+
+#### 2. Features
+The input characteristics used to make the prediction.
+
+**Example:** When predicting a car's price, the data type "mileage" is an attribute, but the specific value "mileage = 15,000" is the feature used by the model.
+
+
+### D. Training vs Testing Data
+To properly build and evaluate a model, your total data is usually split into two separate sets. The training set is the portion of data given to the model so it can learn the patterns. The test set is a separate portion of data that is hidden during training and used later to give the model an "exam," measuring how well it predicts new, unseen cases.
+
+
+**Example:** You might take a dataset and use 80% of it as your training set to teach the model. You then hold out the remaining 20% to use as your test set to grade how accurately the model actually performs.
+Training data is like studying questions before an exam, while testing data is like writing the actual exam to check how much you learned. 
+
+### E. Overfitting and Underfitting
+These are two common ways a model can fail to generalize to new data. Overfitting occurs when a model is too complex and essentially memorizes the training data perfectly, including all of its random noise, making it perform poorly on new data. Underfitting is the exact opposite, it happens when the model is too simple to grasp the underlying patterns, leading to poor predictions on both the training data and new data.
+
+
+**Example:** Overfitting is like a student memorizing exact answers for one exam and failing when questions change slightly. Underfitting is like a student studying too little and not understanding the subject properly.
+
+
+## Algorithms
+### A. Linear Regression
+A. Linear Regression
+Linear Regression is one of the simplest models used for predicting a numeric value. It works by computing a weighted sum of the input features (plus a constant bias term) and drawing a straight line (or a flat plane) that best fits the training data.
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/ml1.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+
+
+**Example:** Linear Regression is like predicting a student’s marks based on the number of hours studied. Usually, as study hours increase, marks also increase in a straight-line pattern.
+
+**Algorithm Steps (Gradient Descent approach):**  
+1. Initialize parameters: Start by randomly initializing the model weights and bias.
+2. Compute predictions & errors: Calculate the predicted values and measure the error using a cost function like Mean Squared Error (MSE).
+3. Compute the gradient: Determine the slope (gradient) of the cost function to see which direction reduces the error.
+4. Update weights: Adjust the weights by taking a small step in the opposite direction of the gradient, multiplied by a "learning rate".
+5. Repeat: Repeat steps 2-4 until the algorithm converges to the minimum error (the bottom of the bowl).
+(Note: Linear Regression can also be solved directly in one step using matrix math called the Normal Equation).
+
+
+
+### B. Logistic Regression
+Despite its name, Logistic Regression is used for classification, not regression. It computes a weighted sum of the inputs just like Linear Regression, but instead of outputting the raw result, it runs the result through a function to output a probability between 0 and 1.
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/ml2.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+
+
+**Example:** Logistic Regression is like predicting whether a student will pass or fail based on study hours. If the student studies enough hours, the result is “Pass”; otherwise, it is “Fail.” It is used when the output belongs to categories instead of numerical values.
+
+**Algorithm Steps:**
+1. Calculate linear sum: Just like Linear Regression, compute a weighted sum of the input features plus a bias term.
+2. Apply Sigmoid function: Pass this raw result through a logistic (sigmoid) function. This converts the number into a probability score between 0 and 1.
+3. Make a decision: Set a threshold (usually 0.5). If the probability is ≥ 50%, classify it as the positive class (1). If it is < 50%, classify it as the negative class (0).
+
+
+### C. K Nearest Neighbour
+KNN is an "instance-based" learning algorithm. It doesn't build a complex mathematical model; instead, it basically learns the training data by heart. When asked to make a prediction for a new, unseen instance, it simply looks at the "K" closest (most similar) instances in the training data and takes an average or majority vote.
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/ml3.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+
+
+**Example:** K-Nearest Neighbour (KNN) is like choosing friends with similar interests. If most nearby students like cricket, a new student near them is also likely to like cricket. Similarly, KNN predicts the category of new data based on the nearest similar data points.
+
+
+**Algorithm Steps:**
+1. Memorize data: The algorithm simply memorizes the entire training dataset.
+2. Measure distance: When a new, unseen instance needs a prediction, calculate its distance to every single instance in the stored training data.
+3. Find neighbors: Identify the 'K' closest training instances (the nearest neighbors).
+4. Take a vote:
+- For Classification: Take a majority vote among those K neighbors.
+- For Regression: Calculate the average value of those K neighbors.
+
+
+### D. Support Vector Machine
+SVM is a powerful classifier that separates different classes of data by fitting the widest possible "street" (or margin) between them. The boundary is completely determined by the data points located right on the edge of the street, which are called support vectors.
+
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/ml4.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+
+**Example:** Support Vector Machine (SVM) is like drawing the best boundary between two groups, such as separating apples and oranges with the maximum possible gap between them.
+
+**Algorithm Steps:**
+1. Transform data (Optional): If the data isn't easily separable, use the "kernel trick" to mathematically project the data into a higher-dimensional space where it can be separated.
+2. Find the boundary: Look for the optimal straight line or hyperplane that completely separates the different classes.
+3. Maximize the margin: Adjust the boundary to fit the widest possible empty "street" (margin) between the classes. The boundary is supported by the data points right on the edge of the street, called support vectors.
+4. Allow soft margins: To handle outliers, allow a few instances to cross the boundary (margin violations), controlled by a regularization parameter C.
+
+
+### E. Decision Trees
+A highly intuitive, "white box" model that makes predictions by asking a sequence of simple yes/no questions about the data features. It splits the data repeatedly until it reaches a final conclusion (a leaf node).
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/ml5.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+
+**Example:** Decision trees work just like deciding what to wear in the morning.
+You ask a series of yes/no questions:
+"Is it raining?" → if yes, 
+"Is it cold?" → if yes, grab a raincoat; if no, just an umbrella. Each question is a branch, and you follow the path until you reach a final answer (a "leaf"). The tree learns which questions to ask and in what order to best sort the examples it was trained on.
+
+**Algorithm Steps (CART Algorithm):**
+1. Start at the root: Begin with the entire training dataset at the root node.
+2. Find the best split: Search through all features to find a threshold that splits the data into two subsets with the highest "purity" (meaning the subsets contain mostly one class, minimizing Gini impurity or entropy).
+3. Split the data: Divide the dataset into a left child node and a right child node based on that threshold.
+4. Repeat recursively: Apply the same splitting logic to the new child nodes over and over again until you reach the maximum allowed depth or until a node is 100% pure.
+
+
+### F. Random Forest
+A Random Forest is an "Ensemble Learning" method. Instead of relying on one Decision Tree, it trains a massive collection (a "forest") of Decision Trees on different random subsets of the data. To make a prediction, it asks all the trees and predicts the class that gets the most votes.
+
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/ml6.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+
+**Example:** Random Forest is like asking multiple decision trees for their opinion and choosing the majority answer, similar to taking advice from many people before making a decision.
+
+**Algorithm Steps:**
+1. Bootstrap sampling: Create multiple random subsets of your training data by randomly sampling with replacement.
+2. Grow diverse trees: Train a separate Decision Tree on each of these subsets.
+3. Feature randomness: At every single split in the tree, do not look at all features. Instead, force the tree to only consider a random subset of features.
+4. Aggregate predictions: To make a final prediction, ask all the trees in the forest and take a majority vote.
+
+
+### G. XGBoost
+XGBoost (Extreme Gradient Boosting) is a highly optimized, fast, and scalable open-source software library that implements the Gradient Boosting algorithm. It is incredibly popular because it frequently powers the winning models in Machine Learning competitions.
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/ml7.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+
+**Example:**  XGBoost is like learning from previous mistakes again and again to become more accurate, similar to a student improving after correcting errors in mock tests.
+
+**Algorithm Overview:**  
+ XGBoost (Extreme Gradient Boosting) isn't a uniquely new algorithm, but rather an extremely fast, scalable, and optimized software implementation of Gradient Boosting.
+1. It trains trees sequentially, fixing the residual errors of prior trees.
+2. It uses hardware optimizations and advanced mathematical techniques under the hood.
+3. It automatically handles features like "early stopping" to prevent overfitting.
+
+
+### H. Gradient Boosting
+Gradient Boosting is another ensemble method, but instead of training models independently, it trains them sequentially. Each new predictor in the chain tries to specifically correct the residual errors (the mistakes) made by the predictor that came right before it.
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/ml8.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+
+
+
+**Example:** Gradient Boosting is like a teacher helping a weak student by focusing more on the mistakes made in previous tests to improve performance step by step.
+
+**Algorithm Steps:**
+1. Train first model: Train a base predictor (like a shallow Decision Tree) on the original dataset.
+2. Calculate residuals: Calculate the residual errors (the mistakes) by subtracting the predicted values from the actual actual target values.
+3. Train on mistakes: Train a second predictor, but this time, try to predict the residual errors made by the first model.
+4. Repeat: Train a third predictor on the residual errors of the second, and so on.
+5. Final Prediction: Add up the predictions of all the trees in the sequence to get the final answer.
+
+
+### I. Bagging vs Boosting
+These are the two main ways to build an ensemble of models:
+
+#### 1. Bagging
+
+Trains multiple predictors independently and in parallel on random samples of the data, then averages them (e.g., Random Forest).
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/ml9.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+
+
+
+**Algorithm Steps:**
+1. Train multiple models independently and in parallel on random data subsets.
+2. Aggregate them using a simple majority vote or average.
+3. Goal: Reduce variance and prevent overfitting.
+
+
+#### 2. Boosting
+
+Trains predictors sequentially, where each model learns from the mistakes of the previous one (e.g., Gradient Boosting).
+
+ 
+**Algorithm Steps:**
+1. Train multiple models sequentially.
+2. Each new model specifically focuses on correcting the mistakes (errors or misclassified weights) of the model that came right before it..
+3. Goal: Combine weak learners into a strong learner, reducing bias.
+
+
+
+**Example:** Bagging is like many students solving different questions independently and combining answers, while Boosting is like students solving one after another where each student focuses on previous mistakes.
+
+### J. Cross Entropy
+Originating from information theory, cross entropy is a cost function used to measure how well a classification model's predicted probabilities match the true answers. If the model makes a highly confident wrong prediction, the cross entropy is very high, heavily penalizing the model.
+
+
+
+
+**Example:** Cross Entropy is like checking how wrong a prediction is. If a model predicts “cat” with high confidence but the image is actually a dog, the error becomes large.
+
+**Algorithm/Calculation Steps:**
+1. Cross Entropy is a cost function used to measure how well a model's predicted probabilities match the actual true labels.
+2. The model outputs a probability (e.g., 0.99 for True, 0.01 for False).
+3. Take the negative logarithm of that predicted probability (−log(p)).
+4. If the model predicts a probability close to 1 for the correct answer, the cost is near 0.
+5. If the model confidently predicts the wrong answer (probability close to 0 for a correct instance), the logarithm causes the penalty cost to shoot up massively.
+
+
+### K. K-Means Clustering
+An unsupervised algorithm that groups similar, unlabeled data into 'K' distinct clusters. It places random center points (centroids) in the data, assigns each data point to the closest center, and continuously adjusts the centers until the clusters stabilize.
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/ml10.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+
+
+
+**Example:** K-Means Clustering is like grouping people into K groups based on similarities, such as grouping students by marks or interests.
+
+**Algorithm Steps:**
+1. Initialize: Pick 'K' random instances from the data and place the initial cluster centers (centroids) there.
+2. Assign labels: Measure the distance from every data point to all K centroids. Assign each data point to the cluster of its closest centroid.
+3. Update centroids: Calculate the mean (average) location of all the data points currently assigned to a cluster, and move the centroid to that new center.
+4. Repeat: Repeat steps 2 and 3 until the centroids stop moving completely.
+
+
+### L. Hierarchical Clustering
+An unsupervised algorithm that builds a hierarchy of clusters from the bottom up. At each step, it connects the nearest pair of clusters together until all the data is eventually merged into one massive group.
+
+
+**Example:** Hierarchical Clustering is like forming groups step by step, similar to creating family trees where closely related members are grouped first.
+
+**Algorithm Steps (Agglomerative / Bottom-up):**
+1. Initialize: Start by treating every single individual data point as its own tiny cluster.
+2. Find neighbors: Identify the two clusters that are closest to each other based on distance.
+3. Merge: Connect and merge those two closest clusters into a single larger cluster.
+4. Repeat: Keep merging the closest pairs recursively, building a binary tree-like hierarchy from the bottom up, until all data points are merged into one giant cluster.
+
+
+### M. DB-SCAN and Dimensionally Reduction
+#### 1. DB-SCAN
+A density-based clustering algorithm. Instead of just looking at distance, it defines clusters as continuous regions of highly dense data. Any data points floating alone in low-density, empty spaces are flagged as anomalies/outliers.
+
+
+**Example:** DB-SCAN is like identifying crowded groups in a playground. Students standing close together form a group, while isolated students are treated as outliers.
+
+**Algorithm Steps:**
+1. Check neighborhoods: For a given data point, draw a small circle (radius epsilon) around it and count how many instances fall inside this neighborhood.
+2. Identify Core instances: If the count is greater than a set threshold (min_samples), label this point as a "core instance" (meaning it is in a dense area).
+3. Form clusters: Group this core instance and all points in its neighborhood into a cluster. If those neighbors are also core instances, add their neighbors too, chaining together a continuous dense region.
+4. Identify anomalies: If a data point is not a core instance, and does not fall into the neighborhood of any core instance, label it as an anomaly/outlier.
+
+
+#### 2. Dimensionality Reduction
+The process of simplifying a dataset by reducing the number of features (dimensions) it has, while preserving as much useful information as possible. This makes training models much faster and allows humans to visualize highly complex data.
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/ml11.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+
+**Example:** Dimensionality Reduction is like summarizing a long book into short notes by keeping only the most important information and removing unnecessary details.
+
+**Algorithm Steps (Principal Component Analysis):**
+1. Center the data: Subtract the mean from the dataset so it is centered around the origin.
+2. Find components (SVD): Use a matrix factorization technique called Singular Value Decomposition (SVD) to identify the "principal components" — these are the axes/hyperplanes that preserve the maximum amount of variance in the data..
+3. Project the data: To reduce the data down to 'd' dimensions, mathematically project the original high-dimensional training set onto the hyperplane defined by the first 'd' principal components.
+
+---
+## Video Reference
+
+<div style={{ display: 'flex', justifyContent: 'center' }}>
+  <div
+    style={{
+      position: 'relative',
+      width: '40%',
+      paddingBottom: '22.5%',
+      height: 0,
+      overflow: 'hidden'
+    }}
+  >
+    <iframe
+      src="https://www.youtube.com/embed/videoseries?list=PLmp4AHm0u1g1oKSYSrzVceORO9swZ4QzO"
+      title="YouTube Playlist"
+      frameBorder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerPolicy="strict-origin-when-cross-origin"
+      allowFullScreen
+      style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        borderRadius: '12px'
+      }}
+    />
+  </div>
+</div>
+---

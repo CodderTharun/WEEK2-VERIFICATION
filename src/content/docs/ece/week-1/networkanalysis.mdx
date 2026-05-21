@@ -1,0 +1,254 @@
+---
+title: Network Analysis
+description: Network Analysis fundamentals
+---
+
+### **Electrical Units and Measurement Conventions in DC Systems**
+
+### **A. Fundamental Electrical Quantities**
+
+1. **Voltage (V/E)**: Represents the potential energy required to move electrons between two points (nodes). It is measured in Volts (V).  
+2. **Current (I/i):** The continuous flow of electrical charge through a circuit. It is measured in Amperes (A).  
+3. **Resistance (R):** The capacity of a material to resist or prevent the flow of electric charge. It is measured in Ohms (Ω) and is always positive.  
+4. **Conductance (G):** The reciprocal of resistance (1/R), representing the ease with which current flows. It is measured in Siemens (S) or mhos (℧).
+
+![Fundamental Electrical](/ECE/NetworkAnalysis/fundamentals.png)
+
+#### **1. Ohm’s Law**
+
+At a constant temperature, the current flowing through a conductor is directly proportional to the voltage across it.
+
+V = IR
+
+I = V/R
+
+R = V/I
+
+To find the Power (P)  
+
+P = VI
+
+P = V<sup>2</sup>/R
+
+P = I<sup>2</sup>R
+
+### **B. Common DC Circuit Theory Terms:**
+
+1. Circuit – a circuit is a closed loop conducting path in which an electrical current flows.  
+2. Path – a single line of connecting elements or sources.  
+3. Node – a node is a junction, connection or terminal within a circuit were two or more circuit elements are connected or joined together giving a connection point between two or more branches. A node is indicated by a dot.  
+4. Branch – a branch is a single or group of components such as resistors or a source which are connected between two nodes.  
+5. Loop – a loop is a simple closed path in a circuit in which no circuit element or node is encountered more than once.  
+6. Mesh – a mesh is a single closed loop series path that does not contain any other paths. There are no loops inside a mesh.
+
+#### **1. Kirchhoff’s Current Law (KCL)**
+
+![KCL](/ECE/NetworkAnalysis/W1-NT2.png)
+
+At any moment, the algebraic sum of flowing currents through a point (or junction) in a network is Zero (0) or in any electrical network, the algebraic sum of the currents meeting at a point (or junction) is Zero (0). This law is also known as Point Law or Current law.  
+**Principle**: Conservation of Charge.
+
+∑ I = 0
+
+∑ I<sub>in</sub> = ∑ I<sub>out</sub>
+
+
+#### **2. Kirchhoff’s Voltage Law (KVL)**
+
+![KVL](/ECE/NetworkAnalysis/W1-NT3.png)
+
+Kirchoff’s Voltage Law states that in any closed loop network being driven by a voltage source, the total voltage around the loop is equal to the sum of all the voltage drops within the same loop.  
+**Principle:** Conservation of Energy.
+
+
+
+
+### **C. Introduction to Network Transformation**
+
+The 3-phase networks have three wires and usually, the networks are connected in star & delta configuration. The 3 phase supply or the load connected in either formation can be converted into its equivalent counterpart. We use such conversion to simplify the mathematical calculations required for circuit analysis of a complex electrical network.
+
+#### **1. Delta Connected Network**
+
+![Delta Connected Network](/ECE/NetworkAnalysis/W1-NT4.png)
+
+The delta connected network is formed when three network branches or impedances are connected to form a loop in such a way that their heads are connected to the tails of the adjacent branch. The resultant network forms a triangle shape that resembles a Greek letter Delta “Δ” which is why it’s named after it. It is also known as π (pi) network because it resembles the letter after rearranging the branches. 
+
+#### **2. Star Connected Network**
+
+![Star Connected Network](/ECE/NetworkAnalysis/W1-NT5.png)
+
+The Star connected network is formed when three branches or impedances are connected together at a common point. The other ends of the branch networks are free. The resultant shape resembles the letter “Y” which is why it is also called “Y” or “Wye” connected network. It is also known as “T” connected network due to its shape after rearranging the network branches. 
+
+### **D. Network Transformation**
+
+![Network Transformation](/ECE/NetworkAnalysis/W1-NT6.png)
+
+
+#### **1. Thevenin’s Theorem**
+
+Any linear electric network or a complex circuit with current and voltage sources can be replaced by an equivalent circuit containing a single independent voltage source $V_{th}$ and a Series Resistance $R_{th}$.
+
+![Thevenin Theorem](/ECE/NetworkAnalysis/W1-NT7.png)
+
+
+#### **2. Norton’s Theorem**
+
+![Norton Theorem](/ECE/NetworkAnalysis/W1-NT8.png)
+
+
+Norton Theorem says that any circuitry which has many  power supplies and  resistors can be swapped with the circuit which has a current source and one  resistor in its parallel.  
+Norton’s Theorem says that any complex linear circuit with voltage sources and resistors can be simplified into:
+
+* A current source (IN) in parallel with  
+* A single equivalent resistance (RN)
+
+This makes circuit analysis easier, especially when finding current through a load.  
+VTH​=IN​RN​
+
+* Thevenin equivalent \= Voltage source \+ series resistance  
+* Norton equivalent \= Current source \+ parallel resistance  
+* Both represent the same circuit behavior at the terminals.  
+* Their resistances are equal:
+
+R<sub>TH</sub> = R<sub>N</sub>
+
+#### **3. Maximum Power Transfer Theorem for DC Circuits**
+
+![Maximum Power Transfer Theorem](/ECE/NetworkAnalysis/W1-NT9.png)
+
+This theorem describes the condition for maximum power transfer from an active network to an external load resistance. It states that in a linear, active, bilateral DC network, the maximum power will be transferred from source to the load when the external load resistance equals the internal resistance of the source.
+
+* Maximum power transfer theorem can be applied to both DC and AC circuits, but the only difference is that the resistance is replaced with impedance in AC circuit.  
+* In an AC electrical network the maximum power will be transferred from source section to the load section when the impedance of the load is complex conjugate of the source impedance.  
+* It is important to note that in AC circuit, source also possesses an internal reactance. Therefore in order to have maximum power transfer the load must possess same value of reactance but it should be of opposite type. This means that the load must have an equivalent capacitive reactance, if source has inductive reactance, and vice versa.  
+* The efficiency is 50 percent only at maximum power transfer condition. So in power system network, this condition causes a large voltage drop in the lines. But the goal of the power system network is to increase the efficiency rather than maximum power. Therefore, power system never operated under maximum power transfer.
+
+### **E. 2 port network (XY and ABCD parameters)**
+
+A two-port network is a circuit with two pairs of terminals (input and output). It is used to model and analyze complex circuits like amplifiers and transmission lines using parameter sets such as Z (impedance) and ABCD (transmission) parameters. 
+
+#### **1. Z-Parameters (Impedance / ABCD)**
+
+##### **Definition**
+
+Z-parameters relate **voltages to currents** at both ports.
+
+V<sub>1</sub> = Z<sub>11</sub> I<sub>1</sub> + Z<sub>12</sub> I<sub>2</sub>
+
+V<sub>2</sub> = Z<sub>21</sub> I<sub>1</sub> + Z<sub>22</sub> I<sub>2</sub>
+##### **Steps to Find Z-Parameters**
+
+*  Set I<sub>2</sub> = 0 (open-circuit output port)  
+- Z<sub>11</sub> = V<sub>1</sub> / I<sub>1</sub>
+- Z<sub>21</sub> = V<sub>2</sub> / I<sub>1</sub>
+
+* Set I<sub>1</sub> = 0 (open-circuit input port)  
+- Z<sub>22</sub> = V<sub>2</sub> / I<sub>2</sub>
+- Z<sub>12</sub> = V<sub>1</sub> / I<sub>2</sub>
+
+## **Problems**
+
+### 1. In the series-parallell circuit shown in Fig 1.32, find (i) the voltage drop across the 4Ω resistor and (ii) the supply voltage.  
+![Fig 1.32](/ECE/NetworkAnalysis/W1-NT10.png)
+
+
+#### **Solution:**
+
+Let current I, I₁, and I₂ flow in the branches. Given specific branch voltages and resistances:
+
+- I<sub>1</sub> = 50/10 = 5A  
+- I<sub>2</sub> = 50/8 = 6.25A  
+- Total Current (I) = I<sub>1</sub> + I<sub>2</sub> = 5 + 6.25 = 11.25A
+
+**(i) Voltage drop across 4Ω resistor:**  
+V = 11.25 × 4 = 45V
+
+**(ii) Supply Voltage:**  
+To find the supply voltage, we calculate the total resistance (R):
+* Parallel combination (24Ω || 12Ω) = (24 × 12) / (24 + 12) = 8Ω  
+* Parallel combination (8Ω || 8Ω) = (8 × 8) / (8 + 8) = 4Ω  
+* Parallel combination (10Ω || 8Ω) = (10 × 8) / (10 + 8) = 4.44Ω  
+
+* Total Resistance (R) = 4 + 4.44 + 4 = 12.44Ω  
+
+* Supply Voltage (V) = 12.44 × I = 12.44 × 11.25 = 140V
+
+
+### 2. Find the currents in various branches of the network shown in Fig. 1.46 
+
+![Fig. 1.46](/ECE/NetworkAnalysis/W1-NT11.png)
+
+#### **Solution**
+
+Using Kirchhoff's Voltage Law (KVL) for the loop ABCDEFA \[cite: 5\]:  
+\-0.02I \- 0.02(I \- 80\) \- 0.03(I \+ 10\) \- 0.02(I \- 140\) \- 0.01(I \- 120\) \- 0.01(I \- 100\) \= 0 \[cite: 5\]  
+Solving this equation yields **I \= 57.27A** \[cite: 5\]. The branch currents are \[cite: 6\]:
+
+| Branch | Calculation | Result |
+| :--- | :--- | :--- |
+| I<sub>AB</sub> | I | 57.27A |
+| I<sub>BC</sub> | I - 80 | -22.73A (or I<sub>CB</sub> = 22.73A) |
+| I<sub>CD</sub> | I + 10 | 67.27A |
+| I<sub>DE</sub> | I - 140 | -82.73A (or I<sub>ED</sub> = 82.73A) |
+| I<sub>EF</sub> | I - 20 | 37.27A |
+| I<sub>FA</sub> | I - 100 | -42.73A (or I<sub>AF</sub> = 42.73A) |
+### 3. In the network shown in Fig. 1.52, find the resistance between points A and B.
+
+![Fig. 1.52](/ECE/NetworkAnalysis/W1-NT12.png)
+
+#### **Solution**
+Convert the three 4Ω resistances in delta (D, E, F) to star. Each star resistance is 1.33Ω.
+
+This 1.33Ω is in series with the 6Ω in the resulting star, creating an equivalent branch of 7.33Ω (shown in Fig. 1.53) .
+
+Convert the inner star network back to delta; each delta resistance is 21.99Ω.
+
+Now, each branch has an 8Ω resistor in parallel with 21.99Ω. 
+
+Resistance of each branch \= (8 x 21.99) / (8 \+ 21.99) \= 5.87Ω.
+
+The equivalent resistance between points A and B is calculated as:   
+R<sub>AB</sub> \= \[(5.87 \+ 5.87) x 5.87\] / (5.87 \+ 5.87 \+ 5.87) \= 3.913Ω.
+
+### 4\. Find Thevenin's and Norton's equivalent circuits across terminals a and b for the circuit in Fig. 3.33, which contains a dependent voltage source (10i).
+
+![Figure 3.33](/ECE/NetworkAnalysis/W1-NT13.png)
+
+#### **Solution**
+
+**Thevenin Voltage (E₀):**  
+Apply KVL to the circuit: 80 \+ 60i \- 10i \= 0 → i \= \-80/50 \= \-1.6A.  
+Then, 80 \+ 40i \- E₀ \= 0 → E₀ \= 80 \+ 40(-1.6) \= **16V**.  
+
+**Thevenin Resistance (R₀):**  
+Since there is a dependent source, R₀ is found using the short-circuit current (Isc).  
+Assume loop currents I<sub>1</sub> and I<sub>2</sub>. Calculation shows:  
+
+I<sub>2</sub> = 80/40 = 2A
+
+I<sub>1</sub> = 10i'/20 = -1A
+
+(where i' = -2A)
+
+I<sub>sc</sub> = I<sub>2</sub> + I<sub>1</sub> = 2 - 1 = 1A
+
+R₀ = E₀ / I<sub>sc</sub> = 16/1 = 16Ω
+ 
+### 5. Find the current through R<sub>L</sub> in the circuit shown in Fig. 3.15.  
+
+![Fig. 3.15](/ECE/NetworkAnalysis/W1-NT14.png)
+
+#### **Solution**
+
+**Case 1: Only 4A current source present**  
+The 2Ω resistor is neglected as it is across a short circuit.  
+Total current I \= 4 x \[5 / (5 \+ 28.33)\] \= 0.6A.  
+Current I<sub>1</sub> \= 0.6 x \[40 / (40 \+ 20)\] \= 0.4A.
+
+**Case 2: Only 25V voltage source present**  
+The 2Ω resistor across the 25V source can be neglected.  
+Total resistance R<sub>t</sub> \= 50Ω; Total current I \= 25 / 50 \= 0.5A.  
+Branch current I<sub>2</sub> \= 0.5 x \[20 / (20 \+ 20)\] \= 0.25A.
+
+**Final Result:**  
+Total current through R<sub>L</sub> \= I<sub>1</sub> \+ I<sub>2</sub> \= 0.4 \+ 0.25 \= **0.65A**

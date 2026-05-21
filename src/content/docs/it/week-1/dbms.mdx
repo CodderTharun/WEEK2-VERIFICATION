@@ -1,0 +1,744 @@
+---
+title: Database Management Systems
+---
+
+import { Code, Tabs, TabItem } from '@astrojs/starlight/components';
+
+<style>{`
+pre {
+  overflow-x: scroll;
+  max-width: 100%;
+  display: block;
+  white-space: pre;
+}
+`}</style>
+
+Database Management System (DBMS) is software that helps users create, manage and manipulate databases efficiently.
+It provides a systematic way to store, retrieve, update and manage data while ensuring security, consistency and reliability.
+DBMS is widely used in applications such as banking systems, hospital management systems, airline reservation systems, e-commerce platforms and educational institutions.
+
+---
+
+## Introduction
+
+### What is Data?
+Data consists of raw, distinct units of information like text, numbers, images or audio.
+It exists in physical forms such as paper or digital formats on computers and storage devices.
+Derived from the Latin "datum" (a single fact), data becomes meaningful when processed into information.
+
+### What is Database?
+Database is a collection of interrelated data which is used to retrieve, insert and delete the data efficiently.
+It is also used to organize the data in the form of a table, schema, views, and reports, etc.
+
+### What is a Database Management System?
+A database-management system (DBMS) is a collection of interrelated data and a set of programs to access that data.
+The collection of data, usually referred to as the database, contains information relevant to an enterprise.
+The primary goal of a DBMS is to provide a way to store and retrieve database information that is both convenient and efficient.
+
+Example:
+A hospital database organizes information about patients, doctors, appointments and medical records.
+
+---
+
+## More About DBMS
+
+### A. Characteristics of Database approach
+
+Database management approach uses a centralized repository to store data defined once, accessible by multiple users and applications, unlike traditional file processing.
+
+#### 1. Vs File Processing
+
+In file systems, each application creates separate files for its needs, causing data redundancy, inconsistent updates and wasted storage.
+Database approach eliminates this by maintaining one shared repository, reducing duplication and maintenance efforts.
+
+#### 2. Self-Describing Nature
+
+Database systems store not just data but also metadata (structure, constraints, file formats) in the DBMS catalog.
+This allows any general-purpose DBMS to work with diverse applications (e.g., university, banking) by referencing the catalog, unlike file programs hardcoded for specific structures.
+
+#### 3. Data Insulation & Abstraction
+
+Program-data independence: File changes don't require rewriting all programs since structure is in catalog, not embedded in code.
+Data abstraction: Data abstraction hides storage details (e.g., byte positions, indexes) behind conceptual views like entities/relationships.
+
+#### 4. Multiple Views Support
+
+DBMS supports user-specific views from the same database.
+Hides irrelevant data, allows personalized perspectives without affecting others.
+
+#### 5. Data Sharing & Transactions
+
+Enables concurrent multiuser access with concurrency control for correct updates (e.g., airline seat assignments).
+Transactions ensure ACID properties:
+- Atomicity (all or none)
+- Isolation (no interference)
+- Consistency
+- Durability
+
+### B. Advantages of Database approach
+
+- Controls database redundancy: It can control data redundancy because it stores all the data in one single database file and that recorded data is placed in the database.
+- Data sharing: In DBMS, the authorized users of an organization can share the data among multiple users.
+- Easily Maintenance: It can be easily maintainable due to the centralized nature of the database system.
+- Reduce time: It reduces development time and maintenance needs.
+- Backup: It provides backup and recovery subsystems which create automatic backup of data from hardware and software failures and restores the data if required.
+- Multiple user interface: It provides different types of user interfaces like graphical user interfaces, application program interfaces.
+
+### C. Disadvantages of Database approach
+
+- Cost of Hardware and Software: It requires a high speed of data processor and large memory size to run DBMS software.
+- Size: It occupies a large space of disks and large memory to run them efficiently.
+- Complexity: Database system creates additional complexity and requirements.
+- Higher impact of failure: Failure highly impacts the database because in most of the organization, all the data stored in a single database and if the database is damaged due to electric failure or database corruption then the data may be lost forever.
+
+---
+
+## Database System Concepts
+
+### A. Data Models
+
+Data models provide conceptual tools to describe data structure, relationships, semantics and constraints across physical, logical and view levels.
+
+Some of the types include:
+
+#### 1. Relational Model
+
+Uses tables (relations) with rows (records/tuples) and columns (attributes) to represent data and relationships via keys.
+Most popular for RDBMS like MySQL, record-based with fixed fields per type, supports complex queries and ACID.
+
+<br />
+
+<img
+  src="/IT/DBMS1.1.jpg"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+#### 2. Entity-Relationship (ER) Model
+
+High-level conceptual model with entities (real-world objects), relationships and attributes.
+Used for database design, diagrams show cardinality (1:1, 1:N, M:N) and participation, converted to relational schema.
+
+<br />
+
+<img
+  src="/IT/DBMS1.2.jpg"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+#### 3. Object-Based Models
+
+Extend ER with OOP concepts: encapsulation, methods, object identity (e.g., Java/C++ objects stored directly).
+Object-relational combines relational tables with objects; suits complex data like multimedia.
+
+#### 4. Hierarchical Model
+
+The hierarchical model organizes data in a tree-like structure with parent-child relationships.
+Each record (node) in the hierarchy has one parent record and zero or more child records.
+The hierarchical model is hierarchical in nature and is commonly used in hierarchical database management systems (HDBMS) such as IBM's IMS (Information Management System).
+
+#### 5. Semistructured Model
+
+Allows varying attributes per data item (unlike rigid schemas), uses XML/JSON for hierarchical, flexible data like documents or web content.
+Good for evolving data; no fixed structure required.
+
+### B. Database Architecture
+
+A DBMS architecture defines how users interact with the database to read, write, or update information.
+A well-designed architecture and schema (a blueprint detailing tables, fields, and relationships) ensures data consistency, improves performance, and keeps data secure.
+
+#### 1. 1-Tier Architecture
+
+The user works directly with the database on the same system.
+This means the client, server and database are all in one application.
+A common example is MS Access.
+Everything from the user interface to the logic and data storage happens on the same device.
+The user enters data, performs calculations and saves files directly on their computer.
+This setup is simple and easy to use, making it ideal for personal or standalone applications.
+
+<br />
+
+<img
+  src="/IT/DBMS1.3.jpg"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+#### 2. 2-Tier Architecture
+
+The 2-tier architecture is similar to a basic client-server model.
+The application at the client end directly communicates with the database on the server side.
+On the client side, the user interfaces and application programs are run.
+The application on the client side establishes a connection with the server side to communicate with the DBMS.
+
+##### Example
+
+A Library Management System used in schools or small organizations is a classic example of two-tier architecture.
+
+##### Client Layer (Tier 1)
+This is the user interface that library staff or users interact with.
+For example they might use a desktop application to search for books, issue them, or check due dates.
+
+##### Database Layer (Tier 2)
+The database server stores all the library records such as book details, user information and transaction logs.
+The client layer sends a request (like searching for a book) to the database layer which processes it and sends back the result.
+This separation allows the client to focus on the user interface, while the server handles data storage and retrieval.
+
+<br />
+
+<img
+  src="/IT/DBMS1.4.jpg"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+#### 3. 3-Tier Architecture
+
+The 3-Tier architecture contains another layer between the client and server.
+In this architecture, the client can't directly communicate with the server.
+The application on the client-end interacts with an application server which further communicates with the database system.
+The end user has no idea about the existence of the database beyond the application server.
+The database also has no idea about any other user beyond the application.
+The 3-Tier architecture is used in case of large web applications.
+
+<br />
+
+<img
+  src="/IT/DBMS1.5.png"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+#### 4. 3-schema Architecture
+
+In DBMS, the 3-tier architecture is a client-server architecture that separates the user interface, application processing, and data management into three distinct tiers or layers.
+
+##### External Tier (User Interface Layer)
+
+The External Tier is the user interface or client layer of the application.
+It is responsible for presenting data to the user and receiving input from the user.
+This tier communicates with the Application Tier to process user requests and display relevant information.
+This tier can be a web browser, mobile app, or desktop application.
+
+##### Application Tier (Conceptual Layer)
+
+The application tier is the middle layer of the 3-tier architecture.
+It acts as the intermediary between the External Tier and the Internal Tier.
+It is responsible for processing and managing the business logic of the application.
+This tier communicates with the external tier to receive user input and communicates with the internal tier to retrieve or store data.
+This tier may include application servers, web servers, or APIs.
+
+##### Internal Tier (Database Layer)
+
+The internal tier is the bottom layer of the 3-tier architecture.
+It is responsible for managing and storing data.
+This tier can include databases, data warehouses or any other persistent data storage solution.
+The internal tier communicates with the application tier to save, retrieve or manipulate data according to the business logic.
+
+<br />
+
+<img
+  src="/IT/DBMS1.6.png"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+##### 5. Objectives of 3-schema architecture
+
+###### a. Scalability
+The separation of the three tiers allows each layer to scale independently.
+For instance, if the number of users increases, you can scale the external Tier by adding more web servers or you can enhance the Data Management Tier by optimizing or adding additional databases without affecting the internal Tier.
+
+###### b. Flexibility
+
+Each layer is loosely coupled, meaning you can modify or upgrade any of the layers without disrupting the others.
+
+###### c. Security
+
+By isolating the internal Tier, you can enforce better security practices, such as restricting direct access to the database and protecting sensitive data.
+
+###### d. Maintainability
+
+Because the architecture is modular, it’s easier to maintain and update.
+
+###### e. Improved Performance
+
+The layered approach improves system performance by ensuring that each tier is optimized for its specific function.
+
+### C. Database Languages
+
+Database languages, often known as query languages, are programming languages for creating and accessing databases.
+They enable users to save, organise and retrieve the data.
+
+Types of DBMS Languages:
+
+#### 1. Data Definition Language (DDL)
+
+The main focus of Data Definition Language (DDL) is on specifying and controlling the database’s structure.
+
+##### Key Commands in DDL
+
+| Command | Description |
+|---|---|
+| CREATE | This command creates a new database or database object. |
+| ALTER | It modifies an existing database object. |
+| DROP | This command deletes objects from the database. |
+| TRUNCATE | It removes all records from a table but keeps the table structure intact. |
+| RENAME | This command changes the name of a database object. |
+| COMMENT | It adds comments to the data dictionary. |
+
+<Tabs>
+  <TabItem label="SQL">
+
+```sql
+CREATE TABLE Student(
+    Roll_No INT,
+    Name VARCHAR(50)
+);
+
+ALTER TABLE Student
+ADD Age INT;
+
+RENAME TABLE Student TO Students;
+```
+</TabItem> </Tabs>
+
+#### 2. Data Manipulation Language (DML)
+
+We can use DML commands to manipulate data in a database.
+We can insert new data, update existing data, delete unwanted data and even retrieve data using DML.
+
+##### Key Commands in DML
+
+| Command | Description |
+|---|---|
+| SELECT | Retrieves data from the database. |
+| INSERT | Adds new data into a table. |
+| UPDATE | Modifies existing data within a table. |
+| DELETE | Removes data from a table. |
+| MERGE | Combines insert and update operations. |
+| CALL | Executes a subprogram like a stored procedure. |
+
+<Tabs>
+  <TabItem label="SQL">
+
+```sql
+INSERT INTO Students
+VALUES(1, 'Rahul', 20);
+
+SELECT * FROM Students;
+
+UPDATE Students
+SET Age = 21
+WHERE Roll_No = 1;
+
+DELETE FROM Students
+WHERE Roll_No = 1;
+```
+</TabItem> </Tabs>
+
+#### 3. Data Control Language (DCL)
+
+DCL commands manage user permissions.
+We can grant or revoke access to our data, ensuring security and control.
+
+##### Key Commands in DCL
+
+| Command | Description |
+|---|---|
+| GRANT | Provides user access privileges. |
+| REVOKE | Removes user access privileges. |
+
+<Tabs>
+  <TabItem label="SQL">
+
+```sql
+GRANT SELECT, INSERT
+ON Students
+TO user1;
+
+REVOKE INSERT
+ON Students
+FROM user1;
+```
+</TabItem> </Tabs>
+
+#### 4. Transaction Control Language (TCL)
+
+TCL commands ensure that database transactions are processed reliably.
+
+##### Key Commands in TCL
+
+| Command | Description |
+|---|---|
+| COMMIT | Saves all changes made during the transaction. |
+| ROLLBACK | Undoes changes made during the current transaction. |
+| SAVEPOINT | Sets a point within a transaction to roll back to. |
+| AUTOCOMMIT | Automatically commits each individual statement. |
+
+<Tabs>
+  <TabItem label="SQL">
+
+```sql
+START TRANSACTION;
+
+UPDATE Students
+SET Age = 22
+WHERE Roll_No = 1;
+
+SAVEPOINT A;
+
+ROLLBACK TO A;
+
+COMMIT;
+```
+</TabItem> </Tabs>
+
+<br />
+
+<img
+  src="/IT/DBMS1.7.png"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+---
+
+## ER Model
+
+The Entity-Relationship Model (ER Model) is a conceptual model for designing a database.
+This model represents the logical structure of a database, including entities, their attributes, and relationships between them.
+
+### Notations of ER Model
+
+#### 1. Entity
+
+It represents a real-world object, concept or thing about which data is stored in a database.
+It acts as a building block of a database.
+Tables in relational databases represent these entities.
+
+##### Types of entities
+
+###### a. Strong entity
+A type of entity that has a key Attribute that can uniquely identify each instance of the entity.
+A Strong Entity does not depend on any other Entity in the Schema for its identification.
+It has a primary key that ensures its uniqueness and is represented by a rectangle in an ER diagram.
+
+###### b. Weak entity
+It cannot be uniquely identified by its own attributes alone.
+It depends on a strong entity to be identified.
+A weak entity is associated with an identifying entity (strong entity), which helps in its identification.
+A weak entity is represented by a double rectangle.
+The participation of weak entity types is always total.
+The relationship between the weak entity type and its identifying strong entity type is called identifying relationship and it is represented by a double diamond.
+
+#### 2. Attributes
+
+Attributes are the properties that define the entity type.
+For example, for a Student entity Roll_No, Name, DOB, Age, Address and Mobile_No are the attributes that define entity type Student.
+The attribute is represented by an oval.
+
+##### Types of attributes
+
+###### a. Key Attribute
+The attribute which uniquely identifies each entity in the entity set is called the key attribute.
+For example, Roll_No will be unique for each student.
+The key attribute is represented by an oval with an underline.
+
+###### b. Composite Attribute
+An attribute composed of many other attributes is called a composite attribute.
+For example, the Address attribute of the student Entity type consists of Street, City, State, and Country.
+The composite attribute is represented by an oval consisting of ovals.
+
+###### c. Multivalued Attribute
+An attribute consisting of more than one value for a given entity.
+For example, Phone_No (can be more than one for a given student).
+A multivalued attribute is represented by a double oval.
+
+###### d. Derived Attribute
+An attribute that can be derived from other attributes of the entity type is known as a derived attribute.
+e.g.; Age (can be derived from DOB).
+The derived attribute is represented by a dashed oval.
+
+#### 3. Keys
+
+Keys are fundamental elements of the relational database model that ensure uniqueness, data integrity and efficient data access. They uniquely identify each row in a table. They prevent data duplication and maintain consistency. They create relationships between different tables.
+
+##### Types of Keys
+
+###### a. Candidate Key
+The minimal set of attributes that can uniquely identify a tuple is known as a candidate key.
+1. A candidate key is a minimal super key with no redundant attributes.
+2. It must contain unique values, ensuring that no two rows have the same value in the candidate key’s columns.
+Every table must have at least a single candidate key.
+3. A table can have multiple candidate keys but only one primary key.
+
+###### b. Super Key
+The set of one or more attributes (columns) that can uniquely identify a tuple (record) is known as Super Key. It may include extra attributes that aren't important for uniqueness but still uniquely identify the row.
+1. A super key can contain extra attributes that aren’t necessary for uniqueness.
+2. For example, if the "STUD_NO" column can uniquely identify a student, adding "SNAME" to it will still form a valid super key, though it's unnecessary.
+
+###### c. Alternate Key
+An alternate key is any candidate key in a table that is not chosen as the primary key. In other words, all the keys that are not selected as the primary key are considered alternate keys.
+1. An alternate key is also referred to as a secondary key because it can uniquely identify records in a table, just like the primary key.
+2. An alternate key can consist of one or more columns (fields) that can uniquely identify a record, but it is not the primary key.
+
+###### d. Foreign Key
+A foreign key is an attribute in one table that refers to the primary key in another table. The table that contains the foreign key is called the referencing table and the table that is referenced is called the referenced table.
+1. A foreign key in one table points to the primary key in another table, establishing a relationship between them.
+2. It helps connect two or more tables, enabling you to create relationships between them. This is important for maintaining data integrity and preventing data redundancy.
+3. They act as a cross-reference between the tables.
+
+###### e. Partial Key
+A partial key is chosen from a weak entity to help identify records, but it cannot uniquely identify a record by itself.
+1. Helps distinguish records in a weak entity when combined with data from a related strong entity.
+2. It cannot be NULL, as it is needed to identify records with other data.
+3. It can be a single column or a combination of columns.
+
+###### f. Primary Key
+A primary key is chosen from the set of candidate keys to uniquely identify each record in a table. For example, in the STUDENT table, both STUD_NO and STUD_PHONE can be candidate keys, but STUD_NO is selected as the primary key.
+1. It cannot be NULL, as each record must have a valid identifier.
+2. It may be single-column or composite (made of multiple columns).
+3. Databases often organize data using the primary key to allow faster access and searching.
+
+###### g. Secondary Key
+A Secondary Key is an attribute or a combination of attributes used to search or query records in a table, but it doesn’t guarantee uniqueness.
+1. It helps in retrieving data quickly, often by creating indexes.
+2. It doesn’t uniquely identify each record; multiple records can have the same value.
+3. For example, STUD_NAME in a STUDENT table can be used to find students by name, even though many students may share the same name.
+4. It’s mainly for improving search efficiency, not for maintaining data uniqueness.
+
+###### h. Unique Key
+A Unique Key is a database constraint that ensures that all values in a specific column or a combination of columns are unique across all the rows in a table. It guarantees that no two rows in the table can have the same value in the columns defined as part of the unique key.
+1. Prevents duplicate values in the specified column.
+2. It allows NULL values, but only one NULL per column.
+3. It can be applied to a single column or multiple columns.
+4. Helps maintain the integrity and accuracy of the data in the table.
+
+###### i. Composite Key
+Sometimes, a single column is not enough to uniquely identify all records in a table, so a combination of multiple attributes is used. An optimal set of such attributes is chosen to ensure that every row is uniquely identifiable.
+1. Two or more attributes are used together to make a composite key.
+2. Different combinations of attributes may give different accuracy in terms of identifying the rows uniquely.
+
+###### j. Surrogate Keys
+A surrogate key is an artificial attribute created to uniquely identify each record in a table when no suitable natural key is available.
+1. It is usually generated automatically by the system (like auto-increment numbers).
+2. It acts as a primary key when natural or composite keys are not practical or efficient.
+3. A single system-generated attribute is used to make a surrogate key.
+4. It does not have any real-world meaning and is used only for identification purposes.
+
+
+<br />
+
+<img
+  src="/IT/DBMS1.18.png"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+
+#### 4. Relationship
+
+A Relationship Type represents the association between entity types.
+For example, ‘Enrolled in’ is a relationship type that exists between entity type Student and Course.
+The relationship type is represented by a diamond and connects the entities with lines.
+
+##### Types of relationship
+
+###### a. Unary relationship
+When there is only ONE entity set participating in a relation.
+For example, one person is married to only one person.
+
+<br />
+
+<img
+  src="/IT/DBMS1.8.png"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+###### b. Binary relationship
+When there are TWO entities set participating in a relationship.
+For example, a Student is enrolled in a Course.
+
+<br />
+
+<img
+  src="/IT/DBMS1.9.png"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+###### c. Ternary relationship
+When there are three entity sets participating in a relationship.
+<br />
+
+<img
+  src="/IT/DBMS1.10.png"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+###### d. N-ary relationship
+When there are n entities set participating in a relationship, the relationship is called an n-ary relationship.
+
+<br />
+
+<img
+  src="/IT/DBMS1.11.png"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+##### Types of Cardinality
+The maximum number of times an entity of an entity set participates in a relationship set is known as cardinality.
+
+###### a. One-to-One (1:1)
+One entity is linked to only one.
+<br />
+
+<img
+  src="/IT/DBMS1.12.png"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+###### b. One-to-Many (1:M)
+One is linked to many others.
+<br />
+
+<img
+  src="/IT/DBMS1.13.png"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+###### c. Many-to-Many (M:N)
+Many linked to many.
+<br />
+
+<img
+  src="/IT/DBMS1.14.png"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+#### 4. Participation Constraint
+
+The maximum number of times an entity of an entity set participates in a relationship set is known as cardinality.
+
+##### Total Participation
+Each entity in the entity set must participate in the relationship.
+If each student must enroll in a course, the participation of students will be total.
+Total participation is shown by a double line in the ER diagram.
+
+##### Partial Participation
+The entity in the entity set may or may NOT participate in the relationship.
+If some courses are not enrolled by any of the students, the participation in the course will be partial.
+
+<br />
+
+<img
+  src="/IT/DBMS1.15.png"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+<br />
+
+<img
+  src="/IT/DBMS1.16.jpg"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+---
+
+## Steps to draw an ER Diagram
+1. Identify Entities: The very first step is to identify all the Entities. Represent these entities in a Rectangle and label them accordingly.
+2. Identify Relationships: The next step is to identify the relationship between them and represent them accordingly using the Diamond shape. Ensure that relationships are not directly connected to each other.
+3. Add Attributes: Attach attributes to the entities by using ovals. Each entity can have multiple attributes (such as name, age, etc.), which are connected to the respective entity.
+4. Define Primary Keys: Assign primary keys to each entity. These are unique identifiers that help distinguish each instance of the entity. Represent them with underlined attributes.
+5. Remove Redundancies: Review the diagram and eliminate unnecessary or repetitive entities and relationships.
+6. Review for Clarity: Review the diagram to make sure it is clear and effectively conveys the relationships between the entities.
+
+<br />
+
+<img
+  src="/IT/DBMS1.17.png"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>

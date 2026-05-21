@@ -1,0 +1,1650 @@
+---
+
+title: Analog Electronics
+
+---
+
+## Semiconductor Physics
+
+Semiconductors are materials whose conductivity lies between conductors and insulators. Their conductivity can be controlled by temperature, light, or impurities. Silicon and Germanium are the most commonly used semiconductors.
+
+### A. Intrinsic and Extrinsic Semiconductors
+
+#### 1. Intrinsic Semiconductor
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/analog/analog1.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+A pure semiconductor without any impurities is called an intrinsic semiconductor. In this, the number of electrons and holes are equal.
+
+- Pure Silicon
+- Pure Germanium
+
+##### a. Properties
+
+- Low conductivity
+- Conduction due to thermally generated charge carriers
+
+#### 2. Extrinsic Semiconductor
+
+A semiconductor whose conductivity is increased by adding impurities is called an extrinsic semiconductor. The process of adding impurities is called doping.
+
+##### a. Types
+
+**A. N-type Semiconductor**
+
+- Formed by adding pentavalent impurities like Phosphorus or Arsenic
+- Electrons are majority carriers
+- Holes are minority carriers
+
+**B. P-type Semiconductor**
+
+- Formed by adding trivalent impurities like Boron or Gallium
+- Holes are majority carriers
+- Electrons are minority carriers
+
+In semiconductors:
+
+- Energy gap is small
+- Electrons can easily move to conduction band when energy is supplied
+
+When P-type and N-type semiconductors are joined together, charge carriers start moving due to concentration difference.
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/analog/analog2.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+- Electrons move from N-side to P-side
+- Holes move from P-side to N-side
+
+This movement of charge carriers is called diffusion.
+
+As electrons and holes diffuse across the junction, they recombine near the junction region. This creates a region without free charge carriers called the depletion region. Because of this movement of charge carriers, diffusion current is produced.
+
+After the depletion region is formed, an electric field develops across the junction. Due to this electric field, charge carriers experience a force and move in opposite directions, producing drift current.
+
+##### a. Biasing of PN Junction
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/analog/analog3.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+**A. Forward Bias**
+
+- P-side connected to positive terminal
+- N-side connected to negative terminal
+- Depletion width decreases
+- Current flows easily
+
+**B. Reverse Bias**
+
+- P-side connected to negative terminal
+- N-side connected to positive terminal
+- Depletion width increases
+- Very small current flows
+
+##### b. Applications of PN Junction Diode
+
+- Rectifiers
+- Clippers and clampers
+- Voltage regulators
+- Switching circuits
+
+---
+
+## PN Junction Diode
+
+When a P-type semiconductor and an N-type semiconductor are joined together, a PN junction is formed. Due to the concentration difference, electrons from the N-side diffuse into the P-side and holes from the P-side diffuse into the N-side. These charge carriers recombine near the junction and create a region without free electrons and holes called the depletion region.
+
+Because of the depletion region, a barrier potential is developed across the junction which opposes further movement of charge carriers. Under this condition, the diode remains in equilibrium and no net current flows through the junction.
+
+### A. Zero Bias Condition
+
+When no external voltage is applied across the PN junction, the diode is said to be under zero bias condition. In this state, majority carriers diffuse across the junction due to concentration difference, while minority carriers drift in the opposite direction due to the electric field present in the depletion region.
+
+At equilibrium, diffusion current becomes equal to drift current and hence the net current through the diode becomes zero.
+
+### B. Forward Bias
+
+When the P-side is connected to the positive terminal of the battery and the N-side is connected to the negative terminal, the diode is said to be forward biased. The applied voltage opposes the barrier potential and reduces the width of the depletion region.
+
+As the depletion layer becomes thinner, charge carriers can easily cross the junction and current starts flowing through the diode. Thus, in forward bias the diode offers very low resistance and behaves like a closed switch. For conduction, the applied voltage must be greater than approximately 0.7 V for silicon and 0.3 V for germanium diodes.
+
+### C. Reverse Bias
+
+When the P-side is connected to the negative terminal and the N-side is connected to the positive terminal of the battery, the diode is said to be reverse biased. In this condition, the applied voltage increases the barrier potential and widens the depletion region.
+
+As the depletion region becomes wider, majority carriers cannot cross the junction and current flow is blocked. Only a very small leakage current due to minority carriers flows through the diode. Hence, in reverse bias the diode offers very high resistance and behaves like an open switch.
+
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/analog/analog4.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+## Types of Diode
+
+#### 1. Zener Diode
+
+A Zener diode is a specially designed PN junction diode that operates in reverse bias region. It allows current to flow in reverse direction when the applied reverse voltage reaches the breakdown voltage called Zener voltage.
+
+##### a. Working
+
+In reverse bias, the depletion region increases. When the reverse voltage becomes equal to the Zener breakdown voltage, the diode conducts heavily without getting damaged.
+
+##### b. Characteristics
+
+- Operates mainly in reverse bias
+- Maintains constant output voltage
+- Has sharp breakdown region
+- Used as voltage regulator
+
+#### 2. Tunnel Diode
+
+A tunnel diode is a heavily doped PN junction diode having very thin depletion region. Due to quantum mechanical tunneling effect, current flows even at very low voltages.
+
+##### a. Working
+
+Initially current increases with voltage. After a certain point, current decreases with increase in voltage, producing negative resistance region.
+
+##### b. Characteristics
+
+- Very fast switching device
+- Exhibits negative resistance
+- Operates at high frequencies
+- Low power device
+
+#### 3. Varactor Diode
+
+A varactor diode is a PN junction diode designed to work in reverse bias where it acts as a variable capacitor.
+
+##### a. Working
+
+When reverse voltage increases, depletion region width increases and junction capacitance decreases. Thus capacitance varies with applied voltage.
+
+##### b. Characteristics
+
+- Operates only in reverse bias
+- Acts as voltage controlled capacitor
+- Low power consumption
+- High frequency operation
+
+#### 4. LED (Light Emitting Diode)
+
+LED is a PN junction diode that emits light when operated in forward bias.
+
+##### a. Working
+
+When forward biased, electrons and holes recombine at the junction and release energy in the form of light.
+
+##### b. Characteristics
+
+- Low power consumption
+- Fast switching
+- Long life
+- Available in different colours
+
+#### 5. OLED (Organic Light Emitting Diode)
+
+OLED is a light emitting diode made using organic semiconductor materials. It produces light when electric current passes through it.
+
+##### a. Characteristics
+
+- Thin and flexible display
+- Better contrast
+- Wide viewing angle
+- Low power consumption
+
+#### 6. Photodiode
+
+A photodiode is a light sensitive semiconductor device that converts light energy into electrical current. It is generally operated in reverse bias.
+
+##### a. Working
+
+When light falls on the depletion region, electron-hole pairs are generated which produce current.
+
+##### b. Characteristics
+
+- Fast response
+- Sensitive to light
+- Operates mainly in reverse bias
+- Converts light into current
+
+---
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/analog/analog5.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+## Rectifiers
+
+Rectification is the process of converting alternating current (AC) into direct current (DC). This process is carried out using semiconductor diodes which allow current to flow only in one direction.
+
+Power diodes are specially designed PN junction diodes used in high current and high voltage applications. They are widely used in rectifiers, battery chargers, DC power supplies, voltage regulators, and inverter circuits.
+
+### A. Half Wave Rectifier (HWR)
+
+A half wave rectifier converts AC into pulsating DC by allowing only one half cycle of the AC input waveform to pass through the diode.
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/analog/analog6.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+#### 1. Working
+
+During the positive half cycle, the diode becomes forward biased and current flows through the load resistor. During the negative half cycle, the diode becomes reverse biased and blocks current flow. Hence output is obtained only during one half of the input cycle.
+
+#### 2. Characteristics
+
+A half wave rectifier uses only one diode and utilizes only half of the input AC waveform. Due to this, the output contains large ripple content and the efficiency is comparatively low.
+
+#### 3. Advantages
+
+- Simple circuit
+- Low cost
+- Easy to construct
+
+#### 4. Disadvantages
+
+- Half of input signal is wasted
+- High ripple content
+- Low DC output
+- Low efficiency
+
+### B. Full Wave Rectifier (FWR)
+
+A full wave rectifier converts both half cycles of the AC input into pulsating DC output. Hence current flows through the load during the complete input cycle.
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/analog/analog7.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+#### 1. Working
+
+During both positive and negative half cycles, diodes conduct in such a way that current through the load flows in the same direction. Therefore, both halves of the AC waveform are utilized.
+
+#### 2. Types
+
+- Centre-tapped full wave rectifier
+- Bridge rectifier
+
+#### 3. Characteristics
+
+A full wave rectifier provides higher DC output and better efficiency compared to a half wave rectifier. Since both half cycles are utilized, ripple content is lower and output waveform becomes smoother.
+
+#### 4. Advantages
+
+- Higher efficiency
+- Lower ripple content
+- Better DC output
+- Better transformer utilization
+
+### C. Bridge Rectifier
+
+A bridge rectifier is a type of full wave rectifier which uses four diodes connected in bridge configuration to convert AC into DC.
+
+#### 1. Working
+
+During the positive half cycle, two diodes conduct while the other two remain reverse biased. During the negative half cycle, the conducting pair changes, but current through the load continues in the same direction.
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/analog/analog8.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+#### 2. Characteristics
+
+A bridge rectifier does not require a centre-tapped transformer and provides full wave rectification with high efficiency. It is widely used in power supply circuits because of its compact design, better transformer utilization, and reduced ripple output.
+
+#### 3. Advantages
+
+- No centre-tapped transformer required
+- High rectification efficiency
+- Lower ripple content
+- Compact and economical design
+
+---
+
+## Clippers And Clampers
+
+### A. Clipper Circuits
+
+A clipper circuit removes or clips a portion of the input waveform without affecting the remaining part of the signal. Hence, clippers are also called voltage limiters or amplitude selectors.
+
+#### 1. Applications
+
+- Used in communication circuits and radars
+- Used for wave shaping
+- Helps in generation of square and trapezoidal waveforms
+- Used in television signal processing
+
+### B. Types of Clippers
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/analog/analog9.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+#### 1. Series Clipper
+
+In a series clipper, the diode is connected in series with the load. During the positive half cycle, the diode becomes forward biased and allows the input signal to appear across the output. During the negative half cycle, the diode becomes reverse biased and blocks current flow, making the output zero.
+
+##### a. Characteristics
+
+A series clipper clips one half of the input waveform depending on diode orientation. It is mainly used for waveform shaping applications.
+
+#### 2. Biased Series Clipper
+
+A biased series clipper uses a DC source along with the diode to clip the signal at a desired voltage level instead of zero.
+
+##### a. Working
+
+The diode changes its state depending on the applied bias voltage. During conduction, the output voltage shifts according to the battery voltage, while during reverse bias the output becomes zero.
+
+##### b. Characteristics
+
+Biased series clippers clip the signal above or below a specified voltage level and are widely used in signal limiting circuits.
+
+#### 3. Parallel Clipper
+
+In a parallel clipper, the diode is connected parallel to the load resistor. During one half cycle the diode conducts and shorts the output, while during the other half cycle it becomes reverse biased and allows the signal to appear across the output.
+
+##### a. Characteristics
+
+Parallel clippers remove unwanted portions of the waveform by shunting them to ground. They are commonly used in protection and limiter circuits.
+
+#### 4. Biased Parallel Clipper
+
+A biased parallel clipper uses a DC source to clip the waveform at a fixed reference voltage.
+
+##### a. Working
+
+The diode conducts only when the input voltage crosses the bias voltage level. Depending on the biasing condition, part of the waveform is clipped while the remaining portion appears at the output.
+
+##### b. Characteristics
+
+These clippers provide controlled clipping at specific voltage levels and are used in electronic signal conditioning circuits.
+
+### C. Clamper Circuits
+
+A clamper circuit shifts the entire waveform to a different DC level without changing its shape. It consists of a diode, capacitor, and resistor.
+
+#### 1. Working
+
+During diode conduction, the capacitor charges to a certain voltage. During the non-conducting period, the capacitor retains this charge and shifts the complete waveform upward or downward.
+
+#### 2. Characteristics
+
+Clampers do not remove any part of the waveform but only shift the voltage level. They are used in DC restoration and voltage level shifting applications.
+
+### D. Types of Clampers
+
+#### 1. Negative Clamper
+
+A negative clamper shifts the complete waveform downward below the reference axis.
+
+##### a. Working
+
+During the positive half cycle, the capacitor charges through the diode. During the negative half cycle, the stored capacitor voltage adds with the input voltage and shifts the output waveform downward.
+
+##### b. Characteristics
+
+Negative clampers maintain the same waveform shape while shifting the signal below the zero reference level.
+
+#### 2. Biased Clamper
+
+A biased clamper uses an external DC source to shift the waveform to a desired voltage level.
+
+##### a. Working
+
+The capacitor charges according to the combined effect of input voltage and bias voltage. During the non-conducting interval, the stored voltage shifts the output waveform by the required amount.
+
+##### b. Characteristics
+
+Biased clampers are used when waveform shifting to a fixed reference voltage is required in electronic circuits.
+
+---
+
+## Bipolar Junction Transistor (BJT)
+
+### A. Introduction
+
+A Bipolar Junction Transistor (BJT) is a three-layer, two pn-junction semiconductor device used for amplification and switching applications. It is called "bipolar" because both electrons and holes participate in conduction. A transistor controls a large collector current using a small base current.
+
+A BJT has three terminals:
+
+- Emitter (E)
+- Base (B)
+- Collector (C)
+
+### B. Construction of BJT
+
+A transistor is formed by placing either a P-type semiconductor between two N-type regions or an N-type semiconductor between two P-type regions.
+
+#### 1. Types of BJTs
+
+- NPN Transistor
+- PNP Transistor
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/analog/analog10.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+### C. Working Principle of BJT
+
+For proper transistor operation in active region:
+
+- Emitter-base junction is forward biased
+- Collector-base junction is reverse biased
+
+In an NPN transistor:
+
+- Electrons move from emitter to collector
+- Small base current controls large collector current
+
+Current relation:
+
+$$I_E = I_B + I_C$$
+
+Collector current relation:
+
+$$I_C = \beta I_B$$
+
+### D. Operating Regions of BJT
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/analog/analog11.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+#### 1. Cut-off Region
+
+- Both junctions reverse biased
+- Transistor OFF
+- Collector current nearly zero
+- $I_C = 0$
+- Applications: digital OFF state
+
+#### 2. Active Region
+
+- Emitter-base forward biased
+- Collector-base reverse biased
+- Used for amplification
+- $I_C = \beta I_B$
+
+#### 3. Saturation Region
+
+- Both junctions forward biased
+- Transistor fully ON
+- Maximum collector current flows
+- Applications: switching circuits
+
+### E. BJT Configurations
+
+A transistor can be connected in three configurations depending on which terminal is common to both input and output.
+
+#### 1. Common Base (CB) Configuration
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/analog/analog12.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+- Base terminal is common to both input and output
+- Input is applied between emitter and base
+- Output is taken between collector and base
+- Input junction is forward biased
+- Output junction is reverse biased
+
+##### a. Characteristics
+
+- Low input impedance
+- High output impedance
+- High voltage gain
+- Current gain less than 1
+- No phase reversal between input and output
+- Good high-frequency response
+
+##### b. Current Relations
+
+$$I_E = I_B + I_C$$
+
+Current Gain (Alpha):
+
+$$\alpha = \frac{I_C}{I_E}$$
+
+Collector current:
+
+$$I_C = \alpha I_E$$
+
+Base current:
+
+$$I_B = I_E - I_C$$
+
+Voltage Gain:
+
+$$A_v = \frac{\alpha R_L}{R_{in}}$$
+
+Power Gain:
+
+$$\text{Power Gain} = \text{Voltage Gain} \times \text{Current Gain}$$
+
+Input Resistance:
+
+$$R_{in} = \frac{V_{in}}{I_E}$$
+
+Output Resistance:
+
+$$R_{out} = \frac{V_{out}}{I_C}$$
+
+##### c. Applications
+
+- RF amplifiers
+- High-frequency communication circuits
+- Single-stage voltage amplifiers
+
+#### 2. Common Emitter (CE) Configuration
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/analog/analog13.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+- Emitter terminal is common to both input and output
+- Input is applied between base and emitter
+- Output is taken between collector and emitter
+- Most widely used transistor configuration
+
+##### a. Characteristics
+
+- Medium input impedance
+- High output impedance
+- High current gain
+- High voltage gain
+- High power gain
+- 180° phase shift between input and output
+
+##### b. Current Relations
+
+$$I_E = I_B + I_C$$
+
+Current Gain (Beta):
+
+$$\beta = \frac{I_C}{I_B}$$
+
+Collector current:
+
+$$I_C = \beta I_B$$
+
+Emitter current:
+
+$$I_E = (\beta + 1) I_B$$
+
+Voltage Gain:
+
+$$A_v = \frac{V_{out}}{V_{in}}$$
+
+Current Gain:
+
+$$A_i = \frac{I_C}{I_B} = \beta$$
+
+Power Gain:
+
+$$\text{Power Gain} = \text{Voltage Gain} \times \text{Current Gain}$$
+
+Input Resistance:
+
+$$R_{in} = \frac{V_{in}}{I_B}$$
+
+Output Resistance:
+
+$$R_{out} = \frac{V_{out}}{I_C}$$
+
+##### c. Applications
+
+- Audio amplifiers
+- Signal amplifiers
+- Switching circuits
+- Oscillator circuits
+
+#### 3. Common Collector (CC) Configuration
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/analog/analog14.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+- Collector terminal is common to both input and output
+- Input is applied between base and collector
+- Output is taken between emitter and collector
+- Also called emitter follower
+
+##### a. Characteristics
+
+- Very high input impedance
+- Very low output impedance
+- High current gain
+- Voltage gain nearly equal to 1
+- No phase shift between input and output
+
+##### b. Current Relations
+
+$$I_E = I_B + I_C$$
+
+Current Gain:
+
+$$\gamma = \frac{I_E}{I_B}$$
+
+Relation with beta:
+
+$$\gamma = \beta + 1$$
+
+Voltage Gain:
+
+$$A_v \approx 1$$
+
+Current Gain:
+
+$$A_i = \frac{I_E}{I_B}$$
+
+Input Resistance:
+
+$$R_{in} = \frac{V_{in}}{I_B}$$
+
+Output Resistance:
+
+$$R_{out} = \frac{V_{out}}{I_E}$$
+
+Power Gain:
+
+$$\text{Power Gain} = \text{Voltage Gain} \times \text{Current Gain}$$
+
+##### c. Applications
+
+- Buffer circuits
+- Impedance matching
+- Voltage follower circuits
+
+### F. BJT Configuration Differences
+
+### G. Small Signal Model of BJT
+
+In small signal analysis, the transistor is replaced by an equivalent linear circuit that represents its behavior for small variations in the input signal. This simplified representation is known as the Small Signal Model of a BJT.
+
+Instead of analyzing the complex nonlinear characteristics of the transistor directly, engineers use the small signal model to study transistor amplifier circuits using linear circuit analysis methods. The model uses resistors and controlled current sources to represent transistor operation and explain how small changes in input voltage affect the output current.
+
+#### 1. Purpose of Small Signal Model
+
+The small signal model is mainly used to simplify transistor amplifier analysis. By replacing the transistor with an equivalent circuit, it becomes easier to determine important amplifier parameters such as:
+
+- Voltage gain
+- Current gain
+- Input impedance
+- Output impedance
+
+These parameters help in understanding the behavior and performance of amplifier circuits.
+
+#### 2. Hybrid h-Parameter Model
+
+The Hybrid h-Parameter Model is a commonly used small signal model for transistor analysis. It represents the transistor as a two-port network using four parameters called h-parameters. This model simplifies transistor amplifier analysis by replacing the transistor with an equivalent linear circuit.
+
+The term "hybrid" is used because the parameters have different units such as resistance, current gain, voltage gain, and admittance.
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/analog/analog15.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+The h-parameter model is used to:
+
+- Simplify transistor amplifier analysis
+- Calculate voltage gain and current gain
+- Determine input and output impedance
+- Analyze low-frequency amplifier circuits
+
+The transistor is treated as a two-port network with input and output variables.
+
+General equations:
+
+$$V_1 = h_{11} I_1 + h_{12} V_2$$
+
+$$I_2 = h_{21} I_1 + h_{22} V_2$$
+
+Where:
+
+- $V_1$ = input voltage
+- $I_1$ = input current
+- $V_2$ = output voltage
+- $I_2$ = output current
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/analog/analog16.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+#### 3. h-Parameters
+
+| Parameter | Definition | Formula | Unit | Meaning |
+|---|---|---|---|---|
+| $h_{11}$ | Ratio of input voltage to input current when output voltage is zero | $h_{11} = V_1 / I_1$ (when $V_2 = 0$) | Ohms (Ω) | Represents input resistance |
+| $h_{12}$ | Ratio of input voltage to output voltage when input current is zero | $h_{12} = V_1 / V_2$ (when $I_1 = 0$) | No unit | Represents reverse voltage feedback |
+| $h_{21}$ | Ratio of output current to input current when output voltage is zero | $h_{21} = I_2 / I_1$ (when $V_2 = 0$) | No unit | Represents forward current gain |
+| $h_{22}$ | Ratio of output current to output voltage when input current is zero | $h_{22} = I_2 / V_2$ (when $I_1 = 0$) | Siemens (S) | Represents output admittance |
+
+#### 4. h-Parameter Model in CE Configuration
+
+The Common Emitter (CE) configuration is the most widely used h-parameter model.
+
+CE parameters are:
+
+- $h_{ie}$ → Input resistance
+- $h_{re}$ → Reverse voltage gain
+- $h_{fe}$ → Forward current gain
+- $h_{oe}$ → Output admittance
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/analog/analog17.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+#### 5. Important Performance Equations
+
+| Parameter | Formula | Meaning |
+|---|---|---|
+| Input Impedance | $Z_{in} \approx h_{ie}$ | Input resistance of amplifier |
+| Current Gain | $A_i \approx h_{fe}$ | Current amplification |
+| Voltage Gain | $A_v = -h_{fe} R_L / h_{ie}$ | Voltage amplification |
+| Output Impedance | $Z_{out} = 1 / h_{oe}$ | Output resistance |
+
+---
+
+## Amplifiers
+
+An amplifier is an electronic circuit or device used to increase the amplitude, voltage, current, or power level of an input signal without changing the basic shape of the signal. Amplifiers are widely used in communication systems, audio systems, radio transmitters, television circuits, and signal processing applications.
+
+The main purpose of an amplifier is to take a weak signal and produce a stronger version of the same signal at the output.
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/analog/analog18.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+The input signal applied to the amplifier is generally very weak. The amplifier uses energy from a DC power supply and transfers it to the input signal, thereby increasing the signal strength at the output.
+
+Amplifiers are mainly used with analogue signals, although digital amplification is also possible in certain applications.
+
+### A. Transistor as an Amplifier
+
+Transistors such as:
+
+- BJT
+- JFET
+- MOSFET
+
+can be used as amplifiers.
+
+For proper amplification, the transistor must operate in the active region. Therefore, suitable DC biasing must be provided.
+
+### B. Why Biasing is Necessary
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/analog/analog19.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+| Parameter | Cutoff Region | Active Region | Saturation Region |
+|---|---|---|---|
+| Q-Point Location | Below active region | Middle of load line | Above active region |
+| Condition | $V_{BE} < 0.7\text{ V}$ (Silicon transistor) | Base-emitter forward biased, base-collector reverse biased | Both base-emitter and base-collector junctions forward biased |
+| Transistor State | OFF state | Linear / Amplifier operation | Fully ON state |
+| Collector Current ($I_C$) | $I_C \approx 0$ | $I_C = \beta I_B$ | $I_C$ is maximum, limited by external circuit ($I_C \approx V_{CC} / R_C$) |
+| Output Behavior | No output current flows | Output is amplified and proportional to input | Maximum current flows, behaves like closed switch |
+| Application | Switch OFF state | Amplifiers | Switch ON state |
+
+### C. Gain of Amplifier
+
+Gain represents the amount of amplification provided by the amplifier. Gain is the ratio of output quantity to input quantity.
+
+#### 1. Voltage Gain
+
+Voltage gain is the ratio of output voltage to input voltage.
+
+$$A_v = \frac{V_{out}}{V_{in}}$$
+
+If $V_{out} > V_{in}$ then amplification occurs.
+
+#### 2. Current Gain
+
+Current gain is the ratio of output current to input current.
+
+$$A_i = \frac{I_{out}}{I_{in}}$$
+
+For transistor:
+
+$$A_i = \frac{I_C}{I_B} = \beta$$
+
+#### 3. Power Gain
+
+Power gain is the ratio of output power to input power.
+
+$$A_p = \frac{P_{out}}{P_{in}}$$
+
+Since $P = VI$, power gain can also be written as:
+
+$$A_p = A_v \times A_i$$
+
+Thus power gain equals product of voltage gain and current gain.
+
+### D. Input Impedance
+
+Input impedance is the opposition offered by the amplifier to the input signal.
+
+$$Z_{in} = \frac{V_{in}}{I_{in}}$$
+
+A high input impedance is desirable because:
+
+- Amplifier draws less current from source
+- Signal loss becomes smaller
+
+### E. Output Impedance
+
+Output impedance is the opposition offered by the amplifier at the output terminal.
+
+$$Z_{out} = \frac{V_{out}}{I_{out}}$$
+
+A low output impedance is desirable because:
+
+- More power is transferred to load
+- Output voltage drop becomes smaller
+
+### F. Single Stage and Multistage Amplifiers
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/analog/analog20.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+#### 1. Single Stage Amplifier (n=1)
+
+Contains only one amplifying transistor stage.
+
+#### 2. Multistage Amplifier (n>1)
+
+Contains multiple amplifier stages connected together to obtain higher gain.
+
+Overall gain of multistage amplifier:
+
+$$A_{v(\text{total})} = A_{v1} \times A_{v2} \times A_{v3}$$
+
+### G. Classification of Amplifiers
+
+Amplifiers are classified based on signal level and mode of operation.
+
+#### 1. Small Signal Amplifiers / Voltage Amplifiers
+
+These amplifiers are designed to amplify small input signals.
+
+Main objective: Increase voltage amplitude.
+
+##### a. Characteristics
+
+- Small output power
+- High voltage gain
+- Used in preamplifier stages
+
+#### 2. Large Signal Amplifiers / Power Amplifiers
+
+Power amplifiers amplify large signals and deliver high power to the load. These amplifiers convert DC power from supply into AC power at output. Power transistors are generally used because large currents are involved.
+
+#### 3. Class A Amplifier
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/analog/analog21.png"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+In Class A operation, transistor conducts for entire 360° of input cycle.
+
+Conduction angle: **360°**
+
+##### a. Working
+
+The transistor remains in active region throughout the complete cycle. Therefore entire signal gets amplified and output distortion is very low.
+
+##### b. Advantages
+
+- Excellent signal quality
+- Very low distortion
+
+##### c. Disadvantages
+
+- Very low efficiency
+- Large power loss as heat
+- Maximum efficiency: ≈ 25% to 30%
+
+#### 4. Class B Amplifier
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/analog/analog22.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+In Class B operation, each transistor conducts for only half cycle of input signal.
+
+Conduction angle: **180°**
+
+##### a. Working
+
+One transistor amplifies positive half cycle. Another complementary transistor amplifies negative half cycle. Both outputs combine to produce complete waveform.
+
+##### b. Advantages
+
+- Higher efficiency than Class A
+- Less power loss
+
+##### c. Disadvantages
+
+- Crossover distortion occurs near zero crossing
+
+##### d. Why Crossover Distortion Occurs
+
+Near zero voltage, neither transistor conducts immediately. A small dead region appears and output waveform becomes distorted.
+
+Maximum efficiency: ≈ 78.5%
+
+#### 5. Class AB Amplifier
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/analog/analog23.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+Class AB operation combines advantages of Class A and Class B.
+
+Conduction angle: **More than 180° but less than 360°**
+
+##### a. Working
+
+Both transistors conduct slightly beyond half cycle. This removes dead region responsible for crossover distortion.
+
+##### b. Advantages
+
+- Reduced distortion
+- Better efficiency than Class A
+- Better signal quality than Class B
+
+Therefore Class AB is widely used in audio amplifiers.
+
+### H. Feedback Amplifier
+
+A feedback amplifier is an electronic circuit in which a portion of the output signal is returned back to the input. This feedback helps control the amplifier's performance and improves stability, gain control, bandwidth, and distortion characteristics.
+
+In a feedback system:
+
+- Output is sampled
+- A fraction is fed back to input using feedback factor β
+- Input is modified based on feedback signal
+
+#### 1. Basic Working Relation
+
+Feedback signal:
+
+$$V_f = \beta V_o$$
+
+Input signal with feedback:
+
+Negative feedback:
+
+$$V_i = V_s - \beta V_o$$
+
+Positive feedback:
+
+$$V_i = V_s + \beta V_o$$
+
+Amplifier output:
+
+$$V_o = A \times V_i$$
+
+Substituting:
+
+Negative feedback:
+
+$$V_o = A(V_s - \beta V_o)$$
+
+$$V_o = A V_s - A \beta V_o$$
+
+$$V_o(1 + A\beta) = A V_s$$
+
+Closed-loop gain:
+
+$$A_f = \frac{V_o}{V_s} = \frac{A}{1 + A\beta}$$
+
+Positive feedback:
+
+$$V_o = A(V_s + \beta V_o)$$
+
+$$V_o = A V_s + A \beta V_o$$
+
+$$V_o(1 - A\beta) = A V_s$$
+
+Closed-loop gain:
+
+$$A_f = \frac{A}{1 - A\beta}$$
+
+#### 2. Unity Feedback
+
+Unity feedback means $\beta = 1$.
+
+Negative feedback:
+
+$$A_f = \frac{A}{1 + A}$$
+
+Positive feedback:
+
+$$A_f = \frac{A}{1 - A}$$
+
+### I. Feedback Types
+
+#### 1. Positive Feedback
+
+Feedback signal is in phase with input, so it adds to input signal.
+
+##### a. Effects
+
+- Increases gain
+- Reduces stability
+- Can lead to oscillations
+- Used in oscillators and signal regeneration
+
+Condition for oscillation (important idea):
+
+$$A\beta = 1 \quad \text{(with correct phase condition)}$$
+
+#### 2. Negative Feedback
+
+Feedback signal is opposite in phase to input, so it subtracts from input signal.
+
+##### a. Effects
+
+- Reduces gain
+- Improves stability
+- Reduces distortion and noise
+- Increases bandwidth
+- Improves linearity
+
+### J. Feedback Topologies
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/analog/analog24.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+| Topology | Signal Sampled | Feedback Applied | Input Connection | Effect |
+|---|---|---|---|---|
+| Voltage Series | Voltage | Series with input | Series | High input impedance, low output impedance |
+| Voltage Shunt | Voltage | Parallel to input | Shunt | Low input impedance, low output impedance |
+| Current Series | Current | Series with input | Series | High input impedance, high output impedance |
+| Current Shunt | Current | Parallel to input | Shunt | Low input impedance, high output impedance |
+
+### K. Effect of Negative Feedback
+
+#### 1. Gain
+
+$$A_f = \frac{A}{1 + A\beta}$$
+
+Gain decreases but becomes stable.
+
+#### 2. Bandwidth
+
+$$BW_f = BW(1 + A\beta)$$
+
+Bandwidth increases with feedback.
+
+#### 3. Distortion
+
+$$D_f = \frac{D}{1 + A\beta}$$
+
+Distortion reduces significantly.
+
+#### 4. Noise
+
+$$N_f = \frac{N}{1 + A\beta}$$
+
+Noise gets reduced.
+
+#### 5. Stability
+
+Feedback reduces sensitivity to transistor parameter changes (temperature, aging), so stability improves.
+
+---
+
+## Operational Amplifier (Op-Amp) Basics
+
+An operational amplifier (op-amp) is a high-gain electronic voltage amplifier with two inputs and one output. It is mainly used with external feedback components like resistors and capacitors to perform mathematical and signal-processing operations such as amplification, addition, subtraction, integration, and differentiation. The key idea is that the op-amp itself has very high gain but we control it using feedback so that it behaves in a stable and predictable way in real circuits.
+
+### A. Basic Structure
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/analog/analog25.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+An op-amp has three terminals:
+
+- Inverting input (−)
+- Non-inverting input (+)
+- Output
+
+The output depends on the difference between the two input voltages:
+
+$$V_{out} = A(V_+ - V_-)$$
+
+Where $A$ = open-loop gain (very large in ideal case).
+
+The op-amp does not amplify each input separately. Instead, it amplifies only the difference between the two inputs. Because the open-loop gain is extremely high, even a very small difference between the inputs can drive the output to saturation if feedback is not used.
+
+### B. Working Principle
+
+The op-amp amplifies only the difference between the two input signals.
+
+- If $V_+ = V_-$ → Output = 0 (ideal case)
+- If $V_+ > V_-$ → Positive output
+- If $V_+ < V_-$ → Negative output
+
+So, op-amp behaves as a differential amplifier.
+
+### C. Ideal Op-Amp Characteristics
+
+#### 1. Infinite Open-Loop Gain
+
+$$A \to \infty$$
+
+This means even a tiny input difference is enough to produce a full-scale output. In real life, this gain is very large but not infinite, typically around $10^5$ to $10^6$.
+
+#### 2. Infinite Input Impedance
+
+$$Z_{in} \to \infty \quad \text{(no input current flows)}$$
+
+This means the op-amp does not draw current from the signal source. This is important because it prevents loading effect and ensures the input signal is not disturbed.
+
+#### 3. Zero Output Impedance
+
+$$Z_{out} \to 0 \quad \text{(acts as ideal voltage source)}$$
+
+This means the op-amp can drive any load without losing output voltage. In real op-amps, output impedance is low but not zero.
+
+#### 4. Infinite Bandwidth
+
+An ideal op-amp would amplify DC to infinite frequency equally. In reality, gain decreases as frequency increases due to internal limitations.
+
+#### 5. Zero Offset Voltage
+
+Output is zero when inputs are equal. This means there is no unwanted output when both inputs are at the same potential. Practical op-amps show small offset due to internal mismatches.
+
+### D. Virtual Short
+
+Due to very high gain and negative feedback:
+
+$$V_+ \approx V_-$$
+
+This does NOT mean the terminals are physically connected. It only means the circuit forces both input voltages to be almost equal. This happens because any tiny difference is immediately corrected by the high gain output response.
+
+### E. Virtual Ground
+
+If one input is grounded and feedback is used, that node behaves like ground (0V) even though not physically connected. This happens because feedback forces the node to maintain nearly zero voltage. Even if current flows into that node, the voltage remains at approximately zero due to op-amp action.
+
+### F. Gain with Negative Feedback
+
+Open-loop gain is very high, so feedback controls final gain. Closed-loop gain becomes stable and predictable because it depends mainly on external resistors. This is very useful because it removes dependency on internal transistor parameters.
+
+### G. Op-Amp Frequency Behavior
+
+Gain decreases as frequency increases.
+
+Gain-Bandwidth Product (GBP):
+
+$$GBP = \text{Gain} \times \text{Bandwidth}$$
+
+This is constant for a given op-amp. At low frequency, the op-amp gives high gain, but as frequency increases, internal capacitances start limiting the response. This is why high-gain amplifier circuits have lower bandwidth.
+
+### H. Op-Amp Configurations
+
+#### 1. Inverting Amplifier
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/analog/analog26.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+Circuit: Input applied to inverting terminal through resistor $R_{in}$. Non-inverting terminal is grounded.
+
+$$A_v = \frac{V_{out}}{V_{in}} = -\frac{R_f}{R_{in}}$$
+
+Working: The input signal is converted into a current through $R_{in}$, and this current flows through feedback resistor $R_f$ to produce output voltage. The negative sign indicates 180° phase shift between input and output. This configuration is widely used because gain can be easily controlled using resistor ratio.
+
+#### 2. Non-Inverting Amplifier
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/analog/analog27.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+Input applied to non-inverting terminal.
+
+$$A_v = 1 + \frac{R_f}{R_{in}}$$
+
+Working: The input signal is directly applied to the non-inverting input, and feedback is used to control gain. The output remains in phase with the input signal, meaning no phase inversion occurs. This is used when high input impedance and signal buffering are required.
+
+#### 3. Voltage Follower (Unity Gain)
+
+Special case: $R_f = 0$, $R_{in} \to \infty$
+
+$$A_v = 1$$
+
+Working: The output is directly connected to the inverting input, forcing output to follow input exactly. It does not amplify voltage, but it provides current gain and impedance matching. This is mainly used as a buffer between two stages.
+
+### I. Summing Amplifier (Adder)
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/analog/analog28.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+Multiple inputs applied to inverting terminal.
+
+$$V_{out} = -R_f \left(\frac{V_1}{R_1} + \frac{V_2}{R_2} + \cdots\right)$$
+
+If all resistors equal:
+
+$$V_{out} = -(V_1 + V_2 + V_3 + \cdots)$$
+
+Working: Each input signal produces a proportional current, and all currents add at the summing node. The op-amp converts this summed current into a single output voltage. This is widely used in audio mixing and signal combining circuits.
+
+### J. Subtractor (Differential Amplifier)
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/analog/analog29.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+$$V_{out} = \frac{R_f}{R_1}(V_2 - V_1)$$
+
+Working: This circuit amplifies the difference between two input signals while rejecting common signals. It is especially useful in removing noise that is present in both signals. It is widely used in sensor signal conditioning.
+
+### K. Integrator
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/analog/analog30.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+$$V_{out} = -\frac{1}{RC} \int V_{in}\, dt$$
+
+Working: The capacitor in feedback path accumulates charge over time based on input signal. Because of this, the output becomes the mathematical integral of the input. It converts square waves into triangular waves and is used in analog computation and signal shaping.
+
+### L. Differentiator
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/analog/analog31.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+$$V_{out} = -RC \frac{dV_{in}}{dt}$$
+
+Working: The capacitor reacts to changes in input voltage, producing current only when the input is changing. This makes output proportional to the rate of change of input signal. It is useful for edge detection and waveform sharpening.
+
+---
+
+## Oscillators
+
+### A. Basic Principle of Oscillation
+
+An oscillator is basically an amplifier with positive feedback.
+
+Working idea:
+
+- Noise or small disturbance starts the signal
+- Positive feedback reinforces it
+- Signal keeps sustaining itself
+
+Condition: The circuit must return a portion of output back to input in correct phase and magnitude.
+
+### B. Barkhausen Criterion
+
+For sustained oscillations in a feedback system:
+
+$$|A\beta| = 1$$
+
+$$\text{Total phase shift} = 0° \text{ or } 360°$$
+
+This means the signal fed back to the input must be exactly equal in magnitude and in correct phase so that it reinforces itself continuously. If the loop gain is less than 1, oscillations die out due to loss. If it is greater than 1, oscillations grow and become distorted or unstable. This condition is essential in oscillator design where we intentionally create continuous wave generation without external input.
+
+### C. Frequency of Oscillation
+
+The frequency of oscillation is the frequency at which the circuit naturally produces output.
+
+It depends on:
+
+- Resistors (R)
+- Capacitors (C)
+- Inductors (L)
+- Feedback network design
+
+Each oscillator type has its own frequency formula based on its circuit configuration.
+
+### D. RC Phase Shift Oscillator
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/analog/analog32.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+This oscillator uses resistors and capacitors to produce a phase shift of 180°, and an inverting amplifier adds another 180°, making total phase shift 360°.
+
+Frequency:
+
+$$f = \frac{1}{2\pi RC\sqrt{6}}$$
+
+Working:
+
+- Three RC networks are used
+- Each provides 60° phase shift
+- Total RC network gives 180°
+- Amplifier provides remaining 180°
+
+Condition: Gain must be at least 29 for oscillation.
+
+Use: Low-frequency signal generation (audio range)
+
+### E. Wien Bridge Oscillator
+
+This oscillator uses a bridge network made of resistors and capacitors.
+
+Frequency:
+
+$$f = \frac{1}{2\pi RC}$$
+
+Working:
+
+- Provides zero phase shift at resonance
+- Positive feedback occurs only at one frequency
+- Produces very stable sine wave
+
+Condition: Gain must be exactly 3 for sustained oscillation.
+
+Use: Audio frequency generation and testing instruments
+
+### F. Hartley Oscillator
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/analog/analog33.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+This oscillator uses inductors and capacitors (LC tank circuit).
+
+Frequency:
+
+$$f = \frac{1}{2\pi\sqrt{L_{eq} C}}$$
+
+Where: $L_{eq} = L_1 + L_2$ (with mutual inductance if present)
+
+Working:
+
+- Feedback is taken from inductor tap
+- LC tank produces oscillations
+- Energy transfers between L and C
+
+Use: RF signal generation (radio frequency)
+
+### G. Colpitts Oscillator
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/analog/analog34.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+This is also an LC oscillator but uses capacitive voltage division.
+
+Frequency:
+
+$$f = \frac{1}{2\pi\sqrt{L\, C_{eq}}}$$
+
+Where:
+
+$$C_{eq} = \frac{C_1 \times C_2}{C_1 + C_2}$$
+
+Working:
+
+- Feedback is taken from capacitor divider
+- LC tank sets frequency
+- More stable than Hartley in many cases
+
+Use: High-frequency RF applications
+
+### H. Crystal Oscillator
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/analog/analog35.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/analog/analog36.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+This oscillator uses a quartz crystal as a frequency-determining element.
+
+Working:
+
+- Quartz exhibits piezoelectric effect
+- Vibrates at a very precise natural frequency
+- Acts like a very high Q resonant circuit
+
+Frequency: $f$ depends on crystal cut and thickness.
+
+##### a. Advantages
+
+- Extremely stable frequency
+- Very low drift
+
+Use: Microcontrollers, clocks, communication systems
+
+### I. Comparison of Oscillators
+
+| Type | Frequency Range | Components Used | Stability | Application |
+|---|---|---|---|---|
+| RC Phase Shift | Low frequency | R, C | Medium | Audio signals |
+| Wien Bridge | Low frequency | R, C | High | Audio generators |
+| Hartley | High frequency | L, C | Medium | RF transmitters |
+| Colpitts | High frequency | L, C | High | RF communication |
+| Crystal | Very stable, fixed frequency | Quartz crystal | Very high | Clocks, microcontrollers |

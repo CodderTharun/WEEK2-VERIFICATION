@@ -1,0 +1,105 @@
+---
+title: IT Department - Week 3 Answer Keys
+description: Solutions and answer keys for IT Department Week 3 problems
+---
+
+# IT Department - Week 3 Answer Keys
+
+## Data Structures and Algorithms (DSA)
+
+### Problem Set 1: Dynamic Programming
+**Q1: Fibonacci using DP**
+```
+DP[n] = DP[n-1] + DP[n-2]
+Base: DP[0]=0, DP[1]=1
+Time: O(n), Space: O(n)
+```
+
+**Q2: 0/1 Knapsack Problem**
+```
+DP[i][w] = max of:
+1. Don't include item i: DP[i-1][w]
+2. Include item i: DP[i-1][w-weight[i]] + value[i]
+```
+
+## Computer Networks (CN)
+
+### Problem Set 1: Protocol Analysis
+**Q1: TCP Flow Control**
+```
+Answer: Sliding window mechanism
+- Sender window size controlled by receiver
+- Prevents buffer overflow
+```
+
+**Q2: Congestion Control Algorithms**
+- AIMD: Additive Increase Multiplicative Decrease
+- Slow start: Exponential increase phase
+- Congestion avoidance: Linear increase
+
+## Object-Oriented Programming (OOPS)
+
+### Problem Set 1: Design Patterns
+**Q1: Singleton Pattern**
+```
+Answer: Only one instance of class
+- Private constructor
+- Static getInstance() method
+```
+
+**Q2: Observer Pattern**
+```
+Answer: Subject notifies observers of changes
+- Loose coupling
+- Event-driven architecture
+```
+
+## Operating Systems (OS)
+
+### Problem Set 1: Virtual Memory
+**Q1: Page Fault Handling**
+```
+Answer: Steps for page fault
+1. Interrupt handling
+2. Find page location on disk
+3. Load to memory
+4. Update page table
+5. Resume process
+```
+
+**Q2: TLB (Translation Lookaside Buffer)**
+```
+Answer: Cache for page table entries
+- Speeds up virtual to physical translation
+- Hit rate improves performance significantly
+```
+
+## Database Management Systems (DBMS)
+
+### Problem Set 1: Transactions and Locking
+**Q1: Deadlock Example**
+```
+Transaction 1: Lock A, Request B
+Transaction 2: Lock B, Request A
+→ Circular wait → Deadlock
+```
+
+**Q2: Isolation Levels**
+- Read Uncommitted: Dirty reads possible
+- Read Committed: No dirty reads
+- Repeatable Read: No dirty/non-repeatable reads
+- Serializable: Complete isolation
+
+---
+
+## Checkpoints
+
+| Concept | Verification |
+|---------|--------------|
+| DP Optimization | Check with small cases first |
+| TCP States | SYN, ESTABLISHED, FIN sequences |
+| OOP Design | Code should be DRY and SOLID |
+| Virtual Memory | Consider page fault rate |
+| Transactions | Verify ACID properties |
+
+**Complete:** Week 3 advanced concepts review

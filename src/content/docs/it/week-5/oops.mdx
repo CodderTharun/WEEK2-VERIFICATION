@@ -1,0 +1,77 @@
+---
+title: OOPS - Week 5
+description: Collections and Generics
+---
+
+
+
+## Collections Framework
+
+Collections store and manage multiple objects.
+
+### Key Interfaces
+
+1. **List** - Ordered collection
+   - ArrayList, LinkedList, Vector
+
+2. **Set** - Unique elements
+   - HashSet, TreeSet, LinkedHashSet
+
+3. **Map** - Key-value pairs
+   - HashMap, TreeMap, LinkedHashMap
+
+4. **Queue** - FIFO order
+   - LinkedList, PriorityQueue
+
+### List Methods
+
+- add(), remove(), get(), size()
+- Iteration: for-each, Iterator, ListIterator
+
+### Set Operations
+
+- add(), remove(), contains()
+- Unordered and no duplicates
+
+## Generics
+
+Generics provide type safety and eliminate casting.
+
+### Generic Classes
+
+```java
+class Container<T> {
+    private T value;
+    public void set(T val) { this.value = val; }
+    public T get() { return value; }
+}
+```
+
+### Generic Methods
+
+```java
+public <T> void print(T value) {
+    System.out.println(value);
+}
+```
+
+### Bounded Types
+
+```java
+class NumberBox<T extends Number> { }
+```
+
+### This Week
+
+- Collection selection criteria
+- Efficient use of collections
+- Iteration techniques
+- Generics implementation
+- Type safety benefits
+- Wildcard types
+
+### Practice
+
+- Implement collection operations
+- Create generic classes
+- Choose right collection for problem

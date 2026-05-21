@@ -1,0 +1,2974 @@
+---
+title: DSA
+description: "Arrays and Searching Algorithms"
+---
+
+import { Code, Tabs, TabItem } from '@astrojs/starlight/components';
+
+<style>{`
+pre {
+  overflow-x: scroll;
+  max-width: 100%;
+  display: block;
+  white-space: pre;
+}
+`}</style>
+
+## Data Structures
+
+###  A. Definition
+A **Data Structure** is a way of organizing, storing, and managing data in a computer so that it can be accessed and modified efficiently.
+
+
+### B. Explanation
+Data structures help programmers handle large amounts of data effectively.  
+They determine how data is stored in memory, how operations are performed on the data, and how quickly those operations can be executed.
+
+Using proper data structures improves:
+- Speed of programs
+- Memory usage
+- Data management
+- Problem-solving efficiency
+
+Different applications require different types of data structures depending on the need.
+
+### C. Types
+
+#### 1. Primitive Data Structures
+Basic data types provided by programming languages.
+
+#### Examples:
+- `int`
+- `float`
+- `char`
+- `double`
+- `bool`
+
+
+#### 2. Non-Primitive Data Structures
+Non-Primitive Data Structures are advanced data structures created using primitive data types.  
+They are used to store multiple values, organize large amounts of data, and perform complex operations efficiently.
+
+These data structures are mainly classified into two categories:
+
+
+#### Types of Non-Primitive Data Structures
+
+##### a. Linear Data Structures
+In Linear Data Structures, elements are arranged in a sequential order.  
+Each element is connected to its previous and next element.
+
+These structures are easy to implement and are commonly used for storing and processing data sequentially.
+
+###### Features
+- Data is organized linearly
+- Traversal is simple
+- Memory usage is efficient for sequential processing
+
+###### Examples
+- Array
+- Linked List
+- Stack
+- Queue
+
+
+##### b. Non-Linear Data Structures
+In Non-Linear Data Structures, elements are not arranged sequentially.  
+A single element can be connected to multiple elements, forming hierarchical or network-based relationships.
+
+These structures are mainly used when data relationships are complex.
+
+###### Features
+- Data is organized hierarchically or graphically
+- Faster searching and sorting in some cases
+- Suitable for representing complex relationships
+
+###### Examples
+- Tree
+- Graph
+
+---
+
+## Time and Space Complexity Analysis
+
+##### Purpose of Complexity Analysis
+Complexity analysis is used to:
+
+- Evaluate the efficiency of an algorithm
+- Predict its performance for large input sizes
+- Compare different algorithms for the same task
+
+The analysis is generally done with respect to input size `n`.
+
+<img src="/IT/DSA1.jpg" alt="DSA-1" width="60%" />
+
+#### Time Complexity
+
+Time Complexity is a function that describes the amount of computational time an algorithm takes to run based on the input size `n`.
+
+
+#### Big O Notation (O)
+
+- Describes the worst-case scenario
+- Represents the upper bound of an algorithm
+- Ensures that the algorithm will never exceed a certain time
+
+
+#### Omega Notation (Ω)
+
+- Describes the best-case scenario
+- Represents the lower bound of an algorithm
+- Indicates the minimum time an algorithm takes
+
+
+#### Theta Notation (Θ)
+
+- Describes the average-case scenario when applicable
+- Represents a tight bound, meaning it is both upper and lower bound
+- Applicable when the performance is predictable for all input distributions
+
+
+##### Examples of Time Complexities
+
+| Complexity | Name | Description |
+|---|---|---|
+| `O(1)` | Constant | Time is independent of input size |
+| `O(log n)` | Logarithmic | Reduces problem size logarithmically |
+| `O(n)` | Linear | Grows proportionally to input size |
+| `O(n log n)` | Linearithmic | Common in efficient sorting algorithms |
+| `O(n^2)` | Quadratic | Nested loops over data |
+| `O(2^n)` | Exponential | Recursive solutions without optimization |
+| `O(n!)` | Factorial | Brute-force permutations |
+
+<img src="/IT/DSA2.jpg" alt="DSA-2" width= "60%" />
+
+## Array
+
+#### **Definition:**  
+An array is a linear data structure that stores elements of the same data type in contiguous memory locations.
+
+---
+
+### **A. Key Characteristics of Arrays**
+
+| Characteristics | Explanation |
+| --- | --- |
+| Homogeneous Elements | All elements must be of the same data type |
+| Contiguous Memory Allocation | Elements are stored in continuous memory locations |
+| Fixed Size | Size is defined at declaration |
+| Index-Based Access | Each element is accessed using an index |
+| Random Access | Any element can be accessed instantly using index |
+| Efficient Memory Usage | No extra memory overhead |
+| Ordered Collection | Elements are stored in a fixed sequence/order |
+| Static Nature | Cannot expand or shrink dynamically |
+| Supports Multiple Dimensions | 1D, 2D, 3D arrays, etc. |
+
+---
+### **B. Declaration & Initialization of Array**
+
+<Tabs>
+
+  <TabItem label="C++">
+
+#### C++
+
+#### 1. Declaration
+
+```cpp
+int arr[5];
+```
+
+#### 2. Initialization
+
+```cpp
+arr[0] = 10;
+arr[1] = 20;
+```
+
+#### 3. Declaration + Initialization
+
+```cpp
+int arr[4] = {10, 20, 30, 40};
+```
+
+  </TabItem>
+
+  <TabItem label="Java">
+
+#### Java
+
+#### 1. Declaration
+
+```java
+int[] arr = new int[5];
+```
+
+#### 2. Initialization
+
+```java
+arr[0] = 10;
+arr[1] = 20;
+```
+
+#### 3. Declaration + Initialization
+
+```java
+int[] arr = {10, 20, 30, 40};
+```
+
+  </TabItem>
+
+  <TabItem label="Python">
+
+#### Python
+
+#### 1. Declaration
+
+```python
+arr = [0] * 5   # Array of size 5
+```
+
+#### 2. Initialization
+
+```python
+arr[0] = 10
+arr[1] = 20
+```
+
+#### 3. Declaration + Initialization
+
+```python
+arr = [10, 20, 30, 40]
+```
+
+  </TabItem>
+
+</Tabs>
+
+---
+## Basic Operations on Arrays
+
+### A. Traversal
+
+Traversing means accessing and printing all elements of an array one by one.
+
+<Tabs>
+  <TabItem label="C++">
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+
+	int arr[] = {10, 20, 30, 40};
+
+	int n = sizeof(arr) / sizeof(arr[0]);
+
+	for (int i = 0; i < n; i++) {
+		cout << arr[i] << endl;
+	}
+
+	return 0;
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Java">
+
+```java
+public class Main {
+
+	public static void main(String[] args) {
+
+		int[] arr = {10, 20, 30, 40};
+
+		for (int i = 0; i < arr.length; i++) {
+			System.out.println(arr[i]);
+		}
+	}
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Python">
+
+```python
+arr = [10, 20, 30, 40]
+
+for i in range(len(arr)):
+	print(arr[i])
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+### B. Insertion
+
+Insertion means adding a new element into an array.
+
+<Tabs>
+  <TabItem label="C++">
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+
+	int arr[10] = {10, 20, 30};
+
+	int n = 3;
+
+	// Insert at beginning
+	for (int i = n; i > 0; i--) {
+		arr[i] = arr[i - 1];
+	}
+
+	arr[0] = 5;
+	n++;
+
+	// Insert at end
+	arr[n] = 40;
+	n++;
+
+	// Insert at position
+	int pos = 2, value = 25;
+
+	for (int i = n; i > pos; i--) {
+		arr[i] = arr[i - 1];
+	}
+
+	arr[pos] = value;
+	n++;
+
+	return 0;
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Java">
+
+```java
+import java.util.*;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		int[] arr = new int[10];
+
+		arr[0] = 10;
+		arr[1] = 20;
+		arr[2] = 30;
+
+		int n = 3;
+
+		// Insert at beginning
+		for (int i = n; i > 0; i--) {
+			arr[i] = arr[i - 1];
+		}
+
+		arr[0] = 5;
+		n++;
+
+		// Insert at end
+		arr[n] = 40;
+		n++;
+
+		// Insert at position
+		int pos = 2;
+		int value = 25;
+
+		for (int i = n; i > pos; i--) {
+			arr[i] = arr[i - 1];
+		}
+
+		arr[pos] = value;
+		n++;
+	}
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Python">
+
+```python
+arr = [10, 20, 30]
+
+# Insert at beginning
+arr.insert(0, 5)
+
+# Insert at end
+arr.append(40)
+
+# Insert at specific position
+arr.insert(2, 25)
+
+print(arr)
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+### C. Deletion
+
+Removing an element from an array.
+
+<Tabs>
+  <TabItem label="C++">
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+
+	int arr[10] = {10, 20, 30, 40};
+
+	int n = 4;
+
+	// Delete at Beginning
+	for (int i = 0; i < n - 1; i++) {
+		arr[i] = arr[i + 1];
+	}
+
+	n--;
+
+	// Delete at Middle
+	int pos = 1;
+
+	for (int i = pos; i < n - 1; i++) {
+		arr[i] = arr[i + 1];
+	}
+
+	n--;
+
+	// Delete at End
+	n--;
+
+	// Print final array
+	for (int i = 0; i < n; i++) {
+		cout << arr[i] << " ";
+	}
+
+	return 0;
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Java">
+
+```java
+public class Main {
+
+	public static void main(String[] args) {
+
+		int[] arr = new int[10];
+
+		arr[0] = 10;
+		arr[1] = 20;
+		arr[2] = 30;
+		arr[3] = 40;
+
+		int n = 4;
+
+		// Delete at Beginning
+		for (int i = 0; i < n - 1; i++) {
+			arr[i] = arr[i + 1];
+		}
+
+		n--;
+
+		// Delete at Middle
+		int pos = 1;
+
+		for (int i = pos; i < n - 1; i++) {
+			arr[i] = arr[i + 1];
+		}
+
+		n--;
+
+		// Delete at End
+		n--;
+
+		// Print final array
+		for (int i = 0; i < n; i++) {
+			System.out.print(arr[i] + " ");
+		}
+	}
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Python">
+
+```python
+arr = [10, 20, 30, 40]
+
+# Delete at Beginning
+arr.pop(0)
+
+# Delete at Middle
+arr.pop(1)
+
+# Delete at End
+arr.pop()
+
+# Print final array
+for x in arr:
+	print(x, end=" ")
+```
+
+  </TabItem>
+</Tabs>
+### D. Accessing
+
+Accessing means retrieving the value of an element using its index.
+
+<Tabs>
+  <TabItem label="C++">
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+
+	int arr[] = {10, 20, 30, 40};
+
+	cout << arr[0] << endl;
+	cout << arr[2] << endl;
+
+	return 0;
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Java">
+
+```java
+public class Main {
+
+	public static void main(String[] args) {
+
+		int[] arr = {10, 20, 30, 40};
+
+		System.out.println(arr[0]);
+		System.out.println(arr[2]);
+	}
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Python">
+
+```python
+arr = [10, 20, 30, 40]
+
+print(arr[0])
+print(arr[2])
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Additional Resources
+
+<div class="resource-card">
+
+#### Array Introduction - GeeksforGeeks
+
+Learn the fundamentals of arrays including declaration, traversal, insertion, deletion, and common operations with detailed explanations and examples.
+
+<a
+	href="https://www.geeksforgeeks.org/introduction-to-arrays/"
+	target="_blank"
+>
+	Read Article →
+</a>
+
+</div>
+
+<style>
+{`
+.resource-card {
+	border: 1px solid var(--sl-color-gray-5);
+	border-left: 4px solid var(--sl-color-accent);
+
+	border-radius: 14px;
+	padding: 22px;
+	margin-top: 20px;
+
+	background: var(--sl-color-bg-sidebar);
+
+	transition:
+		transform 0.3s ease,
+		background 0.3s ease,
+		box-shadow 0.3s ease,
+		border-color 0.3s ease;
+
+	cursor: pointer;
+}
+
+.resource-card:hover {
+	background: var(--sl-color-bg-sidebar-hover);
+
+	transform: translateY(-4px);
+
+	border-color: var(--sl-color-accent);
+
+	box-shadow:
+		0 10px 24px rgba(0,0,0,0.25);
+}
+
+.resource-card h2 {
+	margin-top: 0;
+	margin-bottom: 14px;
+
+	font-size: 1.25rem;
+	font-weight: 700;
+
+	color: var(--sl-color-white);
+}
+
+.resource-card p {
+	margin: 0;
+
+	color: var(--sl-color-gray-3);
+
+	line-height: 1.8;
+	font-size: 0.96rem;
+}
+
+.resource-card a {
+	display: inline-block;
+
+	margin-top: 16px;
+
+	color: var(--sl-color-accent);
+
+	font-weight: 600;
+
+	text-decoration: none;
+
+	transition: color 0.2s ease;
+}
+
+.resource-card a:hover {
+	color: var(--sl-color-accent-high);
+
+	text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+	.resource-card {
+		padding: 18px;
+	}
+
+	.resource-card h2 {
+		font-size: 1.1rem;
+	}
+
+	.resource-card p {
+		font-size: 0.92rem;
+	}
+}
+`}
+</style>
+
+---
+
+
+## **Methods to Handle Array Problems**
+### A. Two Pointers Technique
+
+The **Two Pointers Technique** is an efficient problem-solving approach used in Data Structures and Algorithms. In this technique, two pointers (or indexes) are used simultaneously to traverse a data structure such as an array, string, or linked list.
+The main objective of this technique is to reduce the time complexity of problems that would otherwise require nested loops. Instead of repeatedly scanning elements, the two pointers move according to certain conditions, making the solution more optimized and efficient.
+
+---
+
+#### 1. Working Principle
+
+Two variables are maintained as pointers:
+
+- Left Pointer
+- Right Pointer
+
+These pointers move through the data structure based on the problem requirements until the desired result is obtained.
+
+
+#### 2. Types of Two Pointer Techniques
+
+##### a. Opposite Direction Pointers
+
+In this approach:
+
+- One pointer starts from the beginning.
+- Another pointer starts from the end.
+- Both pointers move toward each other.
+
+This method is commonly used in:
+
+- Pair sum problems
+- Reversing arrays or strings
+- Problems involving sorted arrays
+
+
+##### b. Same Direction Pointers
+
+In this approach:
+
+- Both pointers move in the same direction.
+- One pointer generally tracks useful elements.
+- The other pointer scans the data structure.
+
+This technique is commonly used in:
+
+- Removing duplicates
+- Rearranging elements
+- Partitioning arrays
+
+
+##### c. Fast and Slow Pointer
+
+In this method:
+
+- One pointer moves faster than the other.
+- The slow pointer moves one step at a time.
+- The fast pointer moves multiple steps.
+
+This approach is mainly used in:
+
+- Detecting cycles in linked lists
+- Finding the middle element
+
+
+##### d. Sliding Window Technique
+
+The Sliding Window is an advanced form of the Two Pointers Technique where two pointers maintain a dynamic range or window.
+
+It is commonly used in:
+
+- Subarray problems
+- Longest substring problems
+- Maximum or minimum sum window problems
+
+
+#### 3. Advantages of Two Pointers Technique
+
+- Reduces time complexity
+- Avoids unnecessary nested loops
+- Improves efficiency
+- Uses less extra memory
+- Suitable for large datasets
+
+---
+
+#### 4. Applications
+
+The Two Pointers Technique is widely used in:
+
+- Pair sum problems
+- Array reversal
+- Duplicate removal
+- String processing
+- Sliding window problems
+- Linked list operations
+
+---
+
+
+### B. Sliding Window Technique
+
+The **Sliding Window Technique** is an efficient problem-solving approach used in Data Structures and Algorithms to solve problems involving arrays or strings.
+
+In this technique, a group of consecutive elements is considered as a **window**, and this window moves or “slides” across the data structure to process data efficiently.
+The main objective of the Sliding Window Technique is to reduce the time complexity of problems that involve repeated calculations on subarrays or substrings.
+
+---
+
+#### 1. Working Principle
+
+A window is created using two pointers:
+
+- Start Pointer
+- End Pointer
+
+The window size may be:
+
+- Fixed
+- Dynamic
+
+The pointers move through the array or string according to the problem requirements.
+
+
+#### 2. Types of Sliding Window
+
+##### a. Fixed Size Sliding Window
+
+In this approach:
+
+- The size of the window remains constant.
+- The window slides one element at a time.
+
+This technique is commonly used in:
+
+- Maximum sum subarray of size K
+- Average of subarrays
+- Fixed-length substring problems
+
+
+##### b. Dynamic Size Sliding Window
+
+In this approach:
+
+- The window size changes dynamically.
+- The window expands or shrinks based on conditions.
+
+This technique is commonly used in:
+
+- Longest substring problems
+- Minimum window substring
+- Problems involving conditions or constraints
+
+
+#### 3. Advantages of Sliding Window Technique
+
+- Reduces time complexity
+- Avoids repeated calculations
+- Improves efficiency
+- Eliminates unnecessary nested loops
+- Suitable for large datasets
+
+
+#### 4. Applications
+
+The Sliding Window Technique is widely used in:
+
+- Subarray problems
+- Substring problems
+- Maximum or minimum sum problems
+- Longest unique substring
+- Pattern matching
+- Network and streaming data analysis
+
+---
+
+### C. Prefix Sum Technique
+
+The **Prefix Sum Technique** is an efficient method used in Data Structures and Algorithms to quickly calculate the sum of elements in an array over a given range.
+
+Instead of calculating the sum repeatedly for different ranges, the Prefix Sum Technique stores cumulative sums in advance, allowing range sum queries to be answered efficiently.
+
+---
+
+#### 1. Working Principle
+
+In the Prefix Sum Technique, a new array called the **Prefix Sum Array** is created.
+
+Each element of the prefix sum array stores the sum of all elements from the beginning of the original array up to the current index.
+
+
+ Formula
+
+```text id="kbrn44"
+Prefix[i] = Prefix[i - 1] + Array[i]
+```
+
+Using the prefix sum array, the sum of elements between two indexes can be calculated efficiently.
+
+
+#### 2. Range Sum Calculation
+
+To find the sum from index `L` to index `R`:
+
+```text id="f3dbwo"
+Sum = Prefix[R] - Prefix[L - 1]
+```
+
+If `L = 0`, then:
+
+```text id="a6n44g"
+Sum = Prefix[R]
+```
+
+
+#### 3. Types of Prefix Sum
+
+##### a. One-Dimensional Prefix Sum
+
+Used for:
+
+- Array range sum problems
+- Frequency calculations
+- Cumulative computations
+
+
+##### b. Two-Dimensional Prefix Sum
+
+Used in matrices to calculate the sum of elements within a rectangular region efficiently.
+
+Commonly used in:
+
+- Matrix sum queries
+- Image processing
+- Grid-based problems
+
+
+#### 4. Advantages of Prefix Sum Technique
+
+- Reduces repeated calculations
+- Efficient for multiple range queries
+- Improves performance
+- Simple and easy to implement
+- Reduces time complexity for query operations
+
+
+#### 5. Applications
+
+The Prefix Sum Technique is widely used in:
+
+- Range sum queries
+- Subarray sum problems
+- Frequency counting
+- Competitive programming
+- Matrix sum calculations
+- Data analysis problems
+
+
+#### 6. Time Complexity
+
+| Operation | Complexity |
+|---|---|
+| Building Prefix Sum Array | O(n) |
+| Range Sum Query | O(1) |
+
+
+#### 7. Difference Between Normal Sum and Prefix Sum
+
+| Normal Method | Prefix Sum Technique |
+|---|---|
+| Calculates sum repeatedly | Uses precomputed sums |
+| Higher time complexity | Faster range queries |
+| Inefficient for many queries | Efficient for multiple queries |
+
+---
+
+### D. Kadane’s Algorithm
+
+**Kadane’s Algorithm** is an efficient algorithm used to find the **maximum sum subarray** in an array.
+
+The algorithm works by continuously tracking the maximum sum ending at the current position and updating the overall maximum sum found so far.
+
+It is one of the most important optimization techniques in Data Structures and Algorithms.
+
+---
+
+##### Problem Statement
+
+Given an array containing positive and negative integers, find the contiguous subarray with the maximum possible sum.
+
+---
+
+#### 1. Working Principle
+
+Kadane’s Algorithm works on the idea that:
+
+- A negative cumulative sum decreases the total sum.
+- If the current sum becomes negative, it is discarded.
+- A new subarray is started from the next element.
+
+The algorithm maintains:
+
+- Current Sum
+- Maximum Sum
+
+At each step:
+
+- Add the current element to the current sum.
+- Update the maximum sum if needed.
+- Reset the current sum to `0` if it becomes negative.
+
+
+####  2. Steps of Kadane’s Algorithm
+
+##### Kadane’s Algorithm
+
+```text
+Step 1: Initialize
+    currentSum = 0
+    maxSum = -∞
+
+Step 2: Traverse the array from left to right
+
+Step 3: Add current element to currentSum
+    currentSum = currentSum + arr[i]
+
+Step 4: Update maxSum if currentSum is greater
+    if currentSum > maxSum
+        maxSum = currentSum
+
+Step 5: If currentSum becomes negative
+    currentSum = 0
+
+Step 6: Repeat until end of array
+
+Step 7: Return maxSum
+```
+
+#### 3. Advantages of Kadane’s Algorithm
+
+- Very efficient
+- Simple implementation
+- Avoids nested loops
+- Optimized for large arrays
+- Solves maximum subarray problem in linear time
+
+
+#### 4. Applications
+
+Kadane’s Algorithm is widely used in:
+
+- Maximum subarray problems
+- Financial profit analysis
+- Signal processing
+- Dynamic programming problems
+- Stock market analysis
+- Optimization problems
+
+
+#### 5. Time Complexity
+
+| Operation | Complexity |
+|---|---|
+| Array Traversal | O(n) |
+| Space Complexity | O(1) |
+
+
+#### 6. Difference Between Brute Force and Kadane’s Algorithm
+
+| Brute Force Method | Kadane’s Algorithm |
+|---|---|
+| Uses nested loops | Uses single traversal |
+| Time Complexity: O(n²) | Time Complexity: O(n) |
+| Less efficient | Highly optimized |
+
+---
+##### Important Note
+
+Kadane’s Algorithm works efficiently for arrays containing both positive and negative numbers.
+In cases where all elements are negative, a modified version is used to correctly identify the maximum element as the answer.
+
+---
+### E. Hashing (HashMap / Set)
+
+**Hashing** is a technique used to store, search, and access data efficiently using a special function called a **hash function**.
+
+It is one of the most important concepts in Data Structures and Algorithms because it allows operations such as insertion, deletion, and searching to be performed very quickly.
+
+Hashing is commonly implemented using:
+
+- HashMap
+- HashSet
+
+---
+
+#### 1. Working Principle
+
+In hashing, data is stored using a **key-value mechanism**.
+
+A hash function converts the key into a unique index or location where the data is stored.
+
+This allows direct access to elements without traversing the entire data structure.
+
+
+#### 2. HashMap
+
+A **HashMap** stores data in the form of:
+
+```text id="2dn6i9"
+Key → Value
+```
+
+Each key is unique and is mapped to a corresponding value.
+
+
+##### a. Features of HashMap
+
+- Stores key-value pairs
+- Keys are unique
+- Fast insertion and searching
+- Allows efficient lookup operations
+- Unordered collection
+
+---
+
+#### b. Applications of HashMap
+
+HashMap is commonly used in:
+
+- Frequency counting
+- Storing records
+- Lookup tables
+- Caching
+- Database indexing
+
+
+#### 5. HashSet
+
+A **HashSet** stores only unique elements.
+
+Duplicate values are not allowed.
+
+
+##### a. Features of HashSet
+
+- Stores unique elements only
+- No duplicate values
+- Fast searching and insertion
+- Unordered collection
+
+
+##### b. Applications of HashSet
+
+HashSet is commonly used in:
+
+- Removing duplicates
+- Membership checking
+- Unique data storage
+- Fast existence checking
+
+
+##### c. Collision in Hashing
+
+Sometimes different keys may generate the same hash index. This situation is called a **collision**.
+
+Collision handling techniques include:
+
+- Chaining
+- Open Addressing
+
+
+##### d. Advantages of Hashing
+
+- Fast insertion
+- Fast searching
+- Efficient deletion
+- Reduces lookup time
+- Works efficiently for large datasets
+
+
+##### c. Time Complexity
+
+| Operation | Average Complexity |
+|---|---|
+| Insertion | O(1) |
+| Searching | O(1) |
+| Deletion | O(1) |
+
+Worst-case complexity may become `O(n)` during excessive collisions.
+
+
+##### d. Difference Between HashMap and HashSet
+
+| HashMap | HashSet |
+|---|---|
+| Stores key-value pairs | Stores only values |
+| Keys must be unique | Elements must be unique |
+| Used for mapping data | Used for unique collections |
+
+
+##### e. Applications of Hashing
+
+Hashing is widely used in:
+
+- Frequency counting
+- Duplicate detection
+- Password storage
+- Database indexing
+- Compiler design
+- Caching systems
+- Searching algorithms
+
+---
+### D. Binary Search on Arrays
+
+**Binary Search** is an efficient searching algorithm used to find an element in a **sorted array**.
+
+Instead of checking each element one by one, Binary Search repeatedly divides the search space into two halves until the target element is found.
+It is one of the most important searching techniques in Data Structures and Algorithms.
+
+---
+
+#### 1. Working Principle
+
+Binary Search works on the concept of dividing the array into two parts.
+The algorithm compares the target element with the middle element of the array.
+
+- If the target is equal to the middle element:
+  - The element is found.
+
+- If the target is smaller than the middle element:
+  - Search continues in the left half.
+
+- If the target is greater than the middle element:
+  - Search continues in the right half.
+
+This process continues until the element is found or the search space becomes empty.
+
+
+#### 2. Requirement for Binary Search
+
+Binary Search works only on:
+
+- Sorted Arrays
+- Sorted Lists
+
+If the data is not sorted, Binary Search cannot be applied correctly.
+
+
+#### 3. Steps of Binary Search
+
+##### Binary Search Algorithm
+
+```text
+Step 1: Initialize
+    low = 0
+    high = n - 1
+
+Step 2: Repeat while low <= high
+
+Step 3: Find middle element
+    mid = (low + high) / 2
+
+Step 4: Compare middle element with target
+
+    if arr[mid] == target
+        return mid
+
+Step 5: If target is smaller
+    high = mid - 1
+
+Step 6: If target is greater
+    low = mid + 1
+
+Step 7: Repeat until element is found
+        or low > high
+
+Step 8: If element is not found
+    return -1
+```
+---
+
+#### 4. Advantages of Binary Search
+
+- Very fast searching technique
+- Reduces search space efficiently
+- Better than linear search for large datasets
+- Uses logarithmic time complexity
+
+
+
+#### 5. Applications of Binary Search
+
+Binary Search is widely used in:
+
+- Searching in sorted arrays
+- Database indexing
+- Competitive programming
+- Searching in large datasets
+- Optimization problems
+- Finding lower bound and upper bound
+- Searching in answer space problems
+
+
+#### 6. Time Complexity
+
+| Operation | Complexity |
+|---|---|
+| Best Case | O(1) |
+| Average Case | O(log n) |
+| Worst Case | O(log n) |
+
+
+
+#### 7. Difference Between Linear Search and Binary Search
+
+| Linear Search | Binary Search |
+|---|---|
+| Searches element one by one | Divides array into halves |
+| Works on unsorted arrays | Requires sorted arrays |
+| Time Complexity: O(n) | Time Complexity: O(log n) |
+| Slower for large datasets | Faster for large datasets |
+
+---
+
+###### Important Note
+
+The efficiency of Binary Search comes from reducing the search space by half in every step.
+For this reason, Binary Search is significantly faster than linear search for large sorted datasets.
+
+---
+
+## Leet Code Practice Problems
+---
+<div className="leetcode-grid">
+
+<a className="leetcode-card" href="https://leetcode.com/problems/two-sum/" target="_blank">
+	<h3>1. Two Sum</h3>
+</a>
+
+<a className="leetcode-card" href="https://leetcode.com/problems/container-with-most-water/" target="_blank">
+	<h3>11. Container With Most Water</h3>
+</a>
+
+<a className="leetcode-card" href="https://leetcode.com/problems/3sum/" target="_blank">
+	<h3>15. 3Sum</h3>
+</a>
+
+<a className="leetcode-card" href="https://leetcode.com/problems/longest-substring-without-repeating-characters/" target="_blank">
+	<h3>3. Longest Substring Without Repeating Characters</h3>
+</a>
+
+<a className="leetcode-card" href="https://leetcode.com/problems/minimum-size-subarray-sum/" target="_blank">
+	<h3>209. Minimum Size Subarray Sum</h3>
+</a>
+
+<a className="leetcode-card" href="https://leetcode.com/problems/minimum-window-substring/" target="_blank">
+	<h3>76. Minimum Window Substring</h3>
+</a>
+
+<a className="leetcode-card" href="https://leetcode.com/problems/subarray-sum-equals-k/" target="_blank">
+	<h3>560. Subarray Sum Equals K</h3>
+</a>
+
+<a className="leetcode-card" href="https://leetcode.com/problems/find-pivot-index/" target="_blank">
+	<h3>724. Find Pivot Index</h3>
+</a>
+
+<a className="leetcode-card" href="https://leetcode.com/problems/product-of-array-except-self/" target="_blank">
+	<h3>238. Product of Array Except Self</h3>
+</a>
+
+<a className="leetcode-card" href="https://leetcode.com/problems/maximum-subarray/" target="_blank">
+	<h3>53. Maximum Subarray</h3>
+</a>
+
+<a className="leetcode-card" href="https://leetcode.com/problems/maximum-product-subarray/" target="_blank">
+	<h3>152. Maximum Product Subarray</h3>
+</a>
+
+<a className="leetcode-card" href="https://leetcode.com/problems/contains-duplicate/" target="_blank">
+	<h3>217. Contains Duplicate</h3>
+</a>
+
+<a className="leetcode-card" href="https://leetcode.com/problems/longest-consecutive-sequence/" target="_blank">
+	<h3>128. Longest Consecutive Sequence</h3>
+</a>
+
+<a className="leetcode-card" href="https://leetcode.com/problems/majority-element/" target="_blank">
+	<h3>169. Majority Element</h3>
+</a>
+
+<a className="leetcode-card" href="https://leetcode.com/problems/binary-search/" target="_blank">
+	<h3>704. Binary Search</h3>
+</a>
+
+<a className="leetcode-card" href="https://leetcode.com/problems/search-in-rotated-sorted-array/" target="_blank">
+	<h3>33. Search in Rotated Sorted Array</h3>
+</a>
+
+<a className="leetcode-card" href="https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/" target="_blank">
+	<h3>153. Find Minimum in Rotated Sorted Array</h3>
+</a>
+
+<a className="leetcode-card" href="https://leetcode.com/problems/trapping-rain-water/" target="_blank">
+	<h3>42. Trapping Rain Water</h3>
+</a>
+
+<a className="leetcode-card" href="https://leetcode.com/problems/sliding-window-maximum/" target="_blank">
+	<h3>239. Sliding Window Maximum</h3>
+</a>
+
+<a className="leetcode-card" href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/" target="_blank">
+	<h3>121. Best Time to Buy and Sell Stock</h3>
+</a>
+
+</div>
+
+<style>
+{`
+.leetcode-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: 16px;
+	margin-top: 20px;
+}
+
+.leetcode-card {
+	display: block;
+	padding: 18px;
+	border-radius: 14px;
+
+	/* Theme Adaptive Colors */
+	background: var(--sl-color-bg);
+	border: 1px solid var(--sl-color-gray-5);
+
+	text-decoration: none;
+	transition: all 0.3s ease;
+}
+
+.leetcode-card h3 {
+	margin: 0;
+	font-size: 16px;
+	color: var(--sl-color-text-accent);
+}
+
+.leetcode-card:hover {
+	background: var(--sl-color-bg-nav);
+	transform: translateY(-5px);
+	box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+	border-color: var(--sl-color-accent);
+}
+
+.leetcode-card:hover h3 {
+	color: var(--sl-color-white);
+}
+`}
+</style>
+
+---
+## Algorithms
+### A. Binary Search
+
+**Binary Search** is an efficient searching algorithm used to find an element in a **sorted array**.
+
+Instead of checking elements one by one, Binary Search repeatedly divides the search space into two halves until the target element is found.
+
+
+#### 1. Working Principle
+
+a. Find the middle element of the array.
+b. Compare the target element with the middle element.
+c. If both are equal:
+   - Element is found.
+d. If the target is smaller:
+   - Search the left half.
+e. If the target is greater:
+   - Search the right half.
+f. Repeat the process until the element is found or the search space becomes empty.
+
+
+#### 2. Requirement
+
+Binary Search works only on:
+
+- Sorted Arrays
+- Sorted Lists
+
+
+#### 3. Advantages
+
+- Faster than linear search
+- Reduces search space efficiently
+- Works well for large datasets
+- Uses logarithmic time complexity
+
+
+#### 4. Applications
+
+Binary Search is commonly used in:
+
+- Searching in sorted arrays
+- Database indexing
+- Competitive programming
+- Search optimization problems
+- Finding lower and upper bounds
+
+
+#### 5. Time Complexity
+
+| Case | Complexity |
+|---|---|
+| Best Case | O(1) |
+| Average Case | O(log n) |
+| Worst Case | O(log n) |
+
+
+#### 6. Difference Between Linear Search and Binary Search
+
+| Linear Search | Binary Search |
+|---|---|
+| Checks elements one by one | Divides array into halves |
+| Works on unsorted arrays | Requires sorted arrays |
+| Time Complexity: O(n) | Time Complexity: O(log n) |
+
+
+#### 7. Code Implementation
+
+<Tabs>
+  <TabItem label="C++">
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+
+	int arr[] = {10, 20, 30, 40, 50};
+
+	int target = 30;
+
+	int left = 0;
+	int right = 4;
+
+	while (left <= right) {
+
+		int mid = (left + right) / 2;
+
+		if (arr[mid] == target) {
+			cout << "Element Found";
+			return 0;
+		}
+
+		else if (arr[mid] < target) {
+			left = mid + 1;
+		}
+
+		else {
+			right = mid - 1;
+		}
+	}
+
+	cout << "Element Not Found";
+
+	return 0;
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Java">
+
+```java
+public class Main {
+
+	public static void main(String[] args) {
+
+		int[] arr = {10, 20, 30, 40, 50};
+
+		int target = 30;
+
+		int left = 0;
+		int right = arr.length - 1;
+
+		while (left <= right) {
+
+			int mid = (left + right) / 2;
+
+			if (arr[mid] == target) {
+				System.out.println("Element Found");
+				return;
+			}
+
+			else if (arr[mid] < target) {
+				left = mid + 1;
+			}
+
+			else {
+				right = mid - 1;
+			}
+		}
+
+		System.out.println("Element Not Found");
+	}
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Python">
+
+```python
+arr = [10, 20, 30, 40, 50]
+
+target = 30
+
+left = 0
+right = len(arr) - 1
+
+while left <= right:
+
+	mid = (left + right) // 2
+
+	if arr[mid] == target:
+		print("Element Found")
+		break
+
+	elif arr[mid] < target:
+		left = mid + 1
+
+	else:
+		right = mid - 1
+else:
+	print("Element Not Found")
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+### B. Bubble Sort
+
+**Bubble Sort** is a simple comparison-based sorting algorithm used to arrange elements in ascending or descending order.
+
+The algorithm repeatedly compares adjacent elements and swaps them if they are in the wrong order. During each pass, the largest unsorted element "bubbles up" to its correct position at the end of the array.
+
+Bubble Sort continues making passes through the array until no more swaps are required, which means the array is completely sorted.
+
+
+
+#### 1. Working Principle
+
+Bubble Sort works by repeatedly performing the following operations:
+
+a. Compare two adjacent elements.  
+b. Swap them if they are in the wrong order.  
+c. Continue the process for all elements in the array.  
+d. After each pass, the largest element reaches its correct position.  
+e. Repeat the process for the remaining unsorted elements.  
+
+
+
+#### 2. Steps of Bubble Sort
+
+a. Start from the first element of the array.  
+b. Compare the current element with the next element.  
+c. If the current element is greater than the next element, swap them.  
+d. Move to the next pair of adjacent elements.  
+e. Continue until the end of the array is reached.  
+f. Repeat the same process for the remaining unsorted part of the array.  
+g. Continue until no swaps occur in a complete pass.  
+
+
+
+#### 3. Algorithm
+
+<Tabs>
+
+```
+1. Traverse the array from beginning to end.  
+2. Compare adjacent elements.  
+3. Swap elements if they are in the wrong order.  
+4. Repeat the process for all elements.  
+5. Stop when the array becomes sorted.  
+```
+
+</Tabs>
+
+
+
+
+#### 4. Characteristics of Bubble Sort
+
+- Comparison-based sorting algorithm
+- Stable sorting algorithm
+- In-place sorting algorithm
+- Simple and easy to understand
+- Suitable for small datasets
+- Repeatedly swaps adjacent elements
+
+
+
+#### 5. Advantages of Bubble Sort
+
+- Easy to implement
+- Simple logic
+- Requires very little extra memory
+- Stable sorting algorithm
+- Good for educational purposes
+- Useful for small datasets
+
+
+
+#### 6. Disadvantages of Bubble Sort
+
+- Slow for large datasets
+- Requires many comparisons
+- Inefficient compared to advanced sorting algorithms
+- High time complexity
+- Not suitable for large-scale applications
+
+
+
+#### 7. Time Complexity
+
+| Case | Complexity |
+|---|---|
+| Best Case | O(n) |
+| Average Case | O(n²) |
+| Worst Case | O(n²) |
+
+- Best case occurs when the array is already sorted.
+- Worst case occurs when the array is sorted in reverse order.
+
+
+
+#### 8. Space Complexity
+
+| Complexity |
+|---|
+| O(1) |
+
+Bubble Sort is an in-place sorting algorithm because it does not require extra memory for another array.
+
+#### 9. Code Implementation
+
+<Tabs>
+  <TabItem value="c" label="C++">
+
+```c++
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    int arr[] = {5, 1, 4, 2, 8};
+    int n = 5;
+    int temp;
+
+    for(int i = 0; i < n - 1; i++) {
+
+        for(int j = 0; j < n - i - 1; j++) {
+
+            if(arr[j] > arr[j + 1]) {
+
+                temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+
+    cout << "Sorted Array:\n";
+
+    for(int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+
+    return 0;
+}
+```
+
+  </TabItem>
+
+  <TabItem value="java" label="Java">
+
+```java
+class BubbleSort {
+
+    public static void main(String[] args) {
+
+        int[] arr = {5, 1, 4, 2, 8};
+        int n = arr.length;
+        int temp;
+
+        for(int i = 0; i < n - 1; i++) {
+
+            for(int j = 0; j < n - i - 1; j++) {
+
+                if(arr[j] > arr[j + 1]) {
+
+                    temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+
+        System.out.println("Sorted Array:");
+
+        for(int i = 0; i < n; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+}
+```
+
+  </TabItem>
+
+  <TabItem value="python" label="Python">
+
+```python
+arr = [5, 1, 4, 2, 8]
+n = len(arr)
+
+for i in range(n - 1):
+
+    for j in range(n - i - 1):
+
+        if arr[j] > arr[j + 1]:
+
+            arr[j], arr[j + 1] = arr[j + 1], arr[j]
+
+print("Sorted Array:")
+
+for i in arr:
+    print(i, end=" ")
+```
+
+  </TabItem>
+</Tabs>
+
+### C. Selection Sort
+
+**Selection Sort** is a simple comparison-based sorting algorithm used to sort elements in an array.
+
+The algorithm works by repeatedly selecting the smallest element from the unsorted portion of the array and placing it at its correct position in the sorted portion.
+
+After each pass, one element is placed in its correct sorted position. The process continues until the entire array becomes sorted.
+
+
+
+#### 1. Working Principle
+
+Selection Sort works in two main steps:
+
+a. **Selection**
+   - Find the smallest element in the unsorted array.
+
+b. **Swapping**
+   - Swap the selected element with the first unsorted element.
+
+
+
+#### 2. Steps of Selection Sort
+
+a. Start from the first element of the array.  
+b. Find the minimum element in the unsorted portion of the array.  
+c. Swap the minimum element with the current element.  
+d. Move to the next position in the array.  
+e. Repeat the process for the remaining unsorted elements.  
+f. Continue until the array becomes completely sorted.  
+
+
+
+#### 3. Algorithm
+
+<Tabs>
+  <TabItem value="steps" label="Steps of Selection Sort">
+```Steps
+1. Traverse the array from beginning to end.  
+2. Find the minimum element in the unsorted part.  
+3. Swap the minimum element with the current position.  
+4. Repeat the process for all elements.  
+5. Stop when the array becomes sorted.  
+```
+  </TabItem>
+</Tabs>
+
+
+
+#### 4. Characteristics of Selection Sort
+
+- Comparison-based sorting algorithm
+- In-place sorting algorithm
+- Simple and easy to understand
+- Performs fewer swaps
+- Suitable for small datasets
+
+
+
+#### 5. Advantages of Selection Sort
+
+- Easy to implement
+- Requires less memory
+- Performs fewer swaps compared to Bubble Sort
+- Useful for small datasets
+- Simple logic
+
+
+
+#### 6. Disadvantages of Selection Sort
+
+- Slow for large datasets
+- Inefficient for large inputs
+- High time complexity
+- Not suitable for real-time applications
+- Not a stable sorting algorithm
+
+
+
+#### 7. Time Complexity
+
+| Case | Complexity |
+|---|---|
+| Best Case | O(n²) |
+| Average Case | O(n²) |
+| Worst Case | O(n²) |
+
+Selection Sort performs the same number of comparisons in all cases.
+
+
+
+#### 8. Space Complexity
+
+| Complexity |
+|---|
+| O(1) |
+
+Selection Sort is an in-place sorting algorithm because it does not require extra memory.
+
+
+
+#### 9. Code Implementation
+
+<Tabs>
+  <TabItem value="cpp" label="C++">
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    int arr[] = {64, 25, 12, 22, 11};
+    int n = 5;
+
+    for(int i = 0; i < n - 1; i++) {
+
+        int minIndex = i;
+
+        for(int j = i + 1; j < n; j++) {
+
+            if(arr[j] < arr[minIndex]) {
+                minIndex = j;
+            }
+        }
+
+        int temp = arr[i];
+        arr[i] = arr[minIndex];
+        arr[minIndex] = temp;
+    }
+
+    cout << "Sorted Array:\n";
+
+    for(int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+
+    return 0;
+}
+```
+
+  </TabItem>
+
+  <TabItem value="java" label="Java">
+
+```java
+class SelectionSort {
+
+    public static void main(String[] args) {
+
+        int[] arr = {64, 25, 12, 22, 11};
+        int n = arr.length;
+
+        for(int i = 0; i < n - 1; i++) {
+
+            int minIndex = i;
+
+            for(int j = i + 1; j < n; j++) {
+
+                if(arr[j] < arr[minIndex]) {
+                    minIndex = j;
+                }
+            }
+
+            int temp = arr[i];
+            arr[i] = arr[minIndex];
+            arr[minIndex] = temp;
+        }
+
+        System.out.println("Sorted Array:");
+
+        for(int i = 0; i < n; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+}
+```
+
+  </TabItem>
+
+  <TabItem value="python" label="Python">
+
+```python
+arr = [64, 25, 12, 22, 11]
+n = len(arr)
+
+for i in range(n - 1):
+
+    minIndex = i
+
+    for j in range(i + 1, n):
+
+        if arr[j] < arr[minIndex]:
+            minIndex = j
+
+    arr[i], arr[minIndex] = arr[minIndex], arr[i]
+
+print("Sorted Array:")
+
+for i in arr:
+    print(i, end=" ")
+```
+
+  </TabItem>
+</Tabs>
+
+### E. Insertion Sort
+
+**Insertion Sort** is a simple comparison-based sorting algorithm used to sort elements in an array.
+The algorithm works by taking one element at a time and inserting it into its correct position within the already sorted part of the array.
+
+It is similar to arranging playing cards in hand, where each new card is inserted into the correct position. The process continues until the entire array becomes sorted.
+
+
+
+#### 1. Working Principle
+
+Insertion Sort works in two main steps:
+
+a. **Selection**
+   - Pick one element from the unsorted portion.
+
+b. **Insertion**
+   - Insert the selected element into its correct position in the sorted portion.
+
+
+
+#### 2. Steps of Insertion Sort
+
+a. Start from the second element of the array.  
+b. Compare the current element with previous elements.  
+c. Shift larger elements one position to the right.  
+d. Insert the current element into its correct position.  
+e. Repeat the process for all remaining elements.  
+f. Continue until the array becomes completely sorted.  
+
+
+
+#### 3. Algorithm
+
+<Tabs>
+  <TabItem value="steps" label="Steps of Insertion Sort">
+```
+1. Start from the second element of the array.  
+2. Compare the current element with previous elements.  
+3. Shift larger elements to the right side.  
+4. Insert the element into its correct position.  
+5. Repeat the process for all elements.  
+6. Stop when the array becomes sorted.  
+```
+  </TabItem>
+</Tabs>
+
+
+
+#### 4. Characteristics of Insertion Sort
+
+- Comparison-based sorting algorithm
+- Stable sorting algorithm
+- In-place sorting algorithm
+- Efficient for small datasets
+- Works well for nearly sorted arrays
+
+
+
+#### 5. Advantages of Insertion Sort
+
+- Easy to implement
+- Efficient for small datasets
+- Stable sorting algorithm
+- Requires less memory
+- Performs well for nearly sorted data
+
+
+
+#### 6. Disadvantages of Insertion Sort
+
+- Slow for large datasets
+- High time complexity for large inputs
+- Inefficient compared to advanced sorting algorithms
+- Requires many shifts in worst case
+
+
+
+#### 7. Time Complexity
+
+| Case | Complexity |
+|---|---|
+| Best Case | O(n) |
+| Average Case | O(n²) |
+| Worst Case | O(n²) |
+
+- Best case occurs when the array is already sorted.
+- Worst case occurs when the array is sorted in reverse order.
+
+
+
+#### 8. Space Complexity
+
+| Complexity |
+|---|
+| O(1) |
+
+Insertion Sort is an in-place sorting algorithm because it does not require extra memory.
+
+
+
+#### 9. Code Implementation
+
+<Tabs>
+  <TabItem value="cpp" label="C++">
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    int arr[] = {5, 2, 4, 6, 1, 3};
+    int n = 6;
+
+    for(int i = 1; i < n; i++) {
+
+        int key = arr[i];
+        int j = i - 1;
+
+        while(j >= 0 && arr[j] > key) {
+
+            arr[j + 1] = arr[j];
+            j--;
+        }
+
+        arr[j + 1] = key;
+    }
+
+    cout << "Sorted Array:\n";
+
+    for(int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+
+    return 0;
+}
+```
+
+  </TabItem>
+
+  <TabItem value="java" label="Java">
+
+```java
+class InsertionSort {
+
+    public static void main(String[] args) {
+
+        int[] arr = {5, 2, 4, 6, 1, 3};
+        int n = arr.length;
+
+        for(int i = 1; i < n; i++) {
+
+            int key = arr[i];
+            int j = i - 1;
+
+            while(j >= 0 && arr[j] > key) {
+
+                arr[j + 1] = arr[j];
+                j--;
+            }
+
+            arr[j + 1] = key;
+        }
+
+        System.out.println("Sorted Array:");
+
+        for(int i = 0; i < n; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+}
+```
+
+  </TabItem>
+
+  <TabItem value="python" label="Python">
+
+```python
+arr = [5, 2, 4, 6, 1, 3]
+n = len(arr)
+
+for i in range(1, n):
+
+    key = arr[i]
+    j = i - 1
+
+    while j >= 0 and arr[j] > key:
+
+        arr[j + 1] = arr[j]
+        j -= 1
+
+    arr[j + 1] = key
+
+print("Sorted Array:")
+
+for i in arr:
+    print(i, end=" ")
+```
+
+  </TabItem>
+</Tabs>
+
+### F. Merge Sort
+
+**Merge Sort** is a divide-and-conquer sorting algorithm used to sort elements efficiently.
+
+The algorithm divides the array into smaller subarrays, sorts them individually, and then merges them back together in sorted order.
+
+Merge Sort is known for its stable and efficient performance on large datasets.
+
+
+#### 1. Working Principle
+
+Merge Sort works in two main steps:
+
+a. **Divide**
+   - Split the array into two halves repeatedly until each subarray contains only one element.
+
+b. **Merge**
+   - Merge the smaller sorted subarrays back together to form a completely sorted array.
+
+
+#### 2. Steps of Merge Sort
+
+a. Divide the array into two equal halves.
+b. Recursively apply Merge Sort on both halves.
+c. Merge the sorted halves into a single sorted array.
+d. Repeat until the entire array becomes sorted.
+
+
+#### 3. Advantages of Merge Sort
+
+- Efficient for large datasets
+- Stable sorting algorithm
+- Consistent performance
+- Works well with linked lists
+- Uses divide-and-conquer strategy
+
+
+
+#### 4. Disadvantages of Merge Sort
+
+- Requires extra memory for merging
+- Slightly slower for small datasets compared to simpler algorithms
+
+
+
+#### 5. Applications
+
+Merge Sort is widely used in:
+
+- Large dataset sorting
+- External sorting
+- Linked list sorting
+- Parallel processing
+- Divide-and-conquer problems
+
+
+
+#### 6. Time Complexity
+
+| Case | Complexity |
+|---|---|
+| Best Case | O(n log n) |
+| Average Case | O(n log n) |
+| Worst Case | O(n log n) |
+
+
+
+#### 7. Space Complexity
+
+| Complexity |
+|---|
+| O(n) |
+
+
+
+#### 8. Difference Between Merge Sort and Bubble Sort
+
+| Merge Sort | Bubble Sort |
+|---|---|
+| Divide-and-conquer algorithm | Comparison-based simple sorting |
+| Time Complexity: O(n log n) | Time Complexity: O(n²) |
+| Faster for large datasets | Slower for large datasets |
+| Requires extra memory | In-place sorting |
+
+
+#### 9. Code Implementation
+<Tabs>
+  <TabItem label="C++">
+
+```cpp
+#include <iostream>
+using namespace std;
+
+void merge(int arr[], int left, int mid, int right) {
+
+	int n1 = mid - left + 1;
+	int n2 = right - mid;
+
+	int L[n1], R[n2];
+
+	for (int i = 0; i < n1; i++)
+		L[i] = arr[left + i];
+
+	for (int j = 0; j < n2; j++)
+		R[j] = arr[mid + 1 + j];
+
+	int i = 0, j = 0, k = left;
+
+	while (i < n1 && j < n2) {
+
+		if (L[i] <= R[j]) {
+			arr[k] = L[i];
+			i++;
+		}
+
+		else {
+			arr[k] = R[j];
+			j++;
+		}
+
+		k++;
+	}
+
+	while (i < n1) {
+		arr[k] = L[i];
+		i++;
+		k++;
+	}
+
+	while (j < n2) {
+		arr[k] = R[j];
+		j++;
+		k++;
+	}
+}
+
+void mergeSort(int arr[], int left, int right) {
+
+	if (left < right) {
+
+		int mid = (left + right) / 2;
+
+		mergeSort(arr, left, mid);
+		mergeSort(arr, mid + 1, right);
+
+		merge(arr, left, mid, right);
+	}
+}
+
+int main() {
+
+	int arr[] = {38, 27, 43, 3, 9, 82, 10};
+
+	int n = sizeof(arr) / sizeof(arr[0]);
+
+	mergeSort(arr, 0, n - 1);
+
+	for (int i = 0; i < n; i++) {
+		cout << arr[i] << " ";
+	}
+
+	return 0;
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Java">
+
+```java
+public class Main {
+
+	static void merge(int[] arr, int left, int mid, int right) {
+
+		int n1 = mid - left + 1;
+		int n2 = right - mid;
+
+		int[] L = new int[n1];
+		int[] R = new int[n2];
+
+		for (int i = 0; i < n1; i++)
+			L[i] = arr[left + i];
+
+		for (int j = 0; j < n2; j++)
+			R[j] = arr[mid + 1 + j];
+
+		int i = 0, j = 0, k = left;
+
+		while (i < n1 && j < n2) {
+
+			if (L[i] <= R[j]) {
+				arr[k] = L[i];
+				i++;
+			}
+
+			else {
+				arr[k] = R[j];
+				j++;
+			}
+
+			k++;
+		}
+
+		while (i < n1) {
+			arr[k] = L[i];
+			i++;
+			k++;
+		}
+
+		while (j < n2) {
+			arr[k] = R[j];
+			j++;
+			k++;
+		}
+	}
+
+	static void mergeSort(int[] arr, int left, int right) {
+
+		if (left < right) {
+
+			int mid = (left + right) / 2;
+
+			mergeSort(arr, left, mid);
+			mergeSort(arr, mid + 1, right);
+
+			merge(arr, left, mid, right);
+		}
+	}
+
+	public static void main(String[] args) {
+
+		int[] arr = {38, 27, 43, 3, 9, 82, 10};
+
+		mergeSort(arr, 0, arr.length - 1);
+
+		for (int num : arr) {
+			System.out.print(num + " ");
+		}
+	}
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Python">
+
+```python
+def merge_sort(arr):
+
+	if len(arr) > 1:
+
+		mid = len(arr) // 2
+
+		left = arr[:mid]
+		right = arr[mid:]
+
+		merge_sort(left)
+		merge_sort(right)
+
+		i = j = k = 0
+
+		while i < len(left) and j < len(right):
+
+			if left[i] < right[j]:
+				arr[k] = left[i]
+				i += 1
+
+			else:
+				arr[k] = right[j]
+				j += 1
+
+			k += 1
+
+		while i < len(left):
+			arr[k] = left[i]
+			i += 1
+			k += 1
+
+		while j < len(right):
+			arr[k] = right[j]
+			j += 1
+			k += 1
+
+arr = [38, 27, 43, 3, 9, 82, 10]
+
+merge_sort(arr)
+
+print(arr)
+```
+
+  </TabItem>
+</Tabs>
+
+---
+### G. Quick Sort
+
+**Quick Sort** is an efficient divide-and-conquer sorting algorithm used to sort elements in an array.
+
+The algorithm works by selecting a special element called the **pivot**, then partitioning the array so that:
+
+- Elements smaller than the pivot are placed on the left side.
+- Elements greater than the pivot are placed on the right side.
+
+The same process is recursively applied to the left and right subarrays until the entire array becomes sorted.
+
+
+#### 1. Working Principle
+
+Quick Sort works in two main steps:
+
+a. **Partition**
+   - Choose a pivot element.
+   - Rearrange elements around the pivot.
+
+b. **Recursion**
+   - Recursively apply Quick Sort on the left and right subarrays.
+
+
+#### 2.  Steps of Quick Sort
+
+a. Select a pivot element.
+b. Partition the array around the pivot. 
+c. Place smaller elements on the left side. 
+d. Place larger elements on the right side. 
+e. Recursively repeat the process for subarrays. 
+f. Continue until the array becomes completely sorted.
+
+
+#### 3. Pivot Selection
+
+The pivot can be selected in different ways:
+
+- First element
+- Last element
+- Middle element
+- Random element
+
+Choosing a good pivot improves performance.
+
+
+#### 4. Advantages of Quick Sort
+
+- Very fast in practice
+- Efficient for large datasets
+- Uses divide-and-conquer strategy
+- Requires less memory compared to Merge Sort
+- In-place sorting algorithm
+
+
+#### 5. Disadvantages of Quick Sort
+
+- Worst-case performance can be slow
+- Not a stable sorting algorithm
+- Performance depends on pivot selection
+
+
+#### 6. Applications
+
+Quick Sort is widely used in:
+
+- Large dataset sorting
+- System libraries
+- Competitive programming
+- Internal sorting
+- Real-time applications
+
+
+
+#### 7. Time Complexity
+
+| Case | Complexity |
+|---|---|
+| Best Case | O(n log n) |
+| Average Case | O(n log n) |
+| Worst Case | O(n²) |
+
+Worst case occurs when poor pivots are repeatedly selected.
+
+
+
+#### 8. Space Complexity
+
+| Complexity |
+|---|
+| O(log n) |
+
+
+
+#### 9. Difference Between Merge Sort and Quick Sort
+
+| Merge Sort | Quick Sort |
+|---|---|
+| Requires extra memory | In-place sorting |
+| Stable sorting | Not stable |
+| Consistent performance | Faster in practice |
+| Space Complexity: O(n) | Space Complexity: O(log n) |
+
+
+#### 10. Code Implementation
+<Tabs>
+  <TabItem label="C++">
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int partition(int arr[], int low, int high) {
+
+	int pivot = arr[high];
+
+	int i = low - 1;
+
+	for (int j = low; j < high; j++) {
+
+		if (arr[j] < pivot) {
+
+			i++;
+
+			swap(arr[i], arr[j]);
+		}
+	}
+
+	swap(arr[i + 1], arr[high]);
+
+	return i + 1;
+}
+
+void quickSort(int arr[], int low, int high) {
+
+	if (low < high) {
+
+		int pi = partition(arr, low, high);
+
+		quickSort(arr, low, pi - 1);
+
+		quickSort(arr, pi + 1, high);
+	}
+}
+
+int main() {
+
+	int arr[] = {10, 7, 8, 9, 1, 5};
+
+	int n = sizeof(arr) / sizeof(arr[0]);
+
+	quickSort(arr, 0, n - 1);
+
+	for (int i = 0; i < n; i++) {
+		cout << arr[i] << " ";
+	}
+
+	return 0;
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Java">
+
+```java
+public class Main {
+
+	static int partition(int[] arr, int low, int high) {
+
+		int pivot = arr[high];
+
+		int i = low - 1;
+
+		for (int j = low; j < high; j++) {
+
+			if (arr[j] < pivot) {
+
+				i++;
+
+				int temp = arr[i];
+				arr[i] = arr[j];
+				arr[j] = temp;
+			}
+		}
+
+		int temp = arr[i + 1];
+		arr[i + 1] = arr[high];
+		arr[high] = temp;
+
+		return i + 1;
+	}
+
+	static void quickSort(int[] arr, int low, int high) {
+
+		if (low < high) {
+
+			int pi = partition(arr, low, high);
+
+			quickSort(arr, low, pi - 1);
+
+			quickSort(arr, pi + 1, high);
+		}
+	}
+
+	public static void main(String[] args) {
+
+		int[] arr = {10, 7, 8, 9, 1, 5};
+
+		quickSort(arr, 0, arr.length - 1);
+
+		for (int num : arr) {
+			System.out.print(num + " ");
+		}
+	}
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Python">
+
+```python
+def partition(arr, low, high):
+
+	pivot = arr[high]
+
+	i = low - 1
+
+	for j in range(low, high):
+
+		if arr[j] < pivot:
+
+			i += 1
+
+			arr[i], arr[j] = arr[j], arr[i]
+
+	arr[i + 1], arr[high] = arr[high], arr[i + 1]
+
+	return i + 1
+
+def quick_sort(arr, low, high):
+
+	if low < high:
+
+		pi = partition(arr, low, high)
+
+		quick_sort(arr, low, pi - 1)
+
+		quick_sort(arr, pi + 1, high)
+
+arr = [10, 7, 8, 9, 1, 5]
+
+quick_sort(arr, 0, len(arr) - 1)
+
+print(arr)
+```
+
+  </TabItem>
+</Tabs>
+---
+
+### H.  Maximum Subarray
+
+The **Maximum Subarray Problem** is a common problem in Data Structures and Algorithms where the objective is to find the contiguous subarray with the largest possible sum.
+
+A contiguous subarray means the elements must appear continuously in the array.
+
+This problem is efficiently solved using **Kadane’s Algorithm**.
+
+---
+
+##### Problem Statement
+
+Given an array containing positive and negative integers, find the contiguous subarray with the maximum sum.
+
+---
+
+#### 1. Working Principle
+
+The idea is to continuously calculate the running sum of elements.
+
+- If the running sum becomes negative, it is discarded.
+- A new subarray starts from the next element.
+- The maximum sum found during traversal is stored as the answer.
+
+
+
+#### 2. Key Concept
+
+At every position:
+
+- Add the current element to the current sum.
+- Update the maximum sum if the current sum is greater.
+- Reset the current sum if it becomes negative.
+
+This helps avoid carrying unnecessary negative contributions.
+
+
+
+#### 3.  Advantages
+
+- Efficient solution
+- Uses single array traversal
+- Avoids nested loops
+- Optimized for large datasets
+
+
+
+#### 4. Applications
+
+The Maximum Subarray concept is widely used in:
+
+- Financial profit analysis
+- Stock market problems
+- Signal processing
+- Dynamic programming
+- Optimization problems
+
+
+#### 5. Time Complexity
+
+| Operation | Complexity |
+|---|---|
+| Traversal | O(n) |
+| Space Complexity | O(1) |
+
+
+
+#### 6. Difference Between Brute Force and Kadane’s Algorithm
+
+| Brute Force | Kadane’s Algorithm |
+|---|---|
+| Uses nested loops | Uses single traversal |
+| Time Complexity: O(n²) | Time Complexity: O(n) |
+| Less efficient | Highly optimized |
+
+#### 7. Code Implementation
+
+<Tabs>
+  <TabItem label="C++">
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+
+	int arr[] = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+
+	int n = sizeof(arr) / sizeof(arr[0]);
+
+	int currentSum = 0;
+	int maxSum = arr[0];
+
+	for (int i = 0; i < n; i++) {
+
+		currentSum += arr[i];
+
+		if (currentSum > maxSum) {
+			maxSum = currentSum;
+		}
+
+		if (currentSum < 0) {
+			currentSum = 0;
+		}
+	}
+
+	cout << "Maximum Subarray Sum = " << maxSum;
+
+	return 0;
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Java">
+
+```java
+public class Main {
+
+	public static void main(String[] args) {
+
+		int[] arr = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+
+		int currentSum = 0;
+		int maxSum = arr[0];
+
+		for (int i = 0; i < arr.length; i++) {
+
+			currentSum += arr[i];
+
+			if (currentSum > maxSum) {
+				maxSum = currentSum;
+			}
+
+			if (currentSum < 0) {
+				currentSum = 0;
+			}
+		}
+
+		System.out.println("Maximum Subarray Sum = " + maxSum);
+	}
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Python">
+
+```python
+arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+
+current_sum = 0
+max_sum = arr[0]
+
+for num in arr:
+
+	current_sum += num
+
+	if current_sum > max_sum:
+		max_sum = current_sum
+
+	if current_sum < 0:
+		current_sum = 0
+
+print("Maximum Subarray Sum =", max_sum)
+```
+
+  </TabItem>
+</Tabs>
+
+---

@@ -1,0 +1,4708 @@
+---
+title: DSA
+---
+
+import { Code, Tabs, TabItem } from '@astrojs/starlight/components';
+
+<style>{`
+pre {
+  overflow-x: scroll;
+  max-width: 100%;
+  display: block;
+  white-space: pre;
+}
+`}</style>
+
+## Hashing
+
+Hashing is a technique used in data structures that efficiently stores and retrieves data in a way that allows for quick access.
+
+Hashing involves mapping data to a specific index in a hash table (an array of items) using a hash function. It enables fast retrieval of information based on its key.
+
+The great thing about hashing is, we can achieve all three operations (**search, insert and delete**) in **O(1)** time on average.
+
+Hashing is mainly used to implement:
+
+- Sets of distinct items (only keys)
+- Dictionaries (key value pairs)
+
+Here's an example of hashing using the modulo method.
+
+```math
+H(x) = x \% 10
+```
+
+The hash function converts any large number into a smaller value between `0` and `9`.
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/DSA/1stimg%20dsa.webp?raw=true"
+  alt="Diagram"
+  style={{
+    width: "70%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+---
+
+### A. Applications of Hashing
+
+Hashing is a technique that converts data of any size into a fixed-size value, known as a hash, which can be used for quick data retrieval and comparison.
+
+---
+
+#### 1. Data Integrity & Security
+
+Hashing acts as a digital seal and lock, focusing on the verification and privacy of sensitive data.
+
+##### a. Password Storage
+
+Stores non-reversible "fingerprints" instead of plain text, allowing secure verification while keeping passwords hidden from attackers.
+
+##### b. File Comparison and Message Digest
+
+Generates unique signatures to verify file integrity, allowing users to instantly detect any corruption or malicious tampering.
+
+##### c. Blockchain & Consensus
+
+Links blocks via hashes to ensure permanent immutability, where any alteration breaks the chain and alerts the network.
+
+##### d. Fraud Detection & Cybersecurity
+
+Matches data patterns against known threat databases to identify and block malicious files the moment their hashes are detected.
+
+---
+
+#### 2. Database & Search Optimization
+
+This category leverages hashing to eliminate slow searches, jumping directly to the required data for high-performance computing.
+
+##### a. Database Indexing
+
+Enables near-instant record retrieval by using hashes as direct indices, bypassing slow sorting to speed up massive database queries.
+
+##### b. Distinct Elements & Counting Frequencies
+
+Tracks unique items and occurrences by using hash values as keys, providing a massive speed advantage over comparison methods.
+
+##### c. Dictionaries & Associative Arrays
+
+Facilitates immediate access to data via high-speed key mapping, ensuring lookups remain fast regardless of dataset size.
+
+##### d. Rabin-Karp Algorithm
+
+Optimizes string-searching by hashing text segments to quickly filter out non-matches and focus only on potential pattern hits.
+
+---
+
+#### 3. Network & System Infrastructure
+
+Hashing optimizes traffic movement and resource usage to ensure minimal lag and disruption across complex systems.
+
+##### a. Load Balancing
+
+Uses consistent hashing to distribute traffic evenly across servers, ensuring stability and minimal data remapping during server changes.
+
+##### b. Bloom Filters
+
+A memory-efficient structure that trades a tiny margin of error for extreme speed when testing membership in massive data sets.
+
+##### c. Network Routing
+
+Hashes destination attributes to determine optimal data paths, minimizing latency and ensuring smooth transmission across global infrastructure.
+
+##### d. Caching Mechanisms
+
+Stores frequently accessed data under hash-based keys to reduce retrieval times and decrease server load by bypassing slow lookups.
+
+---
+
+#### 4. Specialized Processing
+
+These applications apply hashing to complex pattern recognition and low-level system organization.
+
+##### a. Image Processing
+
+Employs perceptual hashing to find duplicate images by comparing structural features, identifying matches even after resizing or compression.
+
+##### b. Symbol Tables
+
+Maps code identifiers to memory locations during compilation, which is essential for accurate variable management and program execution.
+
+##### c. Graphics & Grid Storage
+
+Organizes graphical objects into spatial grids via hash functions to enable accelerated rendering and object management in 3D environments.
+
+---
+
+## Example Programs
+
+### A. Max Distance Between Two Occurrences
+
+Given an array `arr[]`, the task is to find the maximum distance between two occurrences of any element.
+
+If no element occurs twice, return `0`.
+
+---
+
+#### 1. Examples
+
+##### a. Example 1
+
+```text
+Input: arr = [1, 1, 2, 2, 2, 1]
+Output: 5
+```
+
+**Explanation**
+
+- Distance for `1` is `5 - 0 = 5`
+- Distance for `2` is `4 - 2 = 2`
+
+So maximum distance is `5`.
+
+---
+
+##### b. Example 2
+
+```text
+Input: arr = [3, 2, 1, 2, 1, 4, 5, 8, 6, 7, 4, 2]
+Output: 10
+```
+
+**Explanation**
+
+- Max distance for `2` is `11 - 1 = 10`
+- Max distance for `1` is `4 - 2 = 2`
+- Max distance for `4` is `10 - 5 = 5`
+
+---
+
+##### c. Example 3
+
+```text
+Input: arr = [1, 2, 3, 6, 5, 4]
+Output: 0
+```
+
+**Explanation**
+
+No element occurs twice, so maximum distance is `0`.
+
+---
+
+#### 2. Naive Approach — Exploring All Pairs
+
+- **Time Complexity:** `O(n²)`
+- **Space Complexity:** `O(1)`
+
+One by one, pick each element from the array and find its first and last occurrence in the array and take the difference between the first and last occurrence for maximum distance.
+
+<Tabs>
+  <TabItem label="C++">
+
+```cpp
+// C++ Program to find max distance between two occurrences
+// in array by exploring all pairs
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+// function to find the maximum distance
+int maxDistance(vector<int>& arr) {
+    int res = 0;
+
+    for (int i = 0; i < arr.size() - 1; i++) {
+        for (int j = i + 1; j < arr.size(); j++) {
+
+            // check if two elements are equal
+            if (arr[i] == arr[j]) {
+
+                // calculate the distance and update res
+                res = max(res, j - i);
+            }
+        }
+    }
+
+    return res;
+}
+
+// Driver code
+int main() {
+    vector<int> arr = {1, 2, 4, 1, 3, 4, 2, 5, 6, 5};
+
+    cout << maxDistance(arr) << endl;
+
+    return 0;
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Java">
+
+```java
+// Java Program to find max distance between two occurrences
+// in array by exploring all pairs
+
+import java.util.Arrays;
+
+class GfG {
+
+    // function to find the maximum distance
+    static int maxDistance(int[] arr) {
+
+        int res = 0;
+
+        for (int i = 0; i < arr.length - 1; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+
+                // check if two elements are equal
+                if (arr[i] == arr[j]) {
+
+                    // calculate the distance and update res
+                    res = Math.max(res, j - i);
+                }
+            }
+        }
+
+        return res;
+    }
+
+    public static void main(String[] args) {
+
+        int[] arr = {1, 2, 4, 1, 3, 4, 2, 5, 6, 5};
+
+        System.out.println(maxDistance(arr));
+    }
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Python">
+
+```python
+# Python Program to find max distance between two occurrences
+# in array by exploring all pairs
+
+def maxDistance(arr):
+
+    res = 0
+
+    for i in range(len(arr) - 1):
+        for j in range(i + 1, len(arr)):
+
+            # check if two elements are equal
+            if arr[i] == arr[j]:
+
+                # calculate the distance and update res
+                res = max(res, j - i)
+
+    return res
+
+
+if __name__ == "__main__":
+
+    arr = [1, 2, 4, 1, 3, 4, 2, 5, 6, 5]
+
+    print(maxDistance(arr))
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+**Output**
+
+```text
+5
+
+```
+
+---
+
+#### 3. Using Hash Map or Dictionary
+
+- **Time Complexity:** `O(n)`
+- **Space Complexity:** `O(n)`
+
+An efficient solution to this problem is to use hashing.
+
+The idea is to:
+
+1. Traverse the input array
+2. Store the index of the first occurrence in a hash map
+3. For every other occurrence:
+   - Find the difference between the current index and the first index
+   - Update the maximum distance if needed
+
+---
+
+<Tabs>
+  <TabItem label="C++">
+
+```cpp
+// C++ Program to find max distance between two occurrences
+// in array using hashing
+
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+using namespace std;
+
+int maxDistance(vector<int>& arr) {
+
+    // Stores element to first index mapping
+    unordered_map<int, int> mp;
+
+    int res = 0;
+
+    for (int i = 0; i < arr.size(); i++) {
+
+        // If first occurrence
+        if (mp.find(arr[i]) == mp.end())
+            mp[arr[i]] = i;
+
+        // Else update max distance
+        else
+            res = max(res, i - mp[arr[i]]);
+    }
+
+    return res;
+}
+
+int main() {
+
+    vector<int> arr = {1, 1, 2, 2, 2, 1};
+
+    cout << maxDistance(arr);
+
+    return 0;
+}
+```
+  </TabItem>
+
+  <TabItem label="Java">
+
+```java
+// Java Program to find max distance between two occurrences
+// in array using hashing
+
+import java.util.*;
+
+class GfG {
+
+    static int maxDistance(int[] arr) {
+
+        // Stores element to first index mapping
+        HashMap<Integer, Integer> mp = new HashMap<>();
+
+        int res = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+
+            // If first occurrence
+            if (!mp.containsKey(arr[i]))
+                mp.put(arr[i], i);
+
+            // Else update max distance
+            else
+                res = Math.max(res, i - mp.get(arr[i]));
+        }
+
+        return res;
+    }
+
+    public static void main(String[] args) {
+
+        int[] arr = {1, 1, 2, 2, 2, 1};
+
+        System.out.println(maxDistance(arr));
+    }
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Python">
+
+```python
+# Python Program to find max distance between two occurrences
+# in array using hashing
+
+def maxDistance(arr):
+
+    # Stores element to first index mapping
+    mp = {}
+
+    res = 0
+
+    for i in range(len(arr)):
+
+        # If first occurrence
+        if arr[i] not in mp:
+            mp[arr[i]] = i
+
+        # Else update max distance
+        else:
+            res = max(res, i - mp[arr[i]])
+
+    return res
+
+
+if __name__ == "__main__":
+
+    arr = [1, 1, 2, 2, 2, 1]
+
+    print(maxDistance(arr))
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+**Output**
+
+```text
+5
+```
+
+---
+
+#### 4. Using Hash Map or Dictionary — O(n) Time and O(n) Space
+
+An efficient solution to this problem is to use hashing.
+
+The idea is to:
+
+1. Traverse the input array
+2. Store the index of the first occurrence in a hash map
+3. For every other occurrence:
+   - Find the difference between the current index and the first index stored in the hash map
+   - If the difference is greater than the current result, update the result
+
+<Tabs>
+  <TabItem label="C++">
+
+```cpp
+// C++ Program to find max distance between two occurrences
+// in array using hashing
+
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+using namespace std;
+
+int maxDistance(vector<int>& arr) {
+
+    // Stores element to first index mapping
+    unordered_map<int, int> mp;
+
+    int res = 0;
+
+    for (int i = 0; i < arr.size(); i++) {
+
+        // If this is the first occurrence
+        // of the element, store its index
+        if (mp.find(arr[i]) == mp.end())
+            mp[arr[i]] = i;
+
+        // Else update max distance
+        else
+            res = max(res, i - mp[arr[i]]);
+    }
+
+    return res;
+}
+
+int main() {
+
+    vector<int> arr = {1, 1, 2, 2, 2, 1};
+
+    cout << maxDistance(arr);
+
+    return 0;
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Java">
+
+```java
+// Java Program to find max distance between two occurrences
+// in array using hashing
+
+import java.util.*;
+
+class GfG {
+
+    static int maxDistance(int[] arr) {
+
+        // Stores element to first index mapping
+        HashMap<Integer, Integer> mp = new HashMap<>();
+
+        int res = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+
+            // If this is the first occurrence
+            // of the element, store its index
+            if (!mp.containsKey(arr[i]))
+                mp.put(arr[i], i);
+
+            // Else update max distance
+            else
+                res = Math.max(res, i - mp.get(arr[i]));
+        }
+
+        return res;
+    }
+
+    public static void main(String[] args) {
+
+        int[] arr = {1, 1, 2, 2, 2, 1};
+
+        System.out.println(maxDistance(arr));
+    }
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Python">
+
+```python
+# Python Program to find max distance between two occurrences
+# in array using hashing
+
+def maxDistance(arr):
+
+    # Stores element to first index mapping
+    mp = {}
+
+    res = 0
+
+    for i in range(len(arr)):
+
+        # If this is the first occurrence
+        # of the element, store its index
+        if arr[i] not in mp:
+            mp[arr[i]] = i
+
+        # Else update max distance
+        else:
+            res = max(res, i - mp[arr[i]])
+
+    return res
+
+
+if __name__ == "__main__":
+
+    arr = [1, 1, 2, 2, 2, 1]
+
+    print(maxDistance(arr))
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## String
+
+Strings contain a small set of elements.
+
+Unlike normal arrays, strings typically have a smaller set of items.
+
+For example:
+
+- Lowercase English alphabet has only `26` characters
+- ASCII has only `256` characters
+
+Strings are immutable in programming languages like:
+
+- Java
+- Python
+- JavaScript
+- C#
+
+Many string problems can be optimized using the fact that the character set size is small.
+
+Examples:
+
+- Sorting can be done faster
+- Counting frequencies becomes efficient
+- Many interview questions are based on this concept
+
+---
+
+### A. Introduction to Strings
+
+Strings are sequences of characters.
+
+The differences between a character array and a string are:
+
+- A string is terminated with a special character `'\0'`
+- Strings are typically immutable in most programming languages
+
+Examples of strings:
+
+```text
+"geeks"
+"for"
+"geeks"
+"GeeksforGeeks"
+"Geeks for Geeks"
+"123Geeks"
+"@123 Geeks"
+```
+
+---
+
+### B. String Representation in Different Languages
+
+#### 1. C
+
+Strings are declared as character arrays or pointers and must end with a null character `\0` to indicate termination.
+
+---
+
+#### 2. C++
+
+Supports both:
+
+- C-style character arrays
+- `std::string` class
+
+The `std::string` class provides built-in functions for string manipulation.
+
+---
+
+#### 3. Java
+
+Strings are immutable objects of the `String` class, meaning their values cannot be modified once assigned.
+
+---
+
+#### 4. Python
+
+Strings are immutable and can be declared using:
+
+- Single quotes
+- Double quotes
+- Triple quotes
+
+This makes them flexible for multi-line text handling.
+
+---
+
+#### 5. JavaScript
+
+Strings are immutable primitive data types and can be defined using:
+
+- Single quotes
+- Double quotes
+- Template literals (backticks)
+
+Template literals allow interpolation.
+
+---
+
+#### 6. C#
+
+Uses the `string` keyword, which represents an immutable sequence of characters similar to Java.
+
+---
+
+#### 7. Important Note
+
+There is no separate character type in:
+
+- Python
+- JavaScript
+
+A single character is also considered a string.
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/DSA/img2dsa.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "70%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+---
+
+### C. Character vs String
+
+| Feature | Character | String |
+|---|---|---|
+| Definition | A single symbol, letter, digit, or special character | A collection (sequence) of characters |
+| Example | `'A'`, `'7'`, `'#'` | `"Hello"`, `"Java123"` |
+| Data Type in Java | `char` | `String` |
+| Data Type in C++ | `char` | `string` |
+| Data Type in Python | No separate char type | `str` |
+| Length | Always 1 character | Can contain multiple characters |
+| Quotes Used | Single quotes `' '` | Double quotes `" "` |
+| Memory Usage | Less | More |
+| Mutability | Primitive type in Java/C++ | Immutable in Java & Python |
+
+---
+
+### D. Examples
+
+#### 1. C++
+
+```cpp
+char ch = 'A';
+string str = "Hello";
+```
+
+---
+
+#### 2. Java
+
+```java
+char ch = 'A';
+String str = "Hello";
+```
+
+---
+
+#### 3. Python
+
+```python
+ch = 'A'
+str1 = "Hello"
+```
+
+---
+
+### E. String Initialization
+
+String initialization means creating and assigning a value to a string variable.
+
+---
+
+#### 1. Types of String Initialization
+
+##### a. Direct Initialization
+
+The string value is assigned directly.
+
+**C++**
+
+```cpp
+string str = "Hello";
+```
+
+**Java**
+
+```java
+String str = "Hello";
+```
+
+**Python**
+
+```python
+str1 = "Hello"
+```
+
+---
+
+##### b. Using Constructor
+
+A string object is created using constructors.
+
+**C++**
+
+```cpp
+string str("Hello");
+```
+
+**Java**
+
+```java
+String str = new String("Hello");
+```
+
+**Python**
+
+```python
+str1 = str("Hello")
+```
+
+---
+
+### F. Immutable vs Mutable Strings
+
+#### 1. Immutable String
+
+An immutable string cannot be changed after creation.
+
+If modification is attempted, a new object is created.
+
+**Example**
+
+```java
+String str = "Hello";
+
+str = str.concat(" World");
+
+System.out.println(str);
+```
+
+---
+
+#### 2. Why Strings are Immutable
+
+##### a. Advantages
+
+- Security
+- Thread safety
+- Memory optimization using String Pool
+- Better performance in many applications
+
+---
+
+#### 3. Mutable Strings in Java
+
+##### a. StringBuilder
+
+```java
+StringBuilder sb = new StringBuilder("Hello");
+
+sb.append(" World");
+
+System.out.println(sb);
+```
+
+**Output**
+
+```text
+Hello World
+```
+
+---
+
+#### 4. Difference Between Immutable and Mutable Strings
+
+| Feature | Immutable String | Mutable String |
+|---|---|---|
+| Modification | Cannot be changed | Can be changed |
+| Memory | New object created for changes | Same object modified |
+| Performance | Slower for repeated modifications | Faster for repeated modifications |
+| Java Examples | String | StringBuilder, StringBuffer |
+| Thread Safety | Safe | StringBuffer is safe, StringBuilder is not |
+
+---
+
+#### 5. Are Strings Mutable in Different Languages?
+
+- In C/C++, string literals assigned to pointers are immutable
+- In C++, string objects are mutable
+- In Python, Java and JavaScript, strings are immutable
+
+---
+
+### G. General Operations Performed on Strings
+
+#### 1. Length of String
+
+The length of a string refers to the total number of characters present in it, including:
+
+- Letters
+- Digits
+- Spaces
+- Special characters
+
+It is a fundamental property of strings and is often used in:
+
+- Validation
+- Manipulation
+- Comparison
+
+---
+
+#### 2. Search a Character
+
+Searching for a character in a string means finding the position where a specific character appears.
+
+If the character appears multiple times, you may need:
+
+- First occurrence
+- Last occurrence
+- All occurrences
+
+---
+
+#### 3. Check for Substring
+
+Checking for a substring means determining whether a smaller sequence of characters exists within a larger string.
+
+A substring is a continuous part of a string.
+
+This operation is common in:
+
+- Text processing
+- Search algorithms
+- Data validation
+
+---
+
+#### 4. Insert a Character
+
+Inserting a character into a string means adding a new character at a specific position while maintaining the original order.
+
+Since strings are immutable in many languages, this operation usually creates a new modified string.
+
+---
+
+#### 5. Delete a Character
+
+Deleting a character from a string means removing a specific character at a given position while keeping the remaining characters intact.
+
+This generally creates a new string.
+
+---
+
+#### 6. Check for Same Strings
+
+Checking if two strings are the same means comparing them character by character.
+
+They are considered identical if:
+
+- Length is same
+- Order is same
+- Content is same
+
+---
+
+#### 7. String Concatenation
+
+String concatenation is the process of joining two or more strings together to form a single string.
+
+Used in:
+
+- Text processing
+- Formatting messages
+- Constructing file paths
+- Dynamic content generation
+
+---
+
+#### 8. Reverse a String
+
+Reversing a string means arranging its characters in the opposite order.
+
+Commonly used in:
+
+- Text manipulation
+- Data encryption
+- Coding challenges
+
+---
+
+#### 9. Rotate a String
+
+Rotating a string means shifting its characters to the left or right by a specified number of positions.
+
+Characters moving past the boundary wrap around to the opposite side.
+
+---
+
+#### 10. Check for Palindrome
+
+Checking for a palindrome means determining whether a string reads the same forward and backward.
+
+A palindrome remains unchanged when reversed.
+
+Useful in:
+
+- Text processing
+- Algorithms
+- Number theory
+
+---
+
+### H. Important Methods
+
+| Method | Description |
+|---|---|
+| `append()` | Add text at end |
+| `insert()` | Insert at position |
+| `delete()` | Delete characters |
+| `deleteCharAt()` | Delete single character |
+| `replace()` | Replace characters |
+| `reverse()` | Reverse string |
+| `charAt()` | Get character |
+| `setCharAt()` | Modify character |
+| `length()` | Length of string |
+| `capacity()` | Current storage capacity |
+| `toString()` | Convert to normal string |
+
+#### 1. append()
+
+Adds text at the end.
+
+```java
+StringBuilder sb = new StringBuilder("Hello");
+
+sb.append(" World");
+
+System.out.println(sb);
+```
+
+**Output**
+
+```text
+Hello World
+```
+
+---
+
+#### 2. insert()
+
+Insert text at a specific index.
+
+```java
+StringBuilder sb = new StringBuilder("Helo");
+
+sb.insert(3, "l");
+
+System.out.println(sb);
+```
+
+**Output**
+
+```text
+Hello
+```
+
+---
+
+#### 3. delete()
+
+Delete characters between indices.
+
+```java
+StringBuilder sb = new StringBuilder("Hello World");
+
+sb.delete(5, 11);
+
+System.out.println(sb);
+```
+
+**Output**
+
+```text
+Hello
+```
+
+---
+
+#### 4. reverse()
+
+Reverse the string.
+
+```java
+StringBuilder sb = new StringBuilder("Hello");
+
+sb.reverse();
+
+System.out.println(sb);
+```
+
+**Output**
+
+```text
+olleH
+```
+
+---
+
+#### 5. replace()
+
+Replace characters.
+
+```java
+StringBuilder sb = new StringBuilder("Hello");
+
+sb.replace(1, 4, "abc");
+
+System.out.println(sb);
+```
+
+**Output**
+
+```text
+Habco
+```
+
+---
+
+#### 6. setCharAt()
+
+Modify a character.
+
+```java
+StringBuilder sb = new StringBuilder("Hello");
+
+sb.setCharAt(0, 'Y');
+
+System.out.println(sb);
+```
+
+**Output**
+
+```text
+Yello
+```
+
+---
+
+### I. String Traversal
+
+String traversal means visiting or accessing each character of a string one by one.
+
+It is commonly used for:
+
+- Searching characters
+- Counting vowels
+- Reversing strings
+- Checking palindrome
+- Printing characters individually
+
+---
+
+#### 1. Accessing Characters
+
+Characters in a string are accessed using index values.
+
+- Index starts from `0`
+- First character → index `0`
+- Last character → `length - 1`
+
+**Example String**
+
+```text
+HELLO
+```
+
+| Index | Character |
+|---|---|
+| 0 | H |
+| 1 | E |
+| 2 | L |
+| 3 | L |
+| 4 | O |
+
+<Tabs>
+  <TabItem label="C++">
+
+```cpp
+string str = "HELLO";
+
+cout << str[0] << endl;
+cout << str[4];
+```
+
+  </TabItem>
+
+  <TabItem label="Java">
+
+```java
+String str = "HELLO";
+
+System.out.println(str.charAt(0));
+System.out.println(str.charAt(4));
+```
+
+  </TabItem>
+
+  <TabItem label="Python">
+
+```python
+str1 = "HELLO"
+
+print(str1[0])
+print(str1[4])
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+**Output**
+
+```text
+H
+O
+```
+
+---
+
+#### 2. Looping Through String
+
+Looping means accessing every character one by one using loops.
+
+---
+
+##### a. Forward Traversal
+
+Traversing the string from:
+
+- Left → Right
+- Beginning → End
+
+<Tabs>
+  <TabItem label="C++">
+
+```cpp
+string str = "HELLO";
+
+for(int i = 0; i < str.length(); i++)
+{
+    cout << str[i] << endl;
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Java">
+
+```java
+String str = "HELLO";
+
+for(int i = 0; i < str.length(); i++)
+{
+    System.out.println(str.charAt(i));
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Python">
+
+```python
+str1 = "HELLO"
+
+for i in range(len(str1)):
+    print(str1[i])
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+**Output**
+
+```text
+H
+E
+L
+L
+O
+```
+
+---
+
+##### b. Reverse Traversal
+
+Traversing the string from:
+
+- Right → Left
+- End → Beginning
+
+<Tabs>
+  <TabItem label="C++">
+
+```cpp
+string str = "HELLO";
+
+for(int i = str.length() - 1; i >= 0; i--)
+{
+    cout << str[i] << endl;
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Java">
+
+```java
+String str = "HELLO";
+
+for(int i = str.length() - 1; i >= 0; i--)
+{
+    System.out.println(str.charAt(i));
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Python">
+
+```python
+str1 = "HELLO"
+
+for i in range(len(str1)-1, -1, -1):
+    print(str1[i])
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+**Output**
+
+```text
+O
+L
+L
+E
+H
+```
+
+---
+
+### J. String Operations
+
+String operations are the actions performed on strings to manipulate, process, compare, or analyze text data.
+
+---
+
+#### 1. Definition Table of String Operations
+
+| Operation | Definition |
+|---|---|
+| Length of a String | Finds the total number of characters in a string |
+| Check for Same | Compares two strings to check whether they are equal |
+| Search a Character | Finds the position/index of a character in a string |
+| Insert a Character | Adds a character at a specific position in the string |
+| Remove a Character | Deletes a character from the string |
+| Remove all Occurrences | Removes every occurrence of a particular character |
+| Concatenating Two Strings | Joins two or more strings together |
+| Reverse a String | Reverses the order of characters in the string |
+| Generate all Substrings | Produces all possible smaller strings from the original string |
+
+#### 2. Length of a String
+
+Returns the total number of characters in a string.
+
+<Tabs>
+  <TabItem label="C++">
+
+```cpp
+string str = "Hello";
+
+cout << str.length();
+```
+
+  </TabItem>
+
+  <TabItem label="Java">
+
+```java
+String str = "Hello";
+
+System.out.println(str.length());
+```
+
+  </TabItem>
+
+  <TabItem label="Python">
+
+```python
+str1 = "Hello"
+
+print(len(str1))
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+**Output**
+
+```text
+5
+```
+
+#### 3. Check for Same
+
+Checks whether two strings are equal.
+
+<Tabs>
+  <TabItem label="C++">
+
+```cpp
+string str1 = "Java";
+string str2 = "Java";
+
+if(str1 == str2)
+{
+    cout << "Same";
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Java">
+
+```java
+String str1 = "Java";
+String str2 = "Java";
+
+System.out.println(str1.equals(str2));
+```
+
+  </TabItem>
+
+  <TabItem label="Python">
+
+```python
+str1 = "Java"
+str2 = "Java"
+
+print(str1 == str2)
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+**Output**
+
+```text
+true
+```
+
+---
+
+#### 4. Search a Character
+
+Finds the position/index of a character.
+
+<Tabs>
+  <TabItem label="C++">
+
+```cpp
+string str = "Hello";
+
+cout << str.find('l');
+```
+
+  </TabItem>
+
+  <TabItem label="Java">
+
+```java
+String str = "Hello";
+
+System.out.println(str.indexOf('l'));
+```
+
+  </TabItem>
+
+  <TabItem label="Python">
+
+```python
+str1 = "Hello"
+
+print(str1.find('l'))
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+**Output**
+
+```text
+2
+```
+
+---
+
+#### 5. Insert a Character
+
+Adds a character at a specific position.
+
+<Tabs>
+  <TabItem label="C++">
+
+```cpp
+string str = "Helo";
+
+str.insert(3, "l");
+
+cout << str;
+```
+
+  </TabItem>
+
+  <TabItem label="Java">
+
+```java
+// Using StringBuilder
+
+StringBuilder sb = new StringBuilder("Helo");
+
+sb.insert(3, 'l');
+
+System.out.println(sb);
+```
+
+  </TabItem>
+
+  <TabItem label="Python">
+
+```python
+str1 = "Helo"
+
+str1 = str1[:3] + 'l' + str1[3:]
+
+print(str1)
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+**Output**
+
+```text
+Hello
+```
+
+---
+
+#### 6. Remove a Character
+
+Removes a character from a string.
+
+<Tabs>
+  <TabItem label="C++">
+
+```cpp
+string str = "Hello";
+
+str.erase(1,1);
+
+cout << str;
+```
+
+  </TabItem>
+
+  <TabItem label="Java">
+
+```java
+StringBuilder sb = new StringBuilder("Hello");
+
+sb.deleteCharAt(1);
+
+System.out.println(sb);
+```
+
+  </TabItem>
+
+  <TabItem label="Python">
+
+```python
+str1 = "Hello"
+
+str1 = str1[:1] + str1[2:]
+
+print(str1)
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+**Output**
+
+```text
+Hllo
+```
+
+---
+
+#### 7. Remove all Occurrences
+
+Removes all occurrences of a character.
+
+---
+<Tabs>
+  <TabItem label="C++">
+
+```cpp
+string str = "banana";
+
+str.erase(remove(str.begin(), str.end(), 'a'), str.end());
+
+cout << str;
+```
+
+  </TabItem>
+
+  <TabItem label="Java">
+
+```java
+String str = "banana";
+
+str = str.replace("a", "");
+
+System.out.println(str);
+```
+
+  </TabItem>
+
+  <TabItem label="Python">
+
+```python
+str1 = "banana"
+
+str1 = str1.replace('a', '')
+
+print(str1)
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+**Output**
+
+```text
+bnn
+```
+
+---
+
+#### 8. Concatenating Two Strings
+
+Joining two strings together.
+
+<Tabs>
+  <TabItem label="C++">
+
+```cpp
+string str1 = "Hello";
+string str2 = "World";
+
+cout << str1 + " " + str2;
+```
+
+  </TabItem>
+
+  <TabItem label="Java">
+
+```java
+String str1 = "Hello";
+String str2 = "World";
+
+System.out.println(str1 + " " + str2);
+```
+
+  </TabItem>
+
+  <TabItem label="Python">
+
+```python
+str1 = "Hello"
+str2 = "World"
+
+print(str1 + " " + str2)
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+**Output**
+
+```text
+Hello World
+```
+
+---
+
+#### 9. Reverse a String
+
+Reverses the order of characters.
+
+<Tabs>
+  <TabItem label="C++">
+
+```cpp
+string str = "Hello";
+
+reverse(str.begin(), str.end());
+
+cout << str;
+```
+
+  </TabItem>
+
+  <TabItem label="Java">
+
+```java
+String str = "Hello";
+
+String rev = "";
+
+for(int i = str.length()-1; i >= 0; i--)
+{
+    rev = rev + str.charAt(i);
+}
+
+System.out.println(rev);
+```
+
+  </TabItem>
+
+  <TabItem label="Python">
+
+```python
+str1 = "Hello"
+
+print(str1[::-1])
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+**Output**
+
+```text
+olleH
+```
+
+---
+
+#### 10. Generate all Substrings
+
+A substring is a part of a string.
+
+---
+
+**Example**
+
+```text
+String = "ABC"
+
+Substrings:
+
+A
+AB
+ABC
+B
+BC
+C
+```
+
+<Tabs>
+  <TabItem label="C++">
+
+```cpp
+string str = "ABC";
+
+for(int i = 0; i < str.length(); i++)
+{
+    for(int j = 1; j <= str.length() - i; j++)
+    {
+        cout << str.substr(i, j) << endl;
+    }
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Java">
+
+```java
+String str = "ABC";
+
+for(int i = 0; i < str.length(); i++)
+{
+    for(int j = i + 1; j <= str.length(); j++)
+    {
+        System.out.println(str.substring(i, j));
+    }
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Python">
+
+```python
+str1 = "ABC"
+
+for i in range(len(str1)):
+   for j in range(i + 1, len(str1) + 1):
+       print(str1[i:j])
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+### K. Check if given String is Pangram or not
+
+Given a string `s`, check if it is Pangram or not.
+
+A pangram is a sentence containing all letters of the English alphabet.
+
+---
+
+#### 1. Examples
+
+##### a. Example 1
+
+```text
+Input:
+s = "The quick brown fox jumps over the lazy dog"
+
+Output:
+true
+```
+
+**Explanation**
+
+The input string contains all characters from `'a'` to `'z'`.
+
+---
+
+##### b. Example 2
+
+```text
+Input:
+s = "The quick brown fox jumps over the dog"
+
+Output:
+false
+```
+
+**Explanation**
+
+The input string does not contain all characters from `'a'` to `'z'`, as `'l'`, `'z'`, `'y'` are missing.
+
+---
+
+<Tabs>
+  <TabItem label="C++">
+
+```cpp
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+bool checkPangram(string &s) {
+
+    for(char ch = 'a'; ch <= 'z'; ch++) {
+
+        bool found = false;
+
+        for(int i = 0; i < s.length(); i++) {
+
+            if(ch == tolower(s[i])) {
+
+                found = true;
+                break;
+            }
+        }
+
+        if(found == false)
+            return false;
+    }
+
+    return true;
+}
+
+int main() {
+
+    string s = "The quick brown fox jumps over the lazy dog";
+
+    if (checkPangram(s) == true)
+        cout << "true";
+    else
+        cout << "false";
+
+    return 0;
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Java">
+
+```java
+class GfG {
+
+    static boolean checkPangram(String s) {
+
+        for(char ch = 'a'; ch <= 'z'; ch++) {
+
+            boolean found = false;
+
+            for(int i = 0; i < s.length(); i++) {
+
+                if(ch == Character.toLowerCase(s.charAt(i))) {
+
+                    found = true;
+                    break;
+                }
+            }
+
+            if(found == false)
+                return false;
+        }
+
+        return true;
+    }
+
+    public static void main(String[] args) {
+
+        String s = "The quick brown fox jumps over the lazy dog";
+
+        if (checkPangram(s) == true)
+            System.out.println("true");
+        else
+            System.out.println("false");
+    }
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Python">
+
+```python
+from string import ascii_lowercase
+
+def checkPangram(s):
+
+    for ch in ascii_lowercase:
+
+        found = False
+
+        for i in range(len(s)):
+
+            if ch == (s[i].lower()):
+
+                found = True
+                break
+
+        if found == False:
+            return False
+
+    return True
+
+if __name__ == "__main__":
+
+    s = "The quick brown fox jumps over the lazy dog"
+
+    if checkPangram(s) == True:
+        print("true")
+    else:
+        print("false")
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+### L. String Matching Algorithms
+
+String Matching Algorithms are used to find whether a pattern (substring) exists inside a main string (text).
+
+They are widely used in:
+
+- Search engines
+- Text editors
+- DNA sequence matching
+- Compiler design
+- Data filtering
+
+---
+
+#### 1. Types of String Matching Algorithms
+
+| Algorithm | Idea |
+|---|---|
+| Naive String Matching | Compare characters one by one |
+| Rabin-Karp Algorithm | Uses hashing |
+| Knuth-Morris-Pratt (KMP) | Uses prefix table to avoid rechecking |
+| Boyer-Moore Algorithm | Searches from right to left |
+| Z Algorithm | Uses Z-array for pattern matching |
+
+---
+
+#### 2. Rabin-Karp Algorithm for Pattern Searching
+
+Given two strings:
+
+- `text` → the main text
+- `pattern` → the substring pattern
+
+Find all `0-based` starting indices where the pattern occurs in the text.
+
+---
+
+##### a. Examples
+
+**Example 1**
+
+```text
+Input:
+text = "geeksforgeeks"
+pattern = "geeks"
+
+Output:
+[0, 8]
+```
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/DSA/img3dsa.webp?raw=true"
+  alt="Diagram"
+  style={{
+    width: "70%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+**Explanation**
+
+The string `"geeks"` occurs at index `0` and `8`.
+
+---
+
+**Example 2**
+
+```text
+Input:
+text = "aabaacaadaabaaba"
+pattern = "aaba"
+
+Output:
+[0, 9, 12]
+```
+
+---
+
+##### b. How is Hash Value Calculated in Rabin-Karp?
+
+The hash value is calculated using a **rolling hash function**.
+
+It allows efficient hash updates by:
+
+- Removing contribution of old character
+- Adding contribution of new character
+
+This avoids recalculating the entire hash from scratch.
+
+---
+
+##### c. Hash Formula
+
+For a string `s` of length `m`:
+
+```math
+hash(s) =
+(s[0] \times d^{m-1} +
+s[1] \times d^{m-2} + \dots +
+s[m-1] \times d^0) \bmod q
+```
+
+---
+
+**Where**
+
+- `s[i]` → ASCII value of character
+- `d` → size of input alphabet (`256` for ASCII)
+- `q` → prime number modulus (`101`, `1000000007`, etc.)
+
+Using modulo:
+
+- Prevents integer overflow
+- Reduces hash collisions
+
+---
+
+##### d. Rolling Hash Formula
+
+Suppose we know the hash for substring:
+
+```text
+s[i-1 ... j-1]
+```
+
+We want hash for:
+
+```text
+s[i ... j]
+```
+
+---
+
+**Previous Hash**
+
+```math
+(s[i-1] \times d^{m-1} +
+s[i] \times d^{m-2} + \dots +
+s[j-1] \times d^0) \bmod q
+```
+
+---
+
+**New Hash**
+
+```math
+(s[i] \times d^{m-1} +
+s[i+1] \times d^{m-2} + \dots +
+s[j] \times d^0) \bmod q
+```
+
+---
+
+**Rolling Hash Update**
+
+```math
+hash(i, j) =
+(d \times
+(hash(i-1, j-1) - s[i-1] \times d^{m-1})
++ s[j]) \bmod q
+```
+
+---
+
+##### e. Steps in Rabin-Karp
+
+1. Choose base `d`
+2. Choose prime modulus `q`
+3. Compute initial pattern hash
+4. Compute initial text window hash
+5. Slide pattern over text
+6. Compare hashes
+7. If hashes match:
+   - Verify character-by-character
+
+---
+
+##### f. Rabin-Karp Implementation
+
+<Tabs>
+  <TabItem label="C++">
+
+```cpp
+#include <vector>
+using namespace std;
+
+// Function to search for all occurrences
+// of 'pat' in 'txt' using Rabin-Karp
+
+vector<int> search(const string &pat, const string &txt)
+{
+    int d = 256;
+    int q = 101;
+
+    int m = pat.length();
+    int n = txt.length();
+
+    int p = 0;
+    int t = 0;
+
+    int h = 1;
+
+    vector<int> ans;
+
+    // Precompute h = pow(d, m-1) % q
+    for (int i = 0; i < m - 1; i++)
+        h = (h * d) % q;
+
+    // Initial hash values
+    for (int i = 0; i < m; i++)
+    {
+        p = (d * p + pat[i]) % q;
+        t = (d * t + txt[i]) % q;
+    }
+
+    // Slide pattern over text
+    for (int i = 0; i <= n - m; i++)
+    {
+        if (p == t)
+        {
+            bool match = true;
+
+            for (int j = 0; j < m; j++)
+            {
+                if (txt[i + j] != pat[j])
+                {
+                    match = false;
+                    break;
+                }
+            }
+
+            if (match)
+                ans.push_back(i);
+        }
+
+        // Compute next window hash
+        if (i < n - m)
+        {
+            t = (d * (t - txt[i] * h)
+                 + txt[i + m]) % q;
+
+            if (t < 0)
+                t += q;
+        }
+    }
+
+    return ans;
+}
+
+int main()
+{
+    string txt = "geeksforgeeks";
+    string pat = "geeks";
+
+    vector<int> res = search(pat, txt);
+
+    for (auto it : res)
+        cout << it << " ";
+
+    return 0;
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Java">
+
+```java
+import java.util.ArrayList;
+
+public class GFG {
+
+    static ArrayList<Integer> search(String pat, String txt)
+    {
+        int d = 256;
+        int q = 101;
+
+        int m = pat.length();
+        int n = txt.length();
+
+        int p = 0;
+        int t = 0;
+
+        int h = 1;
+
+        ArrayList<Integer> ans = new ArrayList<>();
+
+        // Precompute h
+        for (int i = 0; i < m - 1; i++)
+            h = (h * d) % q;
+
+        // Initial hashes
+        for (int i = 0; i < m; i++) {
+            p = (d * p + pat.charAt(i)) % q;
+            t = (d * t + txt.charAt(i)) % q;
+        }
+
+        // Slide pattern
+        for (int i = 0; i <= n - m; i++) {
+
+            if (p == t) {
+
+                boolean match = true;
+
+                for (int j = 0; j < m; j++) {
+
+                    if (txt.charAt(i + j)
+                        != pat.charAt(j)) {
+
+                        match = false;
+                        break;
+                    }
+                }
+
+                if (match)
+                    ans.add(i);
+            }
+
+            // Next window hash
+            if (i < n - m) {
+
+                t = (d * (t - txt.charAt(i) * h)
+                     + txt.charAt(i + m)) % q;
+
+                if (t < 0)
+                    t += q;
+            }
+        }
+
+        return ans;
+    }
+
+    public static void main(String[] args)
+    {
+        String txt = "geeksforgeeks";
+        String pat = "geeks";
+
+        ArrayList<Integer> res = search(pat, txt);
+
+        for (int idx : res)
+            System.out.print(idx + " ");
+    }
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Python">
+
+```python
+# Function to search for all occurrences
+# of 'pat' in 'txt' using Rabin-Karp
+
+def search(pat, txt):
+
+    d = 256
+    q = 101
+
+    m = len(pat)
+    n = len(txt)
+
+    p = 0
+    t = 0
+
+    h = 1
+
+    ans = []
+
+    # Precompute h
+    for i in range(m - 1):
+        h = (h * d) % q
+
+    # Initial hashes
+    for i in range(m):
+        p = (d * p + ord(pat[i])) % q
+        t = (d * t + ord(txt[i])) % q
+
+    # Slide pattern
+    for i in range(n - m + 1):
+
+        if p == t:
+
+            match = True
+
+            for j in range(m):
+
+                if txt[i + j] != pat[j]:
+                    match = False
+                    break
+
+            if match:
+                ans.append(i)
+
+        # Next window hash
+        if i < n - m:
+
+            t = (
+                d * (t - ord(txt[i]) * h)
+                + ord(txt[i + m])
+            ) % q
+
+            if t < 0:
+                t += q
+
+    return ans
+
+
+if __name__ == "__main__":
+
+    txt = "geeksforgeeks"
+    pat = "geeks"
+
+    res = search(pat, txt)
+
+    for idx in res:
+        print(idx, end=" ")
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+#### 3. KMP Algorithm
+
+Given two strings:
+
+- `txt`
+- `pat`
+
+Return all indices where `pat` occurs in `txt`.
+
+---
+
+##### a. Examples
+
+**Example 1**
+
+```text
+Input:
+txt = "abcab"
+pat = "ab"
+
+Output:
+[0, 3]
+```
+
+---
+
+**Example 2**
+
+```text
+Input:
+txt = "aabaacaadaabaaba"
+pat = "aaba"
+
+Output:
+[0, 9, 12]
+```
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/DSA/img4dsa.webp?raw=true"
+  alt="Diagram"
+  style={{
+    width: "70%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+---
+
+##### b. Why KMP?
+
+Naive pattern matching becomes inefficient when the pattern contains repeating characters.
+
+Examples:
+
+```text
+1) txt = "AAAAAAAAAAAAAAAAAB"
+   pat = "AAAAB"
+
+2) txt = "ABABABCABABABCABABABC"
+   pat = "ABABAC"
+```
+
+KMP improves complexity to:
+
+```text
+O(n + m)
+```
+
+---
+
+##### c. Core Idea of KMP
+
+When mismatch occurs after some matches:
+
+- We already know certain characters will match
+- So we avoid rechecking them
+
+This optimization is achieved using:
+
+```text
+LPS Array
+```
+
+---
+
+##### d. What is LPS?
+
+LPS = Longest Proper Prefix which is also Suffix.
+
+**Example**
+
+For pattern:
+
+```text
+AAAA
+```
+
+LPS:
+
+```text
+[0, 1, 2, 3]
+```
+
+---
+
+##### e. Important Definitions
+
+**Proper Prefix**
+
+A prefix excluding the whole string.
+
+Example:
+
+```text
+String = "abc"
+
+Prefixes:
+"", "a", "ab", "abc"
+
+Proper Prefixes:
+"", "a", "ab"
+```
+
+---
+
+**Suffixes**
+
+For `"abc"`:
+
+```text
+"", "c", "bc", "abc"
+```
+
+---
+
+**LPS Formula**
+
+```text
+lps[i] =
+length of longest proper prefix
+which is also suffix
+for pat[0...i]
+```
+
+---
+
+##### f. Example 1 — Pattern "aabaaac"
+
+| Index | LPS Value |
+|---|---|
+| 0 | 0 |
+| 1 | 1 |
+| 2 | 0 |
+| 3 | 1 |
+| 4 | 2 |
+| 5 | 2 |
+| 6 | 0 |
+
+Final LPS:
+
+```text
+[0, 1, 0, 1, 2, 2, 0]
+```
+
+---
+
+##### g. Example 2 — Pattern "abcdabca"
+
+Final LPS:
+
+```text
+[0, 0, 0, 0, 1, 2, 3, 1]
+```
+
+---
+
+##### h. More Examples of LPS
+
+```text
+Pattern = "AAAA"
+LPS     = [0, 1, 2, 3]
+
+Pattern = "ABCDE"
+LPS     = [0, 0, 0, 0, 0]
+
+Pattern = "AABAACAABAA"
+LPS     = [0, 1, 0, 1, 2, 0, 1, 2, 3, 4, 5]
+```
+
+---
+
+##### i. Construction of LPS Array
+
+**Case 1**
+
+```text
+pat[i] == pat[len]
+```
+
+Increase length.
+
+---
+
+**Case 2**
+
+```text
+pat[i] != pat[len]
+and len == 0
+```
+
+Set:
+
+```text
+lps[i] = 0
+```
+
+---
+
+**Case 3**
+
+```text
+pat[i] != pat[len]
+and len > 0
+```
+
+Update:
+
+```text
+len = lps[len - 1]
+```
+
+---
+
+##### j. KMP Implementation
+
+<Tabs>
+  <TabItem label="C++">
+
+```cpp
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+void constructLps(string &pat, vector<int> &lps)
+{
+    int len = 0;
+
+    lps[0] = 0;
+
+    int i = 1;
+
+    while (i < pat.length())
+    {
+        if (pat[i] == pat[len])
+        {
+            len++;
+            lps[i] = len;
+            i++;
+        }
+        else
+        {
+            if (len != 0)
+            {
+                len = lps[len - 1];
+            }
+            else
+            {
+                lps[i] = 0;
+                i++;
+            }
+        }
+    }
+}
+
+vector<int> search(string &pat, string &txt)
+{
+    int n = txt.length();
+    int m = pat.length();
+
+    vector<int> lps(m);
+    vector<int> res;
+
+    constructLps(pat, lps);
+
+    int i = 0;
+    int j = 0;
+
+    while (i < n)
+    {
+        if (txt[i] == pat[j])
+        {
+            i++;
+            j++;
+
+            if (j == m)
+            {
+                res.push_back(i - j);
+
+                j = lps[j - 1];
+            }
+        }
+        else
+        {
+            if (j != 0)
+                j = lps[j - 1];
+            else
+                i++;
+        }
+    }
+
+    return res;
+}
+
+int main()
+{
+    string txt = "aabaacaadaabaaba";
+    string pat = "aaba";
+
+    vector<int> res = search(pat, txt);
+
+    for (int i = 0; i < res.size(); i++)
+        cout << res[i] << " ";
+
+    return 0;
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Java">
+
+```java
+import java.util.ArrayList;
+
+class GfG {
+
+    static void constructLps(String pat, int[] lps)
+    {
+        int len = 0;
+
+        lps[0] = 0;
+
+        int i = 1;
+
+        while (i < pat.length()) {
+
+            if (pat.charAt(i) == pat.charAt(len)) {
+
+                len++;
+                lps[i] = len;
+                i++;
+            }
+            else {
+
+                if (len != 0) {
+                    len = lps[len - 1];
+                }
+                else {
+                    lps[i] = 0;
+                    i++;
+                }
+            }
+        }
+    }
+
+    static ArrayList<Integer> search(String pat, String txt)
+    {
+        int n = txt.length();
+        int m = pat.length();
+
+        int[] lps = new int[m];
+
+        ArrayList<Integer> res = new ArrayList<>();
+
+        constructLps(pat, lps);
+
+        int i = 0;
+        int j = 0;
+
+        while (i < n) {
+
+            if (txt.charAt(i) == pat.charAt(j)) {
+
+                i++;
+                j++;
+
+                if (j == m) {
+
+                    res.add(i - j);
+
+                    j = lps[j - 1];
+                }
+            }
+            else {
+
+                if (j != 0)
+                    j = lps[j - 1];
+                else
+                    i++;
+            }
+        }
+
+        return res;
+    }
+
+    public static void main(String[] args)
+    {
+        String txt = "aabaacaadaabaaba";
+        String pat = "aaba";
+
+        ArrayList<Integer> res = search(pat, txt);
+
+        for (int i = 0; i < res.size(); i++)
+            System.out.print(res.get(i) + " ");
+    }
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Python">
+
+```python
+def constructLps(pat, lps):
+
+    len_ = 0
+    m = len(pat)
+
+    lps[0] = 0
+
+    i = 1
+
+    while i < m:
+
+        if pat[i] == pat[len_]:
+
+            len_ += 1
+            lps[i] = len_
+            i += 1
+
+        else:
+
+            if len_ != 0:
+                len_ = lps[len_ - 1]
+            else:
+                lps[i] = 0
+                i += 1
+
+
+def search(pat, txt):
+
+    n = len(txt)
+    m = len(pat)
+
+    lps = [0] * m
+
+    res = []
+
+    constructLps(pat, lps)
+
+    i = 0
+    j = 0
+
+    while i < n:
+
+        if txt[i] == pat[j]:
+
+            i += 1
+            j += 1
+
+            if j == m:
+
+                res.append(i - j)
+
+                j = lps[j - 1]
+
+        else:
+
+            if j != 0:
+                j = lps[j - 1]
+            else:
+                i += 1
+
+    return res
+
+
+if __name__ == "__main__":
+
+    txt = "aabaacaadaabaaba"
+    pat = "aaba"
+
+    res = search(pat, txt)
+
+    for i in range(len(res)):
+        print(res[i], end=" ")
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Introduction to Divide and Conquer Algorithm
+
+Divide and Conquer is a problem-solving technique used to solve problems by:
+
+1. Dividing the main problem into subproblems
+2. Solving them individually
+3. Merging results to solve the original problem
+
+---
+
+### A. When to Use Divide and Conquer
+
+It works best when:
+
+- Subproblems are independent
+
+If subproblems overlap heavily:
+
+- Dynamic Programming is preferred
+
+---
+
+### B. Steps in Divide and Conquer
+
+Divide and Conquer consists of three phases:
+
+1. Divide
+2. Conquer
+3. Merge
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/DSA/img5dsa.webp?raw=true"
+  alt="Diagram"
+  style={{
+    width: "70%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+---
+
+#### 1. Divide
+
+Break down the original problem into smaller subproblems.
+
+Each subproblem should represent a part of the overall problem.
+
+The goal is to divide the problem until no further division is possible.
+
+---
+
+##### a. Example in Merge Sort
+
+In Merge Sort:
+
+- The input array is divided into two halves
+
+The divide step in Merge Sort is simple.
+
+---
+
+##### b. Example in Quick Sort
+
+In Quick Sort:
+
+- The divide step is critical
+- The array is partitioned around a pivot
+
+---
+
+#### 2. Conquer
+
+Solve each smaller subproblem individually.
+
+If a subproblem is small enough (base case), solve it directly without further recursion.
+
+The goal is to solve subproblems independently.
+
+---
+
+##### a. Example in Merge Sort
+
+The conquer step is:
+
+- Sort the two halves individually
+
+---
+
+#### 3. Merge
+
+Combine the solved subproblems to get the final solution.
+
+Once smaller subproblems are solved, recursively combine them to solve the larger problem.
+
+---
+
+##### a. Example in Merge Sort
+
+The merge step:
+
+- Merges two sorted halves into one sorted array
+
+The merge step is critical in Merge Sort.
+
+---
+
+##### b. Example in Quick Sort
+
+In Quick Sort:
+
+- Merge step does nothing
+- Both parts become sorted in-place
+
+---
+
+### C. Characteristics of Divide and Conquer Algorithm
+
+Divide and Conquer works by:
+
+1. Dividing the problem
+2. Solving smaller parts
+3. Combining solutions
+
+---
+
+#### 1. Dividing the Problem
+
+The problem is broken into smaller subproblems recursively until they become simple enough to solve directly.
+
+---
+
+#### 2. Independence of Subproblems
+
+Each subproblem should be independent.
+
+Benefits:
+
+- Parallel processing
+- Concurrent execution
+- Better efficiency
+
+---
+
+#### 3. Conquering Each Subproblem
+
+Each smaller problem is solved individually.
+
+This may involve:
+
+- Recursion
+- Another algorithm
+
+---
+
+#### 4. Combining Solutions
+
+Solutions of smaller subproblems are combined to solve the original problem.
+
+The combination step should be:
+
+- Efficient
+- Straightforward
+
+---
+
+### D. Examples of Divide and Conquer Algorithm
+
+#### 1. Merge Sort
+
+Merge Sort divides the array into smaller subarrays, sorts them individually and merges them.
+
+---
+
+#### 2. Quick Sort
+
+Quick Sort:
+
+- Chooses a pivot
+- Places smaller elements to left
+- Places greater elements to right
+- Recursively sorts subarrays
+
+---
+
+### E. Applications of Divide and Conquer Algorithm
+
+#### 1. Binary Search
+
+Binary Search repeatedly divides the search interval in half.
+
+Complexity:
+
+```text
+O(log n)
+```
+
+---
+
+#### 2. Quick Sort
+
+Quick Sort recursively partitions arrays around a pivot.
+
+---
+
+#### 3. Merge Sort
+
+Merge Sort divides arrays into halves and merges sorted halves.
+
+---
+
+#### 4. Closest Pair of Points
+
+Finds the closest pair of points in a plane.
+
+Naive Complexity:
+
+```text
+O(n²)
+```
+
+Divide and Conquer Complexity:
+
+```text
+O(n log n)
+```
+
+---
+
+#### 5. Strassen's Algorithm
+
+Efficient matrix multiplication algorithm.
+
+Normal multiplication:
+
+```text
+O(n³)
+```
+
+Strassen's complexity:
+
+```text
+O(n^2.8974)
+```
+
+---
+
+#### 6. FFT Algorithm
+
+Cooley–Tukey FFT uses Divide and Conquer.
+
+Complexity:
+
+```text
+O(N log N)
+```
+
+---
+
+#### 7. Karatsuba Algorithm
+
+Fast multiplication algorithm for binary strings.
+
+Complexity:
+
+```text
+O(n^1.59)
+```
+
+---
+
+### F. Advantages of Divide and Conquer Algorithm
+
+#### 1. Solving Difficult Problems
+
+Breaks difficult problems into manageable parts.
+
+Example:
+
+```text
+Tower of Hanoi
+```
+
+---
+
+#### 2. Efficient Algorithms
+
+Helps create efficient algorithms like:
+
+- Quick Sort
+- Merge Sort
+- FFT
+
+---
+
+#### 3. Parallelism
+
+Subproblems can run on different processors simultaneously.
+
+Useful in:
+
+- Shared-memory multiprocessor systems
+
+---
+
+#### 4. Efficient Memory Access
+
+Smaller subproblems fit into cache memory efficiently.
+
+Such algorithms are called:
+
+```text
+Cache Oblivious Algorithms
+```
+
+---
+
+### G. Disadvantages of Divide and Conquer Algorithm
+
+#### 1. Overhead
+
+Dividing and combining problems may require extra resources.
+
+---
+
+#### 2. Increased Complexity
+
+Some problems become more complex after division.
+
+---
+
+#### 3. Difficult Implementation
+
+Some problems are hard to divide properly.
+
+---
+
+#### 4. Memory Limitations
+
+Large datasets may require significant memory for intermediate results.
+
+---
+
+## Matrix Multiplication
+
+Given two matrices:
+
+- `mat1[][]` of size `n × m`
+- `mat2[][]` of size `m × q`
+
+Find the matrix product.
+
+The resulting matrix size will be:
+
+```text
+n × q
+```
+
+---
+
+### A. Examples
+
+#### 1. Example 1
+
+```text
+Input:
+
+mat1 =
+[
+ [1, 2, 3],
+ [4, 5, 6]
+]
+
+mat2 =
+[
+ [7, 8],
+ [9, 10],
+ [11, 12]
+]
+
+Output:
+
+[
+ [58, 64],
+ [139, 154]
+]
+```
+
+---
+
+**Explanation**
+
+Matrix multiplication is performed using:
+
+- Row of first matrix
+- Column of second matrix
+
+Dot products are computed for every cell.
+
+---
+
+#### 2. Example 2
+
+```text
+Input:
+
+mat1 =
+[
+ [17, 4],
+ [17, 16]
+]
+
+mat2 =
+[
+ [9, 2],
+ [7, 1]
+]
+
+Output:
+
+[
+ [181, 38],
+ [265, 50]
+]
+```
+
+---
+
+### B. Approach 1 — Using Nested Loops
+
+**Complexity**
+
+```text
+Time Complexity  : O(n × m × q)
+Space Complexity : O(n × q)
+```
+
+---
+
+#### 1. Idea
+
+The algorithm:
+
+1. Initializes result matrix with zeros
+2. Uses three nested loops
+3. Computes dot products
+
+---
+
+#### 2. Matrix Multiplication Implementation
+
+<Tabs>
+  <TabItem label="C++">
+
+```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+
+vector<vector<int>> multiply(
+    vector<vector<int>> &mat1,
+    vector<vector<int>> &mat2)
+{
+    int n = mat1.size();
+    int m = mat1[0].size();
+    int q = mat2[0].size();
+
+    vector<vector<int>> res(
+        n,
+        vector<int>(q, 0)
+    );
+
+    for (int i = 0; i < n; i++) {
+
+        for (int j = 0; j < q; j++) {
+
+            for (int k = 0; k < m; k++) {
+
+                res[i][j] +=
+                    mat1[i][k] * mat2[k][j];
+            }
+        }
+    }
+
+    return res;
+}
+
+int main()
+{
+    vector<vector<int>> mat1 = {
+        {1, 2, 3},
+        {4, 5, 6}
+    };
+
+    vector<vector<int>> mat2 = {
+        {7, 8},
+        {9, 10},
+        {11, 12}
+    };
+
+    vector<vector<int>> res =
+        multiply(mat1, mat2);
+
+    for (int i = 0; i < res.size(); i++) {
+
+        for (int j = 0; j < res[i].size(); j++) {
+
+            cout << res[i][j] << " ";
+        }
+
+        cout << endl;
+    }
+
+    return 0;
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Java">
+
+```java
+import java.util.ArrayList;
+import java.util.Collections;
+
+class GfG {
+
+    static ArrayList<ArrayList<Integer>> multiply(
+            int[][] mat1,
+            int[][] mat2)
+    {
+        int n = mat1.length;
+        int m = mat1[0].length;
+        int q = mat2[0].length;
+
+        ArrayList<ArrayList<Integer>> res =
+            new ArrayList<>();
+
+        for (int i = 0; i < n; i++) {
+
+            ArrayList<Integer> row =
+                new ArrayList<>(
+                    Collections.nCopies(q, 0)
+                );
+
+            res.add(row);
+        }
+
+        for (int i = 0; i < n; i++) {
+
+            for (int j = 0; j < q; j++) {
+
+                for (int k = 0; k < m; k++) {
+
+                    int val =
+                        res.get(i).get(j)
+                        + mat1[i][k] * mat2[k][j];
+
+                    res.get(i).set(j, val);
+                }
+            }
+        }
+
+        return res;
+    }
+
+    public static void main(String[] args)
+    {
+        int[][] mat1 = {
+            {1, 2, 3},
+            {4, 5, 6}
+        };
+
+        int[][] mat2 = {
+            {7, 8},
+            {9, 10},
+            {11, 12}
+        };
+
+        ArrayList<ArrayList<Integer>> res =
+            multiply(mat1, mat2);
+
+        for (ArrayList<Integer> row : res) {
+
+            for (int val : row) {
+
+                System.out.print(val + " ");
+            }
+
+            System.out.println();
+        }
+    }
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Python">
+
+```python
+def multiply(mat1, mat2):
+
+    n = len(mat1)
+    m = len(mat1[0])
+    q = len(mat2[0])
+
+    res = [
+        [0 for _ in range(q)]
+        for _ in range(n)
+    ]
+
+    for i in range(n):
+
+        for j in range(q):
+
+            for k in range(m):
+
+                res[i][j] += (
+                    mat1[i][k] * mat2[k][j]
+                )
+
+    return res
+
+
+if __name__ == "__main__":
+
+    mat1 = [
+        [1, 2, 3],
+        [4, 5, 6]
+    ]
+
+    mat2 = [
+        [7, 8],
+        [9, 10],
+        [11, 12]
+    ]
+
+    res = multiply(mat1, mat2)
+
+    for row in res:
+
+        for val in row:
+            print(val, end=" ")
+
+        print()
+```
+
+  </TabItem>
+</Tabs>
+
+**Output**
+
+```text
+58 64
+139 154
+```
+
+---
+
+### C. Approach 2 : Using Divide and Conquer
+
+**Complexity**
+
+```text
+Time Complexity  : O(n × m × q)
+Space Complexity : O(n × q)
+```
+---
+
+#### 1. Idea
+
+The algorithm:
+
+1. Multiplies row-by-column
+2. Computes dot products
+3. Stores values in result matrix
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/DSA/img6dsa.webp?raw=true"
+  alt="Diagram"
+  style={{
+    width: "70%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+
+---
+
+#### 2. Divide and Conquer Matrix Multiplication
+
+<Tabs>
+  <TabItem label="C++">
+
+```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+
+// Function to add matrices
+
+vector<vector<int>> add(
+    vector<vector<int>> &mat1,
+    vector<vector<int>> &mat2)
+{
+    int r = mat1.size();
+    int c = mat1[0].size();
+
+    vector<vector<int>> res(
+        r,
+        vector<int>(c, 0)
+    );
+
+    for (int i = 0; i < r; ++i) {
+
+        for (int j = 0; j < c; ++j) {
+
+            res[i][j] =
+                mat1[i][j] + mat2[i][j];
+        }
+    }
+
+    return res;
+}
+
+vector<vector<int>> multiply(
+    vector<vector<int>> &mat1,
+    vector<vector<int>> &mat2)
+{
+    int n = mat1.size();
+    int m = mat1[0].size();
+    int q = mat2[0].size();
+
+    vector<vector<int>> res(
+        n,
+        vector<int>(q, 0)
+    );
+
+    for (int i = 0; i < n; ++i) {
+
+        for (int j = 0; j < q; ++j) {
+
+            for (int k = 0; k < m; ++k) {
+
+                res[i][j] +=
+                    mat1[i][k] * mat2[k][j];
+            }
+        }
+    }
+
+    return res;
+}
+
+int main()
+{
+    vector<vector<int>> mat1 = {
+        {1, 2, 3},
+        {4, 5, 6}
+    };
+
+    vector<vector<int>> mat2 = {
+        {7, 8},
+        {9, 10},
+        {11, 12}
+    };
+
+    vector<vector<int>> res =
+        multiply(mat1, mat2);
+
+    for (auto &row : res) {
+
+        for (int val : row) {
+
+            cout << val << " ";
+        }
+
+        cout << endl;
+    }
+
+    return 0;
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Java">
+
+```java
+import java.util.ArrayList;
+import java.util.Collections;
+
+class GfG {
+
+    // Add matrices
+    public static ArrayList<ArrayList<Integer>> add(
+            int[][] mat1,
+            int[][] mat2)
+    {
+        int r = mat1.length;
+        int c = mat1[0].length;
+
+        ArrayList<ArrayList<Integer>> res =
+            new ArrayList<>();
+
+        for (int i = 0; i < r; i++) {
+
+            ArrayList<Integer> row =
+                new ArrayList<>(
+                    Collections.nCopies(c, 0)
+                );
+
+            res.add(row);
+        }
+
+        for (int i = 0; i < r; i++) {
+
+            for (int j = 0; j < c; j++) {
+
+                res.get(i).set(
+                    j,
+                    mat1[i][j] + mat2[i][j]
+                );
+            }
+        }
+
+        return res;
+    }
+
+    // Multiply matrices
+    public static ArrayList<ArrayList<Integer>> multiply(
+            int[][] mat1,
+            int[][] mat2)
+    {
+        int n = mat1.length;
+        int m = mat1[0].length;
+        int q = mat2[0].length;
+
+        ArrayList<ArrayList<Integer>> res =
+            new ArrayList<>();
+
+        for (int i = 0; i < n; i++) {
+
+            ArrayList<Integer> row =
+                new ArrayList<>(
+                    Collections.nCopies(q, 0)
+                );
+
+            res.add(row);
+        }
+
+        for (int i = 0; i < n; i++) {
+
+            for (int j = 0; j < q; j++) {
+
+                for (int k = 0; k < m; k++) {
+
+                    int val =
+                        res.get(i).get(j)
+                        + mat1[i][k] * mat2[k][j];
+
+                    res.get(i).set(j, val);
+                }
+            }
+        }
+
+        return res;
+    }
+
+    public static void main(String[] args)
+    {
+        int[][] mat1 = {
+            {1, 2, 3},
+            {4, 5, 6}
+        };
+
+        int[][] mat2 = {
+            {7, 8},
+            {9, 10},
+            {11, 12}
+        };
+
+        ArrayList<ArrayList<Integer>> res =
+            multiply(mat1, mat2);
+
+        for (ArrayList<Integer> row : res) {
+
+            for (int val : row) {
+
+                System.out.print(val + " ");
+            }
+
+            System.out.println();
+        }
+    }
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Python">
+
+```python
+# Add matrices
+def add(mat1, mat2):
+
+    r = len(mat1)
+    c = len(mat1[0])
+
+    res = [[0] * c for _ in range(r)]
+
+    for i in range(r):
+
+        for j in range(c):
+
+            res[i][j] = (
+                mat1[i][j] + mat2[i][j]
+            )
+
+    return res
+
+
+### Multiply matrices
+def multiply(mat1, mat2):
+
+    n = len(mat1)
+    m = len(mat1[0])
+    q = len(mat2[0])
+
+    res = [[0] * q for _ in range(n)]
+
+    for i in range(n):
+
+        for j in range(q):
+
+            for k in range(m):
+
+                res[i][j] += (
+                    mat1[i][k] * mat2[k][j]
+                )
+
+    return res
+
+
+if __name__ == "__main__":
+
+    mat1 = [
+        [1, 2, 3],
+        [4, 5, 6]
+    ]
+
+    mat2 = [
+        [7, 8],
+        [9, 10],
+        [11, 12]
+    ]
+
+    res = multiply(mat1, mat2)
+
+    for row in res:
+
+        print(" ".join(map(str, row)))
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+**Output**
+
+```text
+58 64
+139 154
+```
+
+---
+
+### D. Approach 3 — Using Strassen's Method
+
+Strassen's algorithm originally applies to square matrices, but when adapted for multiplying an `n × m` matrix with an `m × q` matrix, the matrices are padded to form square matrices of size:
+
+```math
+s \times s
+```
+
+Where:
+
+```math
+s = \text{next power of two} \ge \max(n, m, q)
+```
+
+The algorithm then performs:
+
+7 recursive multiplications
+on square blocks.
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/DSA/img7dsa.webp?raw=true"
+  alt="Diagram"
+  style={{
+    width: "70%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+---
+
+#### 1. Important Note
+
+Strassen's Method is often not preferred in practice because:
+
+- High constant factors
+- Naive multiplication is faster for small matrices
+- Poor performance on sparse matrices
+- Requires extra memory for recursive divisions
+- Floating-point arithmetic accumulates more errors
+
+---
+
+#### 2. Strassen's Matrix Multiplication
+
+<Tabs>
+  <TabItem label="C++">
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <cmath>
+using namespace std;
+
+// Return next power of two
+int nextPowerOfTwo(int n) {
+    return pow(2, ceil(log2(n)));
+}
+
+// Resize matrix and fill extra space with zeros
+vector<vector<int>> resizeMatrix(
+    vector<vector<int>> &mat,
+    int newR,
+    int newC
+) {
+    vector<vector<int>> resized(
+        newR,
+        vector<int>(newC, 0)
+    );
+
+    for (int i = 0; i < mat.size(); ++i)
+        for (int j = 0; j < mat[0].size(); ++j)
+            resized[i][j] = mat[i][j];
+
+    return resized;
+}
+
+// Matrix addition/subtraction
+vector<vector<int>> add(
+    vector<vector<int>> a,
+    vector<vector<int>> b,
+    int size,
+    int sign = 1
+) {
+    vector<vector<int>> res(
+        size,
+        vector<int>(size)
+    );
+
+    for (int i = 0; i < size; i++)
+        for (int j = 0; j < size; j++)
+            res[i][j] =
+                a[i][j] + sign * b[i][j];
+
+    return res;
+}
+
+// Strassen multiplication
+vector<vector<int>> strassen(
+    vector<vector<int>> mat1,
+    vector<vector<int>> mat2
+) {
+    int n = mat1.size();
+
+    vector<vector<int>> res(
+        n,
+        vector<int>(n, 0)
+    );
+
+    // Base case
+    if (n == 1) {
+        res[0][0] =
+            mat1[0][0] * mat2[0][0];
+
+        return res;
+    }
+
+    int newSize = n / 2;
+
+    vector<vector<int>> a11(newSize, vector<int>(newSize));
+    vector<vector<int>> a12(newSize, vector<int>(newSize));
+    vector<vector<int>> a21(newSize, vector<int>(newSize));
+    vector<vector<int>> a22(newSize, vector<int>(newSize));
+
+    vector<vector<int>> b11(newSize, vector<int>(newSize));
+    vector<vector<int>> b12(newSize, vector<int>(newSize));
+    vector<vector<int>> b21(newSize, vector<int>(newSize));
+    vector<vector<int>> b22(newSize, vector<int>(newSize));
+
+    // Split matrices
+    for (int i = 0; i < newSize; i++) {
+
+        for (int j = 0; j < newSize; j++) {
+
+            a11[i][j] = mat1[i][j];
+            a12[i][j] = mat1[i][j + newSize];
+            a21[i][j] = mat1[i + newSize][j];
+            a22[i][j] = mat1[i + newSize][j + newSize];
+
+            b11[i][j] = mat2[i][j];
+            b12[i][j] = mat2[i][j + newSize];
+            b21[i][j] = mat2[i + newSize][j];
+            b22[i][j] = mat2[i + newSize][j + newSize];
+        }
+    }
+
+    // 7 recursive multiplications
+    auto m1 = strassen(
+        add(a11, a22, newSize),
+        add(b11, b22, newSize)
+    );
+
+    auto m2 = strassen(
+        add(a21, a22, newSize),
+        b11
+    );
+
+    auto m3 = strassen(
+        a11,
+        add(b12, b22, newSize, -1)
+    );
+
+    auto m4 = strassen(
+        a22,
+        add(b21, b11, newSize, -1)
+    );
+
+    auto m5 = strassen(
+        add(a11, a12, newSize),
+        b22
+    );
+
+    auto m6 = strassen(
+        add(a21, a11, newSize, -1),
+        add(b11, b12, newSize)
+    );
+
+    auto m7 = strassen(
+        add(a12, a22, newSize, -1),
+        add(b21, b22, newSize)
+    );
+
+    // Final quadrants
+    auto c11 =
+        add(
+            add(m1, m4, newSize),
+            add(m7, m5, newSize, -1),
+            newSize
+        );
+
+    auto c12 = add(m3, m5, newSize);
+
+    auto c21 = add(m2, m4, newSize);
+
+    auto c22 =
+        add(
+            add(m1, m3, newSize),
+            add(m6, m2, newSize, -1),
+            newSize
+        );
+
+    // Combine results
+    for (int i = 0; i < newSize; i++) {
+
+        for (int j = 0; j < newSize; j++) {
+
+            res[i][j] = c11[i][j];
+            res[i][j + newSize] = c12[i][j];
+
+            res[i + newSize][j] = c21[i][j];
+            res[i + newSize][j + newSize] =
+                c22[i][j];
+        }
+    }
+
+    return res;
+}
+
+// Multiply matrices
+vector<vector<int>> multiply(
+    vector<vector<int>> &mat1,
+    vector<vector<int>> &mat2
+) {
+    int n = mat1.size();
+    int m = mat1[0].size();
+    int q = mat2[0].size();
+
+    int size =
+        nextPowerOfTwo(
+            max(n, max(m, q))
+        );
+
+    vector<vector<int>> aPad =
+        resizeMatrix(mat1, size, size);
+
+    vector<vector<int>> bPad =
+        resizeMatrix(mat2, size, size);
+
+    vector<vector<int>> cPad =
+        strassen(aPad, bPad);
+
+    vector<vector<int>> C(
+        n,
+        vector<int>(q)
+    );
+
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < q; j++)
+            C[i][j] = cPad[i][j];
+
+    return C;
+}
+
+int main()
+{
+    vector<vector<int>> mat1 = {
+        {1, 2, 3},
+        {4, 5, 6}
+    };
+
+    vector<vector<int>> mat2 = {
+        {7, 8},
+        {9, 10},
+        {11, 12}
+    };
+
+    vector<vector<int>> res =
+        multiply(mat1, mat2);
+
+    for (auto &row : res) {
+
+        for (int val : row)
+            cout << val << " ";
+
+        cout << endl;
+    }
+
+    return 0;
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Java">
+
+```java
+import java.util.ArrayList;
+import java.lang.Math;
+
+public class GfG {
+
+    // Return next power of two
+    static int nextPowerOfTwo(int n) {
+        return (int) Math.pow(
+            2,
+            Math.ceil(Math.log(n) / Math.log(2))
+        );
+    }
+
+    // Resize matrix
+    static int[][] resizeMatrix(
+        int[][] mat,
+        int newR,
+        int newC
+    ) {
+        int[][] resized =
+            new int[newR][newC];
+
+        for (int i = 0; i < mat.length; ++i)
+            for (int j = 0;
+                 j < mat[0].length;
+                 ++j)
+                resized[i][j] = mat[i][j];
+
+        return resized;
+    }
+
+    // Add/Subtract matrices
+    static int[][] add(
+        int[][] a,
+        int[][] b,
+        int size,
+        int sign
+    ) {
+        int[][] res =
+            new int[size][size];
+
+        for (int i = 0; i < size; i++)
+            for (int j = 0; j < size; j++)
+                res[i][j] =
+                    a[i][j] + sign * b[i][j];
+
+        return res;
+    }
+
+    static int[][] add(
+        int[][] a,
+        int[][] b,
+        int size
+    ) {
+        return add(a, b, size, 1);
+    }
+
+    // Strassen multiplication
+    static int[][] strassen(
+        int[][] mat1,
+        int[][] mat2
+    ) {
+        int n = mat1.length;
+
+        int[][] res =
+            new int[n][n];
+
+        if (n == 1) {
+
+            res[0][0] =
+                mat1[0][0] * mat2[0][0];
+
+            return res;
+        }
+
+        int newSize = n / 2;
+
+        int[][] a11 = new int[newSize][newSize];
+        int[][] a12 = new int[newSize][newSize];
+        int[][] a21 = new int[newSize][newSize];
+        int[][] a22 = new int[newSize][newSize];
+
+        int[][] b11 = new int[newSize][newSize];
+        int[][] b12 = new int[newSize][newSize];
+        int[][] b21 = new int[newSize][newSize];
+        int[][] b22 = new int[newSize][newSize];
+
+        // Split matrices
+        for (int i = 0; i < newSize; i++) {
+
+            for (int j = 0; j < newSize; j++) {
+
+                a11[i][j] = mat1[i][j];
+                a12[i][j] = mat1[i][j + newSize];
+                a21[i][j] = mat1[i + newSize][j];
+                a22[i][j] =
+                    mat1[i + newSize][j + newSize];
+
+                b11[i][j] = mat2[i][j];
+                b12[i][j] = mat2[i][j + newSize];
+                b21[i][j] = mat2[i + newSize][j];
+                b22[i][j] =
+                    mat2[i + newSize][j + newSize];
+            }
+        }
+
+        // Recursive multiplications
+        int[][] m1 = strassen(
+            add(a11, a22, newSize),
+            add(b11, b22, newSize)
+        );
+
+        int[][] m2 = strassen(
+            add(a21, a22, newSize),
+            b11
+        );
+
+        int[][] m3 = strassen(
+            a11,
+            add(b12, b22, newSize, -1)
+        );
+
+        int[][] m4 = strassen(
+            a22,
+            add(b21, b11, newSize, -1)
+        );
+
+        int[][] m5 = strassen(
+            add(a11, a12, newSize),
+            b22
+        );
+
+        int[][] m6 = strassen(
+            add(a21, a11, newSize, -1),
+            add(b11, b12, newSize)
+        );
+
+        int[][] m7 = strassen(
+            add(a12, a22, newSize, -1),
+            add(b21, b22, newSize)
+        );
+
+        // Result quadrants
+        int[][] c11 =
+            add(
+                add(m1, m4, newSize),
+                add(m7, m5, newSize, -1),
+                newSize
+            );
+
+        int[][] c12 = add(m3, m5, newSize);
+
+        int[][] c21 = add(m2, m4, newSize);
+
+        int[][] c22 =
+            add(
+                add(m1, m3, newSize),
+                add(m6, m2, newSize, -1),
+                newSize
+            );
+
+        // Combine
+        for (int i = 0; i < newSize; i++) {
+
+            for (int j = 0; j < newSize; j++) {
+
+                res[i][j] = c11[i][j];
+
+                res[i][j + newSize] =
+                    c12[i][j];
+
+                res[i + newSize][j] =
+                    c21[i][j];
+
+                res[i + newSize][j + newSize] =
+                    c22[i][j];
+            }
+        }
+
+        return res;
+    }
+
+    // Multiply matrices
+    static ArrayList<ArrayList<Integer>> multiply(
+        int[][] mat1,
+        int[][] mat2
+    ) {
+        int n = mat1.length;
+        int m = mat1[0].length;
+        int q = mat2[0].length;
+
+        int size =
+            nextPowerOfTwo(
+                Math.max(n, Math.max(m, q))
+            );
+
+        int[][] aPad =
+            resizeMatrix(mat1, size, size);
+
+        int[][] bPad =
+            resizeMatrix(mat2, size, size);
+
+        int[][] cPad =
+            strassen(aPad, bPad);
+
+        ArrayList<ArrayList<Integer>> C =
+            new ArrayList<>();
+
+        for (int i = 0; i < n; i++) {
+
+            ArrayList<Integer> row =
+                new ArrayList<>();
+
+            for (int j = 0; j < q; j++) {
+
+                row.add(cPad[i][j]);
+            }
+
+            C.add(row);
+        }
+
+        return C;
+    }
+
+    public static void main(String[] args)
+    {
+        int[][] mat1 = {
+            {1, 2, 3},
+            {4, 5, 6}
+        };
+
+        int[][] mat2 = {
+            {7, 8},
+            {9, 10},
+            {11, 12}
+        };
+
+        ArrayList<ArrayList<Integer>> res =
+            multiply(mat1, mat2);
+
+        for (ArrayList<Integer> row : res) {
+
+            for (int val : row)
+                System.out.print(val + " ");
+
+            System.out.println();
+        }
+    }
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Python">
+
+```python
+import math
+
+# Return next power of two
+def nextPowerOfTwo(n):
+
+    return int(
+        math.pow(
+            2,
+            math.ceil(math.log2(n))
+        )
+    )
+
+
+# Resize matrix
+def resizeMatrix(mat, newR, newC):
+
+    resized = [
+        [0 for _ in range(newC)]
+        for _ in range(newR)
+    ]
+
+    for i in range(len(mat)):
+
+        for j in range(len(mat[0])):
+
+            resized[i][j] = mat[i][j]
+
+    return resized
+
+
+# Add/Subtract matrices
+def add(a, b, size, sign=1):
+
+    res = [
+        [0 for _ in range(size)]
+        for _ in range(size)
+    ]
+
+    for i in range(size):
+
+        for j in range(size):
+
+            res[i][j] = (
+                a[i][j]
+                + sign * b[i][j]
+            )
+
+    return res
+
+
+# Strassen multiplication
+def strassen(mat1, mat2):
+
+    n = len(mat1)
+
+    res = [
+        [0 for _ in range(n)]
+        for _ in range(n)
+    ]
+
+    # Base case
+    if n == 1:
+
+        res[0][0] = (
+            mat1[0][0] * mat2[0][0]
+        )
+
+        return res
+
+    newSize = n // 2
+
+    a11 = [[0] * newSize for _ in range(newSize)]
+    a12 = [[0] * newSize for _ in range(newSize)]
+    a21 = [[0] * newSize for _ in range(newSize)]
+    a22 = [[0] * newSize for _ in range(newSize)]
+
+    b11 = [[0] * newSize for _ in range(newSize)]
+    b12 = [[0] * newSize for _ in range(newSize)]
+    b21 = [[0] * newSize for _ in range(newSize)]
+    b22 = [[0] * newSize for _ in range(newSize)]
+
+    # Split matrices
+    for i in range(newSize):
+
+        for j in range(newSize):
+
+            a11[i][j] = mat1[i][j]
+            a12[i][j] = mat1[i][j + newSize]
+
+            a21[i][j] = mat1[i + newSize][j]
+            a22[i][j] = mat1[i + newSize][j + newSize]
+
+            b11[i][j] = mat2[i][j]
+            b12[i][j] = mat2[i][j + newSize]
+
+            b21[i][j] = mat2[i + newSize][j]
+            b22[i][j] = mat2[i + newSize][j + newSize]
+
+    # 7 recursive multiplications
+    m1 = strassen(
+        add(a11, a22, newSize),
+        add(b11, b22, newSize)
+    )
+
+    m2 = strassen(
+        add(a21, a22, newSize),
+        b11
+    )
+
+    m3 = strassen(
+        a11,
+        add(b12, b22, newSize, -1)
+    )
+
+    m4 = strassen(
+        a22,
+        add(b21, b11, newSize, -1)
+    )
+
+    m5 = strassen(
+        add(a11, a12, newSize),
+        b22
+    )
+
+    m6 = strassen(
+        add(a21, a11, newSize, -1),
+        add(b11, b12, newSize)
+    )
+
+    m7 = strassen(
+        add(a12, a22, newSize, -1),
+        add(b21, b22, newSize)
+    )
+
+    # Result quadrants
+    c11 = add(
+        add(m1, m4, newSize),
+        add(m7, m5, newSize, -1),
+        newSize
+    )
+
+    c12 = add(m3, m5, newSize)
+
+    c21 = add(m2, m4, newSize)
+
+    c22 = add(
+        add(m1, m3, newSize),
+        add(m6, m2, newSize, -1),
+        newSize
+    )
+
+    # Combine results
+    for i in range(newSize):
+
+        for j in range(newSize):
+
+            res[i][j] = c11[i][j]
+
+            res[i][j + newSize] = c12[i][j]
+
+            res[i + newSize][j] = c21[i][j]
+
+            res[i + newSize][j + newSize] = c22[i][j]
+
+    return res
+
+
+# Multiply matrices
+def multiply(mat1, mat2):
+
+    n = len(mat1)
+    m = len(mat1[0])
+    q = len(mat2[0])
+
+    size = nextPowerOfTwo(
+        max(n, max(m, q))
+    )
+
+    aPad = resizeMatrix(mat1, size, size)
+
+    bPad = resizeMatrix(mat2, size, size)
+
+    cPad = strassen(aPad, bPad)
+
+    C = [
+        [0 for _ in range(q)]
+        for _ in range(n)
+    ]
+
+    for i in range(n):
+
+        for j in range(q):
+
+            C[i][j] = cPad[i][j]
+
+    return C
+
+
+if __name__ == "__main__":
+
+    mat1 = [
+        [1, 2, 3],
+        [4, 5, 6]
+    ]
+
+    mat2 = [
+        [7, 8],
+        [9, 10],
+        [11, 12]
+    ]
+
+    res = multiply(mat1, mat2)
+
+    for row in res:
+
+        for val in row:
+            print(val, end=" ")
+
+        print()
+```
+
+  </TabItem>
+</Tabs>

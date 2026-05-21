@@ -1,0 +1,1177 @@
+---
+title: OOP
+description: Object-Oriented Programming fundamentals
+---
+import { Code, Tabs, TabItem } from '@astrojs/starlight/components';
+
+<style>{`
+pre {
+  overflow-x: scroll;
+  max-width: 100%;
+  display: block;
+  white-space: pre;
+}
+`}</style>
+ 
+## Polymorphism
+
+Polymorphism means "many forms", where a single function or method can behave differently in different situations. In C++, it allows the same function to produce different outputs depending on the object that calls it.
+
+- Same function, different behavior depending on the object
+- Achieved through function overloading and function overriding
+- Helps improve code reusability and flexibility
+
+**Real Life Examples:**
+
+Different animals represent polymorphism, where the same method `speak()` produces different outputs such as Bark, Meow, and Moo depending on the object calling the method.
+
+In the above Diagram:
+
+- A Dog object says Bark
+- A Cat object says Meow
+- A Cow object says Moo
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/poly2.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+
+---
+
+## One Interface Multiple Behaviors
+
+One interface multiple behaviors means the same method or function can perform different actions depending on the object or parameters used.
+
+**Real life examples:**
+
+A button named **Play**
+
+- Music App → Plays song
+- YouTube → Plays video
+- Game → Starts game
+
+The interface is the same (Play button), but behavior changes.
+
+### A. Same Action Different Results
+
+The same action can produce different results based on context.
+
+**Real Life Example:**
+
+Pressing **Ctrl + P**
+
+- Word document → Print document
+- Browser → Print webpage
+- Photo editor → Print image
+
+Same action but different outputs.
+
+---
+
+## Types of Polymorphism
+
+Polymorphism is mainly divided into:
+
+- Compile-Time Polymorphism
+- Runtime Polymorphism
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/poly1.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+
+### A. Compile-Time Polymorphism
+
+Compile-time polymorphism is also called:
+
+- **Static Binding**
+- **Early Binding**
+
+The compiler decides which method should be executed during compilation.
+
+It is achieved using:
+
+- Function Overloading
+- Operator Overloading
+
+#### 1. Function Overloading
+
+Function Overloading allows multiple functions to have the same name but different parameters. The difference can be in:
+
+- Number of parameters
+- Type of parameters
+
+**Real Life Examples:**
+
+A calculator performs:
+
+- `add(5,10)`
+- `add(5,10,15)`
+
+The same operation works differently.
+
+**Code Snippets:**
+
+<Tabs>
+  <TabItem label="C++">
+
+#### C++
+
+```cpp
+class Addition {
+public:
+    void add(int a, int b) {
+        cout << a + b;
+    }
+
+    void add(double a, double b) {
+        cout << a + b;
+    }
+};
+```
+
+  </TabItem>
+  <TabItem label="Java">
+
+#### Java
+
+```java
+class Addition {
+    void add(int a, int b) {
+        System.out.println(a + b);
+    }
+
+    void add(int a, int b, int c) {
+        System.out.println(a + b + c);
+    }
+}
+```
+
+  </TabItem>
+  <TabItem label="Python">
+
+#### Python
+
+```python
+class Addition:
+
+    def add(self, a, b, c=0):
+        print(a + b + c)
+
+obj = Addition()
+
+obj.add(10, 20)
+obj.add(10, 20, 30)
+```
+
+  </TabItem>
+</Tabs>
+
+#### 1. Advantages
+
+- Improves code readability
+- Reduces duplicate code
+- Increases code reusability
+- Easy to use same function name for similar operations
+- Makes programs cleaner and organized
+
+#### 2. Disadvantages
+
+- Too many overloaded methods may confuse developers
+- Difficult to debug large programs
+- Incorrect parameter usage may cause ambiguity
+- Increases complexity when overused
+
+### B. Operator Overloading
+
+Operator overloading allows operators such as `+`, `-`, and `*` to work with user-defined data types. For example:
+
+- The `+` operator adds two integers.
+- The same `+` operator can concatenate two strings.
+- We can also define how `+` should behave for custom classes.
+
+This makes code more readable and natural.
+
+**Real life example:**
+
+The overloaded operator adds the real and imaginary parts of two complex number objects. When `c1 + c2` is executed, the overloaded `+` operator is called automatically, and the result is stored in `c3`. The final output displays the sum of the two complex numbers.
+
+**Code Snippets:**
+
+<Tabs>
+  <TabItem label="C++">
+
+#### C++
+
+```cpp
+#include<iostream>
+using namespace std;
+
+class Test {
+    int x;
+public:
+    Test(int a) {
+        x = a;
+    }
+
+    Test operator+(Test t) {
+        return Test(x + t.x);
+    }
+
+    void display() {
+        cout << x;
+    }
+};
+
+int main() {
+    Test t1(10), t2(20);
+    Test t3 = t1 + t2;
+    t3.display();
+}
+```
+
+  </TabItem>
+  <TabItem label="Java">
+
+#### Java
+
+```java
+class Main {
+    public static void main(String args[]) {
+        String s1 = "Hello ";
+        String s2 = "World";
+        System.out.println(s1 + s2);
+    }
+}
+```
+
+  </TabItem>
+  <TabItem label="Python">
+
+#### Python
+
+```python
+class Number:
+
+    def __init__(self, x):
+        self.x = x
+
+    def __add__(self, other):
+        return Number(self.x + other.x)
+
+    def display(self):
+        print(self.x)
+
+n1 = Number(10)
+n2 = Number(20)
+n3 = n1 + n2
+n3.display()
+```
+
+  </TabItem>
+</Tabs>
+
+#### 1. Advantages
+
+- Improves code readability
+- Makes code shorter and cleaner
+- Helps represent real-world entities naturally
+- Easy to perform operations on objects
+- Reduces function complexity
+
+#### 2. Disadvantages
+
+- Overuse reduces readability
+- Same operator having multiple meanings may confuse users
+- Debugging becomes difficult
+- Can increase program complexity
+- Not supported completely in some languages like Java
+
+---
+
+## Runtime Polymorphism
+
+Runtime polymorphism is also known as **dynamic polymorphism** or **late binding**. In this type, the function call is resolved during program execution instead of compilation. It is achieved using:
+
+### A. Function Overriding
+
+Function Overriding occurs when a derived class defines one or more member functions of the base class. That base function is said to be overridden. The base class function must be declared as a `virtual` function for runtime polymorphism to happen.
+
+**Real Life example:**
+
+- Animal → `Sound()`
+- Dog → `Bark()`
+- Cat → `Meow()`
+
+**Code Snippets:**
+
+<Tabs>
+  <TabItem label="C++">
+
+#### C++
+
+```cpp
+#include<iostream>
+using namespace std;
+
+class Animal {
+public:
+    virtual void sound() {
+        cout << "Animal Sound";
+    }
+};
+
+class Dog : public Animal {
+public:
+    void sound() {
+        cout << "Dog Bark";
+    }
+};
+
+int main() {
+    Animal *a;
+    Dog d;
+    a = &d;
+    a->sound();
+}
+```
+
+  </TabItem>
+  <TabItem label="Java">
+
+#### Java
+
+```java
+class Animal {
+    void sound() {
+        System.out.println("Animal Sound");
+    }
+}
+
+class Dog extends Animal {
+    void sound() {
+        System.out.println("Dog Bark");
+    }
+}
+
+class Main {
+    public static void main(String args[]) {
+        Dog d = new Dog();
+        d.sound();
+    }
+}
+```
+
+  </TabItem>
+  <TabItem label="Python">
+
+#### Python
+
+```python
+class Animal:
+
+    def sound(self):
+        print("Animal Sound")
+
+class Dog(Animal):
+
+    def sound(self):
+        print("Dog Bark")
+
+d = Dog()
+d.sound()
+```
+
+  </TabItem>
+</Tabs>
+
+### B. Dynamic Binding
+
+Dynamic Binding is the process of deciding which method should execute during runtime instead of compile time.
+
+It is also called:
+
+- **Late Binding**
+- **Runtime Binding**
+
+Dynamic binding mainly occurs in:
+
+- Method Overriding
+- Runtime Polymorphism
+
+**Real Life Example:**
+
+Play button:
+
+- Music App → Song
+- Video App → Video
+
+Decision happens during runtime.
+
+**Code Snippets:**
+
+<Tabs>
+  <TabItem label="C++">
+
+#### C++
+
+```cpp
+#include<iostream>
+using namespace std;
+
+class Animal {
+public:
+    virtual void sound() {
+        cout << "Animal Sound";
+    }
+};
+
+class Dog : public Animal {
+public:
+    void sound() {
+        cout << "Dog Bark";
+    }
+};
+
+int main() {
+    Animal *a;
+    Dog d;
+    a = &d;
+    a->sound();
+}
+```
+
+  </TabItem>
+  <TabItem label="Java">
+
+#### Java
+
+```java
+class Animal {
+    void sound() {
+        System.out.println("Animal Sound");
+    }
+}
+
+class Dog extends Animal {
+    void sound() {
+        System.out.println("Dog Bark");
+    }
+}
+
+class Main {
+    public static void main(String args[]) {
+        Animal a;
+        a = new Dog();
+        a.sound();
+    }
+}
+```
+
+  </TabItem>
+  <TabItem label="Python">
+
+#### Python
+
+```python
+class Animal:
+
+    def sound(self):
+        print("Animal Sound")
+
+class Dog(Animal):
+
+    def sound(self):
+        print("Dog Bark")
+
+a = Dog()
+a.sound()
+```
+
+  </TabItem>
+</Tabs>
+
+#### 1. Advantages of Dynamic Binding
+
+- Supports Runtime Polymorphism
+- Increases flexibility
+- Improves extensibility
+- Enables method overriding
+
+#### 2. Disadvantages of Dynamic Binding
+
+- Slightly slower execution
+- More memory usage
+- Debugging becomes difficult in large systems
+
+---
+
+## Relationships Between Objects
+
+In Object-Oriented Programming, objects interact and communicate with each other to perform tasks.
+
+These interactions are called **Relationships Between Objects**.
+
+Object relationships help in:
+
+- Code organization
+- Reusability
+- Real-world modeling
+- Better software design
+
+### A. Types of Relationships Between Objects
+
+Main types of relationships are:
+
+- Association
+- Aggregation
+- Composition
+
+### B. Association
+
+Association is a relationship where two objects are connected with each other. One object uses another object for some operation, but both objects have separate existence.
+
+- If one object is destroyed, the other object still exists.
+- Both objects can exist independently.
+- Association represents a **Uses-A** relationship.
+
+**Real-Life Example:**
+
+Teacher ↔ Student
+
+- Teacher can exist without student
+- Student can exist without teacher
+- Both are independent objects.
+
+**Code Snippets:**
+
+<Tabs>
+  <TabItem label="C++">
+
+#### C++
+
+```cpp
+#include<iostream>
+using namespace std;
+
+class Student {
+public:
+    string name = "Rahul";
+};
+
+class Teacher {
+public:
+    Student s;
+
+    void display() {
+        cout << s.name;
+    }
+};
+
+int main() {
+    Teacher t;
+    t.display();
+}
+```
+
+  </TabItem>
+  <TabItem label="Java">
+
+#### Java
+
+```java
+class Student {
+    String name = "Rahul";
+}
+
+class Teacher {
+    Student s = new Student();
+
+    void display() {
+        System.out.println(s.name);
+    }
+}
+
+class Main {
+    public static void main(String args[]) {
+        Teacher t = new Teacher();
+        t.display();
+    }
+}
+```
+
+  </TabItem>
+  <TabItem label="Python">
+
+#### Python
+
+```python
+class Student:
+    name = "Rahul"
+
+class Teacher:
+    s = Student()
+
+    def display(self):
+        print(self.s.name)
+
+t = Teacher()
+t.display()
+```
+
+  </TabItem>
+</Tabs>
+
+#### 1. Advantages of Association
+
+- Promotes code reusability
+- Represents real-world relationships
+- Objects remain independent
+
+#### 2. Disadvantages of Association
+
+- Managing multiple associated objects may become complex
+- Loose relationships may increase dependency confusion
+
+### C. Aggregation
+
+Aggregation is a special type of association that represents a **Has-A** relationship.
+
+The parent object contains child objects, but child objects can still exist even if parent object is destroyed.
+
+In aggregation:
+
+- Child object can exist independently of parent object.
+- It is a **weak** relationship.
+
+**Real-Life Example:**
+
+Department → Professor
+
+- Department has Professors
+- Professor can exist without department
+
+**Code Snippets:**
+
+<Tabs>
+  <TabItem label="C++">
+
+#### C++
+
+```cpp
+#include<iostream>
+using namespace std;
+
+class Professor {
+public:
+    string name = "Ramesh";
+};
+
+class Department {
+public:
+    Professor p;
+
+    void display() {
+        cout << p.name;
+    }
+};
+
+int main() {
+    Department d;
+    d.display();
+}
+```
+
+  </TabItem>
+  <TabItem label="Java">
+
+#### Java
+
+```java
+class Professor {
+    String name = "Ramesh";
+}
+
+class Department {
+    Professor p = new Professor();
+
+    void display() {
+        System.out.println(p.name);
+    }
+}
+
+class Main {
+    public static void main(String args[]) {
+        Department d = new Department();
+        d.display();
+    }
+}
+```
+
+  </TabItem>
+  <TabItem label="Python">
+
+#### Python
+
+```python
+class Professor:
+    name = "Ramesh"
+
+class Department:
+    p = Professor()
+
+    def display(self):
+        print(self.p.name)
+
+d = Department()
+d.display()
+```
+
+  </TabItem>
+</Tabs>
+
+#### 1. Advantages of Aggregation
+
+- Supports code reusability
+- Provides flexibility
+- Weak dependency between objects
+
+#### 2. Disadvantages of Aggregation
+
+- Relationship management may become difficult in large systems
+- Extra memory usage for multiple objects
+
+### D. Composition
+
+Composition is a strong form of aggregation.
+
+Composition creates strong dependency between objects. Child objects are fully controlled by parent object.
+
+It represents a strong **Part-Of** relationship.
+
+In composition:
+
+- Child object cannot exist independently.
+- If parent object is destroyed, child object is also destroyed.
+
+**Real-Life Example:**
+
+House → Room
+
+- Room cannot exist without house
+- Destroying house destroys rooms
+
+**Code Snippets:**
+
+<Tabs>
+  <TabItem label="C++">
+
+#### C++
+
+```cpp
+#include<iostream>
+using namespace std;
+
+class Room {
+public:
+    Room() {
+        cout << "Room Created";
+    }
+};
+
+class House {
+    Room r;
+};
+
+int main() {
+    House h;
+}
+```
+
+  </TabItem>
+  <TabItem label="Java">
+
+#### Java
+
+```java
+class Room {
+    Room() {
+        System.out.println("Room Created");
+    }
+}
+
+class House {
+    Room r = new Room();
+}
+
+class Main {
+    public static void main(String args[]) {
+        House h = new House();
+    }
+}
+```
+
+  </TabItem>
+  <TabItem label="Python">
+
+#### Python
+
+```python
+class Room:
+
+    def __init__(self):
+        print("Room Created")
+
+class House:
+
+    def __init__(self):
+        self.r = Room()
+
+h = House()
+```
+
+  </TabItem>
+</Tabs>
+
+#### 1. Advantages of Composition
+
+- Strong object ownership
+- Better security and control
+- High cohesion
+- Easy lifecycle management
+
+#### 2. Disadvantages of Composition
+
+- Strong dependency reduces flexibility
+- Difficult to reuse child object independently
+
+---
+
+## Shallow Copy
+
+Shallow copy creates a new object but copies only the references of nested objects instead of creating separate memory.
+
+Both objects share the same memory location.
+
+In shallow copy:
+
+- A new object is created
+- Internal objects are shared
+- Changes in copied object affect original object
+
+**Real-Life Example:**
+
+Two students sharing the same notebook. If one student writes something, changes are visible to both.
+
+### A. Advantages of Shallow Copy
+
+- Faster execution
+- Less memory usage
+- Easy to implement
+
+### B. Disadvantages of Shallow Copy
+
+- Shared memory causes side effects
+- Unsafe for complex objects
+- Data changes affect original object
+
+---
+
+## Deep Copy
+
+Deep copy creates completely independent copies of objects.
+
+Separate memory is allocated for copied objects.
+
+In deep copy:
+
+- New object is created
+- Nested objects are also copied
+- Both objects become independent
+
+**Real-Life Example:**
+
+Photocopy of notebook. Each student gets separate notebook copy. Changes in one copy do not affect another.
+
+### A. Advantages of Deep Copy
+
+- Independent objects
+- Safe memory handling
+- No unintended modifications
+
+### B. Disadvantages of Deep Copy
+
+- More memory usage
+- Slower than shallow copy
+- Complex implementation
+
+### C. Shallow Copy vs Deep Copy
+
+| Feature | Shallow Copy | Deep Copy |
+| :--- | :--- | :--- |
+| Copies | References | Actual objects |
+| Memory | Shared | Separate |
+| Changes affect original | Yes | No |
+| Speed | Fast | Slow |
+| Memory Usage | Less | More |
+
+---
+
+## Static Typing vs Dynamic Typing
+
+### A. Static Typing
+
+Static typing means variable types are checked during **compile time**.
+
+- Variable type must be declared before use.
+- Compiler checks data types before program execution.
+- Errors are detected early.
+
+**Examples of Statically Typed Languages:** Java, C++, C#
+
+#### 1. Advantages of Static Typing
+
+- Detects errors early
+- Better performance
+- Improved reliability
+
+#### 2. Disadvantages of Static Typing
+
+- Less flexibility
+- More code writing required
+
+### B. Dynamic Typing
+
+Dynamic typing means variable types are checked during **runtime**.
+
+- No need to declare variable type explicitly.
+- Variables can change type during execution.
+
+**Examples of Dynamically Typed Languages:** Python, JavaScript
+
+#### 1. Advantages of Dynamic Typing
+
+- Flexible coding
+- Faster development
+- Less code writing
+
+#### 2. Disadvantages of Dynamic Typing
+
+- Runtime errors possible
+- Difficult debugging
+- Lower performance
+
+### C. Static Typing vs Dynamic Typing
+
+| Feature | Static Typing | Dynamic Typing |
+| :--- | :--- | :--- |
+| Type checked | During compile time | During runtime |
+| Flexibility | Less flexible | More flexible |
+| Performance | Better performance | Slower performance |
+| Error Detection | Early error detection | Runtime errors possible |
+| Example | Java | Python |
+
+---
+
+## Strong Typing vs Weak Typing
+
+### A. Strong Typing
+
+Strongly typed languages strictly follow data type rules.
+
+- Automatic conversion between unrelated data types is not allowed.
+- Operations between incompatible types produce errors.
+
+**Real-Life Example:** Bank locker with strict rules. Only authorized key can open locker.
+
+#### 1. Advantages of Strong Typing
+
+- Better type safety
+- Fewer runtime bugs
+- Improved reliability
+
+#### 2. Disadvantages of Strong Typing
+
+- Less flexibility
+- Explicit conversion required
+
+### B. Weak Typing
+
+Weakly typed languages automatically convert one type into another when needed.
+
+Language performs implicit type conversion automatically.
+
+**Real-Life Example:** Universal adapter automatically adjusting to different plugs.
+
+#### 1. Advantages of Weak Typing
+
+- Flexible programming
+- Faster coding
+
+#### 2. Disadvantages of Weak Typing
+
+- Unexpected outputs possible
+- Difficult debugging
+- Type-related bugs common
+
+### C. Strong Typing vs Weak Typing
+
+| Feature | Strong Typing | Weak Typing |
+| :--- | :--- | :--- |
+| Type rules | Strict type rules | Automatic conversions allowed |
+| Safety | Safer | More flexible |
+| Runtime bugs | Less runtime bugs | More runtime bugs |
+| Conversion | Explicit conversion needed | Implicit conversion occurs |
+| Example | Python | JavaScript |
+
+---
+
+## Coupling & Cohesion
+
+### A. Coupling
+
+Coupling measures dependency between classes or modules. It tells how strongly one module depends on another.
+
+**High Coupling:** Modules highly dependent, difficult maintenance.
+
+**Low Coupling:** Modules independent, better design.
+
+**Real-Life Example:**
+
+- High Coupling → Specific charger for only one phone.
+- Low Coupling → USB charger supporting multiple devices.
+
+#### 1. Advantages of Low Coupling
+
+- Easy maintenance
+- Better flexibility
+- Improved reusability
+
+#### 2. Disadvantages of High Coupling
+
+- Difficult debugging
+- Changes affect multiple modules
+- Hard maintenance
+
+### B. Cohesion
+
+Cohesion measures how closely related functions inside a module are. It checks whether a class performs one focused task.
+
+**High Cohesion:** One class → One responsibility, better organization.
+
+**Low Cohesion:** Multiple unrelated tasks, poor design.
+
+**Real-Life Example:**
+
+- High Cohesion → Calculator app only performs calculations.
+- Low Cohesion → Calculator app also sends emails and plays music.
+
+#### 1. Advantages of High Cohesion
+
+- Better readability
+- Easy testing
+- Easy maintenance
+- Better organization
+
+#### 2. Disadvantages of Low Cohesion
+
+- Difficult debugging
+- Reduced readability
+- Hard maintenance
+
+### C. Coupling vs Cohesion
+
+| Feature | Coupling | Cohesion |
+| :--- | :--- | :--- |
+| Measures | Dependency between modules | Relationship inside module |
+| Preferred | Low coupling | High cohesion |
+| Concept level | Inter-module | Intra-module |
+| Focuses on | Independence | Single responsibility |
+
+---
+
+## Difference Between Encapsulation and Abstraction
+
+| Feature | Encapsulation | Abstraction |
+| :--- | :--- | :--- |
+| Definition | Wrapping data and methods into a single unit | Hiding implementation details and showing only essential features |
+| Main Focus | Data Hiding | Implementation Hiding |
+| Purpose | Protects data from unauthorized access | Reduces complexity for users |
+| What is Hidden? | Data | Internal working process |
+| Achieved Using | Classes and Access Modifiers | Abstract Classes and Interfaces |
+| Access Control | Uses private, protected, public | Uses abstract methods |
+| Complexity | Less complex | More conceptual |
+| Security | Provides better data security | Provides design security |
+| User Interaction | Controls how data is accessed | Shows only required functionality |
+| Modification Impact | Easy maintenance of data | Easy modification of implementation |
+| Example | Bank Account balance hidden | ATM machine functionality hidden |
+| Real-Life Example | Capsule medicine | Driving a car without knowing engine details |
+| Programming Level | Implementation level | Design level |
+| Data Protection | High | Moderate |
+| Supports OOP Principle | Encapsulation Principle | Abstraction Principle |
+| Code Reusability | Moderate | High |
+| Used For | Securing data | Simplifying systems |
+| Visibility | Restricts direct access | Restricts internal details |
+| Interview Keyword | Data Security | More conceptual |
+
+---
+
+## Difference Between Overloading and Overriding
+
+| Feature | Overloading | Overriding |
+| :--- | :--- | :--- |
+| Definition | Multiple methods with same name but different parameters | Child class redefining parent class method |
+| Polymorphism Type | Compile-Time Polymorphism | Runtime Polymorphism |
+| Binding Type | Static Binding | Dynamic Binding |
+| Method Name | Same | Same |
+| Parameters | Must be different | Must remain same |
+| Inheritance Required? | No | Yes |
+| Execution Time | Compile Time | Runtime |
+| Method Signature | Different | Same |
+| Return Type | Compile Time | Usually same |
+| Class Requirement | Can occur in same class | Occurs between parent and child classes |
+| Performance | Faster | Slightly slower |
+| Flexibility | Less flexible | More flexible |
+| Decision Making | Compiler decides method | JVM/Runtime decides method |
+| Purpose | Increase readability | Provide specialized behavior |
+| Memory Usage | Less | More |
+| Runtime Overhead | No | Yes |
+| Code Reusability | Moderate | High |
+| Real-Life Example | Calculator add() methods | Animal sound() methods |
+| Example Concept | Same action different inputs | Same action different behavior |
+| Interview Keyword | Static Polymorphism | Dynamic Polymorphism |
+
+---
+
+## Difference Between Compile-Time and Runtime Polymorphism
+
+| Feature | Compile Time | Run Time |
+| :--- | :--- | :--- |
+| Definition | Method call resolved during compilation | Method call resolved during runtime |
+| Other Name | Static Polymorphism | Dynamic Polymorphism |
+| Binding Type | Early Binding | Late Binding |
+| Decision Time | Compile Time | Runtime |
+| Achieved Using | Function Overloading | Function Overriding |
+| Method Resolution | Compiler resolves method | Runtime resolves method |
+| Flexibility | Less flexible | More flexible |
+| Execution Speed | Faster | Slightly slower |
+| Performance | High performance | Lower performance compared to compile-time |
+| Memory Usage | Less | More |
+| Inheritance Required? | No | Yes |
+| Dynamic Behavior | Not supported | Supported |
+| Complexity | Simple | Complex |
+| Virtual Function | No | Yes |
+| Commonly Used In | Method Overloading | Method Overriding |
+| Interview Keyword | Static Binding | Dynamic Binding |

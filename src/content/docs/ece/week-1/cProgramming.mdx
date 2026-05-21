@@ -1,0 +1,913 @@
+---
+title: C Programming
+---
+import { Code, Tabs, TabItem } from '@astrojs/starlight/components';
+
+
+## Introduction
+
+#### What is C?
+C is a general-purpose procedural programming language known for its efficiency and low-level memory access.
+
+---
+#### Syntax
+
+This simple program demonstrates the basic structure of a C program.
+
+<Tabs>
+  <TabItem label="C Program">
+
+```c
+#include <stdio.h>
+
+int main(void)
+{
+	// This prints "Hello World"
+	printf("Hello World");
+
+	return 0;
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Output">
+
+```text
+Hello World
+```
+
+  </TabItem>
+</Tabs>
+<img 
+  src="https://github.com/Sohanlm/lgp-notes-photos/blob/main/C1.png?raw=true" 
+  alt="C1" 
+  width="500" 
+/>
+
+#### Explanation
+
+- **Line 1:** `#include <stdio.h>` tells C to include a header file. This header lets us use input/output functions such as `printf()`.
+
+- **Line 2:** A blank line. C ignores extra spaces and blank lines, but we use them to make the code easier to read.
+
+- **Line 3:** `main()` is a special function. Your program starts running here. Any code inside the curly brackets `{}` will be executed.
+
+- **Line 4:** `printf()` is a function used to output (print) text to the screen. In our example, it prints `"Hello World"`.
+
+- **Line 5:** `return 0;` ends the `main()` function and sends a value back to the operating system. Returning `0` usually means the program executed successfully.
+
+- **Line 6:** The closing curly bracket `}` marks the end of the `main()` function.
+
+## Variables and Data Types
+
+### A. Variables
+
+Variables are containers for storing data values, like numbers and characters.
+
+In C, variables must have a specific type, which tells the program what kind of data the variable can store.
+
+- `int` — stores whole numbers (integers), such as `123` or `-123`
+- `float` — stores numbers with decimals, such as `19.99` or `-19.99`
+- `char` — stores a single character, such as `'a'` or `'B'`. Characters are surrounded by single quotes.
+
+---
+
+#### C Variable Initialization
+
+Once a variable is declared, we can store useful values in it. The first value we store is called the **initial value**, and the process is called **initialization**.
+
+Initialization is done using the assignment operator `=`.
+
+It is important to initialize a variable because a C variable contains a garbage value when it is declared without initialization.
+
+We can also initialize a variable along with declaration.
+
+---
+
+#### Rules for Naming Variables in C
+
+- A variable name must only contain letters, digits, and underscores.
+- It must start with an alphabet or an underscore only.
+- It cannot start with a digit.
+- No white space is allowed within the variable name.
+- A variable name must not be a reserved word or keyword.
+- The variable name must be unique in the program.
+
+---
+
+#### Declaring (Creating) Variables
+
+To create a variable, you must specify the **type** and give the variable a **name**.
+
+##### Syntax
+
+```c
+type variableName = value;
+```
+
+##### Example
+
+```c
+int myNum = 15;
+```
+
+---
+
+#### Accessing Variables
+
+The data stored inside a C variable can be accessed using the variable name.
+
+<Tabs>
+  <TabItem label="C">
+
+```c
+#include <stdio.h>
+
+int main() {
+
+	// Create integer variable
+	int num = 3;
+
+	// Access the value stored in variable
+	printf("%d", num);
+
+	return 0;
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Output">
+
+```text
+3
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+### B. Data Types
+
+Each variable in C has an associated data type. It specifies the type of data that the variable can store, such as integer, character, float, double, etc.
+
+---
+
+#### Data Types in C
+
+<img 
+  src="https://raw.githubusercontent.com/Sohanlm/lgp-notes-photos/refs/heads/main/C2.png" 
+  alt="C Data Types" 
+  width="700" 
+/>
+
+---
+
+#### Basic Data Types
+
+| Sl No | Data Type | Size | Description | Example |
+| :---: | :---: | :---: | :--- | :---: |
+| 1 | `int` | 2 or 4 bytes | Stores whole numbers without decimals | `1` |
+| 2 | `float` | 4 bytes | Stores fractional numbers with 6–7 decimal digits precision | `1.99` |
+| 3 | `double` | 8 bytes | Stores fractional numbers with 15 decimal digits precision | `1.99` |
+| 4 | `char` | 1 byte | Stores a single character, letter, number, or ASCII value | `'A'` |
+| 5 | `bool` | 1 byte | Stores logical values: `true` or `false` | `true` |
+| 6 | `void` | No size / no storage | Represents no value | `void showMessage()` |
+
+---
+
+#### 1. Integer Data Type
+
+- Stores whole numbers (positive, negative, or zero).
+- Declared using the `int` keyword.
+- Size: typically `4 bytes`
+- Range: `-2,147,483,648` to `2,147,483,647`
+- Format specifier: `%d`
+
+##### Example
+
+```c
+int a = 10;
+```
+
+---
+#### 2. Character Data Type
+
+- Stores a single character such as `'A'`, `'b'`, or `'5'`.
+- Size: typically `1 byte`
+- Range: `-128` to `127` (signed by default)
+- Format specifier: `%c`
+
+#### Example
+
+```c
+char ch = 'A';
+```
+
+---
+
+#### 3. Float Data Type
+
+- Stores decimal numbers (numbers with fractional parts).
+- Size: typically `4 bytes`
+- Approximate range: `3.4e-38` to `3.4e+38`
+- Format specifier: `%f`
+
+#### Example
+
+```c
+float b = 3.5f;
+```
+
+---
+
+#### 4. Double Data Type
+
+- Stores decimal numbers with higher precision than `float`.
+- Size: typically `8 bytes`
+- Approximate range: `1.7e-308` to `1.7e+308`
+- Format specifier: `%lf`
+
+#### Example
+
+```c
+double c = 12.345678;
+```
+
+---
+
+#### 5. Void Data Type
+
+- Represents no value or an empty type.
+- Used in functions that do not return any value.
+- Can also be used for generic pointers (`void *`) in memory operations.
+
+#### Example
+
+```c
+void showMessage() {
+	printf("Hello\\n");
+}
+```
+
+---
+
+#### 6. Bool Data Type
+
+- Represents a logical value.
+- Stores only two states: `true` or `false`.
+- Commonly used in conditions and decision-making.
+
+#### Example
+
+```c
+bool e = true;
+```
+## Operators and Expressions
+
+### A. Operators
+
+Operators are used to perform operations on variables and values.
+
+They are symbols that represent different kinds of operations such as mathematical, relational, logical, bitwise, and conditional computations.
+
+The values or variables used with operators are called **operands**.
+
+C divides operators into the following groups:
+
+- Arithmetic operators
+- Assignment operators
+- Comparison operators
+- Logical operators
+- Bitwise operators
+
+---
+
+#### 1. Arithmetic Operators
+
+Arithmetic operators are used to perform common mathematical operations.
+
+| Operator | Name | Description | Syntax |
+| :---: | :---: | :--- | :---: |
+| `+` | Addition | Adds two values | `x + y` |
+| `-` | Subtraction | Subtracts one value from another | `x - y` |
+| `*` | Multiplication | Multiplies two values | `x * y` |
+| `/` | Division | Divides one value by another | `x / y` |
+| `%` | Modulus | Returns the remainder of division | `x % y` |
+| `++` | Increment | Increases the value of a variable by 1 | `++x` |
+| `--` | Decrement | Decreases the value of a variable by 1 | `--x` |
+
+---
+
+###### Example Program
+
+<Tabs>
+  <TabItem label="C Program">
+
+```c
+#include <stdio.h>
+
+int main()
+{
+	int a = 25, b = 5;
+
+	printf("a + b = %d\\n", a + b);
+	printf("a - b = %d\\n", a - b);
+	printf("a * b = %d\\n", a * b);
+	printf("a / b = %d\\n", a / b);
+	printf("a %% b = %d\\n", a % b);
+
+	printf("+a = %d\\n", +a);
+	printf("-a = %d\\n", -a);
+
+	printf("a++ = %d\\n", a++);
+	printf("a-- = %d\\n", a--);
+
+	return 0;
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Output">
+
+```text
+a + b = 30
+a - b = 20
+a * b = 125
+a / b = 5
+a % b = 0
++a = 25
+-a = -25
+a++ = 25
+a-- = 26
+```
+
+  </TabItem>
+</Tabs>
+
+#### 2. Assignment Operators
+
+Assignment operators are used to assign values to variables.
+
+The left-side operand of the assignment operator is a variable, and the right-side operand is a value.
+
+The value on the right side must be of the same data type as the variable on the left side; otherwise, the compiler will generate an error.
+
+Assignment operators can also be combined with other operators to perform multiple operations using a single operator. These are called **compound assignment operators**.
+
+---
+
+##### Assignment Operators Table
+
+| Operator | Name | Description | Syntax |
+| :---: | :---: | :--- | :---: |
+| `=` | Simple Assignment | Assigns the value of the right operand to the left operand | `a = b` |
+| `+=` | Plus and Assign | Adds the right operand to the left operand and assigns the result | `a += b` |
+| `-=` | Minus and Assign | Subtracts the right operand from the left operand and assigns the result | `a -= b` |
+| `*=` | Multiply and Assign | Multiplies both operands and assigns the result | `a *= b` |
+| `/=` | Divide and Assign | Divides the left operand by the right operand and assigns the result | `a /= b` |
+| `%=` | Modulus and Assign | Assigns the remainder after division | `a %= b` |
+| `&=` | AND and Assign | Performs bitwise AND and assigns the result | `a &= b` |
+| `\|=` | OR and Assign | Performs bitwise OR and assigns the result | `a \|= b` |
+| `^=` | XOR and Assign | Performs bitwise XOR and assigns the result | `a ^= b` |
+| `>>=` | Right Shift and Assign | Performs right shift and assigns the result | `a >>= b` |
+| `<<=` | Left Shift and Assign | Performs left shift and assigns the result | `a <<= b` |
+
+---
+
+###### Example Program
+
+<Tabs>
+  <TabItem label="C Program">
+
+```c
+#include <stdio.h>
+
+int main()
+{
+	int a = 25, b = 5;
+
+	// Using assignment operators
+	printf("a = b: %d\\n", a = b);
+
+	a = 25;
+	printf("a += b: %d\\n", a += b);
+
+	a = 25;
+	printf("a -= b: %d\\n", a -= b);
+
+	a = 25;
+	printf("a *= b: %d\\n", a *= b);
+
+	a = 25;
+	printf("a /= b: %d\\n", a /= b);
+
+	a = 25;
+	printf("a %%= b: %d\\n", a %= b);
+
+	a = 25;
+	printf("a &= b: %d\\n", a &= b);
+
+	a = 25;
+	printf("a |= b: %d\\n", a |= b);
+
+	a = 25;
+	printf("a ^= b: %d\\n", a ^= b);
+
+	a = 25;
+	printf("a >>= b: %d\\n", a >>= b);
+
+	a = 25;
+	printf("a <<= b: %d\\n", a <<= b);
+
+	return 0;
+}
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+#### 3. Comparison Operators
+
+Comparison operators are used to compare two values or variables.
+
+These operators help in decision-making and conditional statements.
+
+---
+
+#### Comparison Operators Table
+
+| Operator | Name | Description | Syntax |
+| :---: | :---: | :--- | :---: |
+| `==` | Equal To | Returns `1` if both values are equal | `x == y` |
+| `!=` | Not Equal To | Returns `1` if values are not equal | `x != y` |
+| `>` | Greater Than | Returns `1` if the first value is greater | `x > y` |
+| `<` | Less Than | Returns `1` if the first value is smaller | `x < y` |
+| `>=` | Greater Than or Equal To | Returns `1` if the first value is greater than or equal | `x >= y` |
+| `<=` | Less Than or Equal To | Returns `1` if the first value is smaller than or equal | `x <= y` |
+
+---
+
+###### Example Program
+
+<Tabs>
+  <TabItem label="C Program">
+
+```c
+#include <stdio.h>
+
+int main()
+{
+	int a = 25, b = 5;
+
+	// Using comparison operators
+	printf("a < b  : %d\\n", a < b);
+	printf("a > b  : %d\\n", a > b);
+	printf("a <= b : %d\\n", a <= b);
+	printf("a >= b : %d\\n", a >= b);
+	printf("a == b : %d\\n", a == b);
+	printf("a != b : %d\\n", a != b);
+
+	return 0;
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Output">
+
+```text
+a < b  : 0
+a > b  : 1
+a <= b : 0
+a >= b : 1
+a == b : 0
+a != b : 1
+```
+
+  </TabItem>
+</Tabs>
+Here:
+
+- `0` means **false**
+- `1` means **true**
+
+#### 4. Logical Operators
+
+Logical operators are used to combine two or more conditions or to reverse the result of a condition.
+
+The result of a logical operation is always a Boolean value:
+
+- `1` → True
+- `0` → False
+
+---
+
+###### Logical Operators Table
+
+| Operator | Name | Description | Syntax |
+| :---: | :---: | :--- | :---: |
+| `&&` | Logical AND | Returns `1` if both conditions are true | `x < 5 && x < 10` |
+| `\|\|` | Logical OR | Returns `1` if at least one condition is true | `x < 5 \|\| x < 4` |
+| `!` | Logical NOT | Reverses the result | `!(x < 5 && x < 10)` |
+
+---
+
+###### Example Program
+
+<Tabs>
+  <TabItem label="C Program">
+
+```c
+#include <stdio.h>
+
+int main()
+{
+	int a = 25, b = 5;
+
+	// Using logical operators
+	printf("a && b : %d\\n", a && b);
+	printf("a || b : %d\\n", a || b);
+	printf("!a : %d\\n", !a);
+
+	return 0;
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Output">
+
+```text
+a && b : 1
+a || b : 1
+!a : 0
+```
+
+  </TabItem>
+</Tabs>
+#### 5. Bitwise Operators
+
+Bitwise operators are used to perform operations at the bit level.
+
+The operands are converted into binary form, and operations are performed bit by bit.
+
+Bitwise operations are useful for faster calculations and low-level programming.
+
+---
+
+##### Bitwise Operators Table
+
+| Operator | Name | Description | Syntax |
+| :---: | :---: | :--- | :---: |
+| `&` | Bitwise AND | Performs bit-by-bit AND operation | `a & b` |
+| `\|` | Bitwise OR | Performs bit-by-bit OR operation | `a \| b` |
+| `^` | Bitwise XOR | Performs bit-by-bit XOR operation | `a ^ b` |
+| `~` | Bitwise Complement | Flips all bits | `~a` |
+| `<<` | Left Shift | Shifts bits to the left | `a << b` |
+| `>>` | Right Shift | Shifts bits to the right | `a >> b` |
+
+---
+
+### B. Operator Precedence
+
+When an expression contains multiple operators, C follows precedence rules to determine which operation should be performed first.
+
+Operators with higher precedence are evaluated before operators with lower precedence.
+
+---
+
+#### Common Operator Precedence Order
+
+| Priority | Operators | Description |
+| :---: | :--- | :--- |
+| 1 | `()` | Parentheses |
+| 2 | `*`, `/`, `%` | Multiplication, Division, Modulus |
+| 3 | `+`, `-` | Addition, Subtraction |
+| 4 | `>`, `<`, `>=`, `<=` | Comparison |
+| 5 | `==`, `!=` | Equality |
+| 6 | `&&` | Logical AND |
+| 7 | `\|\|` | Logical OR |
+| 8 | `=` | Assignment |
+
+---
+
+###### Example Program
+
+<Tabs>
+  <TabItem label="C Program">
+
+```c
+#include <stdio.h>
+
+int main()
+{
+	int result1 = 2 + 3 * 4;
+	int result2 = (2 + 3) * 4;
+
+	printf("%d\\n", result1);
+	printf("%d\\n", result2);
+
+	return 0;
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Output">
+
+```text
+14
+20
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+#### Explanation
+
+In the expression:
+
+```c
+2 + 3 * 4
+```
+
+multiplication is performed first:
+
+```c
+2 + 12 = 14
+```
+
+If you want addition to happen first, use parentheses:
+
+```c
+(2 + 3) * 4
+```
+
+which gives:
+
+```c
+5 * 4 = 20
+```
+
+## Conditional Statements
+
+In C, programs can choose which part of the code to execute based on a condition.
+
+This process is called **decision making**, and the statements used are called **conditional statements**.
+
+---
+
+##### Syntax of Conditional Statements in C
+
+<img 
+  src="https://raw.githubusercontent.com/Sohanlm/lgp-notes-photos/refs/heads/main/C3.png" 
+  alt="Conditional Statements in C" 
+  width="700" 
+/>
+
+---
+
+#### Types of Conditional Statements in C
+
+C provides the following conditional statements:
+
+- `if`
+- `if-else`
+- `if-else if`
+- `nested if`
+- `switch`
+
+---
+
+### A. If Statement
+
+Use `if` to execute a block of code only when a specified condition is true.
+
+##### Example
+
+<Tabs>
+  <TabItem label="C Program">
+
+```c
+#include <stdio.h>
+
+int main()
+{
+	int age = 20;
+
+	// If statement
+	if (age >= 18)
+	{
+		printf("Eligible for vote");
+	}
+
+	return 0;
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Output">
+
+```text
+Eligible for vote
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+### B. If-Else Statement
+
+Use `else` to execute another block of code when the condition is false.
+
+##### Example
+
+<Tabs>
+  <TabItem label="C Program">
+
+```c
+#include <stdio.h>
+
+int main()
+{
+	int age = 10;
+
+	if (age >= 18)
+	{
+		printf("Eligible for vote");
+	}
+	else
+	{
+		printf("Not Eligible for vote");
+	}
+
+	return 0;
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Output">
+
+```text
+Not Eligible for vote
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+### C. If-Else If Statement
+
+Use `else if` to test multiple conditions one after another.
+
+##### Example
+
+<Tabs>
+  <TabItem label="C Program">
+
+```c
+#include <stdio.h>
+
+int main()
+{
+	int i = 20;
+
+	// If else ladder
+	if (i == 10)
+		printf("Not Eligible");
+	else if (i == 15)
+		printf("Wait for three years");
+	else if (i == 20)
+		printf("You can vote");
+	else
+		printf("Not a valid age");
+
+	return 0;
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Output">
+
+```text
+You can vote
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+### D. Nested If Statement
+
+A nested `if` means placing one `if` statement inside another `if` or `else` block.
+
+It is used to check multiple conditions step by step.
+
+###### Example
+
+<Tabs>
+  <TabItem label="C Program">
+
+```c
+#include <stdio.h>
+
+int main()
+{
+	int age = 11;
+
+	if (age >= 18)
+	{
+		if (age >= 60)
+			printf("Eligible to vote (Senior Citizen)\\n");
+		else
+			printf("Eligible for vote\\n");
+	}
+	else
+	{
+		printf("Not eligible to vote (Under 18)\\n");
+
+		if (age >= 13)
+			printf("Teenager\\n");
+		else
+			printf("Not a teenager\\n");
+	}
+
+	return 0;
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Output">
+
+```text
+Not eligible to vote (Under 18)
+Not a teenager
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+### E. Switch Statement
+
+Use `switch` when there are many alternative blocks of code to execute.
+
+##### Example
+
+<Tabs>
+  <TabItem label="C Program">
+
+```c
+#include <stdio.h>
+
+int main()
+{
+	// Variable used in switch statement
+	int var = 18;
+
+	// Switch cases
+	switch (var)
+	{
+		case 15:
+			printf("You are a kid");
+			break;
+
+		case 18:
+			printf("Eligible for vote");
+			break;
+
+		default:
+			printf("Default Case is executed");
+			break;
+	}
+
+	return 0;
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Output">
+
+```text
+Eligible for vote
+```
+
+  </TabItem>
+</Tabs>

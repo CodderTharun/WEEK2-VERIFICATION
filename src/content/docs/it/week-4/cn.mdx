@@ -1,0 +1,65 @@
+---
+title: CN - Week 4
+description: Congestion Control and Flow Control
+---
+
+
+
+## Flow Control
+
+Flow control regulates data transmission between sender and receiver.
+
+### Stop and Wait
+
+- Sender waits for acknowledgment
+- Simple but inefficient
+- Low throughput
+
+### Sliding Window
+
+- Sender can transmit multiple frames
+- Receiver has window of acceptable frames
+- Better throughput
+
+## Congestion Control
+
+Prevents network congestion and packet loss.
+
+### Congestion Control Mechanisms
+
+1. **TCP Congestion Control**
+   - Slow Start
+   - Congestion Avoidance
+   - Fast Retransmit
+   - Fast Recovery
+
+### Congestion Signals
+
+- **Packet Loss** - Timeout or duplicate ACK
+- **Increased Delay** - Rising RTT
+
+### Congestion Window (cwnd)
+
+- Sender maintains window size
+- Adjusts based on feedback
+
+### This Week
+
+- Flow control mechanisms
+- Congestion window management
+- TCP performance issues
+- Quality of Service (QoS)
+- Network performance metrics
+
+### Metrics
+
+- **Throughput** - Data transmitted per unit time
+- **Latency** - Time for data to travel
+- **Jitter** - Variation in latency
+- **Packet Loss Rate** - Percentage of lost packets
+
+### Practice
+
+- Analyze congestion scenarios
+- Calculate throughput
+- Understand TCP behavior

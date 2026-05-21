@@ -1,0 +1,103 @@
+---
+title: ECE Department - Week 1 Answer Keys
+description: Solutions and answer keys for ECE Department Week 1 problems
+---
+
+# ECE Department - Week 1 Answer Keys
+
+## Digital Logic
+
+**Q1: Design 2-to-4 Decoder**
+```
+Truth Table:
+A B | Y0 Y1 Y2 Y3
+0 0 | 1  0  0  0
+0 1 | 0  1  0  0
+1 0 | 0  0  1  0
+1 1 | 0  0  0  1
+```
+
+**Q2: Simplify Boolean Expression**
+```
+F = AB + AB' + A'B = A + B (by Boolean algebra)
+Karnaugh map verification confirms result
+```
+
+## Microprocessors
+
+**Q1: 8085 Register Pairs**
+```
+Answer: BC, DE, HL, SP
+- Each pair = 16-bit
+- Used for address/data operations
+```
+
+**Q2: Interrupt Types**
+```
+Maskable: RST 5.5, RST 6.5, RST 7.5
+Non-maskable: TRAP
+```
+
+## Signals and Systems
+
+**Q1: Fourier Series**
+```
+f(t) = a₀/2 + Σ(aₙcos(nωt) + bₙsin(nωt))
+where aₙ, bₙ calculated via integrals
+```
+
+**Q2: System Properties**
+```
+- Linear: Homogeneity + Additivity
+- Time-invariant: h[n-k] property
+- Causal: Output depends only on past/present
+- Stable: BIBO stability
+```
+
+## Communications
+
+**Q1: Shannon Capacity**
+```
+C = B × log₂(1 + S/N)
+C: Capacity in bps
+B: Bandwidth
+S/N: Signal-to-noise ratio
+```
+
+**Q2: Modulation Types**
+```
+- AM: Amplitude modulation
+- FM: Frequency modulation  
+- PM: Phase modulation
+- QAM: Quadrature amplitude modulation
+```
+
+## Power Electronics
+
+**Q1: Rectifier Analysis**
+```
+Half-wave: Vavg = Vm/π
+Full-wave: Vavg = 2Vm/π
+Peak inverse voltage (PIV) calculations
+```
+
+**Q2: Thyristor Characteristics**
+```
+SCR: Thyristor with gate control
+- Forward blocking mode
+- Forward conducting mode
+- Reverse blocking mode
+```
+
+---
+
+## Verification Checklist
+
+| Topic | Answer Method |
+|-------|----------------|
+| Boolean | Simplify by algebra or K-map |
+| Fourier | Complex exponential or real form |
+| Shannon | Use exact formula |
+| Rectifier | Calculate average and peak values |
+
+**Week 1 Complete:** Verify all solutions match expected outputs

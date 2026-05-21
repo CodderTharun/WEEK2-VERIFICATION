@@ -1,0 +1,1027 @@
+---
+title: ADC 
+description: Converters and inverters
+
+---
+
+---
+
+## Introduction to Communication Systems
+
+### A. Communication System
+
+A communication system is a set of devices and transmission media that enables information to be sent from one place to another. Every communication system has three fundamental components:
+
+**Figure 1.1 – Basic Communication System Block Diagram**
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/ADC/ADC1.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+
+- **Information Source:** Generates the original message (voice, data, image, video).
+- **Transmitter:** Converts message into a form suitable for transmission (modulation, amplification).
+- **Channel:** The medium through which signal travels (air, cable, optical fiber).
+- **Receiver:** Recovers original information from received signal (demodulation, decoding).
+- **Destination:** The end point that uses the recovered information.
+
+### B. Types of Signals
+
+**Analog Signal:**
+A signal that varies continuously with time. It can take any value within a range. Examples: audio, temperature, pressure.
+
+**Digital Signal:**
+A signal that takes only discrete values (0 or 1). It is represented as a series of pulses. Examples: computer data, digital audio.
+
+**Figure 1.2 – Analog vs Digital Signal**
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/ADC/ADC2.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+### C. Frequency Spectrum
+
+The frequency spectrum is the range of frequencies occupied by a signal. Different signals are allocated different frequency bands to avoid interference.
+
+| Frequency Band | Range | Applications |
+|---|---|---|
+| ELF (Extremely Low Freq) | 3 Hz – 30 Hz | Submarine communication |
+| VLF (Very Low Freq) | 3 kHz – 30 kHz | Navigation, time signals |
+| LF (Low Freq) | 30 kHz – 300 kHz | AM broadcast (long wave) |
+| MF (Medium Freq) | 300 kHz – 3 MHz | AM broadcast |
+| HF (High Freq) | 3 MHz – 30 MHz | Shortwave radio |
+| VHF (Very High Freq) | 30 MHz – 300 MHz | FM radio, TV |
+| UHF (Ultra High Freq) | 300 MHz – 3 GHz | TV, mobile phones |
+| SHF (Super High Freq) | 3 GHz – 30 GHz | Satellite, radar |
+| EHF (Extremely High Freq) | 30 GHz – 300 GHz | 5G, millimeter wave |
+
+---
+
+## Modulation – Concept and Need
+
+Modulation is the process of varying one or more characteristics (amplitude, frequency, or phase) of a high-frequency carrier signal in accordance with the instantaneous value of a low-frequency message signal.
+
+### A. Components of Modulation
+
+| Component | Description | Example |
+|---|---|---|
+| Message Signal (Baseband) | Low frequency, contains actual information | Voice (300–3400 Hz), audio (20 Hz–20 kHz) |
+| Carrier Signal | High frequency sinusoidal wave, carries message | RF signal at 1 MHz, 100 MHz |
+| Modulated Signal | Output: message impressed on carrier | AM/FM/PM broadcast signal |
+
+### B. Need for Modulation
+
+#### 1. Practical Antenna Size
+
+Antenna height is proportional to wavelength: $\lambda = c / f$. A 3 kHz audio signal would require an antenna of ~100 km. Modulation shifts the signal to high frequency (e.g. 1 MHz), reducing antenna size to ~75 m.
+
+$$\text{Antenna Height} = \frac{\lambda}{4} = \frac{c}{4f}$$
+
+#### 2. Reduction of Interference
+
+Low-frequency signals from different sources overlap in the same channel. By assigning each signal a different carrier frequency (frequency division multiplexing), interference is avoided.
+
+#### 3. Improvement in Signal-to-Noise Ratio
+
+High-frequency transmission is less susceptible to low-frequency noise. FM in particular provides excellent noise immunity.
+
+#### 4. Multiplexing
+
+Multiple signals can share the same channel simultaneously by using different carrier frequencies. This is the basis of FDM (Frequency Division Multiplexing).
+
+#### 5. Long-Distance Transmission
+
+High-frequency signals travel farther and can be amplified more efficiently by repeaters.
+
+### C. Classification of Modulation
+
+**Figure 2.1 – Classification of Modulation Techniques**
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/ADC/ADC3.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+---
+
+## Amplitude Modulation (AM)
+
+Amplitude Modulation (AM) is the process in which the amplitude of a high-frequency carrier signal is varied proportionally to the instantaneous value of the message signal, while the frequency and phase of the carrier remain constant.
+
+### A. Mathematical Representation
+
+Let the message signal be:
+
+$$m(t) = A_m \cos(2\pi f_m t)$$
+
+Let the carrier signal be:
+
+$$c(t) = A_c \cos(2\pi f_c t)$$
+
+The AM signal (modulated output) is:
+
+$$s(t) = [A_c + A_m \cos(2\pi f_m t)] \cos(2\pi f_c t)$$
+
+This can be rewritten as:
+
+$$s(t) = A_c[1 + \mu \cos(2\pi f_m t)] \cos(2\pi f_c t)$$
+
+where $\mu = A_m / A_c$ is the modulation index.
+
+### B. AM Waveform
+
+**Figure 3.1 – AM Waveform showing Message, Carrier and Modulated Signal**
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/ADC/ADC4.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+### C. Modulation Index (μ)
+
+The modulation index ($\mu$) indicates the degree of modulation. It is defined as the ratio of the amplitude of the message signal to the amplitude of the carrier.
+
+$$\mu = \frac{A_m}{A_c}$$
+
+From the modulated waveform, $\mu$ can also be found using:
+
+$$\mu = \frac{A_{max} - A_{min}}{A_{max} + A_{min}}$$
+
+where $A_{max}$ and $A_{min}$ are the maximum and minimum amplitudes of the AM envelope.
+
+| Condition | Value of μ | Effect | Waveform |
+|---|---|---|---|
+| Under Modulation | μ < 1 | Weak modulation, low efficiency | Envelope not fully shaped |
+| Perfect Modulation | μ = 1 | Maximum efficiency, no distortion | Envelope exactly follows message |
+| Over Modulation | μ > 1 | Distortion (clipping), envelope lost | Waveform distorted |
+
+**NOTE:** Always maintain $\mu \leq 1$ for distortion-free AM transmission. $\mu = 1$ gives maximum efficiency.
+
+### D. AM Frequency Spectrum
+
+Expanding $s(t)$ using trigonometric identity:
+
+$$s(t) = A_c \cos(2\pi f_c t) + \frac{\mu A_c}{2}\cos[2\pi(f_c+f_m)t] + \frac{\mu A_c}{2}\cos[2\pi(f_c-f_m)t]$$
+
+The spectrum contains three components:
+- **Carrier:** at frequency $f_c$
+- **Upper Sideband (USB):** at frequency $f_c + f_m$
+- **Lower Sideband (LSB):** at frequency $f_c - f_m$
+
+**Figure 3.2 – AM Frequency Spectrum**
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/ADC/ADC5.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+### E. Bandwidth of AM
+
+The bandwidth of an AM signal is the difference between the highest and lowest frequency components.
+
+$$BW = (f_c + f_m) - (f_c - f_m) = 2f_m$$
+
+The bandwidth depends only on the message frequency, not on the carrier frequency.
+
+### F. Power in AM Signal
+
+Total power in an AM signal has three parts: carrier power, upper sideband power, lower sideband power.
+
+$$P_t = P_c + P_{USB} + P_{LSB} = P_c\left(1 + \frac{\mu^2}{2}\right)$$
+
+Where $P_c = A_c^2 / 2R$ is the carrier power.
+
+| μ Value | Total Power (Pt) | Sideband Power | Efficiency |
+|---|---|---|---|
+| μ = 0 | $P_t = P_c$ | 0 | 0% (no information) |
+| μ = 0.5 | $P_t = 1.125\, P_c$ | $0.125\, P_c$ | 11.1% |
+| μ = 1 | $P_t = 1.5\, P_c$ | $0.5\, P_c$ | 33.3% |
+
+**NOTE:** Maximum efficiency of AM is only 33.3% when $\mu = 1$. The carrier (which carries no information) consumes 66.7% of power. This motivates DSB-SC and SSB.
+
+### G. AM Demodulation
+
+**Envelope Detector (Non-coherent):**
+The most common AM demodulation method. It extracts the envelope of the AM signal which equals the original message.
+
+**Figure 3.3 – Envelope Detector Circuit**
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/ADC/ADC6.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+- **Diode:** Allows only positive half cycles (rectification).
+- **Capacitor (C):** Charges to peak, discharges slowly – smooths the waveform.
+- **Resistor (R):** Sets discharge time constant $\tau = RC$.
+
+**Condition:** $1/f_c \ll RC \ll 1/f_m$
+
+**Square Law Detector (for weak signals):**
+Uses the nonlinear characteristic of devices. The output contains a term proportional to $m(t)$. Used when signal is too weak for envelope detection.
+
+---
+
+## Double Sideband – Suppressed Carrier (DSB-SC)
+
+### A. Concept
+
+In standard AM, the carrier consumes most of the power but carries no information. DSB-SC eliminates the carrier and transmits only the two sidebands. This improves power efficiency.
+
+$$s(t) = A_c\, m(t) \cos(2\pi f_c t)$$
+
+### B. Ring Modulator (DSB-SC Generator)
+
+A ring modulator uses four diodes in a bridge arrangement to generate DSB-SC signals.
+
+**Figure 4.1 – Ring Modulator Circuit**
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/ADC/ADC7.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/ADC/ADC8.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+### C. DSB-SC Demodulation (Coherent Detection)
+
+DSB-SC requires a locally generated carrier that is phase-synchronized with the transmitter carrier. Carrier recovery is done using a Costas Loop or Phase-Locked Loop (PLL).
+
+**Figure 4.2 – Coherent Detection of DSB-SC**
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/ADC/ADC9.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+### D. Costas Loop (Carrier Recovery)
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/ADC/ADC11.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+The Costas Loop recovers the suppressed carrier in DSB-SC and PSK systems. It uses two branches:
+- **In-phase (I) branch:** multiplied by $\cos(2\pi f_c t)$
+- **Quadrature (Q) branch:** multiplied by $\sin(2\pi f_c t)$
+
+A phase detector compares outputs of both branches. The error signal is used to control a VCO that locks onto the carrier frequency and phase.
+
+| Feature | AM | DSB-SC |
+|---|---|---|
+| Carrier Transmitted | Yes | No |
+| Bandwidth | $2f_m$ | $2f_m$ |
+| Power Efficiency | 33% max (at μ=1) | 100% (all power in sidebands) |
+| Receiver Complexity | Simple (envelope detector) | Complex (coherent detection) |
+| Application | AM radio broadcast | Data links, SSB generation |
+
+---
+
+## Frequency Modulation (FM)
+
+### A. Definition
+
+Frequency Modulation (FM) is the process in which the instantaneous frequency of the carrier signal is varied proportionally to the instantaneous amplitude of the message signal, while the amplitude of the carrier remains constant.
+
+### B. Mathematical Analysis
+
+Message signal:
+
+$$m(t) = A_m \cos(2\pi f_m t)$$
+
+In FM, the instantaneous frequency is:
+
+$$f_i(t) = f_c + k_f \cdot m(t) = f_c + \Delta f \cdot \cos(2\pi f_m t)$$
+
+where $k_f$ is the frequency sensitivity (Hz/V) and $\Delta f = k_f \cdot A_m$ is the maximum frequency deviation.
+
+The instantaneous phase is:
+
+$$\phi(t) = 2\pi f_c t + \frac{\Delta f}{f_m} \cdot \sin(2\pi f_m t) = 2\pi f_c t + \beta \cdot \sin(2\pi f_m t)$$
+
+Therefore the FM signal is:
+
+$$s(t) = A_c \cos[2\pi f_c t + \beta \cdot \sin(2\pi f_m t)]$$
+
+### C. Frequency Deviation and Modulation Index
+
+**Frequency deviation ($\Delta f$):** the maximum shift in carrier frequency from its unmodulated value.
+
+$$\Delta f = k_f \times A_m$$
+
+**FM Modulation Index ($\beta$):**
+
+$$\beta = \frac{\Delta f}{f_m}$$
+
+**NOTE:** Unlike AM where $\mu \leq 1$ for no distortion, in FM, $\beta$ can be much greater than 1. This gives FM its superior noise immunity.
+
+### D. FM Waveform
+
+**Figure 6.1 – FM Waveform**
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/ADC/ADC12.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+### E. Types of FM
+
+| Type | β Value | Bandwidth | Noise Immunity | Applications |
+|---|---|---|---|---|
+| Narrowband FM (NBFM) | β < 1 | ≈ $2f_m$ (similar to AM) | Moderate | Walkie-talkies, mobile radio, police radio |
+| Wideband FM (WBFM) | β > 1 | $2(\Delta f + f_m)$ | High | FM radio (88–108 MHz), TV audio |
+
+### F. FM Bandwidth – Carson's Rule
+
+The approximate bandwidth of an FM signal is given by Carson's Rule:
+
+$$BW = 2(\Delta f + f_m) = 2f_m(\beta + 1)$$
+
+Exact bandwidth requires Bessel functions (infinite sidebands), but Carson's rule covers 98% of total power.
+
+### G. FM Generation
+
+**Indirect FM (Armstrong Method):**
+Phase modulation is used first to produce NBFM. Frequency multipliers are then used to increase the deviation to WBFM.
+
+**Figure 6.2 – FM Generation Methods**
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/ADC/ADC13.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+### H. FM Demodulation
+
+#### 1. Frequency Discriminator Method
+
+Converts frequency variations into amplitude variations, then uses an envelope detector.
+
+**Figure 6.3 – Frequency Discriminator FM Demodulator**
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/ADC/ADC14.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+#### 2. Phase-Locked Loop (PLL) Demodulator
+
+The PLL tracks the frequency of the FM signal. The error voltage of the VCO (used to keep tracking) is proportional to the original message signal.
+
+**Figure 6.4 – PLL FM Demodulator**
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/ADC/ADC15.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+#### 3. Ratio Detector
+
+A variation of the Foster-Seeley discriminator that is insensitive to amplitude variations. Commonly used in FM radios because it suppresses AM noise without a limiter stage.
+
+### I. Pre-emphasis and De-emphasis
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/ADC/ADC18.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+At high frequencies, FM signals are more susceptible to noise. Pre-emphasis boosts high-frequency components before transmission. De-emphasis at the receiver restores original levels, effectively reducing high-frequency noise.
+
+| Stage | Location | Effect |
+|---|---|---|
+| Pre-emphasis | Transmitter | Boosts high frequencies (time constant τ = 75 μs in broadcast FM) |
+| De-emphasis | Receiver | Attenuates high frequencies, reducing noise |
+
+---
+
+## Phase Modulation (PM)
+
+### A. Definition and Expression
+
+Phase Modulation (PM) is the process in which the instantaneous phase of the carrier signal is varied proportionally to the message signal, while amplitude remains constant.
+
+$$s(t) = A_c \cos[2\pi f_c t + k_p \cdot m(t)]$$
+
+where $k_p$ is the phase sensitivity (rad/V).
+
+For a single tone message $m(t) = A_m \cos(2\pi f_m t)$:
+
+$$s(t) = A_c \cos[2\pi f_c t + k_p \cdot A_m \cdot \cos(2\pi f_m t)]$$
+
+$$= A_c \cos[2\pi f_c t + m_p \cdot \cos(2\pi f_m t)]$$
+
+where $m_p = k_p \cdot A_m$ is the phase modulation index.
+
+### B. Relationship Between FM and PM
+
+FM and PM are closely related because varying frequency also varies phase and vice versa. The key difference is what the modulation index depends on:
+
+| Property | FM | PM |
+|---|---|---|
+| What varies directly | Instantaneous frequency | Instantaneous phase |
+| Modulation index | $\beta = \Delta f/f_m$ (depends on $f_m$) | $m_p = k_p \cdot A_m$ (independent of $f_m$) |
+| Frequency deviation | $\Delta f = k_f \cdot A_m$ | $\Delta f = k_p \cdot A_m \cdot f_m$ |
+| Effect of $f_m$ on BW | BW increases with $f_m$ | BW also increases with $f_m$ |
+
+**NOTE:** PM is widely used in digital communication. Many modern digital systems use PSK, which is derived from PM principles.
+
+### C. PM Generation and Demodulation
+
+**Generation:**
+A phase modulator circuit directly varies the phase of the carrier based on the message voltage. In indirect FM (Armstrong method), PM is generated first.
+
+**Demodulation:**
+A phase comparator (or phase discriminator) compares the received signal phase with a locally generated reference. The output is proportional to the phase difference, which equals $m(t)$.
+
+---
+
+## Comparision – AM, FM and PM
+
+| Parameter | AM | FM | PM |
+|---|---|---|---|
+| Parameter Varied | Amplitude | Frequency | Phase |
+| Amplitude | Varies with message | Constant | Constant |
+| Frequency | Constant | Varies with message | Constant (indirect vary) |
+| Phase | Constant | Indirect variation | Varies with message |
+| Modulation Index | $\mu = A_m/A_c$ (max 1) | $\beta = \Delta f/f_m$ (>1 ok) | $m_p = k_p \cdot A_m$ |
+| Bandwidth | $2f_m$ | $2(\Delta f + f_m)$ | Similar to FM |
+| Noise Immunity | Poor | Excellent | Good |
+| Circuit Complexity | Simple | Complex | Complex |
+| Power Efficiency | Max 33.3% | High (constant amp) | High (constant amp) |
+| Signal Quality | Moderate | High | High |
+| Main Application | AM broadcast radio | FM radio, TV audio | Digital comm, PSK |
+| Bandwidth Usage | Low | High | High |
+
+**NOTE:** FM is preferred for high-quality audio (broadcasting) due to its noise immunity. AM is preferred for long-distance coverage because it uses less bandwidth. PM is the basis for most digital modulation.
+
+---
+
+## Pulse Modulation Techniques
+
+### A. Overview
+
+In pulse modulation, a pulse train is used as the carrier instead of a sinusoidal signal. A pulse train is a series of periodic rectangular pulses. The message signal modifies some property of these pulses.
+
+### B. Pulse Amplitude Modulation (PAM)
+
+The amplitude of each pulse in the train is proportional to the instantaneous value of the message signal at the sampling instant. Width and position of pulses remain constant.
+
+$$\text{PAM: Pulse Amplitude} \propto m(nT_s)$$
+
+**Types of PAM:**
+- **Natural PAM:** Top of each pulse follows the message signal continuously during the pulse width.
+- **Flat-top PAM:** Each pulse has a flat top equal to the sample value at the start of the pulse (used in practical systems).
+
+**NOTE:** PAM is sensitive to noise because noise can directly change the pulse amplitude. It is mostly used as an intermediate step in PCM generation.
+
+### C. Pulse Width Modulation (PWM)
+
+Also called Pulse Duration Modulation (PDM). The width (duration) of each pulse is proportional to the instantaneous amplitude of the message signal. Amplitude and position remain constant.
+
+$$\text{PWM: Pulse Width} \propto m(nT_s)$$
+
+PWM is more noise-resistant than PAM because noise changes amplitude, not width. Widely used in motor speed control and power electronics.
+
+### D. Pulse Position Modulation (PPM)
+
+The position (timing) of each pulse is varied proportionally to the message signal amplitude. Pulse amplitude and width remain constant.
+
+$$\text{PPM: Pulse Position} \propto m(nT_s)$$
+
+PPM has the best noise immunity among analog pulse modulation techniques but requires precise synchronization at the receiver.
+
+### E. PAM / PWM / PPM Waveform Comparison
+
+**Figure 9.1 – Comparison of PAM, PWM, and PPM Waveforms**
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/ADC/ADC19.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+| Type | Varied Parameter | Noise Immunity | Sync Required | Bandwidth | Application |
+|---|---|---|---|---|---|
+| PAM | Amplitude | Low | No | Low | Intermediate step (PCM) |
+| PWM | Width (Duration) | Medium | No | Medium | Motor control, power electronics |
+| PPM | Position (Timing) | High | Yes | High | Optical comm, radar |
+| PCM | Binary code | Very High | Yes | Very High | Digital telephony, CD audio |
+
+---
+
+## Sampling Theorem and Aliasing
+
+### A. Sampling
+
+Sampling is the process of converting a continuous-time (analog) signal into a discrete-time signal by measuring its amplitude at regular time intervals.
+
+$$x[n] = x(nT_s) \quad \text{where } T_s = 1/f_s$$
+
+### B. Nyquist Sampling Theorem
+
+**Statement:** A bandlimited signal with maximum frequency $W$ Hz can be perfectly reconstructed from its samples if the sampling frequency is at least twice the maximum signal frequency.
+
+$$f_s \geq 2W$$
+
+The minimum sampling rate is called the Nyquist rate:
+
+$$\text{Nyquist Rate} = 2W \text{ samples/second}$$
+
+The corresponding sampling interval is:
+
+$$\text{Nyquist Interval} = \frac{1}{2W} \text{ seconds}$$
+
+**Example:**
+For voice telephony, $W = 4$ kHz, so $f_s = 8000$ samples/second (8 kHz). This is the standard used in the PSTN (telephone network).
+For CD-quality audio, $W = 22$ kHz, so $f_s = 44.1$ kHz (provides margin above Nyquist).
+
+### C. Aliasing
+
+Aliasing occurs when the sampling rate is less than the Nyquist rate ($f_s < 2W$). Different frequency components of the signal overlap in the sampled spectrum, making it impossible to reconstruct the original signal.
+
+$$\text{Aliasing condition: } f_s < 2W$$
+
+**Figure 10.1 – Correct Sampling vs Aliasing**
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/ADC/ADC20.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+**Prevention of Aliasing:**
+- **Anti-aliasing filter:** A low-pass filter applied BEFORE sampling that limits the signal bandwidth to $W < f_s/2$.
+- **Oversample:** Use a sampling rate much higher than $2W$ to provide safety margin.
+
+---
+
+## Pulse Code Modulation (PCM)
+
+### A. Introduction
+
+PCM is the most important pulse modulation technique. It converts an analog signal into a digital bit stream. It is the foundation of modern digital communications and is used in telephony, CD audio, and digital recording.
+
+### B. PCM Block Diagram
+
+**Figure 11.1 – PCM Transmitter and Receiver Block Diagram**
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/ADC/ADC21.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+### C. Step 1 – Sampling
+
+The analog signal is sampled at the Nyquist rate ($f_s \geq 2W$). The sampler produces a PAM signal – discrete time samples with continuous amplitudes.
+
+### D. Step 2 – Quantization
+
+Quantization rounds each sample value to the nearest level from a finite set of $L$ discrete levels. This introduces a small error called quantization error or quantization noise.
+
+$$\text{Number of levels: } L = 2^n \quad \text{(for n-bit encoding)}$$
+
+$$\text{Step size: } \Delta = \frac{V_{max} - V_{min}}{L}$$
+
+$$\text{Max quantization error: } \pm\Delta/2$$
+
+**Uniform vs Non-uniform Quantization:**
+- **Uniform:** All quantization steps are equal. Simple but not optimal for signals with non-uniform amplitude distribution.
+- **Non-uniform (Companding):** Smaller steps for small amplitudes (more precision where signal spends more time). μ-law (used in North America) and A-law (used in Europe) are standard companding methods.
+
+**Figure 11.2 – Quantization Process**
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/ADC/ADC22.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+### E. Step 3 – Encoding
+
+Each quantized level is converted to a binary codeword of $n$ bits. For $L = 8$ levels, $n = 3$ bits per sample; for $L = 256$ levels, $n = 8$ bits per sample.
+
+$$\text{Bit rate} = f_s \times n \text{ bits/second}$$
+
+For telephone-quality voice ($f_s = 8000$ Hz, $n = 8$ bits): Bit rate = 64,000 bps = 64 kbps.
+
+### F. Quantization Noise and SNR
+
+Quantization noise power is:
+
+$$N_q = \frac{\Delta^2}{12} = \frac{(V_{max} - V_{min})^2}{12 \times L^2}$$
+
+Signal-to-quantization noise ratio:
+
+$$SQNR(dB) \approx 6.02n + 1.76 \text{ dB}$$
+
+Each additional bit of encoding improves SQNR by approximately 6 dB.
+
+| n (bits) | L (levels) | SQNR (approx) | Application |
+|---|---|---|---|
+| 4 | 16 | ~26 dB | Low quality voice |
+| 8 | 256 | ~50 dB | Telephone quality (G.711) |
+| 12 | 4096 | ~74 dB | Professional audio |
+| 16 | 65536 | ~98 dB | CD quality audio |
+| 24 | 16.7M | ~146 dB | Studio audio |
+
+| Advantage of PCM | Disadvantage of PCM |
+|---|---|
+| Excellent noise immunity | Requires large bandwidth |
+| Easy signal regeneration | Quantization noise is irreversible |
+| Suitable for time-division multiplexing | Complex circuitry |
+| Easy encryption and error correction | High bit rate for high quality |
+
+---
+
+## Line Coding Techniques
+
+### A. Definition
+
+Line coding is the process of converting binary digital data (0s and 1s) into a digital electrical waveform suitable for transmission over a physical medium (wire, fiber). The resulting waveform is called a line code.
+
+### B. Desirable Properties of a Line Code
+
+- **No DC component:** DC component wastes power and cannot pass through AC-coupled transformers.
+- **Self-synchronization:** Receiver can extract clock signal from data stream.
+- **Error detection capability:** Code should allow some level of error detection.
+- **Bandwidth efficiency:** Minimize bandwidth for given bit rate.
+- **Noise immunity:** Resistant to channel distortion and noise.
+
+### C. Unipolar Coding
+
+Uses only one polarity (positive voltage and zero).
+
+| Type | Bit 1 | Bit 0 | DC Component | Self-sync | Pros / Cons |
+|---|---|---|---|---|---|
+| Unipolar NRZ | +V (full bit duration) | 0V (full duration) | Yes | No | Simple; DC component, no sync |
+| Unipolar RZ | +V (half bit, first half) | 0V | Yes | Better | Needs more bandwidth; self-clock |
+
+### D. Polar Coding
+
+Uses both positive and negative voltages. Reduces DC component.
+
+| Type | Bit 1 | Bit 0 | DC Component | Bandwidth | Notes |
+|---|---|---|---|---|---|
+| Polar NRZ-L | +V | -V | Only if unequal 1s/0s | Low | Simple, no self-sync |
+| Polar NRZ-I | Toggle on 1 | No change on 0 | Low | Low | NRZI – used in USB |
+| Polar RZ | +V first half | -V first half | Low | Higher | Self-sync, high BW |
+| Manchester | +V→-V on 1 | -V→+V on 0 | None | 2× NRZ | Self-sync; used in Ethernet |
+
+**Figure 12.1 – Line Coding Waveforms**
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/ADC/ADC23.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+### E. Bipolar (AMI) Coding
+
+Alternate Mark Inversion: 0 is always 0V; 1 alternates between +V and -V.
+
+$$\text{AMI: } 0 \to 0V, \quad 1 \to +V \text{ or } -V \text{ (alternating)}$$
+
+- **Advantages:** No DC component; single bipolar violation indicates error; commonly used in T1 telephone lines.
+- **Disadvantage:** Long string of zeros has no transitions (sync problem). Solved by B8ZS (Bipolar with 8-Zero Substitution).
+
+### F. Block Coding
+
+Block coding adds redundancy to improve error detection and synchronization. Common examples:
+
+| Code | Mapping | Overhead | Use Case |
+|---|---|---|---|
+| 4B/5B | 4 bits → 5 bits | 25% | Fast Ethernet (100BASE-TX) |
+| 8B/10B | 8 bits → 10 bits | 25% | Gigabit Ethernet, Fibre Channel |
+| 64B/66B | 64 bits → 66 bits | 3.1% | 10G Ethernet |
+
+---
+
+## Digital Modulation (ASK, FSK, PSK, QAM)
+
+### A. Introduction
+
+Digital modulation is the process of converting digital data (binary bits) into an analog carrier signal for transmission. The carrier is a high-frequency sinusoid. The three basic properties that can be varied are amplitude, frequency, and phase.
+
+$$\text{General carrier: } s(t) = A \cos(2\pi f_c t + \phi)$$
+
+### B. Amplitude Shift Keying (ASK)
+
+The amplitude of the carrier is switched between two (or more) values corresponding to digital data.
+
+$$\text{ASK: } s(t) = A(t) \cos(2\pi f_c t) \quad \text{where } A(t) = A \text{ for bit 1, } 0 \text{ for bit 0}$$
+
+**Figure 13.1 – ASK Waveform (OOK)**
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/ADC/ADC24.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+**On-Off Keying (OOK):**
+The simplest form of ASK where bit 1 = carrier present, bit 0 = no carrier. Used in optical communications and early telegraph (Morse code).
+
+### C. Frequency Shift Keying (FSK)
+
+The frequency of the carrier is switched between two (or more) values. Amplitude remains constant.
+
+$$\text{FSK: } s(t) = A \cos(2\pi f_1 t) \quad \text{for bit 1}$$
+
+$$s(t) = A \cos(2\pi f_0 t) \quad \text{for bit 0}$$
+
+**Figure 13.2 – FSK Waveform**
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/ADC/ADC25.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+**FSK Bandwidth:**
+
+$$BW_{FSK} = |f_1 - f_0| + 2 \times \frac{\text{bit rate}}{2}$$
+
+**Minimum Shift Keying (MSK):**
+A special case of FSK where the frequency separation is exactly half the bit rate. Phase continuity is maintained, reducing spectral spreading. Used in GSM mobile systems.
+
+**Gaussian MSK (GMSK):**
+MSK with Gaussian filtering applied before modulation. Further reduces bandwidth. Used in GSM (2G) mobile communications.
+
+**FSK Demodulation:**
+- **Non-coherent:** Two bandpass filters tuned to $f_1$ and $f_0$ followed by envelope detectors. Simple but less efficient.
+- **Coherent:** Uses two correlators matched to $f_1$ and $f_0$. More complex but better performance.
+
+### D. Phase Shift Keying (PSK)
+
+The phase of the carrier is shifted to represent digital data. Amplitude and frequency remain constant.
+
+$$\text{PSK: } s(t) = A \cos(2\pi f_c t + \phi_i)$$
+
+**BPSK (Binary PSK):**
+Two phase states: 0° for bit 1, 180° for bit 0.
+
+$$\text{BPSK: } s(t) = A\cos(2\pi f_c t) \text{ for 1}; \quad s(t) = A\cos(2\pi f_c t + \pi) \text{ for 0}$$
+
+**Figure 13.3 – BPSK and QPSK Constellation Diagrams**
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/ADC/ADC26.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+**QPSK (Quadrature PSK):**
+Four phase states: 0°, 90°, 180°, 270°. Each symbol carries 2 bits. Same bandwidth as BPSK but twice the data rate. Used in satellite TV, cable modems.
+
+**8-PSK:**
+Eight phase states, 3 bits per symbol. Higher data rate but less noise margin. Used in DVB-S2 satellite transmission.
+
+**Differential PSK (DPSK):**
+Phase is measured relative to previous symbol, not absolute. Simplifies receiver design (no absolute phase reference needed). Used in Bluetooth.
+
+### E. Quadrature Amplitude Modulation (QAM)
+
+QAM combines both amplitude and phase variations. It achieves very high spectral efficiency.
+
+$$\text{QAM: } s(t) = A_i \cos(2\pi f_c t) + B_i \sin(2\pi f_c t)$$
+
+The signal has both in-phase (I) and quadrature (Q) components. Each $(A_i, B_i)$ pair represents a constellation point.
+
+| QAM Type | Constellation Points | Bits/Symbol | Spectral Efficiency | Application |
+|---|---|---|---|---|
+| 4-QAM (= QPSK) | 4 | 2 | 2 bps/Hz | DVB-S, basic digital links |
+| 16-QAM | 16 | 4 | 4 bps/Hz | LTE, Wi-Fi (802.11n) |
+| 64-QAM | 64 | 6 | 6 bps/Hz | Cable TV (DOCSIS), Wi-Fi |
+| 256-QAM | 256 | 8 | 8 bps/Hz | DOCSIS 3.1, Wi-Fi 6 |
+| 1024-QAM | 1024 | 10 | 10 bps/Hz | Wi-Fi 6E, 5G NR |
+
+**NOTE:** Higher-order QAM needs better SNR. 64-QAM requires ~24 dB SNR; 256-QAM requires ~30 dB SNR.
+
+### F. Comparison: ASK, FSK, PSK, QAM
+
+| Parameter | ASK | FSK | BPSK | QPSK | QAM |
+|---|---|---|---|---|---|
+| Varied Property | Amplitude | Frequency | Phase | Phase | Amp + Phase |
+| Bits/Symbol | 1 | 1 | 1 | 2 | $\log_2 M$ |
+| Noise Immunity | Low | Medium | High | High | Moderate (M-dependent) |
+| BW Efficiency | Moderate | Low | Moderate | Good | Very High |
+| Complexity | Simple | Moderate | Moderate | Moderate | Complex |
+| Key Use Case | OOK, optical | GSM, GMSK | Satellite | Satellite, DVB | LTE, Wi-Fi, Cable |
+
+---
+
+## Error Detection and Correction (Coding Techniques)
+
+### A. Need for Error Control
+
+Digital signals are corrupted by noise during transmission. Error control coding adds structured redundancy to the data so that errors can be detected or corrected at the receiver.
+
+| Technique | Capability | Extra Bits | How It Works |
+|---|---|---|---|
+| Error Detection | Detect errors, request retransmission | Few | Receiver detects invalid codeword |
+| Error Correction (FEC) | Detect and correct errors without retransmission | More | Receiver identifies and fixes errors |
+
+### B. Parity Check
+
+The simplest error detection method. A parity bit is added to each data block such that the total number of 1s is always even (even parity) or odd (odd parity).
+
+**Even Parity Example:**
+
+Data = 1011001 → Count of 1s = 4 (even) → Parity bit = 0 → Transmitted: 1011001 0
+
+Data = 1011011 → Count of 1s = 5 (odd) → Parity bit = 1 → Transmitted: 1011011 1
+
+- **Limitation:** Can only detect odd number of bit errors. Cannot detect 2-bit errors (they cancel).
+
+### C. Cyclic Redundancy Check (CRC)
+
+CRC is a powerful error detection technique based on polynomial division. The data is treated as a polynomial and divided by a generator polynomial. The remainder (CRC bits) is appended to the data.
+
+$$FCS = \text{Remainder}\left[\frac{M(x) \cdot x^r}{G(x)}\right]$$
+
+where $M(x)$ = message polynomial, $G(x)$ = generator polynomial, $r$ = degree of $G(x)$.
+
+At receiver: received polynomial is divided by same $G(x)$. If remainder = 0, no error. Non-zero remainder indicates error.
+
+| CRC Standard | Polynomial | Bits | Application |
+|---|---|---|---|
+| CRC-8 | $x^8+x^2+x+1$ | 8 | ATM header, DVB |
+| CRC-16 | $x^{16}+x^{15}+x^2+1$ | 16 | USB, SD cards |
+| CRC-32 | $x^{32}+x^{26}+\cdots+1$ | 32 | Ethernet, ZIP files, PNG |
+| CRC-CCITT | $x^{16}+x^{12}+x^5+1$ | 16 | HDLC, X.25, Bluetooth |
+
+### D. Hamming Code (Error Correction)
+
+Hamming code is a linear error-correcting code that can detect and correct single-bit errors. Redundant (parity) bits are inserted at positions that are powers of 2.
+
+For $m$ data bits: number of parity bits $r$ satisfies:
+
+$$2^r \geq m + r + 1$$
+
+**Hamming Distance:**
+The Hamming distance between two codewords is the number of bit positions in which they differ.
+
+- Minimum Hamming distance ($d_{min}$) = 2: Can detect 1 error.
+- $d_{min}$ = 3: Can detect 2 errors OR correct 1 error.
+- $d_{min} = 2t+1$: Can correct $t$ errors.
+
+**Example – Hamming(7,4):**
+4 data bits + 3 parity bits = 7-bit codeword. Can correct any single-bit error. Used in ECC RAM (error-correcting memory).
+
+**Figure 14.1 – Hamming(7,4) Code Construction**
+
+```
+Position:  1  2  3  4  5  6  7
+           p1 p2 d1 p3 d2 d3 d4
+
+p1 covers positions: 1,3,5,7  (bits 1,3,5,7)
+p2 covers positions: 2,3,6,7  (bits 2,3,6,7)
+p3 covers positions: 4,5,6,7  (bits 4,5,6,7)
+
+Example: Data = 1011
+d1=1, d2=0, d3=1, d4=1
+p1 = d1⊕d2⊕d4 = 1⊕0⊕1 = 0
+p2 = d1⊕d3⊕d4 = 1⊕1⊕1 = 1
+p3 = d2⊕d3⊕d4 = 0⊕1⊕1 = 0
+Codeword: 0 1 1 0 0 1 1
+```
+
+---
+
+## Noise in Communication Systems
+
+### A. Definition
+
+Noise is any unwanted random electrical signal that interferes with the desired communication signal. It degrades signal quality and introduces errors.
+
+### B. Classification of Noise
+
+| Category | Type | Cause | Characteristics |
+|---|---|---|---|
+| External Noise | Atmospheric (Static) Noise | Lightning, ionospheric disturbances | Strong at LF and MF; affects AM radio |
+| External Noise | Cosmic (Galactic) Noise | Radiation from stars, quasars | White noise spectrum; affects microwave |
+| External Noise | Industrial Noise | Machines, power lines, motors | 60 Hz harmonics; impulsive noise |
+| Internal Noise | Thermal (Johnson) Noise | Random motion of electrons in resistors | Gaussian distribution; white spectrum |
+| Internal Noise | Shot Noise | Random arrival of carriers at junctions | In diodes, transistors; white spectrum |
+| Internal Noise | Flicker (1/f) Noise | Surface defects in semiconductors | Dominant at low frequencies |
+| Internal Noise | Partition Noise | Fluctuation of current division in transistors | In bipolar transistors |
+
+---
+
+## Signal-to-Noise Ratio and Figure of Merit
+
+### A. Signal-to-Noise Ratio (SNR)
+
+SNR is the ratio of signal power to noise power. It is the fundamental measure of signal quality.
+
+$$SNR = \frac{P_s}{P_n} \quad \text{(dimensionless ratio)}$$
+
+$$SNR(dB) = 10 \log_{10}\left(\frac{P_s}{P_n}\right)$$
+
+| SNR (dB) | Quality | Application Example |
+|---|---|---|
+| < 0 dB | Unusable | Signal buried in noise |
+| 0 – 10 dB | Very poor | Barely detectable |
+| 10 – 20 dB | Poor | Intelligible voice, poor video |
+| 20 – 30 dB | Good | Good audio, decent video |
+| 30 – 40 dB | Excellent | High-quality audio/video |
+| > 40 dB | Very good | Broadcast quality |
+
+### B. Noise Figure (NF)
+
+Noise figure measures how much a device (amplifier, mixer) degrades the SNR of a signal passing through it.
+
+$$NF = \frac{SNR_{in}}{SNR_{out}} \quad \text{(ratio)}$$
+
+$$NF(dB) = SNR_{in}(dB) - SNR_{out}(dB)$$
+
+An ideal noiseless amplifier has $NF = 1$ (0 dB). A real amplifier always has $NF > 1$ ($NF > 0$ dB).
+

@@ -1,0 +1,2026 @@
+---
+
+title: Computer Networks
+
+---
+
+
+## What is a Computer Network?
+
+A computer network is a system of interconnected devices, such as computers, servers, smartphones, and printers, that communicate to exchange data. They communicate using wired or wireless connections and can range from small home networks to the global Internet.
+<img src="/IT/CN/W1-CN1.png" height="500" width="500" />
+
+### A. Advantages and functions of computer networks:
+
+-   Resource Sharing: Allows sharing of hardware like printers, scanners, storage devices and reducing cost.
+-   Data Sharing: Enables users to share files, applications, and databases easily.
+-   Communication: Supports email, video conferencing, instant messaging, and web access.
+-   Data Management: Helps in storing, securing, and backing up data efficiently.
+-   Remote Access: Allows users to access systems and cloud services from anywhere.
+-   Better Collaboration: Improves teamwork and information exchange among users.
+<img src="/IT/CN/W1-CN1.png" width="600" />
+
+---
+
+## What are Networking Devices?
+
+These are physical devices that connect computers, printers and other electronic equipment to a network and enable data sharing, transferring and managing.
+
+### A. Router
+Functions as a networking device that connects multiple networks and directs data between them.
+    -   Connects local networks to the internet.
+    -   Determines the best path for data packets.
+    -   Uses IP addresses to forward data correctly.
+
+### B. Switch
+Connects devices within the same network and manages internal data communication.
+    -   Connects computers, printers, and servers.
+    -   Sends data only to the intended device.
+    -   Improves network efficiency and performance.
+### C. Hub
+Acts as a basic device that connects multiple devices within a network.
+    -   Broadcasts data to all connected devices.
+    -   Does not filter or manage traffic.
+    -   Less secure and less efficient than a switch.
+### D.  Bridge
+Connects two network segments and filters traffic between them.
+    -   Reduces unnecessary data transmission.
+    -   Improves network performance.
+    -   Works using MAC addresses.
+### E.  Gateway
+Connects two different networks that use different protocols.
+    -   Translates data between different systems.
+    -   Enables communication between dissimilar networks.
+    -   Commonly used to connect private networks to external networks.
+### F. Access Point (AP)
+Provides wireless connectivity to devices in a network.
+    -   Extends a wired network into Wi-Fi.
+    -   Allows mobile devices to connect wirelessly.
+    -   Improves network coverage area.
+### G. Modem
+Converts digital data into signals suitable for transmission and vice versa.
+    -   Connects a home or office network to the ISP.
+    -   Converts digital signals to analog and back.
+    -   Enables internet access.
+### H Firewall
+Security device that monitors and controls network traffic.
+    -   Blocks unauthorized access.
+    -   Filters incoming and outgoing data.
+    -   Protects networks from cyber threats.
+
+---
+
+## Types of Computer Networks
+
+Categorizing computer networks according to the physical distance or area they cover, ranging from small personal spaces to large global regions. Based on geographical area.
+
+Computer networks are mainly divided into five types:
+<img src="/IT/CN/W1-CN2.png" width="600" />
+### A.  Personal Area Network (PAN)
+This connects personal devices within a very short range around a single user.
+    -   Coverage Range: 1–10 meters.
+    -   Key Technologies: Bluetooth, NFC, Infrared.
+    -   Real-World Example: Smartphone connected to wireless earbuds.
+    -   When It Is Used: For short-range communication between personal devices.
+    <img src="/IT/CN/W1-CN3.png" width="600" />
+### B. Local Area Network (LAN)
+This connects computers and devices within a limited area such as a home, office, or building.
+    -   Coverage Range: One room, building, or small campus.
+    -   Key Technologies: Ethernet, Wi-Fi.
+    -   Real-World Example: Home or office Wi-Fi network.
+    -   When It Is Used: For fast and secure communication within a local location.
+    <img src="/IT/CN/W1-CN4.png" width="600" />
+### C.  Campus Area Network (CAN)
+A CAN connects multiple LANs within a campus or a group of nearby buildings.
+    -   Coverage Range: University or corporate campus.
+    -   Key Technologies: Ethernet, Fiber Optics.
+    -   Real-World Example: College or corporate campus network.
+    -   When It Is Used: To interconnect LANs across a campus under one organization.
+    <img src="/IT/CN/W1-CN5.png" width="600" />
+### D.  Metropolitan Area Network (MAN)
+A MAN connects multiple networks within a city or metropolitan region.
+    -   Coverage Range: City or large town.
+    -   Key Technologies: Fiber Optics, Microwave, Metro Ethernet.
+    -   Real-World Example: City-wide ISP network.
+    -   When It Is Used: To provide high-speed connectivity across a city
+    <img src="/IT/CN/W1-CN6.png" width="600" />
+### E. Wide Area Network (WAN)
+A WAN connects networks over large geographical areas such as countries or continents.
+    -   Coverage Range: Country, continent, or global.
+    -   Key Technologies: Leased lines, Satellite links, Internet.
+    -   Real-World Example: The Internet.
+    -   When It Is Used: To enable long-distance and global communication.
+    <img src="/IT/CN/W1-CN7.png" width="600" />
+
+---
+
+## What is Internet?
+
+The Internet is a global network that connects millions of computers and devices, enabling people to communicate, share information and access digital resources worldwide. It works like a vast highway system, where data travels in small packets between connected devices.
+
+Working of Internet: Internetworking describes the process and technologies that allow millions of computers and devices to communicate and share data efficiently.
+<img src="/IT/CN/W1-CN8.png" width="600" />
+Protocols (The Rules of the Road): All devices on the Internet follow a set of communication rules called protocols.
+
+-   TCP (Transmission Control Protocol) – Breaks data into smaller packets and ensures they arrive safely.
+-   IP (Internet Protocol) – Assigns addresses and delivers packets to the correct destination.
+-   HTTP/HTTPS – Used for websites.
+-   SMTP – Used for sending emails.
+<img src="/IT/CN/W1-CN9.png" width="600" />
+
+---
+
+## OSI Model - Open Systems Interconnection.
+
+The OSI Model is a conceptual framework created by the International Organization for Standardization (ISO) to describe how data is transmitted across a network using a structured seven-layer architecture.
+
+-   Divides network communication into seven functional layers.
+-   Assigns specific responsibilities to each layer.
+-   Promotes compatibility between different networking systems.
+-   Simplifies network design, implementation, and troubleshooting.
+<img src="/IT/CN/W1-CN10.png" width="600" />
+
+### A.  The Physical Layer
+
+-   The Physical Layer is the foundation of the OSI model, acting as the bridge for actual physical connections between devices.
+-   Its primary mission is the transmission of raw, unstructured bitstreams over a physical medium from one node to the next.
+<img src="/IT/CN/w1-cn11.png" width="600" />
+### B.   The Data Link Layer (DLL)
+
+-   The Data Link Layer serves as the bridge between the physical hardware and the logical network, ensuring reliable node-to-node delivery of data.
+-   Its primary goal is to ensure that data transfer is error-free across the physical medium.
+<img src="/IT/CN/W1-CN12.png" width="600" />
+### C.   The Network Layer
+
+-   The Network Layer manages data transmission between hosts across different networks by handling logical addressing and path finding.
+-   Facilitates communication between disparate networks by directing traffic to the correct destination.
+<img src="/IT/CN/W1-CN13.png" width="600" />
+### D.   The Transport Layer
+
+-   The Transport Layer ensures the end-to-end delivery of entire messages.
+-   It acts as a liaison, providing services to the Application layer while utilizing the infrastructure of the Network layer to ensure data reaches the correct application on the destination host.
+<img src="/IT/CN/W1-CN14.png" width="600" />
+### E.  The Session Layer
+
+-   The Session Layer acts as the "dialogue manager," governing the opening, closing, and security of communication channels between two devices.
+-   Manages the establishment, maintenance, and termination of connections between applications.
+<img src="/IT/CN/W1-CN15.png" width="600" />
+### F.   The Presentation Layer
+
+-   Often called the Translation Layer, the Presentation Layer ensures that data is formatted, secured, and compressed so that the receiving application can correctly interpret it.
+-   Reduces the total number of bits required for transmission, which increases network efficiency and speed.
+<img src="/IT/CN/W1-CN16.png" width="600" />
+
+### G.   The Application Layer
+
+-   The Application Layer sits at the top of the OSI stack and serves as the direct interface between the software user and the network.
+-   It produces the data that will be sent and displays the information received from other layers.
+<img src="/IT/CN/W1-CN17.png" width="600" />
+
+---
+
+## TCP/IP Model - Transmission Control Protocol/Internet Protocol.
+
+The TCP/IP model is a layered networking framework that explains how data is communicated between devices over a network using standardized protocols to ensure reliable and efficient transmission.
+<img src="/IT/CN/W1-CN18.png" width="600" />
+
+### A.   Application Layer
+
+-   The top layer of the TCP/IP model, closest to the user, where applications like web browsers, email clients and file-sharing tools interact with the network.
+-   It provides an interface between user software and the lower layers that handle data transmission, enabling seamless communication over the network.
+<img src="/IT/CN/W1-CN19.png" width="600" />
+### B.   Transport Layer
+
+-   Ensures reliable and efficient delivery of data between devices, managing segmentation, ordering, and retransmission as needed.
+-   Breaks large messages into packets and reassembles them at the destination.
+<img src="/IT/CN/W1-CN20.png" width="600" />
+### C.   Internet Layer
+
+-   Responsible for addressing, packaging, and routing data packets so they can travel across networks and reach the correct destination device.
+-   It ensures that data can move between different networks efficiently.
+<img src="/IT/CN/W1-CN21.png" width="600" />
+### D.   Network Access (Link Layer)
+
+-   Responsible for physically transmitting data over network hardware, including cables, switches and wireless connections.
+-   It handles how data is formatted for the network medium and ensures it reaches the next device on the path.
+<img src="/IT/CN/W1-CN22.png" width="600" />
+
+### E.  Physical Layer in OSI Model
+
+The Physical Layer is the lowest OSI layer responsible for transmitting raw data bits through physical network hardware.
+
+-   Handles physical and electrical data transmission.
+-   Includes cables, connectors, plugs, and receivers.
+-   Transfers raw bits between devices.
+-   Defines hardware standards and signal types.
+
+---
+
+## Network topology:
+
+-   Arrangement of devices (nodes) and connections (links) in a computer network.
+-   It shows how computers, servers, and other devices are connected and how data flows between them.
+-   Choosing the right topology is important because it affects the performance, cost, reliability and security of the network.
+
+### A.   Bus Topology
+
+-   Bus Topology is a network type in which every computer and network device is connected to a single cable.
+-   It is bi-directional. It is a multi-point connection and a non-robust topology because if the backbone fails the topology crashes.
+<img src="/IT/CN/W1-CN23.png" width="600" />
+### B.  Star Topology
+
+-   In Star Topology, all the devices are connected to a single hub through a cable.
+-   This hub is the central node and all other nodes are connected to the central node.
+-   The hub can be passive in nature i.e., not an intelligent hub such as broadcasting devices, at the same time the hub can be intelligent known as an active hub, active hubs have repeaters in them.
+<img src="/IT/CN/W1-CN24.png" width="600" />
+### C.   Ring Topology
+
+-   In a ring topology, it forms a ring connecting devices with exactly two neighboring devices.
+-   A number of repeaters are used for ring topology with a large number of nodes, because if someone wants to send some data to the last node in the ring topology with 100 nodes, then the data will have to pass through 99 nodes to reach the 100th node.
+<img src="/IT/CN/W1-CN25.png" width="600" />
+### D.   Mesh Topology
+
+-   In a mesh topology, every device is connected to another device via a particular channel.
+-   Every device is connected to another via dedicated channels.
+-   These channels are known as links. Mesh topology does not depend on specific protocols; it focuses on direct device-to-device connections.
+<img src="/IT/CN/W1-CN26.png" width="600" />
+
+### E.  Hybrid Topology
+
+-   Hybrid Topology is the combination of all the various types of topologies we have studied above.
+-   Hybrid Topology is used when the nodes are free to take any form. It means these can be individuals such as Ring or Star topology or can be a combination of various types of topologies seen above.
+<img src="/IT/CN/W1-CN27.png" width="600" />
+
+---
+
+## Transmission Modes
+
+Transmission Modes describe how data is exchanged between two devices over a communication channel. They specify whether information moves in a single direction or in both directions, and whether devices can transmit at the same time.
+<img src="/IT/CN/W1-CN28.png" width="600" />
+### A.   Simplex Mode
+
+-   Simplex Mode is a transmission mode in which communication occurs in only one direction, from a sender to a receiver, without any possibility of reverse data flow.
+-   One device acts only as a transmitter.
+-   The other device acts only as a receiver.
+-   No feedback or acknowledgment is supported.
+-   Example: Keyboard and traditional monitors. The keyboard can only introduce input, the monitor can only give the output.
+<img src="/IT/CN/W1-CN29.png" width="600" />
+### B.   Half-Duplex Mode
+
+-   Half-Duplex Mode is a transmission mode in which communication can occur in both directions, but only one device can transmit at a time.
+-   The devices take turns sending and receiving data over the same channel.
+-   Supports bidirectional communication.
+-   Uses a single shared communication channel.
+-   Example: Walkie-talkie in which messages are sent one at a time and messages are sent in both directions.
+<img src="/IT/CN/W1-CN30.png" width="600" />
+### C.   Full-Duplex Mode
+
+-   Full-Duplex Mode is a transmission mode in which communication takes place in both directions at the same time.
+-   Both connected devices can transmit and receive data simultaneously without waiting for each other.
+-   Enables simultaneous two-way data exchange.
+-   Uses separate channels or divided bandwidth.
+-   Example: Telephone Network in which there is communication between two persons by a telephone line, through which both can talk and listen at the same time.
+<img src="/IT/CN/W1-CN31.png" width="600" />
+
+---
+
+## Transmission Media
+
+-   Transmission media refers to the physical or wireless communication channel used to carry data signals from one device to another within a computer network.
+-   It forms the fundamental pathway through which information is transmitted, ensuring connectivity between networked devices.
+<img src="/IT/CN/W1-CN32.png" width="600" />
+### A. Guided Media
+
+-   Guided Media, also known as wired or bounded transmission media, refers to transmission media in which data signals are transmitted through a physical path using cables.
+-   The signal is confined and guided along a fixed route, providing controlled communication between network devices.
+
+#### 1. Unshielded Twisted Pair Cable
+ A twisted pair cable consists of two individually insulated copper conductors twisted together in a helical pattern to minimize electromagnetic interference (EMI) and crosstalk between adjacent pairs.
+    <img src="/IT/CN/W1-CN33.png" width="600" />
+#### 2. Shielded Twisted Pair (STP)
+ Shielded Twisted Pair (STP) cable consists of twisted pairs of insulated copper conductors enclosed within an additional metallic shielding layer, such as a foil or braided shield.
+    <img src="/IT/CN/W1-CN34.png" width="600" />
+#### 3. Coaxial Cable
+ Coaxial Cable consists of a central copper conductor surrounded by a dielectric insulating layer, a metallic shielding layer, and an outer protective jacket. This structure allows signals to be transmitted with better protection against noise and interference compared to twisted pair cables.
+    <img src="/IT/CN/W1-CN35.png" width="600" />
+#### 4. Optical Fiber Cable
+ Optical Fiber Cable is a guided transmission medium that transmits data in the form of light signals through a glass or plastic core using the principle of total internal reflection. The core is surrounded by a cladding layer with a lower refractive index, which confines the light within the core and enables high-speed, long-distance data transmission.
+    <img src="/IT/CN/W1-CN36.png" width="600" />
+
+### B.  Unguided Media
+
+-   Unguided media, also known as wireless or Unbounded transmission media , uses electromagnetic waves to transmit data without any physical medium.
+-   Signals propagate through free space such as air or vacuum. The main types of unguided media are radio waves, microwaves, and infrared waves.
+
+#### 1. Radio Waves
+Radio waves are a type of electromagnetic wave that can easily be generated and can propagate through buildings and other obstacles.
+
+-   Frequency Range: 3 kHz – 300 GHz
+<img src="/IT/CN/W1-CN37.png" width="600" />
+#### 2. Microwaves
+ Microwaves are a form of unguided transmission media that use line-of-sight communication, where the transmitting and receiving antennas must be properly aligned. The transmission range depends on the height of the antennas.
+
+-   Frequency range of 1 GHz to 300 GHz and are widely used in mobile communication, satellite links, and television distribution.
+<img src="/IT/CN/W1-CN38.png" width="600" />
+#### 3. Infrared
+Infrared waves are used for short-range wireless communication and operate in the frequency range of 300 GHz to 400 THz.
+
+-   They cannot penetrate solid obstacles, which limits their range but helps minimize interference between nearby systems.
+<img src="/IT/CN/W1-CN39.png" width="600" />
+
+---
+
+
+## Data Link Layer in OSI Model
+
+The **Data Link Layer (DLL)** is the second layer from the bottom in the OSI model.
+
+- Responsible for node-to-node delivery of data
+- Ensures error-free transmission
+- Performs encoding and decoding of data
+
+<html>
+<div style={{ textAlign: "center" }}>
+  <img src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/CN/1.jpg?raw=true" alt="Diagram" width="60%" />
+</div>
+</html>
+
+### Functions of Data Link Layer
+
+| Function | Description |
+|---|---|
+| Framing | Divides raw bit stream into frames |
+| Physical Addressing | Adds sender and receiver MAC addresses |
+| Flow Control | Prevents fast sender from overwhelming receiver |
+| Error Control | Detects and recovers from frame errors |
+| Medium Access Control | Controls access to shared medium |
+
+---
+
+## Link-Layer Addressing
+
+- Also called:
+  * Link address
+  * Physical address
+  * MAC address
+
+- Two data-link addresses are added to frame headers
+- Addresses change from one link to another
+
+### A. Types of Link-Layer Addresses
+
+#### 1. Unicast
+
+- One sender → one receiver
+
+#### 2. Multicast
+
+- One sender → group of receivers
+
+#### 3. Broadcast
+
+- One sender → all receivers
+
+---
+
+## Address Resolution Protocol (ARP)
+
+ARP maps a **32-bit IP address** to a **48-bit MAC address**.
+
+### Key Points
+
+- Used for communication inside LAN
+- Bridges IP and MAC addressing
+- Uses request–reply mechanism
+- Works at Network Layer
+
+### A. ARP Message Types
+
+| Message | Description |
+|---|---|
+| ARP Request | Broadcast query |
+| ARP Reply | Unicast response |
+
+<html>
+<div style={{ textAlign: "center" }}>
+  <img src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/CN/2.jpg?raw=true" alt="Diagram" width="60%" />
+</div>
+</html>
+
+### B. ARP Operation
+
+#### 1. Steps
+
+1. Host checks ARP cache
+2. If mapping not found, ARP request is broadcasted
+3. Hosts check target IP
+4. Matching host sends ARP reply
+5. Sender stores mapping in ARP table
+
+Example: System A broadcasts request for System B's MAC address. System B replies with its MAC address.
+
+### C. ARP Packet Fields
+
+<html>
+<div style={{ textAlign: "center" }}>
+  <img src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/CN/3.png?raw=true" alt="Diagram" width="60%" />
+</div>
+</html>
+
+| Field | Size | Description |
+|---|---|---|
+| Hardware Type | 16 bits | Network type |
+| Protocol Type | 16 bits | IPv4 = `0800H` |
+| Hardware Length | 8 bits | MAC address length |
+| Protocol Length | 8 bits | IP address length |
+| Operation | 16 bits | Request or Reply |
+| Sender Hardware Address | Variable | Sender MAC |
+| Sender Protocol Address | Variable | Sender IP |
+| Target Hardware Address | Variable | Receiver MAC |
+| Target Protocol Address | Variable | Receiver IP |
+
+---
+
+## RARP – Reverse ARP
+
+RARP converts MAC address into IP address.
+
+### Key Points
+
+- Used by systems without stored IP addresses
+- Client sends RARP broadcast packet
+- Gateway router provides IP mapping
+
+---
+
+## CSMA (Carrier Sense Multiple Access)
+
+CSMA allows devices to share communication channels efficiently.
+
+Vulnerable Time = $T_p$
+
+<html>
+<div style={{ textAlign: "center" }}>
+  <img src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/CN/4.png?raw=true" alt="Diagram" width="60%" />
+</div>
+</html>
+
+### A. Types of CSMA
+
+#### 1. CSMA/CD — Collision Detection
+
+- Detects collisions during transmission
+- Operates at MAC layer
+
+##### a. Algorithm
+
+1. Check if channel is idle
+2. If busy, wait
+3. If idle, transmit data
+4. Monitor collisions
+5. On collision:
+   - Stop transmission
+   - Send jam signal
+   - Wait random backoff time
+   - Retry
+
+CSMA/CD detects collisions but does not reduce them.
+
+<html>
+<div style={{ textAlign: "center" }}>
+  <img src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/CN/5.png?raw=true" alt="Diagram" width="60%" />
+</div>
+</html>
+
+#### 2. CSMA/CA — Collision Avoidance
+
+- Prevents collisions before transmission
+
+##### a. Algorithm
+
+1. Check channel status
+2. If busy, wait
+3. If idle, wait IFG time
+4. Send frame
+5. Wait for ACK
+6. Retry if timeout occurs
+
+<html>
+<div style={{ textAlign: "center" }}>
+  <img src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/CN/6.png?raw=true" alt="Diagram" width="60%" />
+</div>
+</html>
+
+---
+
+## ALOHA Protocol
+
+Developed at the University of Hawaii.
+
+### A. Pure ALOHA
+
+<html>
+<div style={{ textAlign: "center" }}>
+  <img src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/CN/7.png?raw=true" alt="Diagram" width="60%" />
+</div>
+</html>
+
+- Frames transmitted whenever ready
+- No channel checking
+- Uses acknowledgements
+- Uses random backoff after collision
+
+<html>
+<div style={{ textAlign: "center" }}>
+  <img src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/CN/8.png?raw=true" alt="Diagram" width="60%" />
+</div>
+</html>
+
+#### 1. Throughput Formula
+
+$$
+S = G \times e^{-2G}
+$$
+
+Where:
+
+- $S$ = throughput
+- $G$ = average packets generated
+
+#### 2. Maximum Throughput
+
+At $G = 0.5$:
+
+$$
+S_{max} = 0.5 \times e^{-1} \approx 18.4\%
+$$
+
+### B. Slotted ALOHA
+
+- Transmission allowed only at beginning of slot
+- Vulnerable period reduced
+
+<html>
+<div style={{ textAlign: "center" }}>
+  <img src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/CN/9.png?raw=true" alt="Diagram" width="60%" />
+</div>
+</html>
+
+#### 1. Throughput Formula
+
+$$
+S = G \times e^{-G}
+$$
+
+#### 2. Maximum Throughput
+
+At $G = 1$:
+
+$$
+S_{max} = \frac{1}{e} \approx 36.8\%
+$$
+
+<html>
+<div style={{ textAlign: "center" }}>
+  <img src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/CN/10.jpg?raw=true" alt="Diagram" width="60%" />
+</div>
+</html>
+
+### C. Pure ALOHA vs Slotted ALOHA
+
+| Feature | Pure ALOHA | Slotted ALOHA |
+|---|---|---|
+| Transmission timing | Any time | Slot beginning only |
+| Vulnerable period | $2 \times T_p$ | $1 \times T_p$ |
+| Maximum throughput | 18.4% | 36.8% |
+| Synchronization | Not required | Required |
+
+---
+
+## Ethernet
+
+Ethernet provides rules for communication between devices.
+
+<html>
+<div style={{ textAlign: "center" }}>
+  <img src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/CN/11.png?raw=true" alt="Diagram" width="60%" />
+</div>
+</html>
+
+### A. Types of Ethernet
+
+| Type | Speed | Cable |
+|---|---|---|
+| Fast Ethernet | 100 Mbps | CAT5, fiber optic |
+| Gigabit Ethernet | 1 Gbps | CAT5e, fiber optic |
+| 10-Gigabit Ethernet | 10 Gbps | CAT6a/CAT7 |
+| Switched Ethernet | 10 Mbps–10 Gbps | Dedicated links |
+
+### B. Features of Ethernet
+
+- High speed
+- Flexibility
+- Reliability
+- Cost-effective
+- Interoperability
+- Security
+- Easy manageability
+
+### C. Ethernet Frames
+
+#### 1. MAC Sublayer While Sending
+
+- Encapsulates higher-level frames
+- Adds frame check sequence
+- Uses CSMA/CD
+- Retransmits after collision
+
+#### 2. MAC Sublayer While Receiving
+
+- Checks frame integrity
+- Removes preamble and padding
+
+---
+
+## Error Detection in Computer Networks
+
+Error occurs when received information differs from transmitted information.
+
+### A. Types of Errors
+
+#### 1. Single-Bit Error
+
+- Only one bit changes
+
+<html>
+<div style={{ textAlign: "center" }}>
+  <img src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/CN/12.png?raw=true" alt="Diagram" width="60%" />
+</div>
+</html>
+
+#### 2. Multiple-Bit Error
+
+- More than one non-consecutive bit changes
+
+<html>
+<div style={{ textAlign: "center" }}>
+  <img src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/CN/13.png?raw=true" alt="Diagram" width="60%" />
+</div>
+</html>
+
+#### 3. Burst Error
+
+- Consecutive bits change
+
+<html>
+<div style={{ textAlign: "center" }}>
+  <img src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/CN/14.png?raw=true" alt="Diagram" width="60%" />
+</div>
+</html>
+
+### B. Error Detection Methods
+
+#### 1. Simple Parity Check
+
+<html>
+<div style={{ textAlign: "center" }}>
+  <img src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/CN/15.png?raw=true" alt="Diagram" width="60%" />
+</div>
+</html>
+
+- Adds one extra parity bit
+- Detects single-bit errors
+- Cannot detect even number of errors
+
+#### 2. Two-Dimensional Parity Check
+
+<html>
+<div style={{ textAlign: "center" }}>
+  <img src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/CN/16.png?raw=true" alt="Diagram" width="60%" />
+</div>
+</html>
+
+- Uses row and column parity
+- Detects and corrects single-bit errors
+- Detects 2–3 bit errors
+
+#### 3. Checksum
+
+##### a. Sender Side
+
+1. Divide data into segments
+2. Add using 1's complement arithmetic
+3. Complement result
+4. Send checksum
+
+##### b. Receiver Side
+
+1. Add received segments
+2. Complement result
+3. If result is 0 → accept data
+
+<html>
+<div style={{ textAlign: "center" }}>
+  <img src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/CN/17.png?raw=true" alt="Diagram" width="60%" />
+</div>
+</html>
+
+#### 4. Cyclic Redundancy Check (CRC)
+
+<html>
+<div style={{ textAlign: "center" }}>
+  <img src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/CN/18.png?raw=true" alt="Diagram" width="60%" />
+</div>
+</html>
+
+Based on binary division.
+
+##### a. Steps
+
+1. Append $(k - 1)$ zeros
+2. Perform modulo-2 division
+3. Remainder becomes CRC bits
+4. Append CRC to original data
+
+At receiver:
+
+- Divide received codeword using same divisor
+- Zero remainder means no error
+
+CRC bits must be $(k - 1)$ bits long.
+
+<html>
+<div style={{ textAlign: "center" }}>
+  <img src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/CN/19.png?raw=true" alt="Diagram" width="60%" />
+</div>
+</html>
+
+---
+
+## Error Correction in Computer Networks
+
+Error correction replaces incorrect bits with correct bits.
+
+### A. Types of Error Correction
+
+| Method | Description |
+|---|---|
+| Forward Error Correction | Receiver corrects errors directly |
+| Backward Error Correction | Sender retransmits corrupted data |
+
+### B. Hamming Code
+
+Developed by R.W. Hamming.
+
+- Detects up to 2-bit errors
+- Corrects single-bit errors
+- Redundant bits placed at powers of 2
+
+#### Formula
+
+$$
+2^r \geq m + r + 1
+$$
+
+Where:
+
+- $r$ = redundant bits
+- $m$ = data bits
+
+### C. Encoding Steps
+
+#### 1. Procedure
+
+1. Calculate redundant bits
+2. Place redundant bits at powers of 2
+3. Calculate parity bits
+
+##### a. Coverage
+
+- $r_1$: 1, 3, 5, 7, ...
+- $r_2$: 2, 3, 6, 7, ...
+- $r_3$: 4–7, 12–15, ...
+
+### D. Decoding Steps
+
+#### 1. Procedure
+
+1. Recalculate parity bits
+2. Convert parity result to decimal
+3. If decimal is 0 → no error
+4. Otherwise flip corresponding bit
+
+Example: $1001_2 = 9$, so bit 9 contains error.
+
+
+### E.   The Network Layer
+
+-   The Network Layer manages data transmission between hosts across different networks by handling logical addressing and path finding.
+-   Facilitates communication between disparate networks by directing traffic to the correct destination.
+<img src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/CN/CN13.jpg?raw=true" width="600" />
+### F.   The Transport Layer
+
+-   The Transport Layer ensures the end-to-end delivery of entire messages.
+-   It acts as a liaison, providing services to the Application layer while utilizing the infrastructure of the Network layer to ensure data reaches the correct application on the destination host.
+<img src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/CN/CN14.jpg?raw=true" width="600" />
+### G.  The Session Layer
+
+-   The Session Layer acts as the "dialogue manager," governing the opening, closing, and security of communication channels between two devices.
+-   Manages the establishment, maintenance, and termination of connections between applications.
+<img src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/CN/CN15.jpg?raw=true" width="600" />
+### H.   The Presentation Layer
+
+-   Often called the Translation Layer, the Presentation Layer ensures that data is formatted, secured, and compressed so that the receiving application can correctly interpret it.
+-   Reduces the total number of bits required for transmission, which increases network efficiency and speed.
+<img src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/CN/CN16.jpg?raw=true" width="600" />
+
+### I.   The Application Layer
+
+-   The Application Layer sits at the top of the OSI stack and serves as the direct interface between the software user and the network.
+-   It produces the data that will be sent and displays the information received from other layers.
+<img src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/CN/CN17.png?raw=true" width="600" />
+
+---
+
+## The Network Layer
+
+The Network Layer is the third layer from the bottom and the fifth layer from the top in the OSI model. It is an important layer responsible for transmitting data from the source to the destination while maintaining proper data delivery. This layer mainly handles routing by selecting the best possible path for data transmission across networks. It also manages packet forwarding and logical addressing. Several important protocols operate at the Network Layer to support efficient communication.
+
+ **Functions of Network Layer**
+
+* Assigning Logical Address: Provides unique IP addresses to devices for identification and communication.  
+* Packetizing: Converts data into packets for transmission.  
+* Host-to-Host Delivery: Ensures data reaches the correct destination device.  
+* Forwarding: Transfers packets to the correct output path in routers.  
+* Fragmentation and Reassembly: Splits large packets into smaller fragments and combines them at the destination.  
+* Logical Subnetting: Divides large networks into smaller subnetworks for efficient management.  
+* Network Address Translation (NAT): Converts private IP addresses into public IP addresses for internet communication.  
+* Routing: Selects the best path for transmitting packets across networks.
+
+**Working of the Network Layer**
+
+* Every device is assigned a unique IP address for identification on the network.  
+* Data is divided into small packets containing source and destination addresses.  
+* Routers determine the best path for sending packets to the destination.  
+* Packets travel through multiple routers step by step until they reach the target device.  
+* Large packets are fragmented into smaller parts for smooth transmission.  
+* At the destination, all fragments are reassembled into the original data.  
+* If any problem occurs during transmission, an error message is generated and sent back.
+
+### A. Services Offered by Network Layer
+
+The services which are offered by the network layer are as follows:
+
+#### 1. Assigning Logical Address
+
+Logical addressing is the process of assigning unique IP addresses (IPv4 or IPv6) to devices within a network. Unlike physical addresses (MAC addresses), logical addresses can change based on network configurations. These addresses are hierarchical and help identify both the network and the device within that network. Logical addressing is important for:
+
+Enabling communication between devices on different networks.
+
+Facilitating routing by providing location-based information.
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/CN/CN1.jpg?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+
+#### 2. Packetizing
+
+The process of encapsulating the data received from the upper layers of the network (also called payload) in a network layer packet at the source and decapsulating the payload from the network layer packet at the destination is known as packetizing.
+
+The source host adds a header that contains the source and destination address and some other relevant information required by the network layer protocol to the payload received from the upper layer protocol and delivers the packet to the data link layer.
+
+The destination host receives the network layer packet from its data link layer, decapsulates the packet, and delivers the payload to the corresponding upper layer protocol. The routers in the path are not allowed to change either the source or the destination address. The routers in the path are not allowed to decapsulate the packets they receive unless they need to be fragmented.
+
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/CN/CN2.jpg?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+#### 3. Host-to-Host Delivery
+
+The network layer ensures data is transferred from the source device (host) to the destination device (host) across one or multiple networks. This involves:
+
+Determining the destination address.
+
+Ensuring that data is transmitted without duplication or corruption.
+
+Host-to-host delivery is a foundational aspect of communication in large-scale, interconnected systems like the internet.
+
+#### 4. Forwarding
+
+Forwarding is the process of transferring packets between network devices such as routers, which are responsible for directing the packets toward their destination. When a router receives a packet from one of its attached networks, it needs to forward the packet to another attached network (unicast routing) or to some attached networks (in the case of multicast routing).The router uses:
+
+Routing tables: These tables store information about possible paths to different networks.
+
+Forwarding decisions: Based on the destination IP address in the packet header. Forwarding ensures that packets move closer to their destination efficiently.
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/CN/CN4.jpg?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+
+#### 5. Fragmentation and Reassembly of Packets
+
+Some networks have a maximum transmission unit (MTU) that defines the largest packet size they can handle. If a packet exceeds the MTU, the network layer:
+
+Fragments the packet into smaller pieces.
+
+Adds headers to each fragment for identification and sequencing. At the destination, the fragments are reassembled into the original packet. This ensures compatibility with networks of varying capabilities without data loss.
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/CN/CN5.jpg?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+#### 6. Logical Subnetting
+
+Logical subnetting involves dividing a large IP network into smaller, more manageable sub-networks (subnets). Subnetting helps:
+
+* Improve network performance by reducing congestion.
+* Enhance security by isolating parts of a network.
+
+Simplify network management and troubleshooting. Subnetting uses subnet masks to define the range of IP addresses within each subnet, enabling efficient address allocation and routing.
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/CN/CN6.jpg?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+#### 7. Network Address Translation (NAT)
+
+NAT allows multiple devices in a private network to share a single public IP address for internet access. This is achieved by:
+
+Translating private IP addresses to a public IP address for outbound traffic.
+
+Reversing the process for inbound traffic. Benefits of NAT include:
+
+Conserving IPv4 addresses by reducing the need for unique public IPs for each device.
+
+Enhancing security by masking internal IP addresses from external networks.
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/CN/CN7.jpg?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+#### 8. Routing
+
+Routing is the process of moving data from one device to another device. These are two other services offered by the network layer. In a network, there are a number of routes available from the source to the destination. The network layer specifies some strategies which find out the best possible route. This process is referred to as routing. There are a number of routing protocols that are used in this process and they should be run to help the routers coordinate with each other and help in establishing communication throughout the network.
+
+### B. Protocols Operating at the Network Layer
+
+* **IP (Internet Protocol \- IPv4/IPv6):** Provides logical addressing and delivers packets across networks; IPv6 offers a larger address space and better efficiency.  
+* **ICMP (Internet Control Message Protocol):** Sends error reports and diagnostic messages (e.g., destination unreachable, ping).  
+* **ARP (Address Resolution Protocol):** Maps IP addresses to MAC addresses within a local network.  
+* **RARP (Reverse Address Resolution Protocol):** Retrieves a device’s IP address using its MAC address (largely obsolete).  
+* **NAT (Network Address Translation):** Converts private IP addresses to public IPs, conserving addresses and improving security.  
+* **IPSec (Internet Protocol Security):** Secures IP communication through encryption and authentication.  
+* **MPLS (Multiprotocol Label Switching):** Uses labels to forward packets efficiently and manage traffic.
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/CN/CN8.jpg?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+---
+
+## IP Addressing
+
+An Internet Protocol (IP) address is the unique identifying number assigned to every device connected to the internet. An IP address definition is a numeric label assigned to devices that use the internet to communicate. Computers that communicate over the internet or via local networks share information to a specific location using IP addresses.
+Imagine every device on the internet as a house. For you to send a letter to a friend living in one of these houses, you need their home address. In the digital world, this home address is what we call an IP (Internet Protocol) Address. It's a unique string of numbers separated by periods (IPv4) or colons (IPv6) that identifies each device connected to the internet or a local network.
+IP addresses have two distinct versions or standards. The Internet Protocol version 4 (IPv4) address is the older of the two, which has space for up to 4 billion IP addresses and is assigned to all computers. The more recent Internet Protocol version 6 (IPv6) has space for trillions of IP addresses, which accounts for the new breed of devices in addition to computers. There are also several types of IP addresses, including public, private, static, and dynamic IP addresses.
+Every device with an internet connection has an IP address, whether it's a computer, laptop, IoT device, or even toys. The IP addresses allow for the efficient transfer of data between two connected devices, allowing machines on different networks to talk to each other.
+
+### How does an IP address work?
+
+An IP address works in helping your device, whatever you are accessing the internet on, to find whatever data or content is located to allow for retrieval.
+
+Common tasks for an IP address include both the identification of a host or a network, or identifying the location of a device. An IP address is not random. The creation of an IP address has the basis of math. The Internet Assigned Numbers Authority (IANA) allocates the IP address and its creation. The full range of IP addresses can go from 0.0.0.0 to 255.255.255.255.
+
+With the mathematical assignment of an IP address, the unique identification to make a connection to a destination can be made.
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/CN/CN3.jpg?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+#### 1. Unique Identification
+
+Every device connected to a network, such as computers, smartphones, and servers, is assigned an IP address. This address is used to identify the device on the network, similar to how a home address identifies a specific location.
+
+#### 2. Communication Protocol
+
+The Internet Protocol (IP), part of the broader suite of internet protocols, uses these addresses to facilitate the routing of data packets between devices. Each piece of data sent over a network is broken into smaller units called packets. Each packet includes both the sender's and the recipient's IP addresses.
+
+#### 3. Data Routing
+
+When a device sends information to another device over the internet:
+
+The data is divided into packets.
+
+* Each packet contains the IP address of the device it is destined for.  
+* Routers within the network read the destination IP address on each packet and determine the best path for the packet to travel. Routers communicate with each other to update and maintain records of the fastest, most efficient routes for data.
+
+#### 4. Local Area Networks (LAN) and Wide Area Networks (WAN)
+
+LAN: On local networks, IP addresses can be assigned manually by an administrator (static IP) or automatically by a DHCP server. Devices within the same network communicate directly using their local IP addresses.
+
+WAN: For devices on different networks, the data must travel through multiple routers across the internet. Each router makes independent decisions about the best route for the packets based on the destination IP address.
+
+#### 5. Network Address Translation (NAT)
+
+Most devices on a home or small business network share a single public IP address when accessing the internet, even though each device has its own private IP address within the local network. NAT is a process where multiple local IP addresses are mapped to a single public IP address. This conserves IP addresses and adds a layer of security by hiding internal IP addresses from the external network.
+
+---
+
+## What Is IPv4?
+
+IPv4 is the fourth version of the IP. It is one of the core protocols of the standards-based methods used to interconnect the internet and other networks. The protocol was first deployed on the Atlantic Packet Satellite Network (SATNET), which was a satellite network that formed a segment of the initial stages of the internet, in 1982\. It is still used to route most internet traffic despite the existence of IPv6.
+
+IPv4 is currently assigned to all computers. An IPv4 address uses 32-bit binary numbers to form a unique IP address. It takes the format of four sets of numbers, each of which ranges from 0 to 255 and represents an eight-digit binary number, separated by a period point.
+
+### A. IP Address Classes
+
+Some IP addresses are reserved by the Internet Assigned Numbers Authority (IANA). These are typically reserved for networks that carry a specific purpose on the Transmission Control Protocol/Internet Protocol (TCP/IP), which is used to interconnect devices. Four of these IP address classes include:
+
+* 0.0.0.0: This IP address in IPv4 is also known as the default network. It is the non-routeable meta address that designates an invalid, non-applicable, or unknown network target.  
+* 127.0.0.1: This IP address is known as the loopback address, which a computer uses to identify itself regardless of whether it has been assigned an IP address.  
+* 169.254.0.1 to 169.254.254.254: A range of addresses that are automatically assigned if a computer is unsuccessful in an attempt to receive an address from the DHCP.  
+* 255.255.255.255: An address dedicated to messages that need to be sent to every computer on a network or broadcasted across a network.
+
+Further reserved IP addresses are for what is known as subnet classes. Subnetworks are small computer networks that connect to a bigger network via a router. The subnet can be assigned its own IP address system, so that all devices connecting to it can communicate with each other without having to send data via the wider network.
+
+The router on a TCP/IP network can be configured to ensure it recognizes subnets, then route the traffic onto the appropriate network. IP addresses are reserved for the following subnets:
+
+* Class A: IP addresses between 10.0.0.0 and 10.255.255.255  
+* Class B: IP addresses between 172.16.0.0 and 172.31.255.255  
+* Class C: IP addresses between 192.186.0.0 and 192.168.255.255  
+* Class D or multicast: IP addresses between 224.0.0.0 and 239.255.255.255  
+* Class E, which are reserved for experimental usage: IP addresses between 240.0.0.0 and 254.255.255.254
+
+IP addresses listed under Class A, Class B, and Class C are most commonly used in the creation of subnets. Addresses within the multicast or Class D have specific usage rules outlined in the Internet Engineering Task Force (IETF) guidelines, while the release of Class E addresses for public use was the cause of plenty of debate before the IPv6 standard was introduced.
+
+---
+
+## Internet Protocol version 6 (IPv6)
+
+The Internet Protocol version 6, or IPv6, is the latest version of the Internet Protocol (IP), which is the system used for identifying and locating computers on the Internet. IPv6 was developed by the Internet Engineering Task Force (IETF) to deal with the problem of IPv4 exhaustion. IPv6 is a 128-bit address having an address space of 2128, which is way bigger than IPv4. IPv6 uses a Hexa-Decimal format separated by a colon (:).
+
+### A. Components in IPv6 Address Format
+
+There are 8 groups and each group represents 2 Bytes (16-bits).
+
+Each Hex-Digit is of 4 bits (1 nibble)
+
+Delimiter used \- colon (:)
+
+
+IPv6 Structure
+
+### B. Need For IPv6
+
+The Main reason of IPv6 was the address depletion as the need for electronic devices rose quickly when Internet Of Things (IOT) came into picture after the 1980s & other reasons are related to the slowness of the process due to some unnecessary processing, the need for new options, support for multimedia, and the desperate need for security. IPv6 protocol responds to the above issues using the following main changes in the protocol:
+
+* **Large Address Space:** An IPv6 address is 128 bits long .compared with the 32 bit address of IPv4, this is a huge(2 raised 96 times) increases in the address space.  
+* **Better Header Format:** IPv6 uses a new header format in which options are separated from the base header and inserted, when needed, between the base header and the upper layer data . This simplifies and speeds up the routing process because most of the options do not need to be checked by routers.  
+* **New Options:** IPv6 has new options to allow for additional functionalities.  
+* **Allowance for extension:** IPv6 is designed to allow the extension of the protocol if required by new technologies or applications.  
+* **Support For Resource Allocation:** In IPv6,the type of service field has been removed, but two new fields , traffic class and flow label have been added to enables the source to request special handling of the packet . this mechanism can be used to support traffic such as real-time audio and video.  
+* **Support For More Security:** The encryption and authentication options in IPv6 provide confidentiality and integrity of the packet.
+
+In IPv6 representation, we have three addressing methods :
+
+* Unicast  
+* Multicast  
+* Anycast  
+* **Unicast Address:** Unicast Address identifies a single network interface. A packet sent to a unicast address is delivered to the interface identified by that address.  
+* **Multicast Address:** Multicast Address is used by multiple hosts, called as groups, acquires a multicast destination address. These hosts need not be geographically together. If any packet is sent to this multicast address, it will be distributed to all interfaces corresponding to that multicast address. And every node is configured in the same way. In simple words, one data packet is sent to multiple destinations simultaneously.  
+* **Anycast Address:** Anycast Address is assigned to a group of interfaces. Any packet sent to an anycast address will be delivered to only one member interface (mostly nearest host possible).
+
+---
+
+## Routing
+
+**Routing** is the fundamental process in computer networking of selecting the best path for **Internet Protocol (IP) packets** to travel from their source to their destination across one or more networks. It is an autonomous process primarily handled by specialized network devices.
+
+### A. What is a Router?
+
+* A **router** is a dedicated network hardware device that makes intelligent decisions about where to forward data packets.  
+* It operates at **Layer 3 (the Network Layer)** of the OSI Model.  
+* Its main functions include:  
+  * Forwarding data packets between different computer networks.  
+  * Directing network traffic based on the **destination IP address**.  
+  * Ensuring data reaches its intended destination by determining the most efficient or **"best" path**.
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/CN/CN10.jpg?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+### B. Key Aspects of Routing
+
+* **Direction of Data:** Routing directs data packets from one network node (typically a router) to another.  
+* **Crucial Mechanism:** It's essential for transmitting data across various network types, including LAN, WAN, or MAN.  
+* **Decision-Making:** The process involves making continuous routing decisions to ensure reliable and efficient delivery.  
+* **Path Optimization:** Routers utilize various **routing metrics** (e.g., shortest path, fewest hops, bandwidth) to find the most optimal path for data transmission.
+
+### C. Types of Routing
+
+Routing, the process of directing data packets across networks, typically involves three main types, each with distinct functionalities and applications.
+
+#### 1. Static Routing
+
+* **Definition:** Also known as "non-adaptive routing," where network administrators manually configure and maintain routing information.  
+* **Control:** Offers complete control over the network path selection.  
+* **Mechanism:** Routers forward packets to destinations based on these manually entered configurations.  
+* **Suitability:** While providing fine-grained control, it is generally **not suitable for large-scale enterprise networks** due to the high manual overhead for configuration and updates.
+
+#### 2. Dynamic Routing
+
+* **Definition:** Also known as "adaptive routing," this is an autonomous process that requires no human intervention for route updates.  
+* **Mechanism:** Routers automatically add, update, or remove routes in their routing tables based on changes in network topology. This is achieved using various **shortest-path algorithms** and pre-determined **routing metrics**.  
+* **Flexibility:** Highly preferred in modern, complex networks due to its flexibility and versatile functionality, as it automates routing operations.
+
+#### 3. Default Routing
+
+* **Definition:** A technique where a router is configured to send packets to a pre-defined **default route** (a gateway or next-hop device) if no specific path to the destination is found in its routing table.  
+* **Common Use Case:** Primarily used in networks with a **single exit point** to the Internet or another large network.  
+* **Representation:** The default route is commonly represented by the IP address 0.0.0.0/0.
+
+#### Working Principle of Routing
+
+Routing is the process by which networks determine the most efficient path for data packets to travel from a source to a destination. This involves a series of steps and relies heavily on routers and routing tables.
+
+**Step-by-Step Process:**
+
+* **Communication Initiation:**  
+  * A source node (e.g., client or server) begins communication across a network, typically using protocols like HTTP.  
+* **Data Packet Preparation:**  
+  * The source device breaks down the information into smaller **data packets** for efficient and reliable transmission.  
+  * Each packet is then labeled with the **destination node's IP address**.  
+* **Routing Table Lookup:**  
+  * The router, a specialized network device, maintains a **routing table**. This logical data structure stores IP addresses and information about reachable networks and the "next-hop" routers.  
+  * The router consults this table to identify the shortest or most optimal path to the destination, often using shortest-path algorithms and considering traffic conditions.
+
+### D. What is a Routing Table?
+
+A **routing table** is a crucial set of rules, typically displayed in a table format, that an IP-enabled device (like a router or switch) uses to determine the next hop or path for data packets traveling across an Internet Protocol (IP) network. Its primary function is to direct packets towards their intended destination.
+
+#### 1. Key Components/Entries
+
+Each entry in a routing table provides the necessary information to forward a packet and commonly includes:
+
+* **Network ID / Destination:** The IP network address of the destination.  
+* **Subnet Mask:** Used to match a destination IP address to the corresponding network ID.  
+* **Next Hop:** The IP address of the next device (router) to which the packet should be forwarded.  
+* **Outgoing Interface:** The specific local interface on the router through which the packet should exit.  
+* **Metric:** A value (e.g., hop count, cost) indicating the "bestness" or desirability of a route, used to choose among multiple paths.  
+* **Default Route:** A special entry (Destination: 0.0.0.0, Subnet Mask: 0.0.0.0) that specifies where to send packets if no more specific route is found in the table.
+
+
+#### 2. How Routing Tables are Populated
+
+Routing tables can be maintained in three primary ways:
+
+* **Directly Connected Networks:** Routes to networks directly attached to the router's interfaces are added automatically.  
+* **Static Routing:** Routes are manually configured by a network administrator. These entries remain fixed unless manually changed.  
+* **Dynamic Routing:** Routers automatically build and maintain their routing tables by exchanging network topology information with other routers using **routing protocols** (e.g., OSPF, EIGRP, BGP). This allows them to adapt to network changes like device failures or congestion.
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/CN/CN11.jpg?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+#### 3. Route Determination Process
+
+When a router receives an IP packet, it performs the following steps to determine the packet's path:
+
+* **Examine Destination IP:** The router extracts the destination IP address from the packet.  
+* **Match with Table Entries:** It performs a **bitwise AND operation** between the destination IP address and the subnet masks of all entries in its routing table.  
+* **Forwarding Logic:**  
+  * **Single Match:** If only one routing table entry matches, the packet is forwarded via the corresponding outgoing interface.  
+  * **Multiple Matches (Longest Prefix Match):** If the destination IP matches multiple entries, the router selects the route with the **longest subnet mask** (the most specific match, indicated by more 1s in the mask).  
+  * **No Match:** If no specific route matches, the packet is forwarded to the interface corresponding to the **default route**.  
+* **Hopping Procedure:**  
+  * Data packets traverse multiple intermediate nodes (routers) in a network, known as **hops**, until they reach their final destination.  
+  * A **hop count** defines the number of nodes a packet must pass through. Packets have a limited hop count; if exceeded, they are considered lost and may be retransmitted.  
+* **Destination Reached:**  
+  * Once all data packets arrive at the intended destination node, they are re-assembled to form the complete original information.  
+  * The receiver performs **error-checking mechanisms** to verify data authenticity and integrity.
+
+
+#### 4. Key Optimization:
+
+Overall, the routing process aims to transmit data packets over the path with the **least hop count** and **less traffic** to minimize latency and prevent packet loss, ensuring efficient data delivery.
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/CN/CN12.jpg?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/CN/CN13.jpg?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+#### 5.  Main Routing Protocol Types
+
+* **Distance Vector Routing**  
+  * **Principle:** Nodes advertise their entire routing table to directly connected (adjacent) nodes at regular intervals.  
+  * **Convergence:** Can be slower to achieve a consistent network view across all nodes.  
+  * **Suitability:** Often uses fixed-length subnets, less suitable for large, highly scalable networks.  
+  * **Algorithm:** Typically uses the **Bellman-Ford Algorithm** to find the shortest path.  
+  * **Example:** **RIP (Routing Information Protocol)** \- Uses hop count as its primary metric.
+
+---
+
+## Distance Vector Routing (DVR) Protocol
+
+**Distance Vector Routing (DVR) Protocol** is a method used by routers to determine the most efficient path for data across a network. Each router maintains a table containing the shortest distance (often based on hop count) to all other known routers. This information is regularly shared with directly connected neighbors, allowing routers to update their own tables and adapt to network changes.
+
+### A. What is DVR?
+
+* A routing protocol where each router maintains a "distance vector" (routing table) that lists the shortest distance to every other destination in the network.  
+* Distances are typically measured in **hop counts** (number of routers crossed).  
+* Routers share their complete routing table with their immediate **neighbors** periodically.
+
+### B. How it Works (Bellman-Ford Algorithm)
+
+DVR protocols are historically associated with the **Bellman-Ford Algorithm**.
+
+* **Information Exchange:** Routers periodically send their current distance vector (their routing table) to all directly connected neighbors.  
+* **Receiving Updates:** Upon receiving a distance vector from a neighbor, a router saves this information.  
+* **Table Recalculation:** A router recalculates its own distance vector when:  
+  * It receives a new distance vector from a neighbor that contains different information.  
+  * It detects a link to a neighbor has gone down.  
+* **Minimizing Cost:** The calculation aims to minimize the cost (distance) to each destination using the Bellman-Ford equation:  
+* D$D_x(y) = \min \{ C(x,v) + D_v(y) \}$
+  * Dx(y): Estimated least cost from router x to destination y.  
+  * C(x,v): Cost from router x to its neighbor v.  
+* Dv(y): Neighbor v's estimated least cost to destination y.  
+  * This process ensures routes are updated based on the lowest cost path through any neighbor.
+
+### C. Applications of DVR
+
+* **Computer Networking:** Core function in routing data packets.  
+* **Telephone Systems:** Used in certain telephone switching infrastructures.  
+* **Military Applications:** Historically applied in areas like missile routing.
+
+### D. Advantages of DVR
+
+* **Shortest Path:** Effectively finds the shortest paths for data transmission.  
+* **Widespread Usage:** Applicable in local, metropolitan, and wide-area networks.  
+* **Easy Implementation:** Relatively simple to set up and manage, requiring fewer resources.
+
+### E. Disadvantages of DVR
+
+* **Slower Convergence:** It is generally slower to update and achieve a stable network view compared to link-state protocols, especially in large networks.  
+* **Count-to-Infinity Problem:** Susceptible to routing loops when network links fail, potentially causing packets to endlessly "count to infinity" before routes stabilize.  
+* **Higher Traffic & Bandwidth Consumption:** Generates more network traffic due to periodic, full routing table broadcasts, even when no topology changes occur.  
+* **Larger Routing Tables:** In larger networks, routers must store information about all other routers, leading to larger routing tables and potential congestion on WAN links.
+
+#### Example
+
+* Consider a network with three routers: X, Y, and Z (as shown in an accompanying figure, not provided here).
+
+
+* Each router possesses its own routing table.  
+* These routing tables include the calculated distances to all reachable destination nodes.  
+* **Route Selection:**  
+  * Through this calculation, Router X will identify the path with the minimum cost. For instance, if the distance to Z is less when Y is an intermediate hop (X \-\> Y \-\> Z) compared to a direct link, then Router X's routing table will be updated accordingly to reflect this shorter path via Y.  
+  * A similar process occurs for Router Z and other routers in the network, as they continuously update their routing tables based on information from their neighbors.
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/CN/CN14.jpg?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+#### Final Routing Tables:
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/CN/CN15.jpg?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+##### a. Link State Routing 
+  * **Principle:** Routers advertise updates about their directly connected links only when there are changes (e.g., link status, cost). This leads to more efficient bandwidth use.  
+  * **Information Exchange:** Routers exchange detailed information about link states (cost, hop count, etc.) to build a complete topology map.  
+  * **Suitability:** Uses variable-length subnet masks, making it highly scalable and efficient for addressing.  
+  * **Algorithm:** Primarily uses **Dijkstra's Algorithm** to calculate the shortest path.  
+  * **Examples:**  
+    * **OSPF (Open Shortest Path First):** A widely used link-state protocol.  
+    * **IS-IS (Intermediate System to Intermediate System):** Another link-state protocol often used in large networks, especially by ISPs.  
+* **Hybrid/Advanced Protocols**  
+  * **EIGRP (Enhanced Interior Gateway Routing Protocol):** A Cisco-proprietary hybrid protocol that combines features of both distance-vector and link-state routing, offering fast convergence and efficient operation.  
+  * **BGP (Border Gateway Protocol):** A **path-vector protocol** primarily used for routing between different **Autonomous Systems (AS)** on the global internet (inter-domain routing). It focuses on path attributes and policy-based routing rather than just shortest path.
+
+##### b. Key Routing Metrics
+
+Routing protocols use various metrics to measure the "cost" of a path and determine the best route:
+
+* **Hop Count:** The number of routers a data packet must traverse to reach its destination. The goal is typically to minimize this.  
+* **Bandwidth Consumption:** The available capacity of a network link, measured in Kbps, Mbps, or Gbps. Higher bandwidth links are generally preferred.  
+* **Delay:** The time it takes for a data packet to travel from source to destination (includes propagation, transmission, and queuing delays). Lower delay is preferred.  
+* **Load:** The amount of network traffic on a specific path. Routers aim to route packets through paths with less load to prevent congestion and loss.  
+* **Reliability:** The stability and availability of a network link, ensuring assured delivery. Routes through more reliable links are favored.  
+
+---
+
+## The Transport Layer
+
+Forget the wires and routers for a sec; this layer is all about getting data from *your app* on *your computer* to *another app* on *another computer*. Think of it as the specialized postal service for your software.
+
+At this level, we've got two superstar protocols: **TCP** and **UDP**. These guys are fundamentally different, and knowing *when* to use which is a huge differentiator in interviews. It's not just about memorizing facts; it's about understanding the philosophy behind each.
+
+### A. TCP
+
+TCP (Transmission Control Protocol) is a reliable, connection-oriented transport layer protocol used for transmitting data over networks. It ensures that data is delivered accurately, completely, and in the correct order between applications. TCP is widely used in web browsing, email services, file transfer, and online transactions because of its reliability and error-checking mechanisms.
+
+
+#### 1. Features of TCP
+
+* Connection-oriented protocol  
+* Reliable data transmission  
+* Error detection and recovery  
+* Flow control and congestion control  
+* Data segmentation and reassembly  
+* Ordered delivery of packets  
+
+#### 2. Working of TCP
+
+#### Connection Establishment (Three-Way Handshake)
+
+Before data transmission, TCP establishes a connection between sender and receiver using a three-step process:
+
+* **SYN:** Sender requests connection  
+* **SYN-ACK:** Receiver acknowledges and responds  
+* **ACK:** Sender confirms the connection
+
+This process ensures both devices are ready for communication.
+
+#### 3. Reliable Delivery Mechanisms in TCP
+
+##### a. Acknowledgement (ACK)
+
+The receiver sends acknowledgements for received data segments. If ACK is not received within a certain time, the sender retransmits the data.
+
+##### b. Sequence Numbers
+
+Each TCP segment contains a sequence number to maintain proper order and identify missing data.
+
+##### c. Checksum
+
+TCP uses checksum values to detect errors in transmitted data. Corrupted data is discarded and retransmitted.
+
+##### d. Flow Control
+
+TCP uses the sliding window mechanism to prevent the receiver from being overloaded with data.
+
+##### e. Congestion Control
+
+TCP controls network traffic and reduces transmission speed during congestion to maintain network stability.
+
+#### 4. Segmentation in TCP
+
+Large data is divided into smaller units called segments before transmission.
+
+##### a. Maximum Segment Size (MSS)
+
+MSS defines the maximum amount of data that can be carried in a TCP segment without fragmentation.
+
+
+##### b. TCP Header Fields
+
+* Source Port  
+* Destination Port  
+* Sequence Number  
+* Acknowledgement Number  
+* Header Length  
+* Control Flags (SYN, ACK, FIN, RST, etc.)  
+* Window Size  
+* Checksum  
+* Urgent Pointer  
+* Options  
+
+---
+
+## UDP (User Datagram Protocol)
+
+UDP (User Datagram Protocol) is a fast, connectionless transport layer protocol used for transmitting data without establishing a connection between sender and receiver. It follows a “best effort” approach, meaning it sends data quickly without guaranteeing delivery, order, or error recovery. UDP is mainly used in applications where speed and low latency are more important than reliability.
+
+
+### A. Features of UDP
+
+* Connectionless protocol  
+* Fast data transmission  
+* Minimal overhead  
+* No acknowledgements  
+* No retransmission mechanism  
+* No flow or congestion control  
+* Low latency communication  
+
+### B. Working of UDP
+
+#### 1. Connectionless Communication
+
+UDP does not establish a connection before sending data. The sender directly transmits data packets called datagrams.
+
+#### 2. Unreliable Transmission 
+
+UDP does not guarantee that packets will reach the destination. Lost packets are not retransmitted.
+
+#### 3. No Ordering Guarantee
+
+Packets may arrive out of order because UDP does not use sequence numbers for packet arrangement.
+
+#### 4. Error Detection
+
+UDP uses a checksum field to detect errors in transmitted data. Corrupted packets are usually discarded.
+
+#### 5. Minimal Overhead
+
+UDP has a very small header size and fewer control mechanisms, making communication faster and more efficient.
+
+
+### C. UDP Header Fields
+
+The UDP header size is only 8 bytes and contains:
+
+* Source Port  
+* Destination Port  
+* Length  
+* Checksum
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/CN/CN16.jpg?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+Difference between TCP and UDP
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/CN/CN17.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+---
+
+## TCP 3-Way Handshake Process:
+
+### A. TCP Segment Structure A TCP segment consists of data bytes and a header added by TCP.
+
+* **Header Length:** 20-60 bytes (20 bytes min, 60 bytes max with options).  
+* **Key Header Fields:**  
+  * **Source/Destination Port Address (16-bit):** Identifies sending/receiving application ports.  
+  * **Sequence Number (32-bit):** Byte number of the *first byte* in the current segment. Used for reassembly and ordering.  
+  * **Acknowledgement Number (32-bit):** Byte number the receiver *expects to receive next*. Acknowledges previous successful bytes (cumulative).  
+  * **Header Length (HLEN) (4-bit):** Indicates TCP header length in 4-byte words (value 5-15, for 20-60 bytes).  
+  * **Control Flags (6 1-bit bits):** Control connection actions:  
+    * **URG:** Urgent pointer is valid.  
+    * **ACK:** Acknowledgement number is valid.  
+    * **PSH:** Request to push data.  
+    * **RST:** Reset connection.  
+    * **SYN:** Synchronize sequence numbers (for connection establishment).  
+    * **FIN:** Terminate connection.  
+  * **Window Size:** Tells sending TCP the receiver's available buffer size in bytes (for flow control).  
+  * **Checksum:** For error control (mandatory in TCP).  
+* **Urgent Pointer:** Points to urgent data (if URG flag set).  
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/CN/CN18.jpg?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+### B.  TCP 3-Way Handshake
+
+* The TCP 3-Way Handshake is the process used to establish a reliable connection between a client and a server before data transmission begins. It ensures that both devices are ready for communication and synchronizes their sequence numbers.
+
+#### Steps in TCP 3-Way Handshake
+
+**Step 1: SYN**
+
+* The client sends a TCP segment with the SYN flag set and an initial sequence number (Seq \= x) to request a connection.
+
+**Step 2: SYN \+ ACK**
+
+* The server responds with a segment containing both SYN and ACK flags. It sends its own sequence number (Seq \= y) and acknowledgement number (Ack \= x \+ 1).
+
+**Step 3: ACK**
+
+* The client sends a final ACK segment with acknowledgement number (Ack \= y \+ 1\) to confirm the connection.  
+* After these three steps, the TCP connection is successfully established and data transfer begins.  
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/CN/CN19.jpg?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+---
+
+## Congestion Control in Computer Networks
+
+Congestion in computer networks occurs when the amount of data transmitted exceeds the network capacity, causing delays, packet loss, and reduced performance. It is similar to a traffic jam where excessive traffic blocks smooth movement. Congestion control refers to the techniques used to prevent network overload and maintain efficient data communication.*
+
+
+### A. Effects of Congestion Control
+
+Effective congestion control provides several benefits:
+
+* Improves network stability
+* Reduces packet loss
+* Minimizes transmission delay
+* Enhances throughput
+* Ensures fair bandwidth allocation
+* Prevents network congestion collapse
+* Improves overall user experience
+
+### B. Congestion Control Algorithms
+
+The two major congestion control algorithms are:
+
+1. Leaky Bucket Algorithm  
+2. Token Bucket Algorithm
+
+
+
+#### 1. Leaky Bucket Algorithm
+
+The Leaky Bucket Algorithm is used for traffic shaping and rate control. It converts bursty traffic into a fixed and uniform output rate.
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/CN/CN20.jpg?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+##### Working Principle
+
+The algorithm works like a bucket with a small hole at the bottom:
+
+* Incoming packets are placed into the bucket (queue).
+* Packets leave the bucket at a constant rate.
+* If the bucket becomes full, extra packets are discarded.
+
+This helps maintain smooth and steady traffic flow.
+
+
+##### Advantages
+
+* Controls bursty traffic
+* Prevents sudden network overload
+* Produces uniform traffic flow
+
+
+##### Disadvantages
+
+* Fixed output rate reduces flexibility
+* Available bandwidth may remain unused
+* Excess packets are dropped when the bucket is full
+
+
+#### 2. Token Bucket Algorithm
+
+The Token Bucket Algorithm is a flexible congestion control method that allows bursty traffic transmission while controlling the average data rate.
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/CN/CN21.jpg?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+##### Working Principle
+
+* Tokens are generated at a fixed rate and stored in a bucket.
+* A packet can be transmitted only if a token is available.
+* When a packet is sent, one token is consumed.
+* If no tokens are available, packets must wait.  
+* Extra tokens are discarded if the bucket becomes full.
+* This method allows temporary bursts of data transmission when enough tokens are accumulated.
+
+---
+
+## Application Layer 
+
+The Application Layer is the seventh and topmost layer of the OSI model. It provides direct interaction between end-user applications and the network. This layer acts as an interface between user software and network services, allowing applications to access communication functions such as web browsing, email, file transfer, and remote login.
+
+### A. Features of Application Layer
+
+* Topmost layer of the OSI model  
+* Closest layer to the end user  
+* Provides network services to applications  
+* Enables communication between software and network  
+* Supports data exchange over networks
+
+### B. Functions of Application Layer
+
+As the highest layer, the Application Layer performs several functions to ensure smooth communication between applications and systems:
+
+#### 1. Data Representation
+
+* Ensures that data is presented in a format that both the sender and receiver can understand.  
+* Converts user-entered information into a standard format before transmission and interprets received data back into a user-friendly form.  
+* **Example:** Converting text, images or files into network-compatible formats like ASCII, JPEG or HTML.
+
+#### 2. Network Service Access
+
+* Provides access to various network services directly to the user.  
+* Allows applications like email, file transfer and remote login to interact with the underlying network.  
+* **Example:** Using email clients (Outlook, Gmail) to access mail services or using FTP to download/upload files.
+
+#### 3. Application Protocols
+
+* Defines a set of rules and procedures that applications use to communicate over a network.  
+* These protocols handle message formatting, data exchange and service requests.  
+* **Example:** HTTP for web browsing, FTP for file transfer, SMTP for emails, DNS for domain name resolution.
+
+#### 4. Session Management
+
+* Establishes, manages and terminates communication sessions between applications.  
+* Maintains synchronization during data exchange and ensures a proper connection is closed after the communication ends.  
+* **Example**: Logging into a remote server using Telnet or SSH, where a session is created and terminated after logout.
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/CN/CN22.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+#### 5. Working of Application Layer
+
+Once the data exchange is complete, the client or server can terminate the session and the connection is closed gracefully.
+
+
+* At first, client sends a command to server and when server receives that command, it allocates port number to client.  
+* Thereafter, the client sends an initiation connection request to server and when server receives request, it gives acknowledgement (ACK) to client through client has successfully established a connection with the server.  
+* Therefore, now client has access to server through which it may either ask server to send any types of files or other documents or it may upload some files or documents on server itself.
+
+
+#### 6. Protocols in Application Layer
+
+Application layer protocols are those protocols utilized at the application layer of the OSI (Open Systems Interconnection) and TCP/IP models. They facilitate communication and data sharing between software applications on various network devices. These protocols define the rules and standards that allow applications to interact and communicate quickly and effectively over a network.
+
+**Note:** A critical part of this layer is the set of Application Layer Protocols, which define the rules, message formats and processes for communication between applications across different systems. These protocols standardize how data is requested, transferred and presented.*
+
+Common Application Layer Protocols in Computer Networks
+
+##### a. TELNET
+
+* TELNET Provides remote login and terminal emulation services.  
+* Allows users to access resources of a remote server as if logged in locally.  
+* Port Number: 23
+
+
+```text
+Command:
+
+telnet [RemoteServer]
+
+RemoteServer:
+Specifies the name of the server
+to which you want to connect
+```
+
+##### b. FTP
+
+* FTP stands for File Transfer Protocol. It is the protocol that actually lets us transfer files. It can facilitate this between any two machines using it. But FTP is not just a protocol but it is also a program.  
+* FTP promotes sharing of files via remote computers with reliable and efficient data transfer.  
+* The Port number for FTP is 20 for data and 21 for control. 
+
+
+```text
+Command:
+
+ftp machinename
+```
+
+##### c. TFTP
+
+* TFTP is a Simplified version of FTP, suitable for quick file transfers without authentication.  
+* Often used for transferring boot files or firmware updates.  
+* Port: 69
+
+**Command** 
+
+```text
+Command:
+
+tftp [ options... ] [host [port]] [-c command]
+```
+
+##### d. NFS
+
+* Allows remote systems to mount and access files over a network as if they were local.  
+* Used for resource centralization.  
+* Port: 2049
+
+**Command** 
+```text
+service nfs start
+```
+
+##### e. SMTP
+
+* Used for sending emails across networks.  
+* Works with Mail Transfer Agents (MTA) for message forwarding.  
+* Port: 25 (SMTP), also 587 for secure transmission.
+
+
+```text
+Command:
+
+MAIL FROM:<mail@abc.com
+```
+
+##### f. LPD
+
+* Designed for printer sharing over a network.  
+* Receives and processes print requests.  
+* Port: 515
+
+
+```text
+Command:
+
+lpd [ -d ] [ -l ] [ -D DebugOutputFile ]
+```
+##### g. X window
+
+* Provides a graphical user interface (GUI) environment for client-server applications.  
+* Commonly used in UNIX/Linux systems.  
+* Port: 6000+ (increments for each server)
+
+
+```text
+Command:
+
+Run xdm in runlevel 5
+```
+
+##### h. SNMP
+
+* [SNMP](https://www.geeksforgeeks.org/computer-networks/simple-network-management-protocol-snmp/) is Used for network device management and monitoring.  
+* Allows administrators to query devices and receive alerts.  
+* Ports: 161 (TCP), 162 (UDP)
+
+```text
+Command:
+
+snmpget -mALL -v1 -cpublic snmp_agent_Ip_address sysName.0
+```
+
+##### i. DNS
+
+* Translates domain names into IP addresses (e.g., www.abc.com \-\> 198.105.232.4).  
+* Essential for web browsing.  
+* Port: 53
+
+
+```text
+Command:
+
+ipconfig /flushdns
+```
+
+##### j. DHCP
+
+* [DHCP](https://www.geeksforgeeks.org/computer-networks/dynamic-host-configuration-protocol-dhcp/) Assigns IP addresses dynamically to hosts on a network.  
+* Provides additional configuration details like default gateway and DNS.  
+* Ports: 67 (Server), 68 (Client)
+
+
+```text
+Command:
+
+clear ip dhcp binding {address | *}
+```
+
+##### k. HTTP/HTTPS
+
+* HTTP is used for accessing web resources, while HTTPS adds encryption for secure transactions.  
+* Stateless and client-server based.  
+* Ports: 80 (HTTP), 443 (HTTPS)
+
+
+```text
+Command:
+
+curl http://example.com
+```
+
+##### l. POP
+
+POP stands for Post Office Protocol and the latest version is known as POP3 (Post Office Protocol version 3). This is a simple protocol used by User agents for message retrieval from mail servers. 
+
+* POP protocol work with Port number 110\.  
+* It uses TCP for establishing connections.
+
+***Note:** POP works in dual mode- Delete mode, Keep Mode. In Delete mode, it deletes the message from the mail server once they are downloaded to the local system. In Keep mode, it doesn't delete the message from the mail server and also facilitates the users to access the mails later from the mail server.*
+
+##### m. IRC
+
+* Provides real-time text messaging for one-to-one or group communication.  
+* Supports file and media sharing.  
+* Port: 6667
+
+
+```text
+Command:
+
+irc [server]
+```
+
+##### n. MIME
+
+* MIME Extends email capabilities to support multimedia like images, video and programs.  
+* Works alongside SMTP to transmit non-text data.  
+* Not a standalone protocol, but an extension.
+
+##### o. NNTP (Network News Transfer Protocol)
+
+* NNTP allows reading and posting messages to Usenet newsgroups. Supports message exchange and discussion forums.  
+* Port: Typically TCP 119\.  
+* Use case: Online forums and discussion boards before the rise of web forums.
+
+
+```text
+Command:
+
+nntp [server]
+```
+
+##### p. LDAP (Lightweight Directory Access Protocol)
+
+* LDAP provides access and management of directory services over a network. Supports user authentication, resource lookup, and directory management.  
+* Port: Typically TCP/UDP 389, secure version (LDAPS) uses TCP 636\.  
+* Use case: Active Directory in Windows, corporate directories.
+
+
+```text
+Command:
+
+ldap [server]
+```
+
+##### q. NTP (Network Time Protocol)
+
+* NTP synchronizes system clocks across networked devices. Supports accurate timestamps for logging and security.  
+* Port: UDP 123\.  
+* Use case: Keeping servers and network devices in sync, e.g., for financial transactions or logging.
+
+
+```text
+Command:
+
+ntp [server]
+```
+
+##### r. MQTT (Message Queue Telemetry Transport Protocol)
+
+* MQTT provides lightweight messaging for IoT devices. Supports publish/subscribe communication between devices and brokers.  
+* Port: Typically TCP 1883, secure version (MQTTS) uses TCP 8883\.  
+* Use case: IoT sensors, home automation, telemetry systems.
+
+
+```text
+Command:
+
+mqtt [broker] [topic]
+```
+
+##### s. SIP (Session Initiation Protocol)
+
+* SIP establishes, manages, and terminates multimedia sessions. Supports VoIP calls, video calls, and conferencing.  
+* Ports: TCP/UDP 5060 (non-encrypted), TCP/UDP 5061 (encrypted with TLS).  
+* Use case: VoIP services, video conferencing, and instant messaging apps.
+```text
+Command:
+
+sip [server]
+```
+
+---
+
+## Client-Server Model
+
+The Client-Server Model is a network architecture in which clients send requests for resources or services, and servers process these requests, returning the required responses.
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Ece/CN/CN23.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+* **Client:** A device or program that requests data or services (e.g., web browser).  
+* **Server:** A system that stores resources, manages data, and responds to client requests.  
+* **Request–response mechanism:** Communication follows a structured cycle — client requests, server responds.
+
+---

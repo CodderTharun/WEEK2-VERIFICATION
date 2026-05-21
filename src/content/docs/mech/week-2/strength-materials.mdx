@@ -1,0 +1,932 @@
+---
+title: SOM
+description: Complete notes on Strength of Materials
+---
+
+## Bending Equation
+
+### A. Underlying Assumptions
+
+Before deriving the bending equation, the following engineering assumptions must be established for pure bending behavior:
+
+##### a. Material Homogeneity & Isotropy
+The material of the beam is *homogeneous* (composed of the same kind of material throughout) and *isotropic* (elastic properties are equal in all directions).
+
+##### b. Uniform Elasticity
+The value of Young's Modulus of Elasticity ($E$) is identical in both tension and compression.
+
+##### c. Geometric Configuration
+The beam is initially straight, and all longitudinal filaments bend into concentric circular arcs sharing a common center of curvature.
+
+##### d. Proportional Dimensions
+The radius of curvature ($R$) is large compared to the cross-sectional dimensions of the beam.
+
+##### e. Independent Layers
+Each independent layer of the beam is free to expand or contract longitudinally without experiencing interference from the layers situated immediately above or below it.
+
+##### f. Planar Maintenance
+Transverse cross-sections remain perfectly plane before and after undergoing the bending deformation.
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Mech/som1.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+
+---
+
+## Part 1: Kinematic Derivation (Stress and Radius of Curvature)
+
+Consider a small elemental segment of a beam of length $dx$. When subjected to a bending moment, it deforms into a circular arc subtending an angle $\theta$ at the center of curvature $O$.
+
+### A. Mathematical Analysis
+
+From the geometry of the deformed element:
+
+- The original length of the segment along the neutral axis ($NN$) remains unchanged:
+
+    $$EF = NN = N'N' = dx$$
+
+- Utilizing the geometric arc definition ($\text{Arc} = \text{Radius} \times \text{Angle}$):
+
+    $$N'N' = R \cdot \theta$$
+
+- For a parallel filament $E'F'$ located at a perpendicular distance $y$ below the neutral axis:
+
+    $$E'F' = (R + y)\theta$$
+
+#### 1. Strain Calculation
+
+The change in length ($\Delta L$) of the filament is given by:
+
+$$\text{Change in Length} = E'F' - EF = (R + y)\theta - R\theta = y\theta$$
+
+The longitudinal strain ($\varepsilon$) is defined as the ratio of change in length to the original length:
+
+$$\varepsilon = \frac{\text{Change in Length}}{\text{Original Length}} = \frac{E'F' - EF}{EF}$$
+
+$$\varepsilon = \frac{y\theta}{R\theta} = \frac{y}{R} \quad \text{--- (Equation 1)}$$
+
+#### 2. Stress Relations via Hooke's Law
+
+Applying Hooke's Law using Young's Modulus ($E = \frac{\sigma}{\varepsilon}$):
+
+$$\sigma = E \cdot \varepsilon$$
+
+Substituting Equation 1 into the expression yields:
+
+$$\sigma = E \cdot \left(\frac{y}{R}\right)$$
+
+Rearranging terms establishes the first structural relationship:
+
+$$\frac{\sigma}{y} = \frac{E}{R} \quad \text{--- (Equation 2)}$$
+
+---
+
+## Part 2: Static Equilibrium (Bending Moment and Inertia)
+
+Now, consider the transverse cross-section of the beam. Let us analyze an elemental strip of area $dA$ located at a distance $y$ from the neutral axis ($N$-$N$).
+
+### A. Internal Force and Moment Equations
+
+The localized internal force acting normally on this elemental strip area is expressed as:
+
+$$\text{Force on the strip} = \sigma \cdot dA$$
+
+Substituting the stress value derived from Equation 2 ($\sigma = \frac{E \cdot y}{R}$):
+
+$$\text{Force} = \left(\frac{E}{R} \cdot y \cdot dA\right)$$
+
+The elemental internal resisting moment ($dM$) developed about the neutral axis by this force is:
+
+$$dM = \text{Force} \times \text{Perpendicular Distance} = \left(\frac{E}{R} \cdot y \cdot dA\right) \cdot y$$
+
+$$dM = \frac{E}{R} \cdot y^2 \cdot dA$$
+
+#### 1. Integration for Total Resisting Moment
+
+The total internal bending moment ($M$) across the entire cross-section is found by integrating the elemental expression:
+
+$$M = \int \frac{E}{R} \cdot y^2 \cdot dA = \frac{E}{R} \int y^2 \cdot dA$$
+
+By definition, the integral of the second moment of area represents the **Moment of Inertia** ($I$):
+
+$$I = \int y^2 \cdot dA$$
+
+Therefore, substituting $I$ simplifies the total moment equation to:
+
+$$M = \frac{E}{R} \cdot I$$
+
+Rearranging terms yields the second structural relationship:
+
+$$\frac{M}{I} = \frac{E}{R} \quad \text{--- (Equation 3)}$$
+
+---
+
+## The Unified Bending Equation
+
+By comparing the right-hand sides of **Equation 2** and **Equation 3**, both expressions equal $\frac{E}{R}$. Combining them produces the complete **Euler-Bernoulli Bending Equation**:
+
+$$\frac{M}{I} = \frac{E}{R} = \frac{\sigma}{y}$$
+
+### A. Parameter Definitions and SI Units
+
+| Symbol | Parameter | Typical Units |
+| :---: | :--- | :--- |
+| **$M$** | Internal Resisting Bending Moment | $\text{N}\cdot\text{mm}$ or $\text{N}\cdot\text{m}$ |
+| **$I$** | Area Moment of Inertia about the Neutral Axis | $\text{mm}^4$ or $\text{m}^4$ |
+| **$E$** | Young's Modulus of Elasticity | $\text{N/mm}^2$ ($\text{MPa}$) or $\text{N/m}^2$ ($\text{Pa}$) |
+| **$\sigma$** | Localized Flexural Bending Stress | $\text{N/mm}^2$ ($\text{MPa}$) or $\text{N/m}^2$ |
+| **$R$** | Radius of Curvature of the Deformed Axis | $\text{mm}$ or $\text{m}$ |
+| **$y$** | Perpendicular Distance from the Neutral Axis | $\text{mm}$ or $\text{m}$ |
+
+---
+
+## Bending Stresses
+
+When an external load acts on a structural component like a beam, it induces internal shear forces and bending moments that force the material to deform. The internal resistance offered by the material against this specific bending deformation is known as bending stress.
+
+### A. The Nature of Bending in a Beam
+
+If you bend a beam, it does not experience uniform stress throughout its cross-section. Instead, the stress varies linearly based on the location within the beam's depth.
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Mech/som2.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+
+- **The Neutral Axis (NA):** There is a theoretical plane or layer in the middle of the beam that undergoes no change in length. Because it neither stretches nor squishes, the bending stress at the neutral axis is exactly zero.
+
+- **Tension and Compression:** The layers on one side of the neutral axis are stretched (experiencing tensile stress), while the layers on the opposite side are squished together (experiencing compressive stress).
+
+- **Stress Distribution:** The magnitude of the stress increases linearly the further you move away from the neutral axis, reaching its absolute maximum at the outermost top and bottom surfaces (the extreme fibers).
+
+### B. Relationship to the Radius of Curvature
+
+The relationship between bending stress, material properties, and the geometry of the deformation is defined by the Euler-Bernoulli Bending Equation:
+
+$$\frac{\sigma}{y} = \frac{E}{R}$$
+
+Where:
+
+- $\sigma$ = Bending Stress
+- $y$ = Distance from the neutral axis to the point of interest
+- $E$ = Young's Modulus (a measure of the stiffness of the material)
+- $R$ = Radius of curvature (the radius of the circle formed by the bent beam)
+
+#### 1. Key Takeaway: Inverse Proportionality
+
+This equation demonstrates that bending stress ($\sigma$) is inversely proportional to the radius of curvature ($R$):
+
+- **Sharp Bend (Small $R$):** If a beam bends sharply into a tight curve, its radius of curvature is small, which results in very high bending stress.
+
+- **Gentle Bend (Large $R$):** If the beam only bends slightly, forming a massive, gentle curve, the radius of curvature is large, keeping the bending stress low.
+
+### C. Industrial Applications
+
+Engineers must accurately calculate bending stresses to safely design load-bearing structures and mechanical components.
+
+#### 1. Structural Steel I-Beams
+
+Used widely in construction, I-beams are intentionally shaped to maximize efficiency. Because bending stress is highest at the outermost edges, material is concentrated far away from the neutral axis (in the top and bottom flanges), while the thin web in the middle handles the shear forces.
+
+#### 2. Composite or "Flitched" Beams
+
+In building construction, wooden beams are often sandwiched or reinforced with steel plates. This composite design allows the structure to safely carry much higher bending stresses without failing or becoming overly bulky.
+
+#### 3. Machine Shafts and Axles
+
+Rotating shafts in machinery almost always experience a combination of twisting (torsion) and bending stresses from attached pulleys, gears, or heavy rotors. Engineers must calculate these combined stresses to prevent fatigue failure and snapping.
+
+#### 4. Columns and Pillars
+
+While vertical columns primarily handle axial compression, they are often subjected to "eccentric" (off-center) heavy loads. This eccentricity introduces dangerous bending stresses that can cause the column to buckle if not properly accounted for.
+
+### D. Engineering Design: Advantages and Limitations
+
+Because bending stress is a physical phenomenon rather than a tool, engineering focus is placed on optimizing structural geometry while working within the boundaries of theoretical assumptions.
+
+#### 1. Advantages in Design Optimization
+
+By understanding the linear distribution of bending stress, engineers can design beams of uniform strength. Since bending moments vary along the length of a beam, engineers can safely vary the width or depth of the beam across its span to match the actual stress profile. This optimization saves a massive amount of material, weight, and cost without sacrificing safety.
+
+#### 2. Limitations of Bending Theory
+
+**Note on Theoretical Assumptions:** The simple formulas used to calculate bending stress are based on the theory of "pure bending," which relies on idealized conditions.
+
+**Idealized Material Behavior:** The formulas assume the beam is initially perfectly straight, the material is completely homogeneous (uniform throughout), and it behaves perfectly elastically (it returns to its original shape when unloaded).
+
+**The Warping Effect:** Basic theory assumes that any flat cross-sectional plane remains perfectly flat even after bending. In reality, non-uniform bending creates internal shear forces that cause the cross-section to physically warp (distort out-of-plane). This complex behavior deviates from basic textbook equations under heavy or complex loading scenarios.
+
+---
+
+## Bending Stress Calculation: Worked Example
+
+### A. Problem
+
+A structural steel beam ($E = 200 \times 10^3 \text{ MPa}$) with a rectangular cross-section (width $b = 40 \text{ mm}$, depth $d = 60 \text{ mm}$) is subjected to an internal bending moment of $20 \text{ kN}\cdot\text{m}$.
+
+**Calculate:**
+
+1. The maximum bending stress ($\sigma_{\text{max}}$) induced in the cross-section.
+2. The radius of curvature ($R$) of the deformed neutral axis.
+
+#### 1. Step 1: Calculate the Area Moment of Inertia ($I$)
+
+For a solid rectangular cross-section, the second moment of area about the central neutral axis is calculated using the formula:
+
+$$I = \frac{b \cdot d^3}{12}$$
+
+Substituting the given geometric values:
+
+$$I = \frac{40 \text{ mm} \times (60 \text{ mm})^3}{12}$$
+
+$$I = \frac{40 \times 216{,}000}{12} = 720{,}000 \text{ mm}^4$$
+
+#### 2. Step 2: Determine the Distance to the Extreme Fiber ($y_{\text{max}}$)
+
+The maximum flexural stress occurs at the outermost boundary of the cross-section. For a symmetric rectangular section, this distance is half of the total depth:
+
+$$y_{\text{max}} = \frac{d}{2}$$
+
+$$y_{\text{max}} = \frac{60 \text{ mm}}{2} = 30 \text{ mm}$$
+
+#### 3. Step 3: Compute the Maximum Bending Stress ($\sigma_{\text{max}}$)
+
+**Warning:** Before utilizing the flexure formula, ensure all load and geometric dimensions match. Convert the bending moment from $\text{kN}\cdot\text{m}$ to $\text{N}\cdot\text{mm}$:
+
+$$
+M = 20 \text{ kN}\cdot\text{m}
+= 20 \times 10^3 \text{ N}\cdot\text{m}
+= 20 \times 10^6 \text{ N}\cdot\text{mm}
+$$
+
+Using the rearranged flexure formula ($\sigma_{\text{max}} = \frac{M \cdot y_{\text{max}}}{I}$):
+
+$$\sigma_{\text{max}} = \frac{(20 \times 10^6 \text{ N}\cdot\text{mm}) \times 30 \text{ mm}}{720{,}000 \text{ mm}^4}$$
+
+$$\sigma_{\text{max}} = \frac{600 \times 10^6}{720{,}000} = 833.33 \text{ MPa}$$
+
+#### 4. Step 4: Calculate the Radius of Curvature ($R$)
+
+Using the relationship between moment, inertia, and bending curvature ($\frac{M}{I} = \frac{E}{R}$), rearrange the expression to isolate the radius of curvature ($R$):
+
+$$R = \frac{E \cdot I}{M}$$
+
+Given that $E = 200 \times 10^3 \text{ MPa} = 200{,}000 \text{ N/mm}^2$:
+
+$$R = \frac{(200{,}000 \text{ N/mm}^2) \times (720{,}000 \text{ mm}^4)}{20 \times 10^6 \text{ N}\cdot\text{mm}}$$
+
+$$R = \frac{144 \times 10^9}{20 \times 10^6} = 7{,}200 \text{ mm}$$
+
+Converting to standard metric base units:
+
+$$R = 7.2 \text{ meters}$$
+
+### B. Final Summary of Results
+
+- **Section Modulus Properties ($I$):** $7.2 \times 10^5 \text{ mm}^4$
+- **Peak Structural Stress ($\sigma_{\text{max}}$):** **$833.33 \text{ MPa}$** (Tension at extreme outer fiber, Compression at extreme inner fiber)
+- **Deformation Radius ($R$):** **$7.2 \text{ m}$**
+
+---
+
+## Moment Carrying Capacity of Various Sections
+
+When designing a structural beam, engineers must evaluate its moment carrying capacity otherwise known as the strength of a section or moment of resistance. This parameter defines the maximum internal bending moment a structural element can safely resist without experiencing mechanical failure, yielding, or exceeding its code-specified permissible stress limits.
+
+### A. The Geometry of Strength: Section Modulus ($Z$)
+
+A beam's moment of resistance is fundamentally linked to a geometric property of its cross-section called the Section Modulus ($Z$).
+
+The Section Modulus is a direct mathematical metric of a shape's efficiency in resisting bending. It is defined as the ratio of the beam's second moment of area (Moment of Inertia, $I$) to the perpendicular distance from its neutral axis to the absolute outermost layer of the material (the extreme fiber, $y_{\text{max}}$):
+
+$$Z = \frac{I}{y_{\text{max}}}$$
+
+#### 1. Mechanics of the Extreme Fiber
+
+Because bending stress ($\sigma$) distribution scales linearly and is directly proportional to the distance ($y$) from the neutral axis, the stress gradient is zero at the center line and reaches its absolute maximum at the outermost top and bottom edges. Consequently, these extreme fibers "work the hardest" under flexural loading.
+
+**The Golden Rule of Beam Design:** The greater the mathematical value of the section modulus ($Z$), the stronger and more resilient the beam section will be against applied bending moments.
+
+### B. Methodology
+
+To mathematically determine the maximum moment carrying capacity of a specific beam cross-section, the standard Flexural Formula ($\frac{M}{I} = \frac{\sigma}{y}$) is rewritten to isolate the moment ($M$):
+
+$$M = \sigma_{\text{max}} \cdot Z$$
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Mech/som3.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+
+Engineers compute this value using a systematic, four-step process.
+
+**Standard Geometric Formulas for Section Modulus ($Z$)**
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Mech/som4.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+
+
+### C. Applications
+
+#### 1. Structural Steel I-Beams
+
+To optimize weight and cost, engineers maximize the section modulus ($Z$) by placing most of the material far from the neutral axis. In an I-beam, the top and bottom flanges absorb nearly all tensile and compressive bending stresses, while the thin vertical web handles shear. This provides maximum strength with minimal steel.
+
+#### 2. Composite / "Flitched" Beams
+
+When a timber joist cannot handle increased floor loads but vertical space is limited, a flitched beam is used. A structural steel plate is sandwiched and bolted between two wooden beams. This composite assembly drastically increases the moment of resistance without significantly changing the beam's dimensions.
+
+### D. Advantages
+
+#### 1. Efficiency & Economy
+
+Because a rectangular beam's depth ($d$) is squared in the section modulus formula ($Z = \frac{b \cdot d^2}{6}$), increasing depth adds exponentially more strength than increasing width. This mathematical reality allows engineers to design lighter, highly efficient, and cost-effective structures.
+
+### E. Limitations
+
+**Directional Weakness:** Moment capacity is highly orientation-dependent. A rectangular beam placed vertically (deep side down) is exceptionally strong; turn that same beam flat on its side, and its section modulus plummets, making it highly prone to sagging or failure under identical loads.
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Mech/som5.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+
+**Theoretical Idealizations:** Simple Bending Theory (Euler-Bernoulli) assumes a perfectly straight beam, an isotropic material, and that flat cross-sections remain perfectly flat after bending (no warping). Real-world geometric imperfections, material variations, and shear warping under heavy loads can cause actual behavior to deviate from these textbook equations.
+
+---
+
+## Combined Internal Stresses in Beams
+
+### A. Mechanics of Bending and Transverse Shear Stresses
+
+When a structural member is subjected to lateral or transverse loads, it undergoes complex internal deformations. To maintain static equilibrium, the internal matrix of the material must simultaneously develop two distinct types of resisting stresses: Bending (Flexural) Stress and Transverse Shearing Stress. Understanding the distribution, mathematical governing laws, and spatial interaction of these stresses is fundamental to structural and mechanical design.
+
+### B. Mechanics of Internal Loading: Tension/Compression vs. Transverse Slicing
+
+External loads induce internal actions that attempt to deform a structural element along two independent kinematic pathways:
+
+- **Bending Stress ($\sigma$):** Driven by the internal bending moment ($M$), flexural stress manifests as a normal stress operating parallel to the longitudinal axis of the beam. It acts to curve the member, inducing longitudinal elongation (tensile stress) on one side of the neutral axis and longitudinal contraction (compressive stress) on the opposite side.
+
+- **Shearing Stress ($\tau$):** Driven by the internal transverse shear force ($V$), shearing stress operates parallel to the vertical cross-sectional plane. It represents the internal resistance preventing adjacent vertical slices of the beam from physically sliding or shearing past one another.
+
+### C. Bending vs. Shear Stress Profiles
+
+Across a symmetric cross-section, bending and shearing stresses exhibit inverse distribution patterns:
+
+- **Bending Stress ($\sigma$):** Varies linearly with depth. It is exactly zero at the neutral axis and scales outward to its maximum tensile/compressive values ($\sigma_{\text{max}}$) at the outermost top and bottom surfaces.
+
+- **Shear Stress ($\tau$):** Varies parabolically with depth. It drops to zero at the top and bottom surfaces and curves inward to peak ($\tau_{\text{max}}$) exactly at the neutral axis.
+
+- **Exception (Triangular Beams):** Because the section is asymmetric, the maximum shear stress does not occur at the neutral axis ($h/3$ from base). Instead, it peaks exactly at mid-height ($h/2$).
+
+### D. Formulas & Shape Factors
+
+#### 1. Bending
+
+A beam's capacity to handle bending moments depends on its Section Modulus ($Z$):
+
+$$\sigma_{\text{max}} = \frac{M}{Z} \quad \text{where} \quad Z = \frac{I}{y_{\text{max}}}$$
+
+#### 2. Shear
+
+Localized horizontal and vertical shear stress is governed by the shear formula:
+
+$$\tau = \frac{V \cdot Q}{I \cdot b}$$
+
+(where $V$ = shear force, $Q$ = first moment of area, $I$ = moment of inertia, $b$ = section width)
+
+Because shear stress is non-uniform, engineers use shape multipliers to find the maximum shear stress ($\tau_{\text{max}}$) relative to the average shear stress ($\tau_{\text{avg}} = \frac{V}{A}$):
+
+| Cross-Section | Max Shear Formula ($\tau_{\text{max}}$) | Ratio ($\tau_{\text{max}}/\tau_{\text{avg}}$) |
+| :--- | :--- | :--- |
+| Solid Rectangle | $\tau_{\text{max}} = \dfrac{3V}{2A}$ | $1.50$ |
+| Solid Circle | $\tau_{\text{max}} = \dfrac{4V}{3A}$ | $1.33$ |
+
+### E. Real-World Applications
+
+#### 1. The Structural Steel I-Beam
+
+An I-beam is custom-shaped to handle both loading modes simultaneously with minimal material:
+
+- **Flanges:** The wide top and bottom plates sit furthest from the neutral axis, maximizing $Z$ to handle nearly all bending stresses.
+
+- **Web:** The thin vertical center piece crosses the neutral axis. Because its width ($b$) is small, the shear formula dictates it safely absorbs nearly $90\%$ of the shearing stresses.
+
+#### 2. Flitched Beams
+
+When vertical space is limited, a structural steel plate is sandwiched and bolted between two wooden joists. Because steel is much stiffer than wood, this composite setup carries intense bending stresses easily, heavily boosting structural capacity without making the beam bulkier.
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Mech/som6.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+
+
+---
+
+## Torsion
+
+Torsion refers to the twisting of a structural member when it is subjected to an applied external torque ($T$) or twisting moment. This mechanical action typically occurs in components designed for power transmission, such as circular shafts, axles, and drive tubes.
+
+### A. Mathematically
+
+The above equation states the theory of pure torsion.
+$$
+\frac{T}{J} = \frac{\tau}{R} = \frac{G\theta}{L}
+$$ 
+
+### B. Theory of Pure Torsion
+
+For a solid or hollow circular shaft undergoing uniform twisting within its linear-elastic boundary, the relationship between the applied load, section geometry, material properties, and deformation is defined by the Torsion Equation:
+
+$$\frac{\tau}{r} = \frac{T}{J} = \frac{G \cdot \theta}{L}$$
+
+Where:
+
+- $T$ = Applied external torque ($\text{N}\cdot\text{mm}$ or $\text{N}\cdot\text{m}$)
+- $J$ = Polar Moment of Inertia ($\text{mm}^4$ or $\text{m}^4$), representing the section's geometric resistance to twisting.
+- $\tau$ = Internal shear stress ($\text{MPa}$ or $\text{N/m}^2$) at a localized radius $r$.
+- $r$ = Radial distance from the central longitudinal axis ($\text{mm}$ or $\text{m}$).
+- $G$ = Modulus of Rigidity / Shear Modulus ($\text{MPa}$ or $\text{N/mm}^2$), representing material stiffness.
+- $\theta$ = Angle of twist ($\text{radians}$), measuring total angular deformation.
+- $L$ = Length of the shaft segment ($\text{mm}$ or $\text{m}$).
+
+### C. Assumptions
+
+- **Pure Torque:** The member is acted upon strictly by a pure twisting force (no bending or pushing/pulling forces).
+
+- **Sections Remain Flat:** Adjacent cross-sections that were perfectly flat and parallel before twisting remain completely flat and parallel after the twist is applied.
+
+- **Lines Remain Straight:** Any straight radial line drawn from the center of the shaft to the edge remains perfectly straight even after the shaft deforms.
+
+- **Rigid Rotation:** The entire cross-section rotates as if it were a solid, rigid disk, meaning every diameter rotates through the exact same angle.
+
+- **Elastic Material:** The material perfectly obeys Hooke's Law, meaning the stress is directly proportional to the strain.
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Mech/som7.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+---
+
+## Derivation of the Torsion Equation
+
+$$\frac{T}{I_p} = \frac{\tau}{r} = \frac{G \cdot \theta}{L}$$
+
+### A. Part 1: Kinematic Analysis
+
+Consider a solid circular shaft of length $L$ and radius $R$, fixed rigidly at one end and subjected to an external twisting torque $T$ at the free end.
+
+- Imagine a longitudinal surface line $LM$ drawn along the outer skin parallel to the central axis before loading.
+- Upon applying the torque, the plane containing point $M$ undergoes a rigid rotation through an angle $\theta$ (the **Angle of Twist**) to position $M'$.
+- Consequently, the longitudinal line $LM$ deflects through a surface shear angle $\phi$, shifting to $LM'$.
+
+From the geometry of the deformed surface cylinder:
+
+$$\text{Arc Length } MM' = R \cdot \theta \quad \text{(using the cross-sectional face angle)}$$
+
+$$\text{Arc Length } MM' = L \cdot \phi \quad \text{(using the longitudinal surface angle)}$$
+
+Equating the two geometric expressions for the arc displacement $MM'$:
+
+$$L \cdot \phi = R \cdot \theta \implies \phi = \frac{R \cdot \theta}{L}$$
+
+By definition, the surface shear strain ($\gamma$) equals the angular distortion $\phi$:
+
+$$\gamma = \frac{R \cdot \theta}{L}$$
+
+#### 1. Using Hooke's Law
+
+According to Hooke's Law for shearing components, shear stress ($\tau$) is directly proportional to shear strain ($\gamma$) via the material's Modulus of Rigidity ($G$):
+
+$$\tau = G \cdot \gamma \implies \gamma = \frac{\tau}{G}$$
+
+Equating the structural shear strain expressions:
+
+$$\frac{\tau}{G} = \frac{R \cdot \theta}{L}$$
+
+Rearranging terms establishes the first governing elastic relationship for the extreme outer fiber:
+
+$$\frac{\tau}{R} = \frac{G \cdot \theta}{L} \quad \text{--- (Equation 1)}$$
+
+Since the angular deformation gradient ($\frac{\theta}{L}$) and material stiffness ($G$) are uniform constants across the entire cross-section, the internal shear stress ($\tau_x$) at any arbitrary internal radius $x$ scales linearly:
+
+$$\frac{\tau}{R} = \frac{\tau_x}{x} \implies \tau_x = \frac{\tau}{R} \cdot x \quad \text{--- (Equation 2)}$$
+
+### B. Part 2: Static Equilibrium (Internal Resisting Torque)
+
+To find the total twisting moment capacity ($T$), we evaluate the summation of internal rotational forces across the transverse cross-sectional plane.
+
+Consider an elementary concentric ring of radius $x$ and elemental radial thickness $dx$:
+
+- **Elemental Area ($dA$):** $2\pi x \cdot dx$
+- **Shear Stress ($\tau_x$):** The stress localized at radius $x$
+
+The internal turning force acting tangentially across this thin ring is:
+
+$$dF = \tau_x \cdot dA = \tau_x \cdot (2\pi x \cdot dx)$$
+
+Substituting Equation 2 ($\tau_x = \frac{\tau}{R} \cdot x$) into the tangential force equation:
+
+$$dF = \left( \frac{\tau}{R} \cdot x \right) \cdot 2\pi x \cdot dx = \frac{2\pi \tau}{R} \cdot x^2 \cdot dx$$
+
+The elemental internal resisting torque ($dT$) produced by this force about the central axis is found by multiplying the force by its perpendicular lever arm $x$:
+
+$$dT = dF \cdot x = \left( \frac{2\pi \tau}{R} \cdot x^2 \cdot dx \right) \cdot x$$
+
+$$dT = \frac{2\pi \tau}{R} \cdot x^3 \cdot dx$$
+
+#### 1. Integration Across the Profile Boundary
+
+To capture the net torque ($T$), integrate the elemental moment expression across the entire radius from $x = 0$ to $x = R$:
+
+$$T = \int_{0}^{R} dT = \int_{0}^{R} \frac{2\pi \tau}{R} \cdot x^3 \cdot dx$$
+
+Factoring out the cross-sectional constants:
+
+$$T = \frac{2\pi \tau}{R} \int_{0}^{R} x^3 \cdot dx$$
+
+$$T = \frac{2\pi \tau}{R} \left[ \frac{x^4}{4} \right]_{0}^{R} = \frac{2\pi \tau}{R} \cdot \frac{R^4}{4}$$
+
+$$T = \frac{\tau}{R} \cdot \left( \frac{\pi R^4}{2} \right)$$
+
+By definition, the mathematical term $\frac{\pi R^4}{2}$ represents the geometric **Polar Moment of Inertia ($I_p$)** for a solid circular cross-section:
+
+$$I_p = \int x^2 \cdot dA = \frac{\pi R^4}{2} = \frac{\pi D^4}{32}$$
+
+Substituting $I_p$ into the integrated torque equation yields:
+
+$$T = \frac{\tau}{R} \cdot I_p$$
+
+Rearranging terms establishes the second fundamental cross-sectional relationship:
+
+$$\frac{T}{I_p} = \frac{\tau}{R} \quad \text{--- (Equation 3)}$$
+
+By compiling the parallel static and kinematic equalities (**Equation 1** and **Equation 3**), we achieve the classical **Euler-Bernoulli Torsion Equation**:
+
+$$\frac{T}{I_p} = \frac{\tau}{R} = \frac{G \cdot \theta}{L}$$
+
+#### 2. Special Variation: Hollow Circular Shafts
+
+For a hollow circular section of outer radius $R$ and inner radius $r$, the evaluation parameters change purely during the integration steps from boundary $x = r$ to $x = R$:
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Mech/som8.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+$$T = \frac{2\pi \tau}{R} \int_{r}^{R} x^3 \cdot dx = \frac{2\pi \tau}{R} \left[ \frac{R^4 - r^4}{4} \right]$$
+
+
+
+$$T = \frac{\tau}{R} \cdot \left[ \frac{\pi}{2}(R^4 - r^4) \right] \implies \frac{T}{I_p} = \frac{\tau}{R}$$
+
+### C. Torsional Rigidity and Stiffness Reference
+
+From the fundamental theory of pure torsion, the geometric and material resistance to twisting is governed by the following relationships:
+
+$$\frac{T}{I_p} = \frac{G \cdot \theta}{l}$$
+
+- **Angle of Twist ($\theta$):** By rearranging the torsion equation, the total elastic angular deformation over a specific shaft length ($l$) is found using:
+
+   $$\theta = \frac{T \cdot l}{G \cdot I_p}$$
+
+- **Torsional Stiffness ($k$):** This represents the twisting torque required to produce a unit angle of rotation (one radian). It is the torque per unit twist:
+
+   $$k = \frac{G \cdot I_p}{l} = \frac{T}{\theta}$$
+
+### D. Power Transmitted by Shafts
+
+Once the expression for torque ($T$) for a solid or hollow shaft is obtained, power transmitted by the shafts can be determined.
+
+- $N = \text{r.p.m. of the shaft}$
+- $T = \text{Mean torque transmitted in N-m}$
+- $\omega = \text{Angular speed of shaft}$
+
+$$\text{Power} = \frac{2\pi N T}{60} \text{ watts}$$
+
+$$\text{Power} = \omega T = T \times \omega$$
+
+### E. Industrial Applications of Torsion
+
+- **Power Transmission Shafts:** The primary application involves designing circular shafts that support gears, sprockets, wheels, and rotors to transmit mechanical power through twisting moments.
+
+- **Specialized Machinery Components:** Torsion theory guides the design of specific rotating components like spindles, lineshafts, headshafts, stub shafts, transmission shafts, and flexible shafts.
+
+- **Non-Circular Shafts:** In specific machinery applications, regular polygonal cross-section members transmit torque to a gear or pulley that needs to slide axially. This geometry avoids the use of a key or keyway, entirely eliminating the risk of a lost key.
+
+### F. Advantages and Limitations
+
+#### 1. Advantages
+
+Understanding torsion profiles allows engineers to optimize designs for weight and material costs by utilizing hollow shafts instead of solid ones:
+
+- **Higher Torque Capacity:** A hollow shaft can transmit a significantly greater torque than a solid shaft of the exact same weight and material.
+
+- **Efficient Material Placement:** Because torsional shear stress is zero at the center and highest at the outer edge, removing the underutilized material from the core and concentrating it at the outer boundaries yields lighter, highly efficient drive shafts. The average shear stress across a hollow section is notably smaller than that of a solid section of equal weight.
+
+#### 2. Limitations of the Theory of Pure Torsion
+
+The mathematical models used in industry (such as the Torsion Equation) are built on ideal constraints that may deviate under complex real-world conditions:
+
+- **Pure Loading Assumption:** The theory strictly assumes the bar is acted upon only by a pure torque. It ignores concurrent actions like bending moments or axial loads that typically occur simultaneously in machinery.
+
+- **Location Restrictions:** The standard formulas are only perfectly accurate if the section being analyzed is remote from the actual point of load application and distant from sudden changes in the shaft's diameter, such as steps, keyways, or notches.
+
+- **Perfect Geometry Constraints:** The derivation assumes that adjacent cross-sections that were originally flat and parallel remain completely plane and parallel after twisting (no warping), and that any straight radial line remains perfectly straight.
+
+- **Rigid Rotation:** It assumes that cross-sections rotate as if they were completely rigid disks, meaning every single diameter across the section rotates through the exact same angle.
+
+- **Linear Elastic Material Behavior:** The equations assume the material is homogeneous, isotropic, and perfectly obeys Hooke's law, meaning internal stress remains strictly within the linear elastic limit.
+
+---
+
+## Torsion: Worked Problem
+
+### A. Problem
+
+A solid steel transmission shaft transmits **$100\text{ kW}$** of power at a rotational speed of **$150\text{ rpm}$**.
+
+**Determine:**
+
+1. The suitable diameter ($d$) of the shaft if the maximum torque transmitted exceeds the mean torque by **$20\%$** in each revolution, and the internal shear stress is limited to **$60\text{ MPa}$**.
+2. The maximum angle of twist ($\theta$) in degrees over an operational shaft length of **$4\text{ m}$**.
+
+**Given Material Property:**
+
+- Modulus of Rigidity ($G$) = $80\text{ GPa}$
+
+#### 1. Step 1: Calculate the Mean Torque ($T_{\text{mean}}$)
+
+Power ($P$) transmitted by a rotating shaft is linked to its operational speed ($N$) and mean torque ($T_{\text{mean}}$) via the standard relationship:
+
+$$P = \frac{2\pi N T_{\text{mean}}}{60}$$
+
+Rearranging the expression to isolate $T_{\text{mean}}$:
+
+$$T_{\text{mean}} = \frac{60 \cdot P}{2\pi N}$$
+
+Substituting the given values ($P = 100\text{ kW} = 100 \times 10^3\text{ W}$ and $N = 150\text{ rpm}$):
+
+$$T_{\text{mean}} = \frac{60 \times 100 \times 10^3}{2\pi \times 150}$$
+
+$$T_{\text{mean}} = \frac{6{,}000{,}000}{300\pi} = \frac{20{,}000}{\pi} \approx 6366.2 \text{ N}\cdot\text{m}$$
+
+#### 2. Step 2: Determine the Peak Maximum Torque ($T_{\text{max}}$)
+
+The problem dictates that the maximum peak torque exceeds the baseline mean value by $20\%$:
+
+$$T_{\text{max}} = T_{\text{mean}} \times 1.20$$
+
+$$T_{\text{max}} = 6366.2 \text{ N}\cdot\text{m} \times 1.20 = 7639.44 \text{ N}\cdot\text{m}$$
+
+Convert the maximum working torque to standard $\text{N-mm}$ units:
+
+$$T_{\text{max}} = 7639.44 \times 10^3 \text{ N}\cdot\text{mm} = 7.639 \times 10^6 \text{ N}\cdot\text{mm}$$
+
+#### 3. Step 3: Compute the Suitable Shaft Diameter ($d$)
+
+The maximum shear stress ($\tau_{\text{max}}$) developed at the outer boundary of a solid circular shaft is governed by:
+
+$$\tau_{\text{max}} = \frac{16 \cdot T_{\text{max}}}{\pi \cdot d^3}$$
+
+Isolating the diameter term ($d^3$) and substituting the allowable stress limit ($\tau_{\text{max}} = 60\text{ MPa} = 60\text{ N/mm}^2$):
+
+$$d^3 = \frac{16 \cdot T_{\text{max}}}{\pi \cdot \tau_{\text{max}}}$$
+
+$$d^3 = \frac{16 \times 7.639 \times 10^6}{60\pi}$$
+
+$$d^3 = \frac{122.224 \times 10^6}{188.495} \approx 648{,}418.5 \text{ mm}^3$$
+
+Taking the cube root:
+
+$$d = \sqrt[3]{648{,}418.5} \approx \mathbf{86.6 \text{ mm}}$$
+
+#### 4. Step 4: Calculate the Maximum Angle of Twist ($\theta$)
+
+Using the elastic section of the torsion equation relating shear parameters ($\frac{\tau}{R} = \frac{G \cdot \theta}{L}$):
+
+$$\theta = \frac{\tau_{\text{max}} \cdot L}{G \cdot R}$$
+
+Where:
+
+- $\tau_{\text{max}} = 60 \text{ N/mm}^2$
+- $L = 4 \text{ m} = 4{,}000 \text{ mm}$
+- $G = 80 \text{ GPa} = 80 \times 10^3 \text{ N/mm}^2$
+- $R = \frac{d}{2} = \frac{86.6 \text{ mm}}{2} = 43.3 \text{ mm}$
+
+Substituting these values yields the deformation in radians:
+
+$$\theta = \frac{60 \times 4000}{80 \times 10^3 \times 43.3}$$
+
+$$\theta = \frac{240{,}000}{3{,}464{,}000} \approx \mathbf{0.06928 \text{ radians}}$$
+
+#### 5. Step 5: Convert the Twist Angle to Degrees
+
+Convert the value from radians to degrees:
+
+$$\theta_{\text{degrees}} = 0.06928 \times \left(\frac{180}{\pi}\right) \approx \mathbf{3.97^\circ}$$
+
+### B. Final Summary of Design Metrics
+
+- **Mean Torque ($T_{\text{mean}}$):** $6.37 \text{ kN}\cdot\text{m}$
+- **Peak Design Torque ($T_{\text{max}}$):** $7.64 \text{ kN}\cdot\text{m}$
+- **Minimum Required Shaft Diameter ($d$):** **$86.6 \text{ mm}$**
+- **Total Angle of Twist ($\theta$):** **$3.97^\circ$** over the $4\text{-meter}$ span.
+
+---
+
+## Polar Moment of Inertia ($J$)
+
+The Polar Moment of Inertia is a mathematical measure of a cross-section's geometric resistance to torsional deformation and twisting.
+
+### A. The Concept
+
+Governed by the Perpendicular Axis Theorem, the polar second moment of area scales as the sum of the rectangular moments of inertia about the mutually perpendicular $x$ and $y$ axes intersecting at the centroid:
+
+$$J = I_{xx} + I_{yy}$$
+
+### B. Formulas for Standard Circular Profiles
+
+- **Solid Circular Shaft:**
+
+   $$J = \frac{\pi \cdot D^4}{32}$$
+
+- **Hollow Circular Shaft:**
+
+   $$J = \frac{\pi \cdot (D_o^4 - D_i^4)}{32}$$
+
+- **Thin Circular Ring:**
+
+   $$J = 2\pi \cdot R^3 \cdot t \quad \text{(where $R$ is radius and $t$ is thickness)}$$
+
+### C. Polar Section Modulus ($Z_p$)
+
+While $J$ reflects overall structural rigidity, the Polar Section Modulus (or Polar Modulus) directly governs the maximum torsional strength capacity of a specific section before localized failure occurs.
+
+#### 1. The Concept
+
+It is defined as the ratio of the polar moment of inertia ($J$) to the maximum radial distance from the center of the shaft to its outermost boundary fiber ($r_{\text{max}} = D/2$):
+
+$$Z_p = \frac{J}{r_{\text{max}}}$$
+
+#### 2. Engineering Application
+
+Because torsional shear stress scales linearly and peaks at the extreme outer skin, engineers use $Z_p$ to directly calculate the maximum internal shear stress ($\tau_{\text{max}}$) induced by an applied torque ($T$):
+
+$$\tau_{\text{max}} = \frac{T}{Z_p}$$
+
+Alternatively, if the allowable design shear stress ($\tau_{\text{design}}$) of the material is pre-determined, the required section size is found by solving for the minimum needed polar modulus:
+
+$$Z_p = \frac{T}{\tau_{\text{design}}}$$
+
+#### 3. Formulas for Standard Circular Profiles
+
+- **Solid Circular Shaft:**
+
+    $$Z_p = \frac{\pi \cdot D^3}{16}$$
+
+- **Hollow Circular Shaft:**
+
+    $$Z_p = \frac{\pi \cdot (D_o^4 - D_i^4)}{16 \cdot D_o}$$
+
+---
+
+## Columns
+
+In structural engineering, a strut is any structural member designed to carry an axial compressive load (a pushing force). When a strut is positioned perfectly vertical, such as a pillar supporting a roof or a vertical stanchion in a building, it is specifically classified as a column.
+
+### A. Crushing and Buckling
+
+The way a column fails under a compressive load depends fundamentally on its geometry:
+
+- **Crushing (Short Columns):** A short, thick column will fail by simply squishing or fracturing under direct compression once the material's structural yield strength is exceeded.
+
+- **Buckling (Long, Slender Columns):** If a column is long and slender, it behaves differently. Instead of crushing, it will suddenly bow or bend sideways. This lateral deflection is known as buckling.
+
+- **The Danger of Buckling:** Buckling is highly hazardous because it does not happen gradually. It occurs suddenly the moment the applied load reaches a specific threshold known as the critical buckling load. At this exact limit, the column instantly transitions from a stable state to an unstable, collapsing one.
+
+### B. Governing Formulas
+
+Engineers apply specific mathematical equations to determine exactly how much compressive force a column can sustain before collapsing.
+
+#### 1. Euler's Formula (For Long, Slender Columns Only)
+
+The fundamental equation used to calculate the threshold where a long column will fail elastically by bending sideways is Euler's Buckling Formula:
+
+$$P_{cr} = \frac{\pi^2 \cdot E \cdot I}{l_e^2}$$
+
+Where:
+
+- $P_{cr}$ = Critical buckling load (the maximum force a column can bear before buckling)
+- $E$ = Modulus of Elasticity (the material's inherent stiffness)
+- $I$ = Least Moment of Inertia (the minimum resistance of the cross-sectional shape to bending)
+- $l_e$ = Effective (or Equivalent) Length (the unbraced length modified by how the top and bottom ends are connected)
+
+#### 2. Rankine's Formula (For All Column Lengths)
+
+Because Euler's formula is inaccurate for short or medium-length columns, engineers use Rankine's Formula. This empirical equation bridges the gap by accounting for both direct crushing and lateral buckling simultaneously:
+
+$$P = \frac{\sigma_c \cdot A}{1 + a \cdot \left(\frac{l_e}{k}\right)^2}$$
+
+Where:
+
+- $\sigma_c$ = Ultimate crushing stress of the material
+- $A$ = Cross-sectional area of the column
+- $a$ = Rankine's empirical constant
+- $\frac{l_e}{k}$ = Slenderness ratio (where $k$ is the radius of gyration)
+
+### C. Limitations
+
+- **Idealized Assumptions:** Euler's formula assumes a "perfect" world. It dictates that the column is perfectly straight, the material is entirely uniform (homogeneous and isotropic), and the compressive load is perfectly centered along the longitudinal axis.
+
+- **Built-in Error:** Because real-world manufacturing always introduces slight geometric variations, initial crookedness, and eccentric loading, Euler's formula typically carries a 5% to 10% error when compared against physical laboratory testing.
+
+- **Geometric Restrictions:** Euler's theory is completely invalid for short columns. It is strictly constrained to long, slender members that fail purely through elastic instability.
+
+### D. Advantages
+
+- **Definite Safety Boundaries:** These mathematical models establish a distinct, predictable boundary between a stable structure and an unstable one, allowing for clear safety factors.
+
+- **End-Condition Optimization:** The formulas demonstrate exactly how heavily the end connections dictate a column's ultimate strength. For example, rigidly fixing both ends into concrete rather than leaving them hinged mathematically reduces the effective length ($l_e$), increasing the column's buckling capacity by up to four times. This predictability allows engineers to safely design lighter, more economical structures.
+
+### E. Engineering Applications of Buckling
+
+In structural and mechanical design, buckling analysis is critical whenever a slender member carries an axial compressive load. Because long, slender objects fail by suddenly bowing sideways rather than crushing, buckling represents a highly unstable condition that happens without warning.
+
+Engineers strictly apply buckling theories to safely design:
+
+- **Building Columns and Pillars:** Ensuring vertical steel or concrete supports will not suddenly buckle under the immense weight of floors or roofs above.
+
+- **Machine Components:** Sizing moving or rotating parts that experience heavy pushing forces, such as the piston rods inside hydraulic cylinders or reciprocating engines.
+
+- **Bridge Trusses:** Sizing the interconnected structural struts that are subjected to intense compression as heavy dynamic traffic loads pass over them.
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Mech/som9.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Mech/som10.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>

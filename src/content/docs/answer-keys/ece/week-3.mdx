@@ -1,0 +1,105 @@
+---
+title: ECE Department - Week 3 Answer Keys
+description: Solutions and answer keys for ECE Department Week 3 problems
+---
+
+# ECE Department - Week 3 Answer Keys
+
+## Digital Logic
+
+**Q1: Counter Design**
+```
+Binary counter: Count 0→15 in 4-bit
+Decade counter: Count 0→9 then reset
+Design using flip-flops and logic gates
+```
+
+**Q2: State Machine**
+```
+Mealy machine: Output depends on state and input
+Moore machine: Output depends on state only
+Design: State diagram → Next state logic
+```
+
+## Microprocessors
+
+**Q1: Assembly Language Program**
+```
+; Sum two 8-bit numbers
+LDA 2050    ; Load first number
+ADD 2051    ; Add second number
+STA 2052    ; Store result
+
+Address ranges: 2050, 2051, 2052
+```
+
+**Q2: Stack Operations**
+```
+PUSH: Decrement SP, store data
+POP: Load data, increment SP
+Used for function calls and local storage
+```
+
+## Signals and Systems
+
+**Q1: Frequency Response**
+```
+H(jω) = Magnitude ∠ Phase
+Bode plot: 20log₁₀|H(jω)| vs log(ω)
+Nyquist plot: Real vs Imaginary parts
+```
+
+**Q2: Filter Design**
+```
+Low-pass: Blocks high frequencies
+High-pass: Blocks low frequencies
+Band-pass: Allows only band
+Cutoff frequency: -3dB point
+```
+
+## Communications
+
+**Q1: PCM (Pulse Code Modulation)**
+```
+1. Sample: Nyquist rate sampling
+2. Quantize: Round to nearest level
+3. Encode: Binary representation
+Bandwidth = 2 × Sampling rate × bits
+```
+
+**Q2: Channel Capacity with Noise**
+```
+Shannon: C = B·log₂(1 + S/N)
+For 10dB SNR in 1MHz band:
+C ≈ 3.3 Mbps theoretical maximum
+```
+
+## Power Electronics
+
+**Q1: Inverter Output**
+```
+Single-phase inverter output PWM
+Voltage: ±Vs
+Frequency: f = switching frequency
+THD reduction with PWM modulation
+```
+
+**Q2: Transformer Efficiency**
+```
+η = Pout/(Pout + Ploss)
+Copper loss: I²R
+Core loss: Hysteresis + Eddy current
+```
+
+---
+
+## Advanced Reference
+
+| Topic | Key Formula |
+|-------|------------|
+| Bode | Magnitude, Phase separately |
+| Sampling | fs ≥ 2·fmax |
+| PCM | Bandwidth = 2·Bw·n (n=bits) |
+| Efficiency | Pout/Pin × 100% |
+
+**Week 3 Advanced:** All formulas and reference implemented

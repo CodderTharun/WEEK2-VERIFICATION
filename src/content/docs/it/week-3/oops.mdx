@@ -1,0 +1,73 @@
+---
+title: OOPS - Week 3
+description: Encapsulation and Abstraction
+---
+
+
+
+## Encapsulation
+
+Encapsulation is bundling data and methods together and hiding internal details.
+
+### Access Modifiers
+
+1. **Public** - Accessible from anywhere
+2. **Private** - Accessible only within class
+3. **Protected** - Accessible within package and subclasses
+4. **Default** - Accessible within package
+
+### Getters and Setters
+
+Controlled access to class variables.
+
+```java
+class Student {
+    private int age;
+    
+    public int getAge() {
+        return age;
+    }
+    
+    public void setAge(int newAge) {
+        if (newAge > 0) this.age = newAge;
+    }
+}
+```
+
+## Abstraction
+
+Abstraction hides complex details and shows only necessary features.
+
+### Abstract Classes
+
+Cannot instantiate directly, used as base class.
+
+```java
+abstract class Vehicle {
+    abstract void drive();
+}
+```
+
+### Interfaces
+
+Define contract for implementing classes.
+
+```java
+interface Drawable {
+    void draw();
+}
+```
+
+### This Week
+
+- Encapsulation principles
+- Information hiding
+- Abstract classes implementation
+- Interface implementation
+- Abstract methods vs concrete methods
+
+### Practice
+
+- Design encapsulated classes
+- Implement abstract classes
+- Create and implement interfaces

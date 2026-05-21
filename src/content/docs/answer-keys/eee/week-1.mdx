@@ -1,0 +1,101 @@
+---
+title: EEE Department - Week 1 Answer Keys
+description: Solutions and answer keys for EEE Department Week 1 problems
+---
+
+# EEE Department - Week 1 Answer Keys
+
+## Circuit Theory
+
+**Q1: Mesh Analysis**
+```
+Step 1: Assign mesh currents
+Step 2: Apply KVL around each mesh
+Step 3: Solve simultaneous equations
+Example: 3-mesh circuit → 3 equations
+```
+
+**Q2: Node Voltage Method**
+```
+Step 1: Select reference node
+Step 2: Apply KCL at each node
+Step 3: Solve for node voltages
+Advantage: Fewer equations if fewer nodes
+```
+
+## Power Systems
+
+**Q1: Transformer Turns Ratio**
+```
+Vs/Vp = Ns/Np
+Is/Ip = Np/Ns
+Impedance ratio = (Ns/Np)²
+```
+
+**Q2: Three-phase Power**
+```
+Total Power = √3 × VL × IL × cos(φ)
+Reactive Power = √3 × VL × IL × sin(φ)
+Apparent Power = √3 × VL × IL
+```
+
+## Electrical Machines
+
+**Q1: DC Motor Equations**
+```
+Back EMF: E = φ × Z × N / 60 × P
+Torque: T = φ × Z × I / 60 × P × 2
+Motor equation: V = E + Ia × Ra
+```
+
+**Q2: Induction Motor Slip**
+```
+s = (Ns - N) / Ns
+Ns = 120f / P
+Rotor frequency = s × f
+Speed N = Ns(1 - s)
+```
+
+## Control Systems
+
+**Q1: Transfer Function**
+```
+For RC circuit: H(s) = 1 / (1 + RCs)
+For RL circuit: H(s) = R / (R + Ls)
+Time constant τ = L/R or RC
+```
+
+**Q2: Steady-State Error**
+```
+Type 0: ess = 1/(1+Kp)
+Type 1: ess = 0, ess_ramp = 1/Kv
+Type 2: ess_ramp = 0, ess_accel = 1/Ka
+```
+
+## Power Generation
+
+**Q1: Generator EMF**
+```
+EMF = φ × Z × N × P / 60
+Terminal voltage = EMF - Ia × Ra
+Efficiency = Pout / Pin
+```
+
+**Q2: Load Flow Analysis**
+```
+Active power: P = |V|² × G + |V1||V2|cos(δ)
+Reactive power: Q = -|V|² × B + |V1||V2|sin(δ)
+Voltage regulation = (VNL - VFL) / VFL
+```
+
+---
+
+## Circuit Reference
+
+| Element | Voltage | Current | Power |
+|---------|---------|---------|-------|
+| Resistor | V=IR | I=V/R | P=I²R |
+| Inductor | L·dI/dt | V=L·dI/dt | P=LI·dI |
+| Capacitor | Q/C | C·dV/dt | P=V·C·dV |
+
+**Week 1 Complete:** Basic circuit fundamentals mastered

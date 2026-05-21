@@ -1,0 +1,66 @@
+---
+title: DBMS - Week 3
+description: Normalization and Data Integrity
+---
+
+
+
+## Database Normalization
+
+Normalization organizes data to minimize redundancy.
+
+### Normal Forms
+
+1. **1NF (First Normal Form)**
+   - Remove repeating groups
+   - All values are atomic
+
+2. **2NF (Second Normal Form)**
+   - Must be in 1NF
+   - Remove partial dependencies
+
+3. **3NF (Third Normal Form)**
+   - Must be in 2NF
+   - Remove transitive dependencies
+
+4. **BCNF (Boyce-Codd Normal Form)**
+   - Stricter version of 3NF
+
+### Functional Dependencies
+
+Describes relationships between attributes.
+
+```
+StudentID → Name, Age
+```
+
+## Data Integrity
+
+Ensuring data quality and consistency.
+
+### Constraints
+
+1. **Primary Key** - Unique identifier
+2. **Foreign Key** - Reference to another table
+3. **Unique** - No duplicate values
+4. **NOT NULL** - Value must exist
+5. **CHECK** - Custom validation
+6. **DEFAULT** - Default value
+
+### Referential Integrity
+
+Maintaining consistency through foreign keys.
+
+### This Week
+
+- Identifying normal forms
+- Normalizing tables
+- Creating relationships
+- Data integrity constraints
+- ACID properties (Atomicity, Consistency, Isolation, Durability)
+
+### Practice
+
+- Normalize denormalized tables
+- Create referential integrity
+- Design proper schemas

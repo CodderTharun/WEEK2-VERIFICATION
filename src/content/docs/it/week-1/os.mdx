@@ -1,0 +1,904 @@
+---
+title: OS
+---
+
+import { Code, Tabs, TabItem } from '@astrojs/starlight/components';
+
+<style>{`
+pre {
+  overflow-x: scroll;
+  max-width: 100%;
+  display: block;
+  white-space: pre;
+}
+`}</style>
+
+## Introduction
+
+### A. What is OS?
+
+An **Operating System (OS)** is a system software that manages the computer hardware.
+It provides a basis for application programs and acts as an intermediary between the computer users and the computer hardware.
+The purpose of an OS is to provide an environment in which the user can execute the program in a convenient & efficient manner.
+
+A computer system can be divided into four components:
+
+- **Hardware** — Consists of memory, CPU, ALU, I/O devices, peripheral devices & storage devices.
+- **OS** — Controls & co-ordinates the use of hardware among various application programs for various users.
+- **Application Program** — Includes word processors, spreadsheets, compilers & web browsers which define the ways in which resources are used to solve the problems of users.
+- **User** — Who works/executes the required function.
+<div align="center">
+  <img 
+    src="/IT/OS/os1.1.jpeg"
+    alt="OS-1"
+    width="500px"
+    height="400px"
+  />
+</div>
+
+## OS Operations
+
+Operating System (OS) operations are the core activities an OS performs to manage hardware, software, and user interactions.
+
+- **Process Management** — The OS creates, schedules, and terminates processes (instances of running programs). It provides mechanisms for process synchronization, communication, and deadlock handling.
+- **Memory Management** — The OS allocates and manages the computer's memory resources, ensuring efficient and secure memory usage by processes.
+- **File Systems** — The OS manages files and directories, providing methods for organizing, storing, and accessing data on secondary storage devices.
+- **Input/Output (I/O) Management** — The OS handles communication between the computer system and external devices, managing input and output operations to ensure efficient data transfer.
+- **Device Management** — The OS interacts with device drivers to control and manage hardware devices, including input/output devices, storage devices, and network devices.
+- **User Interface** — The OS provides a user-friendly interface including command-line interfaces, graphical user interfaces (GUIs), and APIs for software development.
+- **Security and Protection** — The OS enforces security policies, authenticates users, and protects system resources from unauthorized access or malicious activities.
+- **Error Handling and Fault Tolerance** — The OS detects and handles errors, ensuring system stability and providing fault tolerance mechanisms to recover from failures.
+
+---
+
+## Functions of Operating System
+
+### A. Process Management
+
+A process is a program in execution. A process needs certain resources, including CPU time, memory, files, and I/O devices, to accomplish its task.
+
+The operating system is responsible for the following activities in connection with process management:
+
+- Process creation and deletion.
+- Process suspension and resumption.
+- Provision of mechanisms for:
+  - Process synchronization
+  - Process communication
+
+### B. Main-Memory Management
+
+Memory is a large array of words or bytes, each with its own address. It is a repository of quickly accessible data shared by the CPU and I/O devices.
+Main memory is a **volatile** storage device — it loses its contents in the case of system failure.
+
+The operating system is responsible for the following activities in connection with memory management:
+
+- Keep track of which parts of memory are currently being used and by whom.
+- Decide which processes to load when memory space becomes available.
+- Allocate and de-allocate memory space as needed.
+
+### C. File Management
+
+A file is a collection of related information defined by its creator. Commonly, files represent programs (both source and object forms) and data.
+
+The operating system is responsible for the following activities in connection with file management:
+
+- File creation and deletion.
+- Directory creation and deletion.
+- Support of primitives for manipulating files and directories.
+- Mapping files onto secondary storage.
+- File backup on stable (nonvolatile) storage media.
+
+### D. I/O System Management
+
+The I/O system consists of:
+
+- A buffer-caching system
+- A general device-driver interface
+- Drivers for specific hardware devices
+
+### E. Secondary-Storage Management
+
+Since main memory (primary storage) is volatile and too small to accommodate all data and programs permanently, the computer system must provide secondary storage to back up main memory. Most modern computer systems use disks as the principal on-line storage medium.
+
+The operating system is responsible for the following activities in connection with disk management:
+
+- Free space management
+- Storage allocation
+- Disk scheduling
+
+### F. Networking (Distributed Systems)
+
+A distributed system is a collection of processors that do not share memory or a clock. Each processor has its own local memory. The processors in the system are connected through a communication network. Communication takes place using a protocol.
+
+A distributed system provides user access to various system resources. Access to a shared resource allows:
+
+- Computation speed-up
+- Increased data availability
+- Enhanced reliability
+
+### G. Protection System
+
+Protection refers to a mechanism for controlling access by programs, processes, or users to both system and user resources.
+
+The protection mechanism must:
+
+- Distinguish between authorized and unauthorized usage.
+- Specify the controls to be imposed.
+- Provide a means of enforcement.
+
+### H. Command-Interpreter System
+
+Many commands are given to the operating system by control statements which deal with:
+
+- Process creation and management
+- I/O handling
+- Secondary-storage management
+- Main-memory management
+- File-system access
+- Protection
+- Networking
+
+The program that reads and interprets control statements is called variously:
+
+- **Command-line interpreter**
+- **Shell** (in UNIX)
+
+Its function is to get and execute the next command statement.
+
+---
+
+## Evolution of OS
+
+### A. Mainframe Systems
+
+- Reduce setup time by batching similar jobs.
+- Automatic job sequencing — automatically transfers control from one job to another.
+- First rudimentary operating system.
+- **Resident monitor**: initial control in monitor → control transfers to job → when job completes, control transfers back to monitor.
+
+### B. Batch Processing Operating System
+
+- Accepts more than one job; jobs are batched/grouped together according to similar requirements.
+- Done by a computer operator.
+- When the computer becomes available, the batched jobs are sent for execution and output is gradually sent back to the user.
+- Allowed only one program at a time.
+- Responsible for scheduling jobs according to priority and resource required.
+
+### C. Multiprogramming Operating System
+
+Used to execute more than one job simultaneously by a single processor. Increases CPU utilization by organizing jobs so that the CPU always has one job to execute.
+
+The concept of multiprogramming:
+
+- All jobs that enter the system are stored in the **job pool** (on disc).
+- The OS loads a set of jobs from the job pool into main memory and begins to execute.
+- During execution, if a job must wait (e.g., for I/O), the OS switches to another job.
+- When that job needs to wait, the CPU is switched to another job, and so on.
+- When the first job finishes waiting, it gets the CPU back.
+- As long as at least one job needs to execute, the CPU is never idle.
+
+Uses the mechanism of **job scheduling** and **CPU scheduling**.
+
+### D. Time-Sharing / Multitasking Operating Systems
+
+A logical extension of multiprogramming. Provides extra facilities such as:
+
+- Faster switching between multiple jobs to make processing faster.
+- Allows multiple users to share a computer system simultaneously.
+- Users can interact with each job while it is running.
+- Uses **virtual memory** for effective utilization of memory space — no jobs are discarded.
+- Uses CPU scheduling, memory management, disk management and security management.
+
+> Examples: CTSS, MULTICS, CAL, UNIX
+
+### E. Multiprocessor Operating Systems
+
+Also known as **parallel OS** or **tightly coupled OS**. Have more than one processor in close communication sharing the computer bus, clock, and sometimes memory and peripheral devices.
+
+#### 1. Advantages
+
+- **Increased throughput** — More work done in less time. Speed-up ratio with $N$ processors is less than $N$.
+- **Economy of scale** — Can share peripherals, mass storage, and power supplies.
+- **Increased reliability** — If one processor fails, remaining processors pick up the work (**graceful degradation**). Systems designed for this are called **fault tolerant**.
+
+#### 2. Types
+
+##### a. Symmetric Multiprocessing
+
+Each processor runs an identical copy of the operating system; copies communicate with one another as needed.
+
+##### b. Asymmetric Multiprocessing
+
+A **master processor** controls other processors called **slave processors**, establishing a master-slave relationship. The master processor schedules jobs and manages memory for the entire system.
+
+### F. Distributed Operating Systems
+
+Different machines are connected in a network; each machine has its own processor and own local memory. The operating systems on all machines work together to manage collective network resources.
+
+#### 1. Types
+
+- Client-Server systems
+- Peer-to-Peer systems
+
+#### 2. Advantages
+
+- Resource sharing
+- Computation speed-up (load sharing)
+- Reliability
+- Communications
+
+Requires networking infrastructure: **LAN** or **WAN**.
+
+### G. Desktop Systems / Personal Computer Systems
+
+- Designed for maximizing user convenience and responsiveness.
+- Neither multi-user nor multitasking.
+- Examples: PCs running Microsoft Windows, Apple Macintosh.
+- MS-DOS has been superseded by Microsoft Windows flavors; IBM upgraded it to OS/2.
+- Apple Macintosh OS has been ported to advanced hardware with virtual memory and multitasking.
+
+### H. Real-Time Operating Systems (RTOS)
+
+A multitasking OS intended for applications with fixed deadlines (real-time computing). Applications include: small embedded systems, automobile engine controllers, industrial robots, spacecraft, industrial control, and large-scale computing systems.
+
+#### 1. Hard Real-Time System
+
+Guarantees that critical tasks are completed on time. All delays in the system must be bounded. Such time constraints dictate the facilities available.
+
+#### 2. Soft Real-Time System
+
+A less restrictive type. A critical real-time task gets priority over other tasks and retains that priority until it completes. Can be mixed with other types of systems. Risky to use for industrial control and robotics due to fewer restrictions.
+
+---
+
+## Components of an Operating System
+
+An operating system (OS) is made up of several key components that work together to manage hardware and software resources.
+
+- **Shell** — The outermost layer of the OS; handles user interaction. It interprets input for the OS and handles output from the OS.
+- **Kernel** — The core component of the operating system; the primary interface between the OS and Hardware.
+<div align="center">
+  <img 
+    src="/IT/OS/os1.2.jpeg"
+    alt="OS-1"
+    width="500px"
+    height="400px"
+  />
+</div>
+---
+
+## Single User Operating System
+
+Also known as a **single-tasking operating system**. Designed especially for home computers. A single user can access the computer at a particular time.
+
+### A. Features
+
+- Interpreting user's commands
+- File management
+- Memory management
+- Input/output management
+- Resource allocation
+- Managing processes
+
+### B. Advantages
+
+- Occupies less space in memory.
+- Easy to maintain.
+- Less chance of damage.
+- Only one user's tasks execute at a given time — no interruptions from others.
+
+### C. Disadvantages
+
+- Can perform only a single task.
+- The OS remains idle for most of the time and is not utilized to its maximum.
+- Tasks take longer to complete.
+- Has a high response time.
+
+---
+
+## Multi-User Operating System
+
+An OS that meets the requirements of all its users in a balanced way so that a problem with one user does not affect any other user.
+
+### A. Features
+
+- **Resource sharing** — Time slicing; multiple peripherals such as printers can be shared.
+- Time-sharing
+- Background sharing
+- **Invisibility** — Many functions are invisible to the user.
+
+### B. Advantages
+
+- Helps in sharing of data and information among different users.
+- Helps in sharing of hardware resources such as printers.
+- Avoids disruption — failure of one computer does not affect others on the network.
+- Users can share their work with other users.
+- Very helpful in economic improvement.
+- Backing up data is possible.
+- Services are stable and systematic.
+
+### C. Disadvantages
+
+- Requires expensive hardware to set up a mainframe computer.
+- Multiple users reduce overall system performance.
+- Information shared with the public raises privacy concerns.
+
+---
+
+## Kernel in Operating System
+
+A kernel is the core part of an operating system. It acts as a bridge between software applications and the hardware of a computer.
+
+- Manages system resources such as CPU, memory and devices.
+- Handles tasks like running programs, accessing files, and connecting to devices.
+- An OS includes the kernel as its core, but also provides a user interface, file system management, network services and utility applications.
+
+### A. Types of Kernels
+
+- **Monolithic kernel** — All OS services run in kernel space → fast, but less fault-isolation.
+  - *Examples: Unix, Linux, Open VMS, XTS-400*
+- **Microkernel** — Minimal kernel functionality; most services moved to user space → better reliability, but more overhead.
+  - *Examples: Minix 3, Mach 3.0*
+- **Hybrid kernel** — Mixes monolithic + microkernel ideas; some services in kernel for speed, others isolated for safety.
+  - *Examples: Windows NT family, macOS/XNU, ReactOS, Haiku OS*
+- **Nanokernel** — Extremely minimal kernel, providing only basic hardware abstraction; everything else outside.
+  - *Examples: Nemesis, MIT Exokernel projects (XOK, Aegis)*
+- **Exokernel** — OS handles only protection (security and safety between programs); gives applications direct access to hardware resources.
+  - *Examples: MIT Exokernel, Xok, ExOS*
+
+### B. Functions of Kernel
+
+- **Process Management** — Scheduling and execution of processes.
+- **Memory Management** — Allocation and deallocation of memory space, managing virtual memory, handling memory protection and sharing.
+- **Device Management** — Managing I/O devices, providing a unified interface for hardware, handling device driver communication.
+- **File System Management** — Managing file operations and providing a file system interface to applications.
+- **Resource Management** — Managing system resources (CPU time, disk space, network bandwidth); allocates and deallocates as needed.
+- **Security and Access Control** — Enforcing access control policies like user permissions and authentication.
+- **Inter-Process Communication** — Facilitating communication between processes via message passing and shared memory.
+
+### C. Working of Kernel
+
+- Kernel is the first part of the OS loaded into memory during boot, and stays resident while the system is running.
+- Operates in a privileged mode (**kernel mode**), separate from **user mode** for applications; user apps can't directly access hardware or critical resources.
+- Applications make requests to the kernel via **system calls** (or software interrupts). The kernel handles these by switching from user mode to kernel mode.
+- Kernel executes the requested operation (e.g., file I/O, process creation, memory allocation).
+- On completion, the kernel returns the result (or error) to user space.
+- Kernel does **context switching** as needed (scheduler picks next process/thread) to allow multitasking.
+
+
+## Multithreaded Programming
+
+### A. Threads
+
+A **thread** is a basic unit of CPU utilization. It comprises:
+
+- A thread ID
+- A program counter
+- A register set
+- A stack
+
+It shares its code section, data section, and other OS resources (such as open files and signals) with other threads belonging to the same process.
+
+A traditional (**heavyweight**) process has a single thread of control. If a process has multiple threads of control, it can perform more than one task at a time.
+
+### B. Multithreading Models
+
+#### 1. Many-to-One
+
+Many user-level threads are mapped to a single kernel thread.
+
+- Efficient — thread management done by the thread library in user space.
+- The entire process will block if a thread makes a blocking system call.
+- Multiple threads are unable to run in parallel on multiprocessors.
+
+> *Examples: Solaris Green Threads, GNU Portable Threads*
+
+#### 2. One-to-One
+
+Each user-level thread maps to a kernel thread.
+
+- Provides more concurrency than Many-to-One.
+- Allows threads to run when a blocking system call is made.
+- Allows multiple threads to run in parallel on multiprocessors.
+- Drawback: creating a user thread requires creating a corresponding kernel thread, burdening performance.
+
+> *Examples: Windows NT/XP/2000, Linux*
+
+#### 3. Many-to-Many Model
+
+Overcomes drawbacks of both Many-to-One and One-to-One models.
+
+- Allows many user-level threads to be mapped to many kernel threads.
+- Allows the OS to create a sufficient number of kernel threads.
+- When a thread performs a blocking system call, the kernel can schedule another thread.
+- Allows a user-level thread to be **bound** to a kernel thread (**two-level model**).
+
+> *Examples: IRIX, HP-UX, Solaris OS*
+
+### C. Thread Libraries
+
+A thread library provides the programmer an API for creating and managing threads. Two primary implementation approaches:
+
+- **User-space library** — All code and data structures exist in user space with no kernel support.
+- **Kernel-level library** — Implemented directly by the operating system.
+
+Three primary thread libraries:
+
+- **POSIX Pthreads** — Extension of the POSIX standard; may be provided as either a user or kernel library.
+- **Win32 threads** — Kernel-level library available on Windows systems.
+- **Java threads** — API allows creation and management directly in Java programs.
+
+### D. Pthreads
+
+POSIX thread libraries (pthreads) are a standard C/C++ API used to create and manage threads for concurrent execution within a program.
+
+- Allow multiple flows of execution to run in parallel, especially improving performance on multi-core or multiprocessor systems.
+- Threads share the same memory space and resources — lower overhead compared to creating separate processes.
+- Even on single-processor systems, threads improve efficiency by utilizing waiting time during I/O operations.
+
+**Uses:**
+
+- Improves program performance through multithreading
+- Enables concurrent execution of independent tasks
+- Achieves parallelism on multiprocessor/multi-core systems
+- Reduces overhead compared to process creation and management
+- Provides efficient communication via shared memory
+
+### E. Threading Issues
+
+#### 1. Fork() and Exec() System Calls
+
+- In multithreaded programs, `fork()` may either duplicate all threads or only the calling thread.
+- `exec()` replaces the entire process, including all threads.
+- If `exec()` is called immediately after `fork()`, duplicating only the calling thread is sufficient.
+
+#### 2. Thread Cancellation
+
+Thread cancellation means terminating a thread before completion. The thread being cancelled is called the **target thread**.
+
+- **Asynchronous cancellation** — Target thread is terminated immediately.
+- **Deferred cancellation** — Thread checks periodically whether it should terminate.
+
+Deferred cancellation is safer because resources and shared data can be handled properly.
+
+#### 3. Signal Handling
+
+Signals notify a process that an event has occurred. Steps:
+
+- Signal generated
+- Signal delivered
+- Signal handled
+
+Signals can be:
+
+- **Synchronous** — Caused by the same process (e.g., divide by zero).
+- **Asynchronous** — Caused externally (e.g., Ctrl+C).
+
+Signals may use:
+- Default signal handler
+- User-defined signal handler
+
+In multithreading, signals may be sent to one thread, selected threads, or all threads.
+
+#### 4. Thread Pools
+
+A thread pool creates multiple threads at startup and keeps them ready for tasks. When a request arrives, an available thread handles it and returns to the pool.
+
+**Advantages:**
+- Faster than creating new threads repeatedly.
+- Limits the number of active threads.
+
+#### 5. Thread-Specific Data
+
+Threads share process data, but sometimes each thread needs its own private data — called **thread-specific data**. Supported by libraries like Pthreads and Win32.
+
+#### 6. Scheduler Activations
+
+- Many-to-many threading models use **Lightweight Processes (LWPs)** between user and kernel threads.
+- The kernel provides virtual processors, and the thread library schedules threads on them.
+- Communication between kernel and thread library is done using **upcalls**.
+- Upcalls help manage blocked and unblocked threads efficiently.
+
+
+## Process
+
+A process is more than just the program code (also called the **text section**). It contains:
+
+- A **program counter** — represents the current activity and the contents of the processor's registers.
+- A **process stack** — contains temporary data.
+- A **data section** — contains global variables.
+- A **heap** — memory dynamically allocated during process run time.
+
+### A. Process State
+
+As a process executes, it changes its state. Each process may be in one of the following states:
+
+- **New** — The process is being created.
+- **Running** — Instructions are being executed.
+- **Waiting** — The process is waiting for some event to occur.
+- **Ready** — The process is waiting to be assigned to a processor.
+- **Terminated** — The process has finished execution.
+
+> Only one process can be **running** on any processor at any instant. Many processes may be **ready** and **waiting**.
+
+
+## Process Scheduling
+
+In a single-processor system, only one process can run at a time; others must wait until the CPU is free.
+
+The objective of multiprogramming is to have some process running at all times, to maximize CPU utilization. When one process has to wait, the OS takes the CPU away and gives it to another process.
+
+### A. Preemptive Scheduling
+
+CPU-scheduling decisions may take place under the following four circumstances:
+
+1. When a process switches from the **running** state to the **waiting** state (e.g., I/O request).
+2. When a process switches from the **running** state to the **ready** state (e.g., an interrupt occurs).
+3. When a process switches from the **waiting** state to the **ready** state (e.g., completion of I/O).
+4. When a process **terminates**.
+
+When scheduling takes place only under circumstances 1 and 4, the scheme is **nonpreemptive (cooperative)**; otherwise, it is **preemptive**.
+
+### B. Non-Preemptive Scheduling
+
+Once the CPU has been allocated to a process, the process keeps the CPU until it releases it either by terminating or by switching to the waiting state.
+
+### C. Dispatcher
+
+The dispatcher is the module that gives control of the CPU to the process selected by the short-term scheduler.
+
+This function involves:
+
+- Switching context
+- Switching to user mode
+- Jumping to the proper location in the user program to restart that program
+
+The dispatcher should be as fast as possible, since it is invoked during every process switch. The time taken to stop one process and start another is known as **dispatch latency**.
+
+### D. Scheduling Criteria
+
+- **CPU utilization** — CPU must be kept as busy as possible. Ranges from 0 to 100%; in practice, 40% (lightly loaded) to 90% (heavily used).
+- **Throughput** — Number of processes completed per time unit.
+- **Turnaround time** — Interval from time of submission to time of completion. Sum of: waiting to get into memory + waiting in ready queue + executing on CPU + doing I/O.
+- **Waiting time** — Sum of periods spent waiting in the ready queue.
+- **Response time** — Time from submission of a request until the first response is produced.
+
+
+## Scheduling Algorithms
+
+### A. First-Come-First-Served (FCFS) Scheduling
+
+The simplest CPU-scheduling algorithm.
+
+- The process that requests the CPU first is allocated the CPU first.
+- Implemented using a **FIFO queue**.
+- When a process enters the ready queue, its PCB is linked onto the tail of the queue.
+- When the CPU is free, it is allocated to the process at the head of the queue.
+
+### B. Shortest-Job-First (SJF) Scheduling
+
+Associates with each process the length of its next CPU burst.
+
+- When the CPU is available, it is assigned to the process with the **smallest next CPU burst**.
+- If two processes have the same burst, FCFS is used to break the tie.
+- **Optimal** — gives minimum average waiting time for a given set of processes.
+- Can be **preemptive** or **nonpreemptive**.
+  - Preemptive SJF is called **Shortest-Remaining-Time-First (SRTF)**.
+
+### C. Priority Scheduling
+
+A priority is associated with each process; the CPU is allocated to the process with the **highest priority**.
+
+- Equal-priority processes are scheduled in FCFS order.
+- SJF is a special case: priority $p$ is the inverse of the predicted next CPU burst.
+$$
+p \propto \frac{1}{\text{next CPU burst}}
+$$
+- Can be preemptive or nonpreemptive.
+- **Problem: Starvation (Indefinite blocking)** — Low-priority processes may wait indefinitely.
+- **Solution: Aging** — Gradually increasing the priority of processes that wait for a long time.
+
+### D. Round-Robin (RR) Scheduling
+
+Designed especially for time-sharing systems.
+
+- Similar to FCFS, but **preemption** is added to switch between processes.
+- A small unit of time called a **time quantum** (or time slice) is defined — generally 10 to 100 milliseconds.
+- The ready queue is treated as a **circular queue**.
+- The CPU scheduler goes around the queue, allocating the CPU to each process for up to 1 time quantum.
+
+Two scenarios when a process is dispatched:
+
+- If the CPU burst is **less than 1 time quantum** — the process releases the CPU voluntarily; the scheduler moves to the next process.
+- If the CPU burst is **longer than 1 time quantum** — the timer goes off, causing an interrupt; a context switch is executed, the process is put at the tail of the ready queue, and the scheduler selects the next process.
+
+
+## Synchronization
+
+### A. Critical Section Problem
+
+Consider a system of $n$ processes $\{P_0, P_1, \ldots, P_{n-1}\}$. Each process has a segment of code called a **critical section** in which the process may be changing common variables, updating a table, writing a file, etc.
+
+**Key requirement:** When one process is executing in its critical section, no other process is allowed to execute in its critical section.
+
+Each process must request permission to enter its critical section via the **entry section**, followed by an **exit section**; the remaining code is the **remainder section**.
+
+#### 1. Requirements for a Solution
+
+- **Mutual exclusion** — If $P_i$ is executing in its critical section, then no other processes can be executing in their critical sections.
+- **Progress** — If no process is executing in its critical section and some processes wish to enter, only those not in the remainder section can participate in the decision; selection cannot be postponed indefinitely.
+- **Bounded waiting** — There exists a bound on the number of times other processes are allowed to enter their critical sections after a process has made a request and before that request is granted.
+
+### B. Peterson's Solution
+
+A classic software-based solution to the critical-section problem.
+
+- Restricted to **two processes** that alternate execution between their critical sections and remainder sections.
+- Processes are numbered $P_0$ and $P_1$ (or $P_i$ and $P_j$ where $j = 1 - i$).
+
+<Tabs>
+  <TabItem label="C">
+
+```c title="Peterson's Solution - Process Pᵢ"
+do {
+    flag[i] = TRUE;
+    turn = j;
+
+    while (flag[j] && turn == j);
+
+    /* critical section */
+
+    flag[i] = FALSE;
+
+    /* remainder section */
+
+} while (TRUE);
+```
+</TabItem> </Tabs> 
+
+### C. Synchronization Hardware
+
+Any solution to the critical-section problem requires a **lock**. Race conditions are prevented by requiring that critical regions be protected by locks.
+
+- A process must **acquire** a lock before entering a critical section; it **releases** the lock when it exits.
+- In a uniprocessor environment: preventing interrupts while a shared variable is modified is feasible.
+- In a multiprocessor environment: disabling interrupts is time-consuming and decreases efficiency.
+- Modern systems provide special hardware instructions that allow testing and modifying a word or swapping two words **atomically** (as one uninterruptible unit).
+
+### D. Semaphores
+
+A synchronization tool that overcomes the complexity of hardware-based solutions.
+
+- The `wait()` and `signal()` operations must be executed **indivisibly**.
+
+#### 1. Types
+
+- **Counting semaphore** — Value can range over an unrestricted domain; used to control access to a resource with a finite number of instances.
+- **Binary semaphore** — Value ranges only between 0 and 1; also known as **mutex locks** (mutual exclusion locks).
+
+**Usage of counting semaphores:**
+
+- Semaphore initialized to the number of available resource instances.
+- Each process wishing to use a resource performs `wait()` (decrementing the count).
+- When a process releases a resource, it performs `signal()` (incrementing the count).
+- When count $= 0$, all resources are in use; processes block until count $> 0$.
+
+**Synchronization example:** To ensure $S_2$ in $P_2$ executes only after $S_1$ in $P_1$:
+
+Shared semaphore `synch` initialized to 0:
+
+<Tabs>
+  <TabItem label="P₁">
+
+```c title="Process P₁"
+S1;
+signal(synch);
+```
+</TabItem>
+ <TabItem label="P₂">
+ ```P2
+wait(synch);
+S2;
+```
+</TabItem> 
+</Tabs>
+
+#### 2. Implementation
+
+The main disadvantage of basic semaphores is **busy waiting** (also called a **spin lock** — the process "spins" while waiting for the lock).
+
+To overcome busy waiting, when a process executes `wait()` and finds the semaphore value is not positive, it **blocks itself** (placed into a waiting queue; state switched to waiting).
+
+A semaphore is defined as:
+
+<Tabs>
+  <TabItem label="Struct">
+
+```c title="Semaphore Definition"
+typedef struct {
+    int value;
+    struct process *list;
+} semaphore;
+```
+</TabItem>
+<TabItem label="wait()">
+```wait
+wait(semaphore *S) {
+    S->value--;
+
+    if (S->value < 0) {
+        add this process to S->list;
+        block();
+    }
+}
+```
+</TabItem>
+<TabItem label="signal()">
+```signal
+signal(semaphore *S) {
+    S->value++;
+
+    if (S->value <= 0) {
+        remove a process P from S->list;
+        wakeup(P);
+    }
+}
+```
+</TabItem>
+</Tabs> 
+
+
+- `block()` suspends the process that invokes it.
+- `wakeup(P)` resumes the execution of a blocked process $P$.
+- If a semaphore value is **negative**, its magnitude is the number of processes waiting on that semaphore.
+- The list of waiting processes can be implemented by a link field in each **Process Control Block (PCB)**.
+
+
+# Classic Problems of Synchronization
+
+- Bounded-buffer problem
+- The Readers-Writers Problem
+- The Dining-Philosophers Problem
+
+
+## The Bounded-Buffer Problem
+
+- We assume that the pool consists of `n` buffers, each capable of holding one item.
+- The `mutex` semaphore provides mutual exclusion for accesses to the buffer pool and is initialized to the value `1`.
+- The `empty` and `full` semaphores count the number of empty and full buffers.
+- The semaphore `empty` is initialized to the value `n`; semaphore `full` is initialized to the value `0`.
+
+### A.Producer Process
+
+```c
+do{
+   // produce an item in nextp
+   ...
+   wait(empty);
+   wait(mutex);
+   // add nextp to buffer
+   ...
+   signal(mutex);
+   signal(full);
+} while(TRUE);
+```
+
+### B.Consumer Process
+
+```c
+do{
+   wait(full);
+   wait(mutex);
+   // remove an item from buffer to nextc
+   ...
+   signal(mutex);
+   signal(empty);
+   // consume the item in nextc
+   ...
+} while(TRUE);
+```
+
+- We can interpret this code as the producer producing full buffers for the consumer or as the consumer producing empty buffers for the producer.
+
+
+## The Readers-Writers Problem
+
+- A database is to be shared among several concurrent processes. Some of these processes may want only to read the database, whereas others may want to update (that is, to read and write) the database.
+- **Readers** – processes that only read the database.
+- **Writers** – processes performing both read and write (update).
+- If two readers access the shared data simultaneously, no problem will result. But if a writer and some other thread (either a reader or a writer) access the database simultaneously, problems arise.
+
+
+- This synchronization problem is referred to as the readers-writers problem.
+- The readers-writers problem has several variations.
+- The **first readers-writers problem**, which requires that no reader must be kept waiting unless a writer has already obtained permission to use the shared object.
+- The **second readers-writers problem** requires that, once a writer is ready, that writer performs its write as soon as possible.
+- A solution to either problem may result in starvation. In the first case, writers may starve; in the second case, readers may starve.
+
+### Shared Data Structures
+
+```c
+semaphore mutex, wrt;
+int readcount;
+```
+
+- The semaphores `mutex` and `wrt` are initialized to `1` and `readcount` is initialized to `0`.
+- The semaphore `wrt` is common to both reader and writer processes.
+- The `mutex` semaphore is used to ensure mutual exclusion when the variable `readcount` is updated.
+- The variable `readcount` keeps track of how many processes are currently reading the object.
+- The semaphore `wrt` functions as a mutual-exclusion semaphore for the writers.
+
+### A.Writer Process
+
+```c
+do{
+   wait(wrt);
+   // writing is performed
+   ...
+   signal(wrt);
+} while(TRUE);
+```
+
+### B.Reader Process
+
+```c
+do{
+   wait(mutex);
+   readcount++;
+   if(readcount == 1)
+       wait(wrt);
+   signal(mutex);
+   // reading is performed
+   ...
+   wait(mutex);
+   readcount--;
+   if(readcount == 0)
+       signal(wrt);
+   signal(mutex);
+} while(TRUE);
+```
+
+
+## The Dining-Philosophers Problem
+<div align="center">
+  <img 
+    src="/IT/OS/os1.3.jpeg"
+    alt="OS-1"
+    width="500px"
+    height="400px"
+  />
+</div>
+- Consider five philosophers who spend their lives thinking and eating.
+- The philosophers share a circular table surrounded by five chairs, each belonging to one philosopher.
+- In the center of the table is a bowl of rice, and the table is laid with five single chopsticks.
+- When a philosopher is thinking, she does not interact with her colleagues.
+- When a philosopher is hungry, she tries to pick up the two chopsticks that are closest to her (the chopsticks that are between her and her left and right neighbors).
+- A philosopher may pick up only one chopstick at a time.
+- When a hungry philosopher has both chopsticks at the same time, she eats without releasing her chopsticks. When she finishes eating, she puts down both chopsticks and starts thinking again.
+- One simple solution is to represent each chopstick with a semaphore.
+- A philosopher tries to grab a chopstick by executing a `wait()` operation on that semaphore; she releases chopsticks by executing the `signal()` operation on the appropriate semaphores.
+
+### Shared Data
+
+```c
+semaphore chopstick[5];
+```
+
+where all elements of `chopstick` are initialized to `1`.
+
+### Structure of Philosopher
+
+```c
+do{
+   wait(chopstick[i]);
+   wait(chopstick[(i + 1) % 5]);
+   // eat
+   ...
+   signal(chopstick[i]);
+   signal(chopstick[(i + 1) % 5]);
+   // think
+   ...
+} while(TRUE);
+```
+
+- The disadvantage is it could create a deadlock. Suppose that all five philosophers become hungry simultaneously and each grabs her left chopstick. All the elements of `chopstick` will now be equal to `0`. When each philosopher tries to grab her right chopstick, she will be delayed forever.

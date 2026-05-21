@@ -1,0 +1,1253 @@
+---
+title: Quantitative Ability 
+description: Master number systems, basic arithmetic, and fundamental mathematical concepts
+---
+
+<style>{`
+pre {
+  overflow-x: scroll;
+  max-width: 100%;
+  display: block;
+  white-space: pre;
+}
+`}</style>
+
+## Number System
+
+#### Important Formulae
+
+| No. | Identity | Formula |
+|---|---|---|
+| 1 | **Square of Sum** | $(a+b)^2 = a^2+b^2+2ab$ |
+| 2 | **Square of Difference** | $(a-b)^2 = a^2+b^2-2ab$ |
+| 3 | **Sum of Squares Identity** | $(a+b)^2 + (a-b)^2 = 2(a^2+b^2)$ |
+| 4 | **Difference of Squares Identity** | $(a+b)^2 - (a-b)^2 = 4ab$ |
+| 5 | **Cube of Sum** | $(a+b)^3 = a^3+b^3+3ab(a+b)$ |
+| 6 | **Cube of Difference** | $(a-b)^3 = a^3-b^3-3ab(a-b)$ |
+| 7 | **Difference of Squares** | $a^2-b^2 = (a+b)(a-b)$ |
+| 8 | **Square of Three Terms** | $(a+b+c)^2 = a^2+b^2+c^2+2(ab+bc+ca)$ |
+| 9 | **Sum of Cubes** | $a^3+b^3 = (a+b)(a^2+b^2-ab)$ |
+| 10 | **Difference of Cubes** | $a^3-b^3 = (a-b)(a^2+b^2+ab)$ |
+| 11 | **Three Variable Cubic Identity** | $a^3+b^3+c^3-3abc=(a+b+c)(a^2+b^2+c^2-ab-bc-ca)$ |
+| 12 | **Special Condition** | If $a+b+c=0$ then $a^3+b^3+c^3=3abc$ |
+
+
+### A. Tests of Divisibility
+
+##### **1. Divisibility By 2** 
+
+A number is divisible by 2 if its unit digit is any of 0, 2, 4, 6, 8.
+
+Ex. 58694 is divisible by 2, while 86945 is not divisible by 2.
+
+---
+
+##### **2. Divisibility By 3**
+
+A number is divisible by 3 only when the sum of its digits is divisible by 3.
+
+Ex.
+(i) In the number 695421, the sum of digits = 27, which is divisible by 3.  
+∴ 695421 is divisible by 3.
+
+(ii) In the number 948653, the sum of digits = 35, which is not divisible by 3.  
+∴ 948653 is not divisible by 3.
+
+---
+
+##### **3. Divisibility By 9**
+
+A number is divisible by 9 only when the sum of its digits is divisible by 9.
+
+Ex.
+(i) In the number 246591, the sum of digits = 27, which is divisible by 9.  
+∴ 246591 is divisible by 9.
+
+(ii) In the number 734519, the sum of digits = 29, which is not divisible by 9.  
+∴ 734519 is not divisible by 9.
+
+---
+
+##### **4. Divisibility By 4**
+
+A number is divisible by 4 if the number formed by its last two digits is divisible by 4.
+
+Ex.
+(i) 6879376 is divisible by 4, since 76 is divisible by 4.
+
+    (ii) 496138 is not divisible by 4, since 38 is not divisible by 4.
+
+---
+
+##### **5. Divisibility By 8**
+
+A number is divisible by 8 if the number formed by its last three digits is divisible by 8.
+
+Ex.
+(i) In the number 16789352, the number formed by last 3 digits, namely 352 is divisible by 8.  
+∴ 16789352 is divisible by 8.
+
+(ii) In the number 576484, the number formed by last 3 digits, namely 484 is not divisible by 8.  
+∴ 576484 is not divisible by 8.
+
+---
+
+##### **6. Divisibility By 10**
+
+A number is divisible by 10 only when its unit digit is 0.
+
+Ex.
+(i) 7849320 is divisible by 10, since its unit digit is 0.
+
+(ii) 678405 is not divisible by 10, since its unit digit is not 0.
+
+---
+
+##### **7. Divisibility By 5**
+
+A number is divisible by 5 only when its unit digit is 0 or 5.
+
+Ex.
+(i) Each of the numbers 76895 and 68790 is divisible by 5.
+
+---
+
+##### **8. Divisibility By 11**
+
+A number is divisible by 11 if the difference between the sum of its digits at odd places and the sum of its digits at even places is either 0 or a number divisible by 11.
+```text
+Example:
+(i) Consider the number 29435417
+
+(Sum of digits at odd places) - (Sum of digits at even places)
+= (7 + 4 + 3 + 9) - (1 + 5 + 4 + 2)
+= 23 - 12
+= 11
+Since 11 is divisible by 11,
+∴ 29435417 is divisible by 11
+```
+```text
+(ii) Consider the number 57463822
+
+(Sum of digits at odd places) - (Sum of digits at even places)
+= (2 + 8 + 6 + 7) - (2 + 3 + 4 + 5)
+= 23 - 14
+= 9
+Since 9 is not divisible by 11,
+∴ 57463822 is not divisible by 11
+```
+
+---
+
+##### **9. Divisibility By 25**
+
+A number is divisible by 25 if the number formed by its last two digits is either 00 or divisible by 25.
+
+```text
+Example:
+
+(i) In the number 63875,
+the number formed by the last 2 digits is 75.
+75 is divisible by 25.
+∴ 63875 is divisible by 25
+
+(ii) In the number 96445,
+the number formed by the last 2 digits is 45.
+45 is not divisible by 25.
+∴ 96445 is not divisible by 25
+```
+
+### **B. Example Problems**
+
+##### **1. Divisibility Problem**
+```text
+Q1. x is a positive integer such that (x² + 12)
+is exactly divisible by x.
+Find all possible values of x.
+
+Solution:
+(x² + 12) / x
+= x + (12 / x)
+For the expression to be an integer,
+12 / x
+must also be an integer.
+Therefore, x must be a divisor of 12.
+Positive divisors of 12:
+1, 2, 3, 4, 6, 12
+Hence, the possible values of x are:
+1, 2, 3, 4, 6, 12
+```
+
+##### 2. Least Number to be Added
+
+```text
+Q2. Find the smallest number to be added to 1000
+so that 45 divides the sum exactly.
+
+Solution:
+1000 ÷ 45 leaves remainder 10
+Required number
+= 45 - 10
+= 35
+```
+---
+
+###### 3. Unit Digit Problem
+```text
+Find the unit digit in:
+(2467)¹⁵³ × (341)⁷²
+
+Solution:
+Unit digit depends only on the unit digits.
+So,
+(2467)¹⁵³ × (341)⁷²
+→ 7¹⁵³ × 1⁷²
+7⁴ gives unit digit 1
+Therefore,
+7¹⁵² gives unit digit 1
+7¹⁵³ gives unit digit:
+1 × 7 = 7
+Also,
+1⁷² gives unit digit 1
+Hence, required unit digit:
+7 × 1 = 7
+```
+
+## H.C.F. and L.C.M. of Numbers
+
+### **A. Factors and Multiples**
+
+If a number a divides another number b exactly, we say that a is a factor of b. In this case, b is called a multiple of a.
+
+---
+
+### **B. Highest Common Factor (H.C.F.) or Greatest Common Measure (G.C.M.) or Greatest Common Divisor (G.C.D.)**
+
+The H.C.F. of two or more than two numbers is the greatest number that divides each of them exactly.
+
+There are two methods of finding the H.C.F. of a given set of numbers:
+
+##### **1. Factorization Method**
+
+Express each one of the given numbers as the product of prime factors.
+
+The product of least powers of common prime factors gives H.C.F.
+
+##### **2. Division Method**
+
+Suppose we have to find the H.C.F. of two given numbers.
+- Divide the larger number by the smaller one.
+- Divide the divisor by the remainder.
+- Repeat the process till remainder becomes zero.
+
+The last divisor is the required H.C.F.
+
+##### Finding the H.C.F. of More Than Two Numbers
+
+Suppose we have to find the H.C.F. of three numbers.
+
+Then,
+H.C.F. of: 
+[(H.C.F. of any two) and (the third number)]
+gives the H.C.F. of three given numbers.
+Similarly, the H.C.F. of more than three numbers may be obtained.
+
+---
+
+### C. Least Common Multiple (L.C.M.)
+
+The least number which is exactly divisible by each one of the given numbers is called their L.C.M.
+
+##### **1. Factorization Method of Finding L.C.M.**
+
+Resolve each one of the given numbers into a product of prime factors.
+
+Then, L.C.M. is the product of highest powers of all the factors.
+
+##### Common Division Method (Short-cut Method) of Finding L.C.M.
+
+- Arrange the given numbers in a row in any order.
+- Divide by a number which divides exactly at least two of the given numbers.
+- Carry forward the numbers which are not divisible.
+- Repeat the process till no two of the numbers are divisible by the same number except 1.
+
+The product of the divisors and the undivided numbers is the required L.C.M. of the given numbers.
+
+---
+
+### D. Product of Two Numbers
+
+Product of two numbers = Product of their H.C.F. and L.C.M.
+
+---
+
+### E. Co-primes
+
+Two numbers are said to be co-primes if their H.C.F. is 1.
+
+---
+
+### F. H.C.F. and L.C.M. of Fractions
+
+##### H.C.F. of Fractions
+
+$$
+\text{H.C.F.} =
+\frac{\text{H.C.F. of Numerators}}
+{\text{L.C.M. of Denominators}}
+$$
+
+##### L.C.M. of Fractions
+
+$$
+\text{L.C.M.} =
+\frac{\text{L.C.M. of Numerators}}
+{\text{H.C.F. of Denominators}}
+$$
+
+---
+
+### G. H.C.F. and L.C.M. of Decimal Fractions
+
+In given numbers, make the same number of decimal places by annexing zeros in some numbers, if necessary.
+
+Considering these numbers without decimal point, find H.C.F. or L.C.M. as the case may be.
+
+Now, in the result, mark off as many decimal places as are there in each of the given numbers.
+
+---
+
+### H. Comparison of Fractions
+
+Find the L.C.M. of the denominators of the given fractions.
+
+Convert each of the fractions into an equivalent fraction with L.C.M. as the denominator, by multiplying both the numerator and denominator by the same number.
+
+The resultant fraction with the greatest numerator is the greatest.
+
+### I. Example Problems
+
+```text
+Ex. 1 Find the H.C.F. of:
+(a) 42, 63 and 140
+
+Solution:
+42 = 2 × 3 × 7
+63 = 3² × 7
+140 = 2² × 5 × 7
+∴ H.C.F. = 7
+```
+```text
+(b) 108, 288 and 360
+
+Solution:
+108 = 2² × 3³
+288 = 2⁵ × 3²
+360 = 2³ × 5 × 3²
+∴ H.C.F. = 2² × 3² = 36
+```
+```text
+Ex. 2 Two numbers are in the ratio 3 : 4. Their L.C.M. is 84.
+Find the numbers.
+
+Solution:
+Let the numbers be:
+3x and 4x
+Then,
+L.C.M. = 12x
+So,
+12x = 84
+x = 7
+Therefore, the numbers are:
+21 and 28
+```
+```text
+Ex. 3 What is the least number which when divided by 3, 5, 6, 8, 10 and 12
+leaves remainder 2 in each case, but when divided by 13 leaves no remainder?
+
+Solution:
+L.C.M. of 3, 5, 6, 8, 10 and 12 = 120
+So, the required number is of the form:
+120k + 2
+Least value of k for which:
+120k + 2
+is divisible by 13 is:
+k = 8
+Required number:
+(120 × 8) + 2 = 962
+```
+
+## Ratio and Proportion
+
+##### **IMPORTANT CONCEPTS**
+
+### A. Ratio
+
+The ratio of two quantities a and b in the same units is the fraction:
+$$
+\frac{a}{b}
+$$
+written as:
+$$
+a : b
+$$
+In the ratio \(a : b\),
+- a is called the antecedent (first term)
+- b is called the consequent (second term)
+
+##### Example
+
+$$
+5 : 9 = \frac{5}{9}
+$$
+where antecedent = 5 and consequent = 9
+##### Rule
+Multiplying or dividing each term of a ratio by the same non-zero.
+number does not change the ratio.
+##### Example
+
+$$
+4 : 5 = 8 : 10 = 12 : 15
+$$
+
+$$
+4 : 6 = 2 : 3
+$$
+
+---
+
+### B. Proportion
+
+The equality of two ratios is called a proportion.
+If
+$$
+a : b = c : d
+$$
+then we write:
+$$
+a : b :: c : d
+$$
+Here,
+- a and d are called extremes
+- b and c are called mean terms
+
+##### Property
+
+Product of means = Product of extremes
+$$
+b \times c = a \times d
+$$
+---
+
+### C. Proportion Types
+
+##### **1. Fourth Proportional**
+If
+$$
+a : b = c : d
+$$
+<small>
+then d is the fourth proportional to a, b and c.
+</small>
+---
+
+##### **2. Third Proportional**
+
+If
+
+$$
+a : b = b : c
+$$
+
+then c is the third proportional to a and b.
+
+---
+
+##### **3. Mean Proportional**
+
+Mean proportional between a and b:
+
+$$
+\sqrt{ab}
+$$
+
+---
+
+### D. Ratios
+
+##### **1. Comparison of Ratios**
+
+$$
+\frac{a}{b} > \frac{c}{d}
+\iff
+ad > bc
+$$
+
+---
+
+##### **2.Compounded Ratio**
+
+The compounded ratio of:
+$$
+(a : b), (c : d), (e : f)
+$$
+is:
+$$
+(ace : bdf)
+$$
+
+---
+
+### E. Special Ratios
+
+##### **1. Duplicate Ratio**
+
+Duplicate ratio of:
+
+$$
+(a : b) = (a^2 : b^2)
+$$
+
+---
+
+##### **2. Sub-duplicate Ratio**
+
+Sub-duplicate ratio of:
+
+$$
+(a : b) = (\sqrt{a} : \sqrt{b})
+$$
+
+---
+
+##### **3. Triplicate Ratio**
+
+Triplicate ratio of:
+
+$$
+(a : b) = (a^3 : b^3)
+$$
+
+---
+
+##### **4. Sub-triplicate Ratio**
+
+Sub-triplicate ratio of:
+
+$$
+(a : b) =
+(a^{1/3} : b^{1/3})
+$$
+
+---
+
+##### **5. Componendo and Dividendo**
+
+If
+
+$$
+\frac{a}{b} = \frac{c}{d}
+$$
+
+then
+
+$$
+\frac{a + b}{a - b}
+=
+\frac{c + d}{c - d}
+$$
+
+---
+
+### F. Variation
+
+##### **1. Direct Variation**
+$$
+x \propto y
+$$
+
+$$
+x = ky
+$$
+
+where \(k\) is a constant.
+
+---
+
+##### **2. Inverse Variation**
+
+$$
+x \propto \frac{1}{y}
+$$
+
+$$
+xy = k
+$$
+
+---
+
+### G. Replacement (Mixture Concept)
+
+If a container has x units of liquid and y units are replaced each time, then after n operations, the quantity of pure liquid left is:
+
+$$
+x \times
+\left(
+1 - \frac{y}{x}
+\right)^n
+$$
+
+### H. Example Problems
+```text
+Ex. 1
+If 10% of x is equal to 20% of y,
+find x : y.
+
+Solution:
+10% of x = 20% of y
+(10/100)x = (20/100)y
+(1/10)x = (1/5)y
+x/10 = y/5
+x/y = 10/5 = 2/1
+Hence,
+x : y = 2 : 1
+```
+```text
+Ex. 2
+
+A man spends ₹500 in buying 12 tables and chairs. 
+The cost of one table is ₹50 and one chair is ₹40.
+Find the ratio of chairs and tables purchased.
+
+Solution:
+Let number of tables = x
+Then, number of chairs = (12 - x)
+Total cost:
+50x + 40(12 - x) = 500
+50x + 480 - 40x = 500
+10x = 20
+x = 2
+So, number of tables = 2
+Number of chairs = 10
+Required ratio (chairs : tables):
+10 : 2 = 5 : 1
+```
+
+```text
+Ex. 3
+A sum of ₹427 is divided among A, B and C such that 3 times A's share,
+4 times B's share and 7 times C's share are equal. 
+Find the share of each.
+
+Solution:
+Let
+3A = 4B = 7C = k
+
+Then,
+A = k/3
+B = k/4
+C = k/7
+
+So,
+A : B : C
+= 1/3 : 1/4 : 1/7
+Taking LCM of 3, 4 and 7:
+84
+Therefore,
+A : B : C = 28 : 21 : 12
+Sum of ratio terms:
+28 + 21 + 12 = 61
+A's share:
+(28/61) × 427 = 196
+B's share:
+(21/61) × 427 = 147
+C's share:
+(12/61) × 427 = 84
+```
+
+## Averages
+
+##### **IMPORTANT FACTS AND FORMULAE**
+
+### A. Average Formula
+$$
+\text{Average}
+=
+\frac{\text{Sum of observations}}
+{\text{Number of observations}}
+$$
+---
+
+### B. Average Speed (Equal Distances)
+
+If a man covers a certain distance at \(x\) km/h and an equal distance at \(y\) km/h, then the average speed for the whole journey is:
+
+$$
+\text{Average Speed}
+=
+\frac{2xy}{x + y}
+\text{ km/h}
+$$
+
+### C. Example Problems
+```text
+Ex. 1
+Find the average of all prime numbers between 30 and 50.
+
+Solution:
+Prime numbers between 30 and 50 are:
+31, 37, 41, 43, 47
+Number of terms = 5
+Sum:
+31 + 37 + 41 + 43 + 47 = 199
+Required average:
+199/5 = 39.8
+```
+```text
+Ex. 2
+In a class there are 50 students. Their average weight is 45 kg. 
+When one student leaves the class, the average is reduced by 100 g.
+Find the weight of the student who left the class.
+
+Solution:
+Total weight of 50 students:
+45 × 50 = 2250 kg
+New average of 49 students:
+45 - 0.1 = 44.9 kg
+Total weight of 49 students:
+44.9 × 49 = 2200.1 kg
+Weight of the student who left:
+2250 - 2200.1 = 49.9 kg
+```
+
+## Profit and Loss
+
+<style>{`
+.profit-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 15px;
+}
+
+.profit-table th {
+  background: #0f172a;
+  color: white;
+  padding: 12px;
+  border: 1px solid #334155;
+}
+
+.profit-table td {
+  padding: 12px;
+  border: 1px solid #334155;
+  vertical-align: top;
+}
+
+.profit-table tr:nth-child(even) {
+  background-color: rgba(148, 163, 184, 0.08);
+}
+
+.profit-table tr:hover {
+  background-color: rgba(56, 189, 248, 0.12);
+  transition: 0.3s;
+}
+`}</style>
+
+#### Profit and Loss Formula Table
+
+
+| Concept | Formula / Definition |
+|---|---|
+| **Cost Price (C.P.)** | The price at which an article is purchased. |
+| **Selling Price (S.P.)** | The price at which an article is sold. |
+| **Profit / Gain** | $S.P. > C.P.$ |
+| **Loss** | $S.P. < C.P.$ |
+| **Gain** | $\text{Gain} = S.P - C.P$ |
+| **Loss Formula** | $\text{Loss} = C.P - S.P$ |
+| **Gain%** | $\text{Gain\%} = \left(\frac{\text{Gain}}{\text{C.P.}}\right)\times100$ |
+| **Loss%** | $\text{Loss\%} = \left(\frac{\text{Loss}}{\text{C.P.}}\right)\times100$ |
+| **Selling Price Formula (Gain)** | $S.P = \left(\frac{100+\text{Gain\%}}{100}\right)\times C.P$ |
+| **Selling Price Formula (Loss)** | $S.P = \left(\frac{100-\text{Loss\%}}{100}\right)\times C.P$ |
+| **Cost Price Formula (Gain)** | $C.P = \left(\frac{100}{100+\text{Gain\%}}\right)\times S.P$ |
+| **Cost Price Formula (Loss)** | $C.P = \left(\frac{100}{100-\text{Loss\%}}\right)\times S.P$ |
+| **If Gain is $x\%$** | $S.P = (100+x)\% \text{ of C.P.}$ |
+| **If Loss is $x\%$** | $S.P = (100-x)\% \text{ of C.P.}$ |
+| **Equal Gain and Loss on Similar Items** | $\text{Net Loss\%} = \frac{x^2}{100}$ |
+| **False Weight at Cost Price** | $\text{Gain\%} = \left(\frac{\text{Error}}{\text{True Value}-\text{Error}}\right)\times100$ |
+| **Claimed $x\%$ Profit with $y\%$ Less Weight** | $\text{Gain\%} = \left(\frac{x+y}{100-y}\right)\times100$ |
+| **Claimed $x\%$ Loss with $y\%$ Less Weight** | $\text{Net Gain/Loss\%} = \left(\frac{y-x}{100-y}\right)\times100$ |
+| **Result Interpretation** | Positive Result → Gain <br /> Negative Result → Loss |
+### Example Problems
+
+```text
+Ex. 1
+A television manufacturer earns 20% profit by selling each T.V.
+set for ₹14400. If the production cost is increased by 15%, what
+should be the new selling price of a set so as to gain 15%?
+
+Solution:
+Given:
+S.P. = ₹14400
+Profit = 20%
+C.P.=(100/120)×14400=₹12000
+New C.P. after 15% increase:
+(115/100)×12000=₹13800
+Required S.P. for 15% gain:
+(115/100)×13800=₹15870
+```
+```text
+Ex. 2
+A dishonest dealer sells goods at 6¼% loss on cost price but uses 12½% less weight.
+Find his percentage profit or loss.
+
+Solution:
+Let the Cost Price (C.P.) of 1 kg goods = ₹1
+Loss:
+6¼% = 6.25%
+S.P. of 1 kg
+=(100-6.25)% of 1
+=₹0.9375
+He gives 12½% less weight.
+Actual weight
+=100%-12.5%
+=87.5%
+=875g
+So,
+S.P. of 875 g = ₹0.9375
+S.P. of 1 kg
+=(0.9375×1000)/875
+=₹1.0714
+Profit:
+1.0714-1=₹0.0714
+Profit%:
+(0.0714/1)×100
+=7.14%
+≈7⅑%
+```
+
+## Simple and Compound Interest
+
+<style>{`
+.interest-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 15px;
+}
+
+.interest-table th {
+  background: #0f172a;
+  color: white;
+  padding: 12px;
+  border: 1px solid #334155;
+  text-align: left;
+}
+
+.interest-table td {
+  padding: 12px;
+  border: 1px solid #334155;
+  vertical-align: top;
+}
+
+.interest-table tr:nth-child(even) {
+  background-color: rgba(148, 163, 184, 0.08);
+}
+
+.interest-table tr:hover {
+  background-color: rgba(59, 130, 246, 0.12);
+  transition: 0.3s;
+}
+`}</style>
+
+#### Simple and Compound Interest Table
+
+
+| Concept | Formula / Definition |
+|---|---|
+| **Principal (P)** | The money borrowed or lent for a certain period is called the principal. |
+| **Interest** | The extra money paid for using someone else’s money is called interest. |
+| **Simple Interest (S.I.)** | If interest is calculated uniformly on the principal for the entire time, it is called simple interest.<br /><br />Let:<br />$P$ = Principal <br />$R$ = Rate of interest per annum (%) <br />$T$ = Time (in years) |
+| **Simple Interest Formula** | $\text{S.I} = \frac{P \times R \times T}{100}$ |
+| **Principal Formula** | $P = \frac{\text{S.I} \times 100}{R \times T}$ |
+| **Rate Formula** | $R = \frac{\text{S.I} \times 100}{P \times T}$ |
+| **Time Formula** | $T = \frac{\text{S.I} \times 100}{P \times R}$ |
+| **Amount** | $A = P + \text{S.I}$ |
+| **Compound Interest** | Let:<br />$P$ = Principal <br />$R$ = Rate of interest per annum (%) <br />$n$ = Time (in years) |
+| **Compounded Annually** | $A = P\left(1+\frac{R}{100}\right)^n$ |
+| **Compounded Half-Yearly** | $A = P\left(1+\frac{(R/2)}{100}\right)^{2n}$ |
+| **Compounded Quarterly** | $A = P\left(1+\frac{(R/4)}{100}\right)^{4n}$ |
+| **Fractional Time** | When interest is compounded annually but time is fractional.<br /><br />$A = P\left(1+\frac{R}{100}\right)^3\left(1+\frac{(R/2)}{100}\right)$ |
+| **Different Rates for Different Years** | If rates are:<br />$R_1\%$, $R_2\%$, $R_3\%$<br /><br />$A = P\left(1+\frac{R_1}{100}\right)\left(1+\frac{R_2}{100}\right)\left(1+\frac{R_3}{100}\right)$ |
+| **Present Worth** | Present Worth ($P$) of ₹x due after n years:<br /><br />$P = \frac{x}{\left(1+\frac{R}{100}\right)^n}$ |
+
+### B. Example Problems
+```text
+Ex. 1
+A certain sum of money becomes three times of itself in 
+20 years at simple interest.In how many years does it become
+double of itself at the same rate?
+
+Solution:
+Let Principal = P
+When amount becomes 3P,
+S.I. = 3P - P = 2P
+Time:
+T = 20 years
+Using S.I. formula:
+S.I.=(P×R×T)/100
+2P=(P×R×20)/100
+R=(2×100)/20
+=10%
+Now for amount to become 2P,
+S.I. = 2P - P = P
+Using:
+T=(S.I.×100)/(P×R)
+T=(P×100)/(P×10)
+=10 years
+
+Therefore, required time = 10 years.
+```
+
+---
+
+
+## Time & Work
+
+1. If A can do a piece of work in $n$ days, then A’s 1 day work is:
+
+$$
+\frac{1}{n}
+$$
+
+2. If A’s 1 day work is:
+
+$$
+\frac{1}{n}
+$$
+
+then A can finish the work in $n$ days.
+
+3. If A is thrice as good a workman as B, then:
+
+- Ratio of work done by A and B:
+
+$$
+3 : 1
+$$
+
+- Ratio of time taken by A and B:
+
+$$
+1 : 3
+$$
+
+
+
+#### Example Problems
+
+```
+
+EX 1:
+
+A and B together can complete a piece of work in 15 days and B alone in 20 days.
+In how many days can A alone complete the work?
+
+Solution:
+A + B’s 1 day work = 1/15
+B’s 1 day work = 1/20
+A’s 1 day work = 1/15 − 1/20 = (4 − 3)/60 = 1/60
+
+Therefore, A alone can complete the work in 60 days.
+
+
+Ex.2 Rahul takes twice as much time as Manick and thrice as much time as Sachin to 
+complete a job. If working together, they can complete the job in 4 days,
+find the time taken by each of them separately to complete the work.
+
+Solution:
+Suppose Rahul takes x hours to complete the job.
+Then,
+Manick takes x/2 hours to complete the job.
+Sachin takes x/3 hours to complete the job.
+Rahul’s 1 hour work = 1/x
+Manick’s 1 hour work = 2/x
+Sachin’s 1 hour work = 3/x
+Together,
+1/x + 2/x + 3/x = ¼
+(1 + 2 + 3)/x = ¼
+6/x = ¼
+x = 24
+Therefore,
+Rahul takes 24 hours, Manick takes 12 hours, Sachin takes 8 hours.
+
+```
+### A.Pipes and Cisterns
+
+#### 1. Definitions
+
+- **Inlet:**  
+A pipe connected with a tank, cistern, or reservoir that fills it is known as an inlet.
+
+- **Outlet:**  
+A pipe connected with a tank, cistern, or reservoir that empties it is known as an outlet.
+
+---
+
+#### 2. Important Formulas
+
+1. If a pipe can fill a tank in $x$ hours, then part filled in 1 hour is:
+
+$$
+\frac{1}{x}
+$$
+
+2. If a pipe can empty a full tank in $y$ hours, then part emptied in 1 hour is:
+
+$$
+\frac{1}{y}
+$$
+
+3. If a pipe can fill a tank in $x$ hours and another pipe can empty the full tank in $y$ hours where $y > x$, then on opening both the pipes, the net part filled in 1 hour is:
+
+$$
+\frac{1}{x} - \frac{1}{y}
+$$
+
+4. If a pipe can fill a tank in $x$ hours and another pipe can empty the full tank in $y$ hours where $x > y$, then on opening both the pipes, the net part emptied in 1 hour is:
+
+$$
+\frac{1}{y} - \frac{1}{x}
+$$
+
+#### 3. Example Problems
+```
+
+Ex. 1:
+
+A tank 9 ft by 5 ft by 2 ft is fitted with an inlet pipe and an exhaust pipe.
+The inlet pipe pours in 576 cu. inch of water per minute and the exhaust pipe can
+empty the full tank in 3 hours. If the tank is full and both pipes are open, how
+many hours will it take to empty it?
+
+
+Solution:
+Volume of the tank = (9 × 5 × 2) cu. ft = 90 cu. Ft.
+= (90 × 12 × 12 × 12) cu. inches
+Volume of water drained by the exhaust pipe in one minute
+= (90 × 12 × 12 × 12) / (3 × 60)
+= 864 cu. inches
+Net volume drained in one minute when both pipes are opened
+= (864 − 576) cu. Inches
+= 288 cu. Inches
+Required time
+= (90 × 12 × 12 × 12) / (288 × 60) hours
+= 9 hours.
+
+Ex 2. Two pipes can fill a cistern in 14 hours and 16 hours respectively. 
+The pipes are opened simultaneously and it is found that due to leakage in 
+the bottom it took 32 minutes more to fill the cistern. When the cistern is full,
+in what time will the leak empty it?
+
+Solution:
+Work done by the two pipes in 1 hour
+= (1/14 + 1/16)
+= (8 + 7)/112
+= 15/112
+Time taken by these pipes to fill the tank
+= 112/15 hours
+= 7 hours 28 minutes
+Due to leakage, time taken
+= 7 hours 28 minutes + 32 minutes
+= 8 hours
+Work done by (two pipes + leak) in 1 hour
+= ⅛
+Work done by the leak in 1 hour
+= (15/112 − 1/8)
+= (15/112 − 14/112)
+= 1/112
+Therefore, the leak alone can empty the full cistern in 112 hours.
+
+```
+
+---
+
+### B. Work and Wages
+
+#### 1. Basic Work Formula
+
+If a person can complete a work in $n$ days, then:
+
+$$
+\text{1 day’s work} = \frac{1}{n}
+$$
+
+If 1 day’s work is:
+
+$$
+\frac{1}{n}
+$$
+
+then total work will be completed in $n$ days.
+
+
+#### 2. Efficiency and Time Relation
+
+Efficiency is inversely proportional to time.
+
+If A is twice as efficient as B:
+
+- Work ratio:
+
+$$
+2 : 1
+$$
+
+- Time ratio:
+
+$$
+1 : 2
+$$
+
+If efficiency ratio of A and B is:
+
+$$
+m : n
+$$
+
+then time taken ratio is:
+
+$$
+n : m
+$$
+
+
+#### 3. Combined Work
+
+If A can do a work in $x$ days and B can do the same work in $y$ days, then:
+
+A’s 1 day work:
+
+$$
+\frac{1}{x}
+$$
+
+B’s 1 day work:
+
+$$
+\frac{1}{y}
+$$
+
+Combined 1 day work:
+
+$$
+\frac{1}{x} + \frac{1}{y}
+$$
+
+Time taken together:
+
+$$
+\frac{xy}{x+y}
+$$
+
+
+#### 4. Difference in Work
+
+If A can do a work in $x$ days and B in $y$ days:
+
+$$
+\left( \frac{1}{x} - \frac{1}{y} \right)
+$$
+
+
+#### 5. Wages Formula
+
+Wages are distributed according to work done.
+
+If wages are proportional to efficiency:
+
+$$
+\text{Wages Ratio} = \text{Efficiency Ratio}
+$$
+
+Example:
+
+If A and B work in the ratio:
+
+$$
+3 : 2
+$$
+
+then wages are divided in the ratio:
+
+$$
+3 : 2
+$$
+
+
+#### 6. Work and Time Relation
+
+- More workers → Less time
+- Less workers → More time
+
+$$
+(M_1 \times D_1 \times H_1 \times E_1)
+=
+(M_2 \times D_2 \times H_2 \times E_2)
+$$
+
+Where:
+
+- $M$ = Number of men
+- $D$ = Number of days
+- $H$ = Working hours per day
+- $E$ = Efficiency
+
+
+#### 7. Net Work Formula
+
+When both inlet and outlet are opened:
+
+$$
+\frac{1}{x} - \frac{1}{y}
+$$
+
+
+
+#### 8. Example Problems
+```
+Ex 1:
+A can do a piece of work in 12 days and B can do the same work in 18 days.
+They work together and earn ₹900. Find the share of each.
+
+Solution
+A’s 1 day work = 1/12
+B’s 1 day work = 1/18
+Ratio of work done by A and B
+= (1/12) : (1/18)
+= 18 : 12
+= 3 : 2
+Therefore, wages are divided in the ratio 3 : 2.
+A’s share = (3/5) × 900 = ₹540
+B’s share = (2/5) × 900 = ₹360
+Hence,
+A gets ₹540 and B gets ₹360.
+
+Ex 2: 
+A, B and C can complete a work in 10 days, 15 days and 30 days respectively.
+They work together and receive ₹4800. Find each person’s share.
+
+Solution
+A’s 1 day work = 1/10
+B’s 1 day work = 1/15
+C’s 1 day work = 1/30
+Ratio of work done
+= (1/10) : (1/15) : (1/30)
+Taking LCM 30, = 3 : 2 : 1
+
+Total ratio = 3 + 2 + 1 = 6
+A’s share = (3/6) × 4800 = ₹2400
+B’s share = (2/6) × 4800 = ₹1600
+C’s share = (1/6) × 4800 = ₹800
+Hence,A gets ₹2400, B gets ₹1600 and C gets ₹800.
+
+```

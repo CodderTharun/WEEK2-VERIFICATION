@@ -1,0 +1,1012 @@
+---
+title: Power Electronics
+---
+### **Power Electronics**
+Power electronics is the study of conversion and control of electrical power using semiconductor devices. It is used to efficiently convert power from one form to another (AC ↔ DC, DC ↔ DC, AC ↔ AC).
+
+---
+## Introduction
+#### Steps
+
+1. Input power supply (AC/DC)
+2. Use power semiconductor device
+3. Control switching (ON/OFF)
+4. Get desired output (controlled voltage/current)
+
+---
+
+#### Types of Power Conversion
+
+- **AC to DC** → Rectifier
+- **DC to AC** → Inverter
+- **DC to DC** → Chopper
+- **AC to AC** → Cycloconverter / AC Controller
+
+---
+
+#### Reverse Recovery Time $T_{rr}$
+
+Time taken by diode to switch from forward conducting to reverse blocking mode.
+
+##### Important Points
+
+- Affects efficiency and heat dissipation
+- Important in high-frequency applications
+
+---
+
+## Thyristor Characteristics
+
+A thyristor is a 4-layer (PNPN) semiconductor device acting as a high-power, unidirectional bistable switch with anode, cathode, and gate terminals.
+
+#### Key Characteristics
+
+- Forward Blocking
+- Reverse Blocking
+- Forward Conduction
+
+It can handle:
+
+$$
+>12\text{kV}
+$$
+
+and currents:
+
+$$
+>6\text{kA}
+$$
+
+Once triggered by a positive gate pulse, it stays conductive until the anode current drops below the holding current.
+
+---
+
+### A. Static Characteristics
+
+Describes the V-I behavior during ON and OFF states.
+
+- Forward Blocking
+- Forward Conduction
+- Reverse Blocking
+
+---
+
+### B. Dynamic Characteristics
+
+- Turn-On Time
+- Turn-Off Time
+- Reverse Recovery
+
+---
+
+###### Special Case
+
+Devices operate in switching mode (ON/OFF), reducing power loss compared to linear devices.
+
+---
+
+##### Important Points
+
+- Power electronics deals with high voltage and current
+- Devices act as switches, not amplifiers
+- SCR cannot turn OFF by gate
+- MOSFET provides fast switching
+- IGBT has high power capability
+
+---
+
+###### Limitations
+
+- Switching losses
+- Harmonics in output
+- Requires proper cooling
+
+---
+
+## Power Semiconductor Devices
+
+### A. Diode
+
+##### Definition
+
+A diode is a two-terminal semiconductor device that allows current to flow in one direction only and blocks it in the opposite direction.
+
+---
+
+###### 1.Symbol & Terminals
+
+- Anode (A) → Positive terminal
+- Cathode (K) → Negative terminal
+- Current flows from Anode → Cathode
+
+---
+
+###### 2. Working Principle
+
+A diode is made from a PN junction:
+
+- P-side → holes
+- N-side → electrons
+
+At the junction:
+
+- A depletion region forms
+- Acts as a barrier to current flow
+
+---
+
+###### 3. Biasing of Diode
+
+##### (i) Forward Bias
+
+- P-side connected to +ve
+- N-side connected to –ve
+- Depletion layer decreases
+- Current flows
+- Diode acts like a closed switch
+
+##### (ii) Reverse Bias
+
+- P-side connected to –ve
+- N-side connected to +ve
+- Depletion layer increases
+- No current flows except leakage current
+- Diode acts like an open switch
+
+---
+
+###### 4. V-I Characteristics
+
+<div align="center">
+  <img 
+    src="/EEE/PEImage1.png"
+    alt="AIML-1"
+    width="500px"
+    height="400px"
+  />
+</div>
+
+##### Forward Bias
+
+Current increases rapidly after threshold voltage.
+
+Threshold voltage:
+
+- Silicon diode:
+
+$$
+0.7\text{V}
+$$
+
+- Germanium diode:
+
+$$
+0.3\text{V}
+$$
+
+###### Reverse Bias
+
+- Very small reverse saturation current
+- Sudden increase at breakdown voltage
+
+---
+
+### Types of Diodes
+
+##### 1. PN Junction Diode
+
+Basic diode used for rectification.
+
+A PN junction diode is formed by joining p-type and n-type semiconductor materials.
+
+---
+
+##### 2. Zener Diode
+
+A Zener diode operates in reverse breakdown region for voltage regulation.
+
+Maintains constant voltage:
+
+$$
+V_Z
+$$
+
+Operating range:
+
+$$
+2.4\text{V} \text{ to } 200\text{V}
+$$
+
+##### Uses
+
+- Voltage regulation
+- Surge protection
+
+---
+
+##### 3. LED (Light Emitting Diode)
+
+A semiconductor device that emits light when forward biased.
+
+##### Applications
+
+- Displays
+- Indicators
+- Lighting
+
+---
+
+###### 4. Photodiode
+
+A photodiode converts light into electrical current.
+
+##### Features
+
+- Operates in reverse bias
+- Detects UV, visible, and infrared light
+
+---
+
+##### 5. Schottky Diode
+
+A metal-semiconductor junction diode with:
+
+- Low forward voltage drop
+- Fast switching speed
+
+Forward voltage drop:
+
+$$
+0.15\text{V} - 0.45\text{V}
+$$
+
+---
+
+#### Applications of Diodes
+
+- Rectifiers
+- Clippers and clampers
+- Voltage regulators
+- Signal demodulation
+- Protection circuits
+
+---
+
+### B. SCR (Silicon Controlled Rectifier)
+
+##### Definition
+
+An SCR is a three-terminal semiconductor device used as a controlled switch.
+
+---
+
+##### Terminals
+
+- Anode (A)
+- Cathode (K)
+- Gate (G)
+
+Current flows from Anode → Cathode when triggered.
+
+---
+
+##### Construction
+
+- Four-layer PNPN structure
+- Junctions:
+
+$$
+J_1,\ J_2,\ J_3
+$$
+
+---
+
+#### Working Principle
+
+##### (i) Forward Blocking Mode
+
+- Anode positive
+- Cathode negative
+- SCR OFF
+
+###### (ii) Forward Conduction Mode
+
+- Gate pulse applied
+- SCR turns ON
+- Remains ON after gate pulse removal
+
+##### (iii) Reverse Blocking Mode
+
+- Anode negative
+- Cathode positive
+- No conduction
+
+---
+
+##### V-I Characteristics
+
+<div align="center">
+  <img 
+    src="/EEE/PEImage2.png"
+    alt="AIML-1"
+    width="500px"
+    height="400px"
+  />
+</div>
+
+SCR initially remains OFF in forward bias and turns ON by:
+
+- Gate triggering
+- Breakover voltage
+
+---
+
+#### Important Terms
+
+##### Latching Current ($I_L$)
+
+Minimum current required to keep SCR ON after triggering.
+
+##### Holding Current ($I_H$)
+
+Minimum current below which SCR turns OFF.
+
+$$
+I_L > I_H
+$$
+
+---
+
+##### Switching Action
+
+- Turn ON → Gate pulse
+- Turn OFF → Reduce current below holding current
+
+---
+
+##### Two-Transistor Analogy
+
+SCR can be represented as:
+
+- One PNP transistor
+- One NPN transistor
+
+Positive feedback enables rapid switching.
+
+---
+
+##### Advantages
+
+- High efficiency
+- High voltage/current handling
+- Fast switching
+- Compact
+
+---
+
+##### Applications
+
+- Controlled rectifiers
+- Light dimmers
+- Motor speed control
+- Power control circuits
+- Inverters and converters
+
+---
+
+###### Key Points
+
+- Unidirectional controlled device
+- Requires gate signal to turn ON
+- Cannot turn OFF by gate
+
+---
+
+### C. MOSFET
+
+##### Definition
+
+A MOSFET is a voltage-controlled semiconductor device used for switching and amplification.
+
+---
+
+##### Terminals
+
+- Gate (G)
+- Drain (D)
+- Source (S)
+
+Current flows from Drain → Source.
+
+---
+
+##### Construction
+
+- Semiconductor substrate
+- Gate insulated using:
+
+$$
+SiO_2
+$$
+
+- Very high input impedance
+
+---
+
+#### Types of MOSFET
+
+##### (a) Enhancement MOSFET
+- Normally OFF
+- Requires gate voltage to turn ON
+
+##### (b) Depletion MOSFET
+- Normally ON
+- Can be turned OFF using gate voltage
+
+---
+
+##### Channel Types
+- N-channel MOSFET
+- P-channel MOSFET
+
+N-channel MOSFET is more efficient.
+
+---
+
+#### Working Principle
+
+##### Case 1
+
+$$
+V_{GS}=0
+$$
+
+- No channel formed
+- No current flow
+
+##### Case 2
+
+$$
+V_{GS} > V_T
+$$
+
+- Channel forms
+- Current flows
+
+---
+
+#### Regions of Operation
+
+##### 1. Cut-off Region
+
+$$
+V_{GS} < V_T
+$$
+Device OFF.
+
+##### 2. Linear Region
+
+- Acts like resistor
+- Current increases linearly
+
+##### 3. Saturation Region
+
+- Acts like switch/amplifier
+- Current becomes constant
+
+---
+
+#### Characteristics
+
+<div align="center">
+  <img 
+    src="/EEE/PEImage3.png"
+    alt="AIML-1"
+    width="500px"
+    height="400px"
+  />
+</div>
+
+##### Output Characteristics
+
+$$
+I_D \text{ vs } V_{DS}
+$$
+
+##### Transfer Characteristics
+
+$$
+I_D \text{ vs } V_{GS}
+$$
+
+---
+
+#### Advantages
+
+- Very high input impedance
+- Low power consumption
+- Fast switching
+- Small size
+
+---
+
+#### Applications
+
+- CMOS technology
+- Amplifiers
+- Switching devices
+- Power electronics
+- Microprocessors
+
+---
+
+#### Key Points
+
+- Voltage-controlled device
+- Gate insulated
+- Widely used in ICs
+
+---
+
+### D. IGBT (Insulated Gate Bipolar Transistor)
+
+#### Definition
+
+An IGBT combines:
+
+- MOSFET’s high input impedance
+- BJT’s high current capability
+
+Used in power electronics for switching and control.
+
+---
+
+#### Terminals
+
+- Gate (G)
+- Collector (C)
+- Emitter (E)
+
+Current flows from Collector → Emitter.
+
+---
+
+#### Construction
+
+- MOSFET input structure
+- BJT output structure
+- PNPN layers
+
+---
+
+#### Working Principle
+
+##### OFF State
+
+$$
+V_{GE}=0
+$$
+
+- No conduction
+- Open switch
+
+##### ON State
+
+- Positive gate voltage applied
+- Channel forms
+- Heavy current conduction
+
+---
+
+#### Characteristics
+
+<div align="center">
+  <img 
+    src="/EEE/PEImage4.png"
+    alt="AIML-1"
+    width="500px"
+    height="400px"
+  />
+</div>
+
+#### Features
+
+- High voltage capability
+- Low conduction losses
+- Moderate switching speed
+
+---
+
+#### Advantages
+
+- High input impedance
+- Low gate power
+- High efficiency
+- High voltage/current handling
+
+---
+
+#### Disadvantages
+
+- Slower than MOSFET
+- Latch-up issue
+- Costlier than BJT
+
+---
+
+#### Applications
+
+- Inverters
+- Motor drives
+- UPS systems
+- Electric vehicles
+- Power converters
+- Induction heating
+
+---
+
+### E. Comparison: IGBT vs MOSFET vs BJT
+
+| Feature | IGBT | MOSFET | BJT |
+|---|---|---|---|
+| Control | Voltage | Voltage | Current |
+| Speed | Medium | High | Low |
+| Power Handling | High | Medium | High |
+| Input Impedance | High | Very High | Low |
+
+---
+
+## Rectifier
+
+A rectifier converts AC into DC using diodes.
+
+<div align="center">
+  <img 
+    src="/EEE/PEImage5.png"
+    alt="AIML-1"
+    width="500px"
+    height="400px"
+  />
+</div>
+---
+
+### A. Types of Rectifiers
+
+- Half Wave Rectifier (HWR)
+- Full Wave Rectifier (FWR)
+  - Center-tapped
+  - Bridge rectifier
+
+---
+
+### B. Working Steps
+
+1. Apply AC input
+2. Diode conducts in one direction
+3. Output becomes pulsating DC
+4. Filter smoothens output
+
+---
+
+### C. Half Wave Rectifier
+
+<div align="center">
+  <img 
+    src="/EEE/PEImage6.png"
+    alt="AIML-1"
+    width="500px"
+    height="400px"
+  />
+</div>
+
+##### Average Output Voltage
+
+$$
+V_{dc}=\frac{V_m}{\pi}
+$$
+
+##### RMS Voltage
+
+$$
+V_{rms}=\frac{V_m}{2}
+$$
+
+<div align="center">
+  <img 
+    src="/EEE/PEImage7.png"
+    alt="AIML-1"
+    width="500px"
+    height="400px"
+  />
+</div>
+
+---
+
+### D. Full Wave Rectifier
+
+<div align="center">
+  <img 
+    src="/EEE/PEImage8.png"
+    alt="AIML-1"
+    width="500px"
+    height="400px"
+  />
+</div>
+
+##### Average Output Voltage
+
+$$
+V_{dc}=\frac{2V_m}{\pi}
+$$
+
+##### RMS Voltage
+
+$$
+V_{rms}=\frac{V_m}{\sqrt{2}}
+$$
+
+<div align="center">
+  <img 
+    src="/EEE/PEImage9.png"
+    alt="AIML-1"
+    width="500px"
+    height="400px"
+  />
+</div>
+
+---
+
+###### Special Case
+
+- Bridge rectifier does not require center tap
+- Full-wave rectifier provides higher efficiency
+
+---
+
+#### Comparison of Rectifiers
+
+| Feature | Half-Wave | Full-Wave (CT) | Bridge |
+|---|---|---|---|
+| Number of Diodes | 1 | 2 | 4 |
+| AC Cycle Usage | One half-cycle | Both half-cycles | Both half-cycles |
+| Output Voltage | $\frac{V_m}{\pi}$ | $\frac{2V_m}{\pi}$ | $\frac{2V_m}{\pi}$ |
+| Efficiency | 40.6% | 81.2% | 81.2% |
+| Ripple Factor | 1.21 | 0.482 | 0.482 |
+| PIV | $V_m$ | $2V_m$ | $V_m$ |
+
+---
+
+#### Ripple Factor
+
+Ripple factor is:
+
+$$
+r=\sqrt{\left(\frac{V_{rms}}{V_{dc}}\right)^2-1}
+$$
+
+---
+
+## Inverter
+
+An inverter converts DC into AC.
+
+Applications:
+
+- UPS
+- Solar systems
+- Motor drives
+
+---
+
+### A. Types of Inverters
+
+- Single-phase
+- Three-phase
+- VSI
+- CSI
+
+---
+
+### B. Working Steps
+
+1. Input DC supply
+2. Use MOSFET/IGBT
+3. Switch ON/OFF
+4. Produce AC waveform
+
+---
+
+#### Important Equations
+
+##### Output Voltage
+
+$$
+V_o = \pm V_{dc}
+$$
+
+##### RMS Output Voltage
+
+$$
+V_{rms}=V_{dc}
+$$
+
+##### Frequency
+
+$$
+f=\frac{1}{T}
+$$
+
+<div align="center">
+  <img 
+    src="/EEE/PEImage10.png"
+    alt="AIML-1"
+    width="500px"
+    height="400px"
+  />
+</div>
+
+---
+
+#### PWM
+
+Pulse Width Modulation (PWM) is used to obtain sine-wave output and reduce harmonics.
+
+---
+
+## Chopper (DC–DC Converter)
+
+A chopper converts fixed DC into variable DC voltage.
+
+Applications:
+
+- Electric vehicles
+- DC drives
+- Power supplies
+
+---
+
+### A. Types of Choppers
+
+#### Buck Chopper
+$$
+V_o < V_s
+$$
+#### Boost Chopper
+$$
+V_o > V_s
+$$
+#### Buck-Boost Chopper
+
+<small> Output can be higher or lower. </small>
+
+---
+
+### B. Working Steps
+
+1. Apply DC input
+2. Switch ON/OFF
+3. Control duty cycle
+4. Obtain required output
+
+<div align="center">
+  <img 
+    src="/EEE/PEImage11.png"
+    alt="AIML-1"
+    width="500px"
+    height="400px"
+  />
+</div>
+
+---
+
+#### Important Equations
+
+##### Duty Cycle
+
+$$
+D=\frac{T_{on}}{T}
+$$
+
+##### Buck Converter
+
+$$
+V_o = D \times V_s
+$$
+
+##### Boost Converter
+
+$$
+V_o=\frac{V_s}{1-D}
+$$
+
+---
+
+## Cycloconverter / AC Controller
+
+A cycloconverter converts AC directly into AC of different voltage/frequency without intermediate DC stage.
+
+---
+
+### A. AC Voltage Controller
+
+#### Features
+
+- Controls output voltage
+- Same frequency as input
+- Uses SCR/TRIAC
+
+#### Applications
+
+- Lighting control
+- Heater control
+- Soft starters
+
+---
+
+### B. Cycloconverter
+
+#### Features
+
+- Controls voltage and frequency
+- Output frequency usually lower
+
+#### Applications
+
+- Rolling mills
+- Cement mills
+- Ships
+
+---
+
+#### Working Steps
+
+1. Apply AC input
+2. Use SCRs
+3. Control firing angle
+4. Obtain desired output
+
+<div align="center">
+  <img 
+    src="/EEE/PEImage12.png"
+    alt="AIML-1"
+    width="500px"
+    height="400px"
+  />
+</div>
+
+---
+
+#### Important Equations
+
+##### RMS Output Voltage
+
+$$
+V_o = V_s \sqrt{\frac{1}{\pi}\left(\pi-\alpha+\frac{\sin 2\alpha}{2}\right)}
+$$
+
+##### Frequency Relation
+
+$$
+f_o < f_s
+$$
+
+---
+
+#### Important Points
+
+- AC → AC conversion
+- No intermediate DC stage
+- Output frequency less than or equal to input frequency
+- Controlled using firing angle:
+
+$$
+\alpha
+$$
+
+---
+
+#### Limitations
+
+- High harmonics
+- Low power factor
+- Complex control

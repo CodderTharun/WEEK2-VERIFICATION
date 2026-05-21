@@ -1,0 +1,108 @@
+---
+title: ECE Department - Week 4 Answer Keys
+description: Solutions and answer keys for ECE Department Week 4 problems
+---
+
+# ECE Department - Week 4 Answer Keys
+
+## Digital Logic
+
+**Q1: Register File Design**
+```
+Address decoder selects register
+Data in/out multiplexing
+Control signals: Read Enable, Write Enable
+Timing: Address setup → data valid
+```
+
+**Q2: Memory Interfacing**
+```
+Address bus: Selects memory location
+Data bus: Transfers data
+Control signals: RD, WR, CS
+Wait states for slow memory
+```
+
+## Microprocessors
+
+**Q1: Interrupt Service Routine**
+```
+1. Save registers (On stack)
+2. Address of ISR from vector table
+3. Execute ISR code
+4. Restore registers
+5. RET or RETI
+```
+
+**Q2: DMA Controller**
+```
+Direct Memory Access:
+- No CPU involvement for data transfer
+- Setup: Source, Destination, Count
+- Faster than CPU I/O
+```
+
+## Signals and Systems
+
+**Q1: Z-Transform**
+```
+Z{x[n]} = Σ x[n]·z^(-n)
+Inverse Z-transform via tables/residues
+ROC determines causality
+```
+
+**Q2: Stability Analysis**
+```
+Analog: Poles in left half-plane
+Digital: Poles inside unit circle
+Routh-Hurwitz criterion for stability
+```
+
+## Communications
+
+**Q1: Digital Modulation**
+```
+BASK: Amplitude shifts (0→Vs, 1→0)
+BFSK: Frequency shifts (f1, f2)
+BPSK: Phase shifts (0°, 180°)
+Symbol error rate analysis
+```
+
+**Q2: Error Detection/Correction**
+```
+Parity: Single bit error detection
+Hamming: Single bit error correction (SBEC)
+CRC: Block error detection
+Interleaving: Burst error handling
+```
+
+## Power Electronics
+
+**Q1: Chopper Operation**
+```
+Step-down (Buck): Vo < Vs
+Output voltage = D × Vs
+Ripple analysis: ΔI and ΔV
+Inductor/Capacitor sizing
+```
+
+**Q2: MOSFET Gate Drive**
+```
+Bootstrap circuit for high-side drive
+Gate resistor: Limits dI/dt
+Temperature compensation
+Protection: Under-voltage lockout
+```
+
+---
+
+## Expert Level
+
+| Concept | Complexity |
+|---------|-----------|
+| State Space | Matrix form analysis |
+| Modulation | Symbol constellation diagrams |
+| Power Design | Thermal and EMI considerations |
+| Stability | Multiple analysis methods |
+
+**Week 4 Mastery:** Expert-level problem solving achieved

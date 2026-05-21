@@ -1,0 +1,62 @@
+---
+title: DBMS - Week 4
+description: Transactions and Recovery
+---
+
+
+
+## Transactions
+
+A transaction is a sequence of operations that must be executed atomically.
+
+### ACID Properties
+
+1. **Atomicity** - All or nothing
+2. **Consistency** - Valid state to valid state
+3. **Isolation** - No interference between transactions
+4. **Durability** - Permanent after commit
+
+### Transaction States
+
+- **Active** - Currently executing
+- **Partially Committed** - Executed but not committed
+- **Committed** - Successfully completed
+- **Failed** - Encountered error
+- **Aborted** - Rolled back
+
+### Concurrency Control
+
+Multiple transactions running simultaneously.
+
+### Isolation Levels
+
+1. **Read Uncommitted** - Dirty reads possible
+2. **Read Committed** - No dirty reads
+3. **Repeatable Read** - No unrepeatable reads
+4. **Serializable** - Complete isolation
+
+### Recovery
+
+Restoring database after failure.
+
+### Recovery Techniques
+
+- **Logging** - Record all changes
+- **Checkpointing** - Save consistent state
+- **Backup** - Full database copy
+- **Roll-back/Forward** - Undo or redo changes
+
+### This Week
+
+- Transaction processing
+- ACID properties implementation
+- Concurrency control mechanisms
+- Locking protocols
+- Recovery mechanisms
+- Backup and restoration
+
+### Practice
+
+- Design transactions
+- Implement locks
+- Handle failures

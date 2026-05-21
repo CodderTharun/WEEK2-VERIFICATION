@@ -1,0 +1,69 @@
+---
+title: OOPS - Week 4
+description: Exception Handling and Design Patterns
+---
+
+
+
+## Exception Handling
+
+Exception handling manages errors gracefully.
+
+### Exception Types
+
+1. **Checked Exceptions**
+   - Must be caught or declared
+   - IOException, SQLException
+
+2. **Unchecked Exceptions**
+   - Runtime exceptions
+   - NullPointerException, ArrayIndexOutOfBoundsException
+
+### Try-Catch-Finally
+
+```java
+try {
+    // Code that might throw exception
+    int result = 10 / 0;
+} catch (ArithmeticException e) {
+    System.out.println("Cannot divide by zero");
+} finally {
+    // Always executed
+}
+```
+
+## Design Patterns
+
+Reusable solutions to common problems.
+
+### Creational Patterns
+
+- **Singleton** - Single instance
+- **Factory** - Object creation abstraction
+- **Builder** - Complex object construction
+
+### Structural Patterns
+
+- **Adapter** - Interface adaptation
+- **Proxy** - Object representation
+- **Facade** - Simplified interface
+
+### Behavioral Patterns
+
+- **Observer** - Event notification
+- **Strategy** - Algorithm selection
+- **State** - State-based behavior
+
+### This Week
+
+- Exception hierarchy
+- Custom exceptions
+- Try-with-resources
+- Common design patterns
+- Pattern selection criteria
+
+### Practice
+
+- Implement exception handling
+- Create custom exceptions
+- Apply design patterns

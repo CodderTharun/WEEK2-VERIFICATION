@@ -1,0 +1,68 @@
+---
+title: OS - Week 3
+description: Deadlocks and Memory Management
+---
+
+
+
+## Deadlocks
+
+A deadlock is a situation where processes are blocked waiting for resources indefinitely.
+
+### Deadlock Conditions
+
+All 4 conditions must be present:
+
+1. **Mutual Exclusion** - Resource can't be shared
+2. **Hold and Wait** - Process holds resource while waiting
+3. **No Preemption** - Can't forcibly take resource
+4. **Circular Wait** - Circular chain of processes waiting
+
+### Deadlock Prevention
+
+- Remove one of the 4 conditions
+
+### Deadlock Avoidance
+
+- Banker's Algorithm
+- Resource allocation graphs
+
+## Memory Management
+
+Allocating and managing memory for processes.
+
+### Memory Allocation Strategies
+
+1. **Contiguous Allocation**
+   - Fixed partitioning
+   - Dynamic partitioning
+
+2. **Non-contiguous Allocation**
+   - Paging - Fixed size chunks
+   - Segmentation - Variable size chunks
+
+### Virtual Memory
+
+- Extends available memory using disk
+- Page replacement algorithms
+- Thrashing - Excessive paging
+
+### Paging
+
+- **Page** - Fixed size memory block
+- **Frame** - Physical memory block
+- **Page Table** - Maps logical to physical addresses
+- **TLB** - Translation Lookaside Buffer (cache)
+
+### This Week
+
+- Deadlock detection and recovery
+- Paging and segmentation
+- Page replacement algorithms
+- Virtual memory concepts
+
+### Practice
+
+- Identify deadlock situations
+- Apply deadlock prevention
+- Calculate page faults

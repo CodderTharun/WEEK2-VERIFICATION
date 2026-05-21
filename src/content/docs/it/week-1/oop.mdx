@@ -1,0 +1,1069 @@
+---
+title: OOP
+description: Object-Oriented Programming fundamentals
+---
+
+import { Code, Tabs, TabItem } from '@astrojs/starlight/components';
+
+<style>{`
+pre {
+  overflow-x: scroll;
+  max-width: 100%;
+  display: block;
+  white-space: pre;
+}
+`}</style>
+
+## Basics
+
+### A. POP vs OOP
+
+#### 1. Procedural Oriented Programming (POP):
+
+Procedural Oriented Programming (POP) is a programming paradigm that focuses on procedures (functions) as the main building blocks of a program. It organizes code as a sequence of instructions that operate on data.
+Programs are divided into small reusable functions. 
+Start with a main problem → break it into smaller sub-problems (functions). 
+Instructions are executed step-by-step. 
+Data can be shared across functions using global variables.
+Data is often exposed to multiple functions.  
+
+##### a.Advantages
+
+- Simple and easy to understand.
+- Suitable for small programs.
+- Code reuse through functions.
+- Faster execution (less overhead than OOP).
+
+##### b. Disadvantages
+
+- Difficult to manage large programs.
+- Data is not secure (no encapsulation).
+- Hard to modify and debug complex systems.
+- No real-world modeling.
+
+#### 2. Object Oriented Programming (OOP):
+
+OOPS is a programming approach that organizes code into objects, which contain data and methods, to make programs more structured, reusable, and easy to understand. 
+Combining data and methods into a single unit (class) and restricting access. 
+Hiding complex details and showing only essential features. 
+Creating new classes from existing classes to reuse code. 
+One function behaves in different ways based on input or object. 
+Reusing properties and methods from another class. 
+Protecting data from unauthorized access. 
+
+##### a. Advantages
+
+- Code can be reused using inheritance.
+- The program is divided into small parts (classes), making it easy to manage.
+- Errors can be fixed easily without affecting the whole program.
+- Data is protected using encapsulation.
+- Easy to extend and modify programs.
+- Represents real-life objects clearly.
+
+
+##### b. Disadvantages
+- Hard to understand for beginners.
+- Requires extra memory for objects and classes.
+- Compared to procedural programming in some cases.
+- Extra effort needed for design (classes, objects).
+- Simple problems do not need OOP structure.
+
+##### c. Features of OOP
+
+- Combining data and methods into a single unit (class) and restricting access.
+- Hiding complex details and showing only essential features.
+- Creating new classes from existing classes to reuse code.
+- One function behaves in different ways based on input or object.
+- Reusing properties and methods from another class.
+- Protecting data from unauthorized access.
+
+
+| Features | POP | OOP |
+|---|---|---|
+| Full Form | Procedural Oriented Programming | Object-Oriented Programming |
+| Focus | Functions and procedures | Objects and data |
+| Program Division | Program is divided into functions | Program is divided into objects/classes |
+| Approach | Top-down approach | Bottom-up approach |
+| Data Security | Less secure | More secure due to encapsulation |
+| Data Access | Data is shared globally | Data is hidden and accessed through methods |
+| Reusability | Limited | High using inheritance |
+| Data Hiding | Not supported | Supported |
+| Communication | Function calls and parameter passing | Message passing between objects |
+| Real-world Modeling | Difficult | Easy |
+| Maintenance | Difficult for large programs | Easier due to modularity |
+| Flexibility | Less flexible | More flexible |
+| Inheritance | Not supported | Supported |
+| Polymorphism | Not supported | Supported |
+| Best Suitable For | Small programs | Large and complex programs |
+| Example Languages | C, Pascal | Java, Python, C++ |
+
+
+### B. Class and Object
+
+#### 1. Class
+
+A class is a user-defined blueprint or template used to create objects.  
+It defines the properties (data) and behaviors (functions) that objects will have.
+
+A class itself does not occupy memory until objects are created from it.
+
+**Real-Life Example:**  
+A class is like a blueprint of a house.  
+Using the same blueprint, many houses can be built.
+
+**Example:**  
+Class → Car  
+Objects → BMW, Audi, Tesla
+
+<br />
+
+<img
+  src="/IT/oops1.png"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+<br />
+
+#### 2. Object
+
+An object is an instance of a class that represents a real-world entity.  
+Memory is allocated when an object is created.
+
+Each object has:
+- State → Data/values of the object
+- Behavior → Actions performed by the object
+- Identity → Unique existence of the object
+
+**Real-Life Example:**  
+If `Car` is a class, then a specific car like `BMW` is an object.
+
+**Example:**  
+Dog → Class  
+Tommy → Object
+
+
+### C. Attributes and Methods
+
+#### 1. Attributes
+
+Attributes are variables/data members that store information about an object.
+
+**Real-Life Example:**  
+For a Student object:
+- Name
+- Age
+- Marks
+
+These are attributes because they describe the student.
+
+#### 2. Methods
+
+Methods are functions inside a class that define the behavior of an object.
+
+**Real-Life Example:**  
+For a Car object:
+- start()
+- stop()
+- accelerate()
+
+These actions are methods because they define what the car can do.
+
+
+### D. Message Passing
+
+Message passing is the process by which objects communicate with each other using methods.
+One object sends a request (message) to another object to perform some action.
+
+- Communication happens through method calls.
+- The receiving object performs the requested task.
+
+**Real-Life Example:**  
+A customer uses an ATM machine to withdraw money.  
+The customer object sends a request to the bank object to process the withdrawal.
+
+**Another Example:**  
+A mobile app sends a message to a printer object to print a document.
+
+
+### E. OOPs Pillars  
+There are four pillars in OOPs which are listed below.
+
+#### 1. Encapsulation: 
+
+Bundles data and the methods that operate on that data into a single unit (a class) while restricting direct access to protect the data.   
+
+#### 2. Abstraction: 
+
+Hides complex implementation details from the user and only exposes the essential features.   
+#### 3. Inheritance:
+
+ Allows a new class to acquire the properties and behaviors of an existing class, promoting code reusability.  
+#### 4. Polymorphism:
+
+ Enables objects of different classes to respond uniquely to the same method call.
+
+---
+## Constructors and Keywords
+
+### A. Constructor
+
+A constructor is a special method used to create and initialize an object.  
+It is automatically called when an object is created.
+
+A constructor:
+- Has the same name as the class.
+- Does not have a return type.
+- Can initialize object values.
+- Can accept parameters.
+
+#### 1. Features of Constructor
+
+- Automatically called during object creation.
+- Used to initialize object data.
+- Reduces repeated code.
+- Can be overloaded.
+- Helps assign default or user-defined values.
+
+#### 2. Types of Constructors
+
+##### a. Default Constructor
+
+A constructor with no parameters is called a default constructor.  
+**Real-Life Example:**  
+Buying a mobile phone with default factory settings.
+
+##### b. Parameterized Constructor
+
+A constructor with parameters is called a parameterized constructor.   
+**Real-Life Example:**  
+Creating a student record by entering name and age.
+
+##### c. Copy Constructor
+
+A constructor that creates a new object by copying another object.   
+**Real-Life Example:**  
+Photocopying an ID card.
+
+##### d. Private Constructor
+
+A constructor declared as private cannot be accessed outside the class.  
+**Real-Life Example:**  
+A bank locker that can only be accessed internally by the bank system.
+
+#### 3. Constructor Overloading
+
+Creating multiple constructors in the same class with different parameter lists is called constructor overloading.
+
+**Real-Life Example:**  
+A restaurant order can be placed:
+- With only food name
+- With food + quantity
+- With food + quantity + drinks
+
+#### 4. Real-Life Example
+
+When a car is manufactured, important details such as engine type, color, model, fuel type, and seating capacity are initialized automatically.
+Similarly, when an object is created in programming, the constructor automatically assigns initial values to the object’s variables without requiring separate method calls.
+For example:
+- Car color → Red
+- Engine type → Petrol
+- Model → SUV
+These initial settings are handled by the constructor during object creation.
+
+#### 5. Code Snippet
+
+<Tabs>
+
+  <TabItem label="C++">
+
+#### C++
+
+#### 1. Constructor Declaration
+
+```cpp
+class ClassName {
+
+public:
+
+    // Constructor Declaration
+    ClassName();
+};
+```
+
+#### 2. Constructor Definition
+
+```cpp
+ClassName::ClassName() {
+
+    // initialization code
+}
+```
+
+#### 3. Constructor Declaration + Definition
+
+```cpp
+class ClassName {
+
+public:
+
+    // Constructor
+    ClassName() {
+
+        // initialization code
+    }
+};
+```
+
+  </TabItem>
+
+  <TabItem label="Java">
+
+#### Java
+
+#### 1. Constructor Declaration
+
+```java
+class ClassName {
+
+    // Constructor Declaration
+    ClassName();
+}
+```
+
+#### 2. Constructor Definition
+
+```java
+ClassName() {
+
+    // initialization code
+}
+```
+
+#### 3. Constructor Declaration + Definition
+
+```java
+class ClassName {
+
+    // Constructor
+    ClassName() {
+
+        // initialization code
+    }
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Python">
+
+#### Python
+
+#### 1. Constructor Declaration
+
+```python
+class ClassName:
+
+    # Constructor Declaration
+    def __init__(self):
+        pass
+```
+
+#### 2. Constructor Definition
+
+```python
+def __init__(self):
+
+    # initialization code
+    pass
+```
+
+#### 3. Constructor Declaration + Definition
+
+```python
+class ClassName:
+
+    # Constructor
+    def __init__(self):
+
+        # initialization code
+        pass
+```
+
+  </TabItem>
+
+</Tabs>
+
+
+Constructors initialize objects automatically during creation.
+
+
+### B. this Keyword
+
+The `this` keyword refers to the current object of the class.
+
+It is mainly used to:
+- Access current object variables.
+- Differentiate instance and local variables.
+- Call current class methods or constructors.
+- Pass current object as an argument.
+
+#### 1. Uses of this Keyword
+
+- Refers to the current object.
+- Accesses instance variables.
+- Invokes current class methods.
+- Invokes constructors using `this()`.
+- Improves readability.
+
+#### 2. Real-Life Example
+
+A student saying “this book is mine” refers to the current student’s book.
+
+Another example:  
+While filling a form, “this address” means your current address.
+
+#### 3. Code Snippet
+
+<Tabs>
+
+  <TabItem label="Java">
+
+
+```java
+class Student {
+
+    int marks;
+
+    Student(int marks) {
+        this.marks = marks;
+    }
+
+    void display() {
+        System.out.println(this.marks);
+    }
+}
+```
+
+  </TabItem>
+
+  <TabItem label="C++">
+
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Student {
+
+    int marks;
+
+public:
+
+    Student(int marks) {
+        this->marks = marks;
+    }
+
+    void display() {
+        cout << this->marks;
+    }
+};
+```
+
+  </TabItem>
+
+  <TabItem label="Python">
+
+
+```python
+class Student:
+
+    def __init__(self, marks):
+        self.marks = marks
+
+    def display(self):
+        print(self.marks)
+```
+
+  </TabItem>
+
+</Tabs>
+
+
+The `this` keyword refers to the current object of the class.
+
+---
+
+## Encapsulation
+
+Encapsulation is an Object-Oriented Programming concept that binds data and methods into a single unit called a class.  
+It hides internal data and allows controlled access using methods.
+
+Encapsulation helps:
+- Protect data from unauthorized access.
+- Improve security and maintainability.
+- Control how data is accessed or modified.
+
+<br />
+
+<img
+  src="/IT/oops2.png"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+<br />
+
+### A. Data Hiding
+
+Data hiding means restricting direct access to variables using access modifiers like `private`.
+
+Private data cannot be accessed directly from outside the class.
+
+**Real-Life Example:**  
+Your ATM PIN is hidden from others for security.
+
+
+### B. Getters and Setters
+
+Getters and setters are public methods used to access and modify private data.
+
+- Getter → Reads data
+- Setter → Updates data
+
+They provide safe and controlled access to variables.
+
+**Real-Life Example:**  
+A bank employee can check or update your account details only through authorized systems.
+
+
+### C. Controlled Access
+
+Controlled access means data is accessed only through authorized methods.
+
+This allows:
+- Validation of values
+- Prevention of invalid data
+- Better security
+
+**Real-Life Example:**  
+You cannot directly change your bank balance.  
+You must use deposit or withdrawal options.
+
+### D. Real-Life Example
+
+You can use an ATM machine, but the internal processing and data are hidden from the user.
+
+Another example:  
+A mobile phone allows users to use apps without knowing the internal hardware operations.
+
+
+### E. Code Snippet
+
+<Tabs>
+
+  <TabItem label="Java">
+
+
+```java
+class Student {
+
+    private int marks;
+
+    void setMarks(int m) {
+        marks = m;
+    }
+
+    int getMarks() {
+        return marks;
+    }
+}
+```
+
+  </TabItem>
+
+  <TabItem label="C++">
+
+
+```cpp
+class Student {
+
+private:
+
+    int marks;
+
+public:
+
+    void setMarks(int m) {
+        marks = m;
+    }
+
+    int getMarks() {
+        return marks;
+    }
+};
+```
+
+  </TabItem>
+
+  <TabItem label="Python">
+
+
+```python
+class Student:
+
+    def setMarks(self, m):
+        self.marks = m
+
+    def getMarks(self):
+        return self.marks
+```
+
+  </TabItem>
+
+</Tabs>
+
+
+
+Data is hidden and accessed using getter and setter methods.
+
+
+### F. Advantages of Encapsulation
+
+- Improves data security.
+- Prevents unauthorized access.
+- Improves maintainability.
+- Supports modular programming.
+- Makes code reusable.
+
+
+### G. Disadvantages of Encapsulation
+
+- Increases code length due to getters/setters.
+- Slight performance overhead.
+- Too much restriction may reduce flexibility.
+
+
+### H. Data Hiding vs Encapsulation
+
+| Data Hiding | Encapsulation |
+|---|---|
+| Restricts direct access to data | Wraps data and methods into a single unit |
+| Mainly focuses on data security | Focuses on security, design, and modularity |
+| Achieved using access modifiers like `private` and `protected` | Achieved using classes, objects, and methods |
+| Protects sensitive data from unauthorized access | Improves maintainability and code organization |
+| Hides only the data | Hides both data and implementation details |
+| Narrow concept | Broader OOP concept |
+
+---
+
+## Abstraction
+
+Abstraction is the process of hiding internal implementation details and showing only essential features to the user.  
+It focuses on **what an object does** rather than **how it works internally**.
+
+Abstraction helps:
+- Reduce complexity.
+- Improve security.
+- Simplify program design.
+- Hide unnecessary details.
+
+### A. What vs How
+
+- What an object does → Visible to user
+- How it works internally → Hidden from user
+
+<br />
+
+<img
+  src="/IT/oops3.png"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+<br />
+
+### B. Abstract Class
+
+An abstract class is a class that cannot be instantiated.  
+It may contain:
+- Abstract methods (without body)
+- Normal methods (with body)
+
+Abstract classes are mainly used to achieve partial abstraction.
+
+**Real-Life Example:**  
+A `Shape` class can define common properties like color, but each shape calculates area differently.
+
+
+
+### C. Interface
+
+An interface is a blueprint of a class that contains abstract methods.  
+A class implements an interface to provide method definitions.
+
+Interfaces are mainly used to achieve:
+- Full abstraction
+- Multiple inheritance
+
+**Real-Life Example:**  
+A TV remote provides buttons like ON/OFF without showing the internal circuitry.
+
+
+
+### D. Difference between Abstract Class and Interface
+
+| Abstract Class | Interface |
+|----------------|------------|
+| Can contain both abstract methods and normal methods | Mainly contains abstract methods |
+| Supports partial abstraction | Supports full abstraction |
+| Can have constructors and instance variables | Cannot have constructors |
+| A class uses `extends` keyword to inherit an abstract class | A class uses `implements` keyword to implement an interface |
+| Supports single inheritance | Supports multiple inheritance |
+| Used when classes share common behavior | Used to define common functionality for unrelated classes |
+| Methods can have access modifiers like private, protected, public | Methods are generally public and abstract |
+
+
+
+### E. Real-Life Example
+
+You drive a car without knowing how the engine works internally.
+
+Another example:  
+You use a mobile phone without knowing how calls are processed internally.
+
+
+
+### F. Code Snippet
+
+<Tabs>
+  <TabItem label="Java">
+
+```java
+abstract class Animal {
+
+    abstract void sound();
+}
+
+class Dog extends Animal {
+
+    void sound() {
+        System.out.println("Bark");
+    }
+}
+```
+</TabItem>
+ <TabItem label="C++">
+```Cpp
+#include <iostream>
+using namespace std;
+
+class Animal {
+
+public:
+
+    virtual void sound() = 0;
+};
+
+class Dog : public Animal {
+
+public:
+
+    void sound() {
+        cout << "Bark";
+    }
+};
+```
+</TabItem> 
+<TabItem label="Python">
+```Python
+from abc import ABC, abstractmethod
+
+class Animal(ABC):
+
+    @abstractmethod
+    def sound(self):
+        pass
+
+class Dog(Animal):
+
+    def sound(self):
+        print("Bark")
+        ```
+</TabItem> 
+</Tabs>
+
+The abstract method defines what to do, not how.
+
+---
+
+## Inheritance
+
+Inheritance is a mechanism in which one class acquires the properties and behaviors of another class.
+
+Inheritance helps:
+- Reuse existing code.
+- Reduce code duplication.
+- Build hierarchical relationships.
+
+### A. Parent → Child Relationship
+
+- Parent Class → The class whose properties are inherited.
+- Child Class → The class that inherits properties from another class.
+
+**Example:**  
+Animal → Parent Class  
+Dog → Child Class
+
+
+### B. IS-A Relationship
+
+Inheritance represents an IS-A relationship.
+
+**Examples:**
+- Dog IS-A Animal
+- Car IS-A Vehicle
+- Student IS-A Person
+
+
+### C. Types of Inheritance
+
+There are 5 types of inheritance.
+
+<br />
+
+<img
+  src="/IT/oops5.png"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+<br />
+
+#### 1. Single Inheritance
+
+One child class inherits from one parent class.    
+**Real-Life Example:**  
+Car inherits features from Vehicle.
+
+
+
+#### 2. Multiple Inheritance
+
+One child class inherits from multiple parent classes.   
+**Real-Life Example:**  
+An Amphibious Vehicle inherits features of both LandVehicle and WaterVehicle.
+
+
+
+#### 3. Hierarchical Inheritance
+
+Multiple child classes inherit from one parent class.   
+**Real-Life Example:**  
+Car and Bus both inherit from Vehicle.
+
+
+#### 4. Multilevel Inheritance
+
+A class inherits from another derived class, forming a chain.   
+**Real-Life Example:**  
+Vehicle → FourWheeler → Car
+
+
+#### 5. Hybrid Inheritance
+
+Combination of two or more inheritance types.   
+**Real-Life Example:**  
+A smart vehicle combining multiple and multilevel inheritance.
+
+
+### D. super Keyword
+
+The `super` keyword refers to the parent class object.  
+It is used to access parent class variables, methods, and constructors.
+
+#### 1. Uses of super Keyword
+
+- Refers to the parent class object.
+- Accesses parent class variables.
+- Calls parent class methods.
+- Invokes parent class constructors.
+- Helps in method overriding.
+
+#### 2. Real-Life Example
+
+A child asking help from their parent is similar to using the `super` keyword.
+
+#### 3. Code Snippet
+
+<Tabs>
+
+  <TabItem label="Java">
+
+
+
+```java
+class Animal {
+
+    void sound() {
+        System.out.println("Animal Sound");
+    }
+}
+
+class Dog extends Animal {
+
+    void sound() {
+        super.sound();
+        System.out.println("Dog Barks");
+    }
+}
+```
+
+  </TabItem>
+
+  <TabItem label="C++">
+
+
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Animal {
+
+public:
+
+    void sound() {
+        cout << "Animal Sound" << endl;
+    }
+};
+
+class Dog : public Animal {
+
+public:
+
+    void sound() {
+        Animal::sound();
+        cout << "Dog Barks";
+    }
+};
+```
+
+  </TabItem>
+
+  <TabItem label="Python">
+
+
+
+```python
+class Animal:
+
+    def sound(self):
+        print("Animal Sound")
+
+class Dog(Animal):
+
+    def sound(self):
+        super().sound()
+        print("Dog Barks")
+```
+
+  </TabItem>
+
+</Tabs>
+
+The `super` keyword is used to access parent class members.
+
+
+### E. Code Snippet
+
+<Tabs>
+
+  <TabItem label="Java">
+
+
+```java
+class Animal {
+
+    void eat() {
+        System.out.println("Eating");
+    }
+}
+
+class Dog extends Animal {
+
+    void bark() {
+        System.out.println("Barking");
+    }
+}
+```
+
+  </TabItem>
+
+  <TabItem label="C++">
+
+
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Animal {
+
+public:
+
+    void eat() {
+        cout << "Eating";
+    }
+};
+
+class Dog : public Animal {
+
+public:
+
+    void bark() {
+        cout << "Barking";
+    }
+};
+```
+
+  </TabItem>
+
+  <TabItem label="Python">
+
+
+```python
+class Animal:
+
+    def eat(self):
+        print("Eating")
+
+class Dog(Animal):
+
+    def bark(self):
+        print("Barking")
+```
+
+  </TabItem>
+
+</Tabs>
+
+Dog inherits properties and behaviors from Animal.
+
+---

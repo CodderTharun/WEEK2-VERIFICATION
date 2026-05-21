@@ -1,0 +1,106 @@
+---
+title: IT Department - Week 1 Answer Keys
+description: Solutions and answer keys for IT Department Week 1 problems
+---
+
+# IT Department - Week 1 Answer Keys
+
+## Data Structures and Algorithms (DSA)
+
+### Problem Set 1: Arrays and Sorting
+**Q1: Sort array using merge sort**
+```
+Answer: Merge sort implementation with O(n log n) complexity
+- Divide array into halves recursively
+- Merge sorted halves
+```
+
+**Q2: Find longest increasing subsequence**
+```
+Answer: Dynamic programming approach
+- dp[i] = length of LIS ending at i
+- Time: O(n²), Space: O(n)
+```
+
+### Problem Set 2: Linked Lists
+**Q1: Reverse a linked list**
+```
+Answer: Iterative reversal
+- Keep track of previous, current, next nodes
+- Update pointers in reverse direction
+- Time: O(n), Space: O(1)
+```
+
+**Q2: Detect cycle in linked list**
+```
+Answer: Floyd's cycle detection algorithm
+- Use two pointers: slow and fast
+- If they meet, cycle exists
+```
+
+## Computer Networks (CN)
+
+### Problem Set 1: OSI Model
+**Q1: Packets at different layers**
+- Application: Data
+- Transport: Segment/Datagram
+- Network: Packet
+- Link: Frame
+
+**Q2: TCP vs UDP**
+- TCP: Connection-oriented, reliable, ordered delivery
+- UDP: Connectionless, unreliable, faster
+
+## Object-Oriented Programming (OOPS)
+
+### Problem Set 1: Classes and Objects
+**Q1: Encapsulation example**
+```
+Answer: Getters and setters private data members
+- Hide internal implementation
+- Provide controlled access
+```
+
+**Q2: Inheritance hierarchy**
+```
+Answer: Create base class and derived classes
+- Parent: Vehicle
+- Children: Car, Bike, Truck
+```
+
+## Operating Systems (OS)
+
+### Problem Set 1: Process Scheduling
+**Q1: Round Robin scheduling (Time quantum = 2)**
+- Process order and wait times calculated
+- Context switches tracked
+
+**Q2: Deadlock conditions**
+- Mutual exclusion, Hold and wait, No preemption, Circular wait
+
+## Database Management Systems (DBMS)
+
+### Problem Set 1: SQL Queries
+**Q1: Find employees earning above average**
+```sql
+SELECT name, salary FROM employees 
+WHERE salary > (SELECT AVG(salary) FROM employees);
+```
+
+**Q2: Department-wise employee count**
+```sql
+SELECT dept_id, COUNT(*) FROM employees GROUP BY dept_id;
+```
+
+---
+
+## Quick Reference Answers
+
+| Topic | Key Answer |
+|-------|-----------|
+| Merge Sort | O(n log n) |
+| Binary Search | O(log n) |
+| TCP Handshake | 3-way |
+| Process States | New, Ready, Running, Blocked, Terminated |
+
+**Review Date:** Complete and verify all solutions

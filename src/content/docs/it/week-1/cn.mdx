@@ -1,0 +1,336 @@
+---
+title: CN
+description: Computer Networks fundamentals
+---
+<style>{`
+pre {
+  overflow-x: scroll;
+  max-width: 100%;
+  display: block;
+  white-space: pre;
+}
+`}</style>
+
+## What is a Computer Network?
+
+A computer network is a system of interconnected devices, such as computers, servers, smartphones, and printers, that communicate to exchange data. They communicate using wired or wireless connections and can range from small home networks to the global Internet.
+<img src="/IT/CN/W1-CN1.png" height="500" width="500" />
+
+### A. Advantages and functions of computer networks:
+
+-   Resource Sharing: Allows sharing of hardware like printers, scanners, storage devices and reducing cost.
+-   Data Sharing: Enables users to share files, applications, and databases easily.
+-   Communication: Supports email, video conferencing, instant messaging, and web access.
+-   Data Management: Helps in storing, securing, and backing up data efficiently.
+-   Remote Access: Allows users to access systems and cloud services from anywhere.
+-   Better Collaboration: Improves teamwork and information exchange among users.
+<img src="/IT/CN/W1-CN1.png" width="600" />
+
+---
+
+## What are Networking Devices?
+
+These are physical devices that connect computers, printers and other electronic equipment to a network and enable data sharing, transferring and managing.
+
+### A. Router
+Functions as a networking device that connects multiple networks and directs data between them.
+    -   Connects local networks to the internet.
+    -   Determines the best path for data packets.
+    -   Uses IP addresses to forward data correctly.
+### B. Switch
+Connects devices within the same network and manages internal data communication.
+    -   Connects computers, printers, and servers.
+    -   Sends data only to the intended device.
+    -   Improves network efficiency and performance.
+### C. Hub
+Acts as a basic device that connects multiple devices within a network.
+    -   Broadcasts data to all connected devices.
+    -   Does not filter or manage traffic.
+    -   Less secure and less efficient than a switch.
+### D.  Bridge
+Connects two network segments and filters traffic between them.
+    -   Reduces unnecessary data transmission.
+    -   Improves network performance.
+    -   Works using MAC addresses.
+### E.  Gateway
+Connects two different networks that use different protocols.
+    -   Translates data between different systems.
+    -   Enables communication between dissimilar networks.
+    -   Commonly used to connect private networks to external networks.
+### F. Access Point (AP)
+Provides wireless connectivity to devices in a network.
+    -   Extends a wired network into Wi-Fi.
+    -   Allows mobile devices to connect wirelessly.
+    -   Improves network coverage area.
+### G. Modem
+Converts digital data into signals suitable for transmission and vice versa.
+    -   Connects a home or office network to the ISP.
+    -   Converts digital signals to analog and back.
+    -   Enables internet access.
+### H Firewall
+Security device that monitors and controls network traffic.
+    -   Blocks unauthorized access.
+    -   Filters incoming and outgoing data.
+    -   Protects networks from cyber threats.
+
+---
+
+## Types of Computer Networks
+
+Categorizing computer networks according to the physical distance or area they cover, ranging from small personal spaces to large global regions. Based on geographical area.
+
+Computer networks are mainly divided into five types:
+<img src="/IT/CN/W1-CN2.png" width="600" />
+### A.  Personal Area Network (PAN)
+This connects personal devices within a very short range around a single user.
+    -   Coverage Range: 1–10 meters.
+    -   Key Technologies: Bluetooth, NFC, Infrared.
+    -   Real-World Example: Smartphone connected to wireless earbuds.
+    -   When It Is Used: For short-range communication between personal devices.
+    <img src="/IT/CN/W1-CN3.png" width="600" />
+### B. Local Area Network (LAN)
+This connects computers and devices within a limited area such as a home, office, or building.
+    -   Coverage Range: One room, building, or small campus.
+    -   Key Technologies: Ethernet, Wi-Fi.
+    -   Real-World Example: Home or office Wi-Fi network.
+    -   When It Is Used: For fast and secure communication within a local location.
+    <img src="/IT/CN/W1-CN4.png" width="600" />
+### C.  Campus Area Network (CAN)
+A CAN connects multiple LANs within a campus or a group of nearby buildings.
+    -   Coverage Range: University or corporate campus.
+    -   Key Technologies: Ethernet, Fiber Optics.
+    -   Real-World Example: College or corporate campus network.
+    -   When It Is Used: To interconnect LANs across a campus under one organization.
+    <img src="/IT/CN/W1-CN5.png" width="600" />
+### D.  Metropolitan Area Network (MAN)
+A MAN connects multiple networks within a city or metropolitan region.
+    -   Coverage Range: City or large town.
+    -   Key Technologies: Fiber Optics, Microwave, Metro Ethernet.
+    -   Real-World Example: City-wide ISP network.
+    -   When It Is Used: To provide high-speed connectivity across a city
+    <img src="/IT/CN/W1-CN6.png" width="600" />
+### E. Wide Area Network (WAN)
+A WAN connects networks over large geographical areas such as countries or continents.
+    -   Coverage Range: Country, continent, or global.
+    -   Key Technologies: Leased lines, Satellite links, Internet.
+    -   Real-World Example: The Internet.
+    -   When It Is Used: To enable long-distance and global communication.
+    <img src="/IT/CN/W1-CN7.png" width="600" />
+
+---
+
+## What is Internet?
+
+The Internet is a global network that connects millions of computers and devices, enabling people to communicate, share information and access digital resources worldwide. It works like a vast highway system, where data travels in small packets between connected devices.
+
+Working of Internet: Internetworking describes the process and technologies that allow millions of computers and devices to communicate and share data efficiently.
+<img src="/IT/CN/W1-CN8.png" width="600" />
+Protocols (The Rules of the Road): All devices on the Internet follow a set of communication rules called protocols.
+
+-   TCP (Transmission Control Protocol) – Breaks data into smaller packets and ensures they arrive safely.
+-   IP (Internet Protocol) – Assigns addresses and delivers packets to the correct destination.
+-   HTTP/HTTPS – Used for websites.
+-   SMTP – Used for sending emails.
+<img src="/IT/CN/W1-CN9.png" width="600" />
+
+---
+
+## OSI Model - Open Systems Interconnection.
+
+The OSI Model is a conceptual framework created by the International Organization for Standardization (ISO) to describe how data is transmitted across a network using a structured seven-layer architecture.
+
+-   Divides network communication into seven functional layers.
+-   Assigns specific responsibilities to each layer.
+-   Promotes compatibility between different networking systems.
+-   Simplifies network design, implementation, and troubleshooting.
+<img src="/IT/CN/W1-CN10.png" width="600" />
+
+### A.  The Physical Layer
+
+-   The Physical Layer is the foundation of the OSI model, acting as the bridge for actual physical connections between devices.
+-   Its primary mission is the transmission of raw, unstructured bitstreams over a physical medium from one node to the next.
+<img src="/IT/CN/w1-cn11.png" width="600" />
+### B.   The Data Link Layer (DLL)
+
+-   The Data Link Layer serves as the bridge between the physical hardware and the logical network, ensuring reliable node-to-node delivery of data.
+-   Its primary goal is to ensure that data transfer is error-free across the physical medium.
+<img src="/IT/CN/W1-CN12.png" width="600" />
+### C.   The Network Layer
+
+-   The Network Layer manages data transmission between hosts across different networks by handling logical addressing and path finding.
+-   Facilitates communication between disparate networks by directing traffic to the correct destination.
+<img src="/IT/CN/W1-CN13.png" width="600" />
+### D.   The Transport Layer
+
+-   The Transport Layer ensures the end-to-end delivery of entire messages.
+-   It acts as a liaison, providing services to the Application layer while utilizing the infrastructure of the Network layer to ensure data reaches the correct application on the destination host.
+<img src="/IT/CN/W1-CN14.png" width="600" />
+### E.  The Session Layer
+
+-   The Session Layer acts as the "dialogue manager," governing the opening, closing, and security of communication channels between two devices.
+-   Manages the establishment, maintenance, and termination of connections between applications.
+<img src="/IT/CN/W1-CN15.png" width="600" />
+### F.   The Presentation Layer
+
+-   Often called the Translation Layer, the Presentation Layer ensures that data is formatted, secured, and compressed so that the receiving application can correctly interpret it.
+-   Reduces the total number of bits required for transmission, which increases network efficiency and speed.
+<img src="/IT/CN/W1-CN16.png" width="600" />
+
+### G.   The Application Layer
+
+-   The Application Layer sits at the top of the OSI stack and serves as the direct interface between the software user and the network.
+-   It produces the data that will be sent and displays the information received from other layers.
+<img src="/IT/CN/W1-CN17.png" width="600" />
+
+---
+
+## TCP/IP Model - Transmission Control Protocol/Internet Protocol.
+
+The TCP/IP model is a layered networking framework that explains how data is communicated between devices over a network using standardized protocols to ensure reliable and efficient transmission.
+<img src="/IT/CN/W1-CN18.png" width="600" />
+
+### A.   Application Layer
+
+-   The top layer of the TCP/IP model, closest to the user, where applications like web browsers, email clients and file-sharing tools interact with the network.
+-   It provides an interface between user software and the lower layers that handle data transmission, enabling seamless communication over the network.
+<img src="/IT/CN/W1-CN19.png" width="600" />
+### B.   Transport Layer
+
+-   Ensures reliable and efficient delivery of data between devices, managing segmentation, ordering, and retransmission as needed.
+-   Breaks large messages into packets and reassembles them at the destination.
+<img src="/IT/CN/W1-CN20.png" width="600" />
+### C.   Internet Layer
+
+-   Responsible for addressing, packaging, and routing data packets so they can travel across networks and reach the correct destination device.
+-   It ensures that data can move between different networks efficiently.
+<img src="/IT/CN/W1-CN21.png" width="600" />
+### D.   Network Access (Link Layer)
+
+-   Responsible for physically transmitting data over network hardware, including cables, switches and wireless connections.
+-   It handles how data is formatted for the network medium and ensures it reaches the next device on the path.
+<img src="/IT/CN/W1-CN22.png" width="600" />
+
+### E.  Physical Layer in OSI Model
+
+The Physical Layer is the lowest OSI layer responsible for transmitting raw data bits through physical network hardware.
+
+-   Handles physical and electrical data transmission.
+-   Includes cables, connectors, plugs, and receivers.
+-   Transfers raw bits between devices.
+-   Defines hardware standards and signal types.
+
+---
+
+## Network topology:
+
+-   Arrangement of devices (nodes) and connections (links) in a computer network.
+-   It shows how computers, servers, and other devices are connected and how data flows between them.
+-   Choosing the right topology is important because it affects the performance, cost, reliability and security of the network.
+
+### A.   Bus Topology
+
+-   Bus Topology is a network type in which every computer and network device is connected to a single cable.
+-   It is bi-directional. It is a multi-point connection and a non-robust topology because if the backbone fails the topology crashes.
+<img src="/IT/CN/W1-CN23.png" width="600" />
+### B.  Star Topology
+
+-   In Star Topology, all the devices are connected to a single hub through a cable.
+-   This hub is the central node and all other nodes are connected to the central node.
+-   The hub can be passive in nature i.e., not an intelligent hub such as broadcasting devices, at the same time the hub can be intelligent known as an active hub, active hubs have repeaters in them.
+<img src="/IT/CN/W1-CN24.png" width="600" />
+### C.   Ring Topology
+
+-   In a ring topology, it forms a ring connecting devices with exactly two neighboring devices.
+-   A number of repeaters are used for ring topology with a large number of nodes, because if someone wants to send some data to the last node in the ring topology with 100 nodes, then the data will have to pass through 99 nodes to reach the 100th node.
+<img src="/IT/CN/W1-CN25.png" width="600" />
+### D.   Mesh Topology
+
+-   In a mesh topology, every device is connected to another device via a particular channel.
+-   Every device is connected to another via dedicated channels.
+-   These channels are known as links. Mesh topology does not depend on specific protocols; it focuses on direct device-to-device connections.
+<img src="/IT/CN/W1-CN26.png" width="600" />
+
+### E.  Hybrid Topology
+
+-   Hybrid Topology is the combination of all the various types of topologies we have studied above.
+-   Hybrid Topology is used when the nodes are free to take any form. It means these can be individuals such as Ring or Star topology or can be a combination of various types of topologies seen above.
+<img src="/IT/CN/W1-CN27.png" width="600" />
+
+---
+
+## Transmission Modes
+
+Transmission Modes describe how data is exchanged between two devices over a communication channel. They specify whether information moves in a single direction or in both directions, and whether devices can transmit at the same time.
+<img src="/IT/CN/W1-CN28.png" width="600" />
+### A.   Simplex Mode
+
+-   Simplex Mode is a transmission mode in which communication occurs in only one direction, from a sender to a receiver, without any possibility of reverse data flow.
+-   One device acts only as a transmitter.
+-   The other device acts only as a receiver.
+-   No feedback or acknowledgment is supported.
+-   Example: Keyboard and traditional monitors. The keyboard can only introduce input, the monitor can only give the output.
+<img src="/IT/CN/W1-CN29.png" width="600" />
+### B.   Half-Duplex Mode
+
+-   Half-Duplex Mode is a transmission mode in which communication can occur in both directions, but only one device can transmit at a time.
+-   The devices take turns sending and receiving data over the same channel.
+-   Supports bidirectional communication.
+-   Uses a single shared communication channel.
+-   Example: Walkie-talkie in which messages are sent one at a time and messages are sent in both directions.
+<img src="/IT/CN/W1-CN30.png" width="600" />
+### C.   Full-Duplex Mode
+
+-   Full-Duplex Mode is a transmission mode in which communication takes place in both directions at the same time.
+-   Both connected devices can transmit and receive data simultaneously without waiting for each other.
+-   Enables simultaneous two-way data exchange.
+-   Uses separate channels or divided bandwidth.
+-   Example: Telephone Network in which there is communication between two persons by a telephone line, through which both can talk and listen at the same time.
+<img src="/IT/CN/W1-CN31.png" width="600" />
+
+---
+
+## Transmission Media
+
+-   Transmission media refers to the physical or wireless communication channel used to carry data signals from one device to another within a computer network.
+-   It forms the fundamental pathway through which information is transmitted, ensuring connectivity between networked devices.
+<img src="/IT/CN/W1-CN32.png" width="600" />
+### A. Guided Media
+
+-   Guided Media, also known as wired or bounded transmission media, refers to transmission media in which data signals are transmitted through a physical path using cables.
+-   The signal is confined and guided along a fixed route, providing controlled communication between network devices.
+
+#### 1. Unshielded Twisted Pair Cable
+ A twisted pair cable consists of two individually insulated copper conductors twisted together in a helical pattern to minimize electromagnetic interference (EMI) and crosstalk between adjacent pairs.
+    <img src="/IT/CN/W1-CN33.png" width="600" />
+#### 2. Shielded Twisted Pair (STP)
+ Shielded Twisted Pair (STP) cable consists of twisted pairs of insulated copper conductors enclosed within an additional metallic shielding layer, such as a foil or braided shield.
+    <img src="/IT/CN/W1-CN34.png" width="600" />
+#### 3. Coaxial Cable
+ Coaxial Cable consists of a central copper conductor surrounded by a dielectric insulating layer, a metallic shielding layer, and an outer protective jacket. This structure allows signals to be transmitted with better protection against noise and interference compared to twisted pair cables.
+    <img src="/IT/CN/W1-CN35.png" width="600" />
+#### 4. Optical Fiber Cable
+ Optical Fiber Cable is a guided transmission medium that transmits data in the form of light signals through a glass or plastic core using the principle of total internal reflection. The core is surrounded by a cladding layer with a lower refractive index, which confines the light within the core and enables high-speed, long-distance data transmission.
+    <img src="/IT/CN/W1-CN36.png" width="600" />
+
+### B.  Unguided Media
+
+-   Unguided media, also known as wireless or Unbounded transmission media , uses electromagnetic waves to transmit data without any physical medium.
+-   Signals propagate through free space such as air or vacuum. The main types of unguided media are radio waves, microwaves, and infrared waves.
+
+#### 1. Radio Waves
+Radio waves are a type of electromagnetic wave that can easily be generated and can propagate through buildings and other obstacles.
+
+-   Frequency Range: 3 kHz – 300 GHz
+<img src="/IT/CN/W1-CN37.png" width="600" />
+#### 2. Microwaves
+ Microwaves are a form of unguided transmission media that use line-of-sight communication, where the transmitting and receiving antennas must be properly aligned. The transmission range depends on the height of the antennas.
+
+-   Frequency range of 1 GHz to 300 GHz and are widely used in mobile communication, satellite links, and television distribution.
+<img src="/IT/CN/W1-CN38.png" width="600" />
+#### 3. Infrared
+Infrared waves are used for short-range wireless communication and operate in the frequency range of 300 GHz to 400 THz.
+
+-   They cannot penetrate solid obstacles, which limits their range but helps minimize interference between nearby systems.
+<img src="/IT/CN/W1-CN39.png" width="600" />
+
+---

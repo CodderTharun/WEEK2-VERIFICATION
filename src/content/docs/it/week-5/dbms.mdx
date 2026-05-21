@@ -1,0 +1,75 @@
+---
+title: DBMS - Week 5
+description: Query Optimization and Advanced SQL
+---
+
+
+## Query Optimization
+
+Optimizing queries for better performance.
+
+### Query Analyzer
+
+- **Query Plan** - Steps to execute query
+- **Cost Estimation** - CPU, disk I/O cost
+- **Index Usage** - Using indexes efficiently
+
+### Optimization Techniques
+
+1. **Indexing** - B-trees, Hash indexes
+2. **Query Rewriting** - Restructure query
+3. **Partitioning** - Divide large tables
+4. **Materialized Views** - Pre-computed results
+
+### Execution Plans
+
+- Sequential scan
+- Index scan
+- Nested loop join
+- Hash join
+- Sort-merge join
+
+## Advanced SQL
+
+### Stored Procedures
+
+```sql
+CREATE PROCEDURE GetStudentsByAge @age INT
+AS
+BEGIN
+    SELECT * FROM Students WHERE age > @age
+END
+```
+
+### Triggers
+
+Automatic execution on specific events.
+
+```sql
+CREATE TRIGGER UpdateTimestamp
+AFTER INSERT ON Students
+BEGIN
+    UPDATE Students SET modified_date = NOW()
+END
+```
+
+### Views
+
+Virtual tables for data abstraction.
+
+### This Week
+
+- Query optimization strategies
+- Execution plan analysis
+- Index design
+- Stored procedures and triggers
+- Views and materialized views
+- Database performance tuning
+- Load testing and monitoring
+
+### Practice
+
+- Analyze query plans
+- Create indexes
+- Write stored procedures
+- Design efficient schemas

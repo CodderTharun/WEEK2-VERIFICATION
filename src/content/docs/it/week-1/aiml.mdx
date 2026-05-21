@@ -1,0 +1,1975 @@
+---
+title: AIML
+---
+
+import { Code, Tabs, TabItem } from '@astrojs/starlight/components';
+
+###
+
+## Python
+
+Python is a high-level, interpreted programming language known for its simplicity and versatility. It is widely used in various fields such as artificial intelligence, web development, automation, and data analysis.
+
+Its easy-to-read syntax makes it an excellent choice for beginners and experienced programmers alike.
+
+Understanding the fundamental concepts of Python is essential for effective programming. These basics include:
+
+- Variables and data types
+- Input/output operations
+- Operators
+- Control flow statements
+- Functions
+- Data structures
+
+---
+### A. Variables and Data Types
+
+Python is dynamically typed, meaning you don't need to declare a variable's type. The interpreter figures it out at runtime.
+<Tabs>
+  <TabItem label="Python">
+
+```python
+# Basic Assignments
+age = 25
+pi = 3.14159
+name = "Python"
+is_easy = True
+
+# Type Checking
+print(type(age))
+
+# int
+# float
+# string
+# boolean
+# Output: <class 'int'>
+```
+
+  </TabItem>
+</Tabs>
+---
+### B. Data Structures (Collections)
+
+These are containers used to group data together.
+
+| Type | Syntax | Mutable? | Unique? |
+|---|---|---|---|
+| List | `[1, 2, 2]` | Yes | No |
+| Tuple | `(1, 2, 2)` | No | No |
+| Set | `{1, 2, 3}` | Yes | Yes |
+| Dictionary | `{"a": 1}` | Yes | Keys are unique |
+
+---
+### C. Input and Output
+
+Python handles user interaction through functions like `print()` for output and `input()` for input.
+
+Type casting may be necessary when converting input data to the desired type, such as `int()` or `float()`.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+name = input("Enter your name: ")
+
+age = int(input("Enter your age: "))
+# Converting string to integer
+
+print(f"Hello {name}, next year you will be {age + 1}.")
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+### D. Control Flow
+
+#### 1. Conditional Statements
+
+Conditional statements allow the program to make decisions based on certain conditions.
+
+The main structures are:
+
+- **if** – executes code if condition is true
+- **elif** – checks additional conditions
+- **else** – executes if none of the above conditions are true
+
+#### 2. Loops
+
+Loops enable repeated execution of code blocks.
+
+Python provides:
+
+- **for** – iterates over a sequence or range
+- **while** – repeats as long as a condition is true
+
+Control statements like `break`, `continue`, and `pass` modify loop behavior.
+
+Python uses indentation (usually 4 spaces) instead of curly braces `{}` to define blocks of code.
+
+#### 3. Conditional Statements Example
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+score = 85
+
+if score >= 90:
+    print("Grade: A")
+
+elif score >= 80:
+    print("Grade: B")
+
+else:
+    print("Grade: C")
+```
+
+  </TabItem>
+</Tabs>
+
+#### 4. Loop Example
+
+- For loops are used when you know the number of iterations.
+- While loops run as long as a condition remains `True`.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+# For loop with range
+for i in range(3):
+    print(f"Attempt {i}")
+
+# While loop
+count = 0
+
+while count < 3:
+    print("Counting...")
+    count += 1
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+### E. Functions
+
+Functions help you follow the DRY (Don't Repeat Yourself) principle.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+def greet(user_name="Guest"):
+    return f"Welcome, {user_name}!"
+
+# Calling the function
+message = greet("Bob")
+
+print(message)
+
+# Lambda (Anonymous) Function
+square = lambda x: x * x
+
+print(square(5)) # Output: 25
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+### F. List Comprehension
+
+List comprehension is a way to create lists in a single line.
+
+It is faster and more readable than a standard loop for simple transformations.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+numbers = [1, 2, 3, 4, 5, 6]
+
+# Create a list of squares for even numbers only
+even_squares = [x**2 for x in numbers if x % 2 == 0]
+
+print(even_squares) # Output: [4, 16, 36]
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+### G. String Manipulation
+
+Strings in Python are objects with powerful built-in methods.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+text = "  python programming  "
+
+print(text.strip().capitalize())
+# "Python programming"
+
+print(text.replace("python", "Java"))
+
+print("python"[0:4])
+# Slicing: "pyth"
+```
+
+  </TabItem>
+</Tabs>
+
+---
+## Video Reference
+
+<div style="display: flex; justify-content: center;">
+  <iframe
+    width="350"
+    height="350"
+    style="display: block;"
+    src="https://www.youtube.com/embed/eWRfhZUzrAc?si=68vJhyuQAQ-3pOIX"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+  ></iframe>
+</div>
+
+---
+
+## NumPy
+
+NumPy (Numerical Python) is a fundamental Python library used for numerical computing.  
+It provides support for arrays, matrices, and a wide range of mathematical functions that operate efficiently on these data structures.
+
+NumPy is especially useful in scientific computing and data analysis because it enables high-performance operations on large multidimensional arrays and matrices.
+
+Although NumPy arrays look similar to standard Python lists, they are significantly faster and more memory-efficient. Its broadcasting feature is also highly useful, as it allows mathematical operations to be applied to entire datasets quickly and efficiently.
+
+---
+
+
+### A. Key Features of NumPy
+
+#### 1. N-dimensional Array (ndarray)
+
+NumPy’s primary data structure is the ndarray, which allows efficient storage and manipulation of large datasets in multiple dimensions such as 1D, 2D, and 3D arrays.
+
+#### 2. Mathematical Functions
+
+NumPy provides a wide range of mathematical operations such as:
+
+- Linear algebra functions
+- Statistical functions
+- Random number generation
+
+#### 3. Broadcasting
+
+Broadcasting allows NumPy to perform element-wise operations on arrays of different shapes without explicitly reshaping them.
+
+#### 4. Integration with Other Libraries
+
+NumPy is commonly used alongside:
+- Pandas
+- SciPy
+- Matplotlib
+It forms the foundation for scientific computing in Python.
+
+#### 5. Efficiency
+
+NumPy operations are faster and more memory-efficient compared to traditional Python lists because they are implemented using lower-level languages.
+
+---
+
+### B. Working with NumPy
+
+#### 1. Array Creation Functions
+
+These functions allow you to generate arrays with specific initial values or patterns.
+
+##### a. np.arange()
+
+Generates an array of values within a given interval using a specific step size.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+import numpy as np
+
+# Start at 0, stop before 10, step by 2
+arr = np.arange(0, 10, 2)
+
+print(arr) 
+Output:
+[0 2 4 6 8]
+```
+
+  </TabItem>
+</Tabs>
+
+##### b. np.zeros() and np.ones()
+
+Creates arrays filled entirely with 0s or 1s.
+
+Useful for initializing weights or placeholders.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+zeros = np.zeros((2, 3)) 
+# 2 rows, 3 columns
+Output:
+[[0. 0. 0.]
+ [0. 0. 0.]]
+
+ones = np.ones(4)
+# 1D array of 4 ones
+Output:
+[1. 1. 1. 1.]
+```
+  </TabItem>
+</Tabs>
+
+##### c. np.linspace()
+
+Returns evenly spaced numbers over a specified interval.
+
+Unlike `arange`, you specify the number of points instead of the step size.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+# 5 points evenly spaced between 0 and 1
+lin = np.linspace(0, 1, 5)
+
+print(lin)
+Output:
+[0. 0.25 0.5 0.75 1.]
+```
+
+  </TabItem>
+</Tabs>
+
+##### d. np.eye()
+
+Creates an identity matrix.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+identity = np.eye(4)
+# 4x4 identity matrix
+Output:
+[[1. 0. 0. 0.]
+ [0. 1. 0. 0.]
+ [0. 0. 1. 0.]
+ [0. 0. 0. 1.]]
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+#### 2. Random Number Generation
+
+NumPy’s random module is essential for:
+
+- Simulations
+- Shuffling data
+- Initializing machine learning models
+
+##### a. np.random.rand() and np.random.randn()
+
+- `rand()` creates values from a uniform distribution.
+- `randn()` creates values from a standard normal distribution.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+u = np.random.rand(3)
+# Uniform
+Output:
+[0.99139112 0.16436222 0.8056486 ]
+
+n = np.random.randn(3,3)
+# Normal (3x3 matrix)
+Output:
+[[ 0.51103321 -0.67945367  1.70726173]
+ [ 0.15690527 -2.16380175 -3.02649565]
+ [ 0.79847859 -0.22648723 -0.00696714]]
+```
+
+  </TabItem>
+</Tabs>
+
+##### b. np.random.randint()
+
+Returns random integers from a specified range.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+# 5 random integers between 1 and 100
+r_int = np.random.randint(1, 100, 5)
+Output:
+[69 61 46 84  8]
+```
+
+  </TabItem>
+</Tabs>
+
+##### c. np.random.seed()
+
+Sets the starting point for the random number generator, making results reproducible.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+np.random.seed(42)
+
+print(np.random.rand(1))
+# Will always be 0.37454012
+```
+
+  </TabItem>
+</Tabs>
+---
+
+#### 3. Manipulation and Attributes
+
+##### a. shape and dtype
+
+These attributes tell you:
+
+- The dimensions of the array
+- The data type of its elements
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+arr = np.array([[1, 2], [3, 4]])
+
+print(arr.shape)
+Output:  (2, 2)
+
+print(arr.dtype)
+Output: int64
+```
+
+  </TabItem>
+</Tabs>
+
+##### b. reshape()
+
+Changes the shape of an array without changing its data.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+arr = np.arange(6)
+Output: [0, 1, 2, 3, 4, 5]
+
+new_arr = arr.reshape(2, 3)
+# Becomes 2 rows, 3 columns
+Output:
+[[0 1 2]
+[3 4 5]]
+```
+
+  </TabItem>
+</Tabs>
+
+#### 5. Indexing and Slicing
+
+Retrieving specific elements or chunks of data from an array.
+
+##### a. 2D Indexing and Slicing
+
+Data is accessed using `[row, col]` notation.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+mat = np.array([[5, 10, 15], [20, 25, 30]])
+
+print(mat[1, 2])
+Output: 30 (second row, third column)
+
+print(mat[:, 1:])
+# All rows, columns from index 1 to the end
+Output:
+[[10 15]
+[25 30]]
+```
+
+  </TabItem>
+</Tabs>
+
+##### b. Conditional Selection
+
+Boolean logic is used to filter arrays.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+arr = np.array([1, 2, 10, 20])
+
+print(arr[arr > 5])
+Output: [10, 20]
+```
+
+  </TabItem>
+</Tabs>
+
+##### c. Broadcasting
+
+Broadcasting allows NumPy to treat arrays with different shapes during arithmetic operations.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+arr = np.array([1, 2, 3])
+
+print(arr + 10)
+Output: [11, 12, 13]
+
+# The '10' is broadcasted to match shape
+```
+
+  </TabItem>
+</Tabs>
+
+#### 6. Mathematical and Statistical Operations
+
+##### a. Universal Functions (ufunc)
+
+Operations are applied element-wise across the array.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+arr = np.array([0, 1, 4])
+
+print(np.sqrt(arr))
+Output: [0, 1, 2]
+
+print(np.exp(arr))
+# e^0, e^1, e^4
+Output: [ 1. 2.71828183 54.59815003]
+```
+
+  </TabItem>
+</Tabs>
+
+##### b. Statistical Functions
+
+Statistical functions aggregate data to find insights.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+arr = np.array([1, 5, 10])
+
+print(arr.sum())
+Output: 16
+
+print(arr.mean())
+Output: 5.33
+```
+
+  </TabItem>
+</Tabs>
+
+##### c. Axis-based Operations
+
+Calculations can be performed along rows or columns.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+mat = np.array([[1, 2], [3, 4]])
+
+print(mat.sum(axis=0))
+Output: [4, 6] (Sum of columns)
+
+print(mat.sum(axis=1))
+Output: [3, 7] (Sum of rows)
+```
+
+  </TabItem>
+</Tabs>
+
+##### d. argmax() and argmin()
+
+Returns the index of the maximum or minimum value.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+arr = np.array([10, 50, 20])
+
+print(arr.argmax())
+Output: 1 (index of 50)
+```
+
+  </TabItem>
+</Tabs>
+
+---
+## Video Reference
+
+<div style="display: flex; justify-content: center;">
+  <iframe
+    width="310"
+    height="310"
+    style="display: block;"
+    src="https://www.youtube.com/embed/QUT1VHiLmmI?si=KRBl8txUMsKzX5Lt"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+  ></iframe>
+</div>
+
+---
+
+## Pandas
+
+Pandas is the most popular Python library for data analysis.
+It acts as a bridge between raw data such as CSVs or SQL databases and the mathematical power of NumPy.
+Pandas introduces two primary data structures:
+- Series (1D)
+- DataFrame (2D)
+
+These structures allow you to manipulate tabular data with the same ease as an Excel spreadsheet but with the speed and scalability of Python.
+
+### A.  Core Data Structures
+
+#### 1. Pandas Series
+
+A Series is a one-dimensional labeled array.
+It is essentially a single column of data where every value is assigned a label called an index.
+
+##### a. Key Feature
+
+You can access data using labels instead of just numerical positions.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+import pandas as pd
+
+# Creating a Series from a list
+ser = pd.Series([10, 20, 30], index=['a', 'b', 'c'])
+
+print(ser['b'])
+# Accessing by label returns 20
+```
+
+  </TabItem>
+</Tabs>
+
+#### 2. Pandas DataFrame
+
+A DataFrame is a two-dimensional, size-mutable, and heterogeneous tabular data structure.
+Think of it as a collection of Series objects sharing the same index.
+
+##### a. Key Feature
+
+It can handle different data types such as:
+- Integers
+- Strings
+- Floats
+- Booleans
+
+in different columns simultaneously.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+data = {
+    'Product': ['Laptop', 'Mouse', 'Monitor'],
+    'Price': [1200, 25, 300],
+    'In_Stock': [True, True, False]
+}
+
+df = pd.DataFrame(data)
+Output:
+ Product  Price  In_Stock
+0   Laptop   1200      True
+1    Mouse     25      True
+2  Monitor    300     False
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+### B.  Essential Data Operations
+
+#### 1. Data Exploration
+
+When a dataset is loaded, it is important to inspect its contents without printing thousands of rows.
+
+Common methods include:
+- `df.head(n)` → Displays the first n rows
+- `df.info()` → Shows data types, memory usage, and null counts
+- `df.describe()` → Provides a statistical summary of numerical columns
+
+#### 2. Data Cleaning
+
+Real-world data is often missing or incorrectly formatted.
+
+##### Handling Missing Data
+
+Use:
+- `df.isnull()` to identify missing values
+- `df.fillna(value)` to replace missing values
+- `df.dropna()` to remove missing data
+
+#### 3. Filtering
+
+Conditional logic is used to extract subsets of data.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+# Get only products where Price is greater than 100
+expensive_items = df[df['Price'] > 100]
+Output:
+   Product  Price  In_Stock
+0   Laptop   1200      True
+2  Monitor    300     False
+```
+
+  </TabItem>
+</Tabs>
+
+#### 4. Data Merging and Grouping
+
+Pandas excels at combining data from multiple sources, similar to SQL operations.
+
+##### a. Merging (Joining)
+
+Two DataFrames can be combined using a common key with `pd.merge()`.
+
+It supports:
+- Left Join
+- Right Join
+- Inner Join
+- Outer Join
+
+##### b. Grouping (Split-Apply-Combine)
+
+The `groupby()` function groups rows based on a column and performs calculations on those groups.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+# Calculate the average price per product category
+avg_price = df.groupby('Category')['Price'].mean()
+Output:
+Category
+Electronics    750.0
+Name: Price, dtype: float64
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+### C. Working with Pandas
+
+#### 1. Data Exploration & Metadata
+
+Before manipulating data, you should understand its structure and data types.
+
+##### a. df.info()
+
+Provides a concise summary of the DataFrame including:
+- Column names
+- Non-null counts
+- Memory usage
+- Data types
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+import pandas as pd
+
+data = {
+    'Fruits': ['Mango', 'Apple'],
+    'Quantity': [40, 20]
+}
+
+df = pd.DataFrame(data)
+
+df.info()
+
+# Shows column names, non-null counts,
+# and dtypes (int64, object, etc.)
+
+Output:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 2 entries, 0 to 1
+Data columns (total 2 columns):
+ #   Column    Non-Null Count  Dtype 
+---  ------    --------------  ----- 
+ 0   Fruits    2 non-null      object
+ 1   Quantity  2 non-null      int64 
+dtypes: int64(1), object(1)
+memory usage: 164.0+ bytes
+```
+
+  </TabItem>
+</Tabs>
+
+##### b. df.describe()
+
+Generates descriptive statistics for numerical columns.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+print(df.describe())
+
+Output:
+        Quantity
+count   2.000000
+mean   30.000000
+std    14.142136
+min    20.000000
+25%    25.000000
+50%    30.000000
+75%    35.000000
+max    40.000000
+```
+
+
+  </TabItem>
+</Tabs>
+
+#### 2. Selection and Slicing
+
+Selection and slicing help navigate through data using labels or positions.
+
+##### a. .loc[] and .iloc[]
+
+- `loc[]` → Accesses data using labels (row names and column names)
+- `iloc[]` → Accesses data using integer positions (index numbers)
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+# Accessing row index 1, column 'Fruits'
+print(df.loc[1, 'Fruits'])
+
+Output: 'Apple'
+
+# Accessing first row, first column by position
+print(df.iloc[0, 0])
+
+Output: 'Mango'
+```
+
+  </TabItem>
+</Tabs>
+
+
+##### b. .at[] and .iat[]
+
+These are used for fast access to a single scalar value.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+# Fast access by label
+print(df.at[0, 'Quantity'])
+
+Output: 40
+```
+
+  </TabItem>
+</Tabs>
+
+#### 3. Data Cleaning and Transformation
+
+Preparing data for analysis often requires changing data types or renaming columns.
+
+##### a. .astype()
+
+Converts a column from one data type to another.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+# Convert Quantity to float for calculations
+df['Quantity'] = df['Quantity'].astype('float64')
+```
+
+  </TabItem>
+</Tabs>
+
+##### b. .rename()
+
+Changes column or index labels.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+df.rename(columns={'Fruits': 'Item_Name'}, inplace=True)
+
+Output:
+  Item_Name  Quantity
+0     Mango        40
+1     Apple        20
+```
+
+  </TabItem>
+</Tabs>
+
+#### 4. Sorting and Filtering
+
+Sorting and filtering help organize data and extract insights.
+
+##### a. .sort_values()
+
+Sorts the DataFrame based on the values of a specific column.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+# Sort by Quantity descending
+df.sort_values(by='Quantity', ascending=False, inplace=True)
+
+Output:
+  Item_Name  Quantity
+0     Mango        40
+1     Apple        20
+```
+
+  </TabItem>
+</Tabs>
+
+##### b. .query()
+
+Filters data using a logical string expression.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+# Select rows where Quantity is greater than 30
+filtered_df = df.query('Quantity > 30')
+
+Output:
+  Item_Name  Quantity
+0     Mango        40
+```
+
+  </TabItem>
+</Tabs>
+
+#### 5. Reshaping Data
+
+Reshaping changes the layout of data for visualization or modeling purposes.
+
+##### a. .melt()
+
+Converts a DataFrame from wide format to long format.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+# Converts columns into rows
+melted = pd.melt(
+    df,
+    id_vars=['Item_Name'],
+    value_vars=['Quantity']
+)
+
+Output:
+  Item_Name   variable  value
+0     Mango   Quantity     40
+1     Apple   Quantity     20
+```
+
+  </TabItem>
+</Tabs>
+
+##### b. .pivot()
+
+Creates a new table structure based on column values.
+It is the reverse operation of `melt()`.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+# Create a summary table
+pivot_table = df.pivot(
+    index='Item_Name',
+    columns='Quantity'
+)
+
+Output:
+Quantity    20      40
+Item_Name             
+Apple      Apple   NaN
+Mango       NaN   Mango
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+#### 6. Combining Datasets
+
+Combining data from different sources is a common task in data analysis.
+
+##### a. .merge()
+
+Joins two DataFrames using a common key column.
+This works similar to SQL joins.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+# Inner Join:
+# Only keeps rows where the fruit exists
+# in both DataFrames
+
+merged_df = pd.merge(
+    df1,
+    df2,
+    on='Fruits',
+    how='inner'
+)
+
+Output:
+   Fruits  Quantity  Price
+0   Mango        40    120
+1   Apple        20     80
+```
+
+  </TabItem>
+</Tabs>
+
+##### b. .concat()
+
+Stacks DataFrames together either vertically or horizontally.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+# Stack df2 on top of df1
+combined = pd.concat([df1, df2], axis=0)
+
+Output:
+   Fruits  Quantity
+0   Mango        40
+1   Apple        20
+0  Orange        30
+1  Banana        15
+```
+
+  </TabItem>
+</Tabs>
+
+#### 7. Handling Missing Values
+
+In real-world datasets, `NaN` (Not a Number) represents missing data.
+
+##### a. .isnull() and .sum()
+
+These methods detect and count missing values.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+print(df.isnull().sum())
+
+Output:
+Fruits      0
+Quantity    0
+dtype: int64
+```
+
+  </TabItem>
+</Tabs>
+
+##### b. .fillna() and .dropna()
+
+- `fillna()` → Replaces missing values with a specified value
+- `dropna()` → Removes rows or columns containing missing values
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+df['Quantity'] = df['Quantity'].fillna(0)
+
+Output:
+   Fruits  Quantity
+0   Mango      40.0
+1   Apple      20.0
+2  Orange       0.0
+```
+
+  </TabItem>
+</Tabs>
+
+#### 8. Statistical Aggregations
+
+Statistical aggregation functions help quickly calculate insights from data.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+print(df['Quantity'].sum())
+# Total of all quantities
+Output: 60
+
+
+print(df['Quantity'].mean())
+# Average quantity
+Output: 30
+
+print(df['Quantity'].max())
+# Highest value
+Output: 40
+
+print(df['Quantity'].cumsum())
+# Running total (Cumulative Sum)
+
+Output:
+0    40
+1    60
+Name: Quantity, dtype: int64
+```
+
+  </TabItem>
+</Tabs>
+
+---
+## Video Reference
+
+<div style={{ display: "flex", justifyContent: "center" }}>
+  <iframe
+    width="350"
+    height="350"
+    src="https://www.youtube.com/embed/gtjxAH8uaP0?si=uYfXgtEGN1tpPE2z"
+    title="YouTube video player"
+    frameBorder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerPolicy="strict-origin-when-cross-origin"
+    allowFullScreen
+  ></iframe>
+</div>
+---
+## Python - Matplotlib
+
+Matplotlib is a powerful and versatile open-source plotting library for Python that helps users visualize data in a variety of formats.  
+
+It is designed to work seamlessly with NumPy arrays and pandas DataFrames, making it highly useful for scientific computing and data analysis.  
+
+The library provides an easy way to create graphs and charts from tabular data, including line plots, bar charts, histograms, scatter plots, and more.
+
+---
+
+### A. Matplotlib Pyplot
+
+Pyplot is a Matplotlib module that provides simple functions for adding plot elements, such as lines, images, text, etc. to the axes in the current figure.
+
+#### Installation:
+
+<Tabs>
+  <TabItem label="Bash">
+
+```bash
+pip install matplotlib
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+### B. Steps to Use Pyplot:
+
+1. **Import Matplotlib:** Start by importing matplotlib.pyplot as plt.
+2. **Create Data:** Prepare your data in the form of lists or arrays.
+3. **Plot Data:** Use plt.plot() to create the plot.
+4. **Customize Plot:** Add titles, labels, and other elements using methods like plt.title(), plt.xlabel(), and plt.ylabel().
+5. **Display Plot:** Use plt.show() to display the plot.
+
+##### **Syntax:** matplotlib.pyplot.plot()
+
+---
+
+### C. Parts of Matplotlib
+
+**Figure:** Whole area chosen for plotting
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+fig = plt.figure()
+plt.show()
+```
+
+  </TabItem>
+</Tabs>
+
+**Axes:** Area where data is plotted and it can be added by using methods add_subplot(nrows, ncols, index) return axes object
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+fig = plt.figure()
+ax = fig.add_subplot()
+plt.show()
+```
+
+  </TabItem>
+</Tabs>
+
+**Figure size:** Adjusting Figure Size => plt.figure(figsize=(x, y))
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+fig = plt.figure(figsize=(3, 3))
+ax = fig.add_subplot(1, 1, 1)
+plt.show()
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+### D. Create titles and axis label as method
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+fig = plt.figure(figsize=(3,3))
+ax = fig.add_subplot(111)
+
+ax.set_title("Figure")
+ax.set_xlabel("X-Axis")
+ax.set_ylabel("Y-Axis")
+
+ax.set_xlim([0,5])
+ax.set_ylim([0,10])
+
+plt.show()
+```
+
+  </TabItem>
+</Tabs>
+
+<div align="center" style={{ margin: "15px" }}>
+
+<img src="/IT/w1-aiml1.png" alt="AIML-1" />
+
+</div>
+
+---
+
+### E. Create Multiple Subplots
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+import matplotlib.pyplot as plt
+
+x = [1, 2, 3, 4]
+y = [1, 2, 3, 4]
+
+plt.plot(x, y)
+plt.show()
+```
+
+  </TabItem>
+</Tabs>
+
+<div align="center">
+  <img 
+    src="/IT/w1-aiml2.png"
+    alt="AIML-1"
+    width="500px"
+    height="400px"
+  />
+</div>
+
+---
+
+### F. Create Legends
+
+A matplotlib legend is a small box that describes the various elements of the plot in terms of lines and markers that have distinct styles or colors.
+
+**Attributes:**
+
+a. **shadow:** [None or bool] Whether to draw a shadow behind the legend.It’s Default value is None.
+
+b. **markerscale:** [None or int or float] The relative size of legend markers compared with the originally drawn ones.The Default is None. 
+
+c. **numpoints:** [None or int] The number of marker points in the legend when creating a legend entry for a Line2D (line).The Default is None. 
+
+d. **fontsize:** The font size of the legend.If the value is numeric the size will be the absolute font size in points. 
+
+e. **facecolor:** [None or “inherit” or color] The legend’s background color. 
+
+f. **edgecolor:** [None or “inherit” or color] The legend’s background patch edge color.
+
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+x = list(range(0, 5))
+y = list(range(0, 10, 2))
+
+fig = plt.figure(figsize=(3, 3))
+ax = fig.add_subplot(1, 1, 1)
+
+ax.set(
+    title="Figure",
+    xlabel="x-axis",
+    ylabel="y-axis",
+    xlim=(0, 5),
+    ylim=(0, 10)
+)
+
+plt.plot(x, y, label="legend")
+
+plt.legend()
+plt.show()
+```
+
+  </TabItem>
+</Tabs>
+
+---
+## Plotting in Matplotlib
+
+### A. Line Plot
+
+Line Plot is used to visualize a trend in data and is also used to compare two variables.
+
+**Syntax:** `plt.plot(x,y)`
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+x = [1, 5, 8, 12, 15, 19, 22, 26, 29]
+y = [29.3, 30.1, 30.4, 31.5, 32.3, 32.6, 31.8, 32.4, 32.7]
+
+fig = plt.figure(figsize=(8, 6))
+ax = fig.add_subplot(1, 1, 1)
+
+ax.set(
+    title="Line Plot Graph",
+    xlabel="X-Axis",
+    ylabel="Y-Axis",
+    xlim=(0, 30),
+    ylim=(25, 35)
+)
+
+ax.plot(x, y)
+
+plt.show()
+```
+
+  </TabItem>
+</Tabs>
+
+<div align="center">
+  <img 
+    src="/IT/w1-aiml3.png"
+    alt="AIML-3"
+    width="500px"
+    height="400px"
+  />
+</div>
+
+#### Parameter for Plot
+
+1. **color** - Sets the color of the line.
+2. **linestyle** - Sets the line style, e.g., solid, dashed, etc.
+3. **linewidth** - Sets the thickness of a line.
+4. **marker** - Chooses a marker for data points, e.g., circle, triangle, etc.
+5. **markersize** - Sets the size of the chosen marker.
+6. **label** - Names the line, which will come in legend.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+fig = plt.figure(figsize=(6, 3))
+ax = fig.add_subplot(1, 1, 1)
+
+ax.set(
+    title="Line Plot Graph",
+    xlabel="X-Axis",
+    ylabel="Y-Axis",
+    xlim=(0, 30),
+    ylim=(25, 35)
+)
+
+ax.plot(
+    x,
+    y,
+    color="black",
+    linestyle="dotted",
+    linewidth=1,
+    marker="o",
+    markersize=10,
+    label="label"
+)
+
+plt.legend()
+plt.show()
+```
+
+  </TabItem>
+</Tabs>
+
+<div align="center">
+  <img 
+    src="/IT/w1-aiml4.png"
+    alt="AIML-3"
+    width="500px"
+    height="400px"
+  />
+</div>
+
+---
+
+### B. Scatter Graph
+
+It similar to a line graph which is used to show how one variable is related to another. It consists of data points, if it is linear then it is highly correlated and only marks the data point.
+
+**Syntax:** `plt.scatter(x,y)`
+
+#### Parameter of Scatter Graph
+
+1. **c:** Sets color of markers.
+2. **s:** Sets the size of markers.
+3. **marker:** Select a marker. e.g.: circle, triangle, etc
+4. **edgecolor:** Sets the color of lines on the edges of markers.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+x = [1, 4, 6, 4, 2]
+y = [10, 10, 1, 5, 0]
+
+fig = plt.figure(figsize=(8, 4))
+ax = fig.add_subplot()
+
+ax.scatter(
+    x,
+    y,
+    c="blue",
+    s=500,
+    marker="o",
+    edgecolor="black",
+    label="Scatter"
+)
+
+ax.set_title("Scatter Graph")
+ax.set_xlabel("X-Axis")
+ax.set_ylabel("Y-Axis")
+
+plt.legend()
+plt.show()
+```
+
+  </TabItem>
+</Tabs>
+
+<div align="center">
+  <img 
+    src="/IT/w1-aiml5.png"
+    alt="AIML-3"
+    width="500px"
+    height="400px"
+  />
+</div>
+
+---
+### C. Bar Chart
+
+It is mostly used to compare categories, for vertical bar plots and horizontal bar plots.
+
+**Syntax:** `bar(x, height) or bar(y,width)`
+
+#### Parameter of Bar Graph
+
+1. **Color:** Sets the color of bars.
+2. **edgecolor:** Sets the color of the borderline of bars.
+3. **label:** Sets label to a bar, appearing in legend.
+4. **color:** The color of the bar.
+5. **align:** Aligns the bars with respect to x-coordinates.
+
+<Tabs>
+  <TabItem label="Vertical Bar Graph">
+
+```python
+# Vertical Bar Graph
+import matplotlib.pyplot as plt
+
+x = [1, 2, 3]
+y = [10, 20, 30]
+
+fig = plt.figure(figsize=(8, 4))
+ax = fig.add_subplot()
+
+ax.set(
+    title="Bar Graph",
+    xlabel="X-Axis",
+    ylabel="Y-Axis",
+    xticks=x,
+    label="label",
+    xticklabels=["first", "second", "third"]
+)
+
+ax.bar(
+    x,
+    y,
+    color="blue",
+    edgecolor="black",
+    width=0.5,
+    align="edge",
+    label="label",
+    linewidth=3
+)
+
+plt.legend()
+plt.show()
+```
+
+  </TabItem>
+
+  <TabItem label="Horizontal Bar Graph">
+
+```python
+# Horizontal Bar Graph
+import matplotlib.pyplot as plt
+
+x = [1, 2, 3]
+y = [10, 20, 30]
+
+fig = plt.figure(figsize=(8, 4))
+ax = fig.add_subplot()
+
+ax.set(
+    title="Bar Graph",
+    xlabel="X-Axis",
+    ylabel="Y-Axis",
+    xticks=x,
+    label="label",
+    xticklabels=["first", "second", "third"]
+)
+
+plt.barh(
+    x,
+    y,
+    color="blue",
+    edgecolor="black",
+    height=0.5,
+    align="edge",
+    label="label"
+)
+
+plt.legend()
+plt.show()
+```
+
+  </TabItem>
+</Tabs>
+
+<div align="center">
+  <img 
+    src="/IT/w1-aiml6.png"
+    alt="AIML-3"
+    width="500px"
+    height="400px"
+  />
+  <img 
+    src="/IT/w1-aiml7.png"
+    alt="AIML-3"
+    width="500px"
+    height="400px"
+  />
+</div>
+
+---
+
+### D. Pie Plot
+
+It is effective in showing the proportion of categories and is best suited for comparing fewer categories. It is used to highlight the proportion of one or a group of categories.
+
+**Syntax:** pie(x), x: size of portions, passed as fraction or number
+
+#### Parameter of Pie
+
+1. **colors:** Sets the colors of portions.
+2. **labels:** Sets the labels of portions.
+3. **startangle:** Sets the start angle at which the portion drawing starts.
+4. **autopct:** Sets the percentage display format of an area, covering portions.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+import matplotlib.pyplot as plt
+
+x = [1, 2, 3, 4, 5]
+
+fig = plt.figure(figsize=(4, 4))
+ax = fig.add_subplot()
+
+ax.set(title="Pie Chart")
+
+plt.pie(
+    x,
+    colors=["brown", "red", "green", "yellow", "blue"],
+    labels=["first", "second", "third", "fourth", "fifth"],
+    startangle=0,
+    autopct="%1.1f%%"
+)
+
+plt.show()
+```
+
+  </TabItem>
+</Tabs>
+
+<div align="center">
+  <img 
+    src="/IT/w1-aiml9.png"
+    alt="AIML-3"
+    width="300px"
+    height="300px"
+  />
+</div>
+
+---
+
+### E. Histogram Chart
+
+It is used to visualize the spread of data in a distribution
+
+**Syntax:** hist(x)
+
+where x is the data values
+
+#### Parameter of Histogram
+
+1. **Color:** Sets the color of bars.
+2. **bins:** Sets the number of bins to be used.
+3. **density:** Sets to True where bins display fraction and not the count.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+import matplotlib.pyplot as plt
+
+x = [1, 2, 3, 4, 5]
+
+fig = plt.figure(figsize=(10, 4))
+ax = fig.add_subplot()
+
+ax.set(
+    title="Histogram",
+    xlabel="X-Axis",
+    ylabel="Y-Axis"
+)
+
+ax.hist(
+    x,
+    color="blue",
+    bins=10,
+    density=True,
+    orientation="vertical"
+)
+
+plt.show()
+```
+
+  </TabItem>
+</Tabs>
+
+<div align="center">
+  <img 
+    src="/IT/w1-aiml10.png"
+    alt="AIML-3"
+    width="500px"
+    height="500px"
+  />
+</div>
+
+---
+### F. 3-Dimensional Line Graph
+
+<Tabs>
+  <TabItem label="3D Axes Setup">
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig = plt.figure()
+
+ax = plt.axes(projection='3d')
+```
+
+  </TabItem>
+</Tabs>
+
+<div align="center">
+  <img 
+    src="/IT/w1-aiml11.png"
+    alt="AIML-3"
+    width="300px"
+    height="300px"
+  />
+</div>
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+# Importing mplot3d toolkits
+from mpl_toolkits import mplot3d
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig = plt.figure()
+
+# Syntax for 3D projection
+ax = plt.axes(projection='3d')
+
+# Defining axes
+z = np.linspace(0, 1, 100)
+x = z * np.sin(25 * z)
+y = z * np.cos(25 * z)
+
+c = x + y
+
+ax.scatter(x, y, z, c=c)
+
+# Plot title
+ax.set_title("3D Scatter Plot")
+
+plt.show()
+```
+
+  </TabItem>
+</Tabs>
+
+<div align="center">
+  <img 
+    src="/IT/w1-aiml12.png"
+    alt="AIML-3"
+    width="300px"
+    height="300px"
+  />
+</div>
+
+---
+
+## Working with Images using Matplotlib
+
+The image module in matplotlib library is used for working with images in Python.
+
+The image module also includes two useful methods
+
+-> imread which is used to read images
+
+-> imshow which is used to display the image.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+# Importing required libraries
+import matplotlib.pyplot as plt
+import matplotlib.image as img
+
+# Reading the image
+testImage = img.imread(r'/content/image.jpg')
+
+# Displaying the image
+plt.imshow(testImage)
+
+plt.show()
+```
+
+  </TabItem>
+</Tabs>
+
+<div align="center">
+  <img 
+    src="/IT/w1-aiml13.png"
+    alt="AIML-3"
+    width="400px"
+    height="400px"
+  />
+</div>
+
+---
+### A. Display an Image in Grayscale in Matplotlib
+
+Open the image using PIL image method and convert it to L mode.L mode image is a single-channel image - normally interpreted as grayscale.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+from PIL import Image
+import matplotlib.pyplot as plt
+
+# Storing image path
+fname = r'/content/image.jpg'
+
+# Opening image using PIL and converting to grayscale
+image = Image.open(fname).convert("L")
+
+# Displaying the grayscale image
+plt.imshow(image, cmap='gray')
+
+# Optional: hides axis ticks
+plt.axis('off')
+
+plt.show()
+```
+
+  </TabItem>
+</Tabs>
+
+<div align="center">
+  <img 
+    src="/IT/w1-aiml14.avif"
+    alt="AIML-3"
+    width="350px"
+    height="350px"
+  />
+</div>
+
+---
+
+### B. Display an OpenCV image in Python with Matplotlib
+
+The OpenCV module is an open-source computer vision and machine learning software library. It is a huge open-source library for computer vision, machine learning, and image processing.
+
+OpenCV images with Matplotlib module for that you just need to convert colored image into a gray scale image.
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+# Import required modules
+import cv2
+import matplotlib.pyplot as plt
+
+# Read the image
+image = cv2.imread(r'/content/image.jpg')
+
+# Convert color image into grayscale image
+img1 = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
+
+# Plot grayscale image using Matplotlib
+# cmap stands for colormap
+plt.imshow(img1, cmap='gray')
+
+# Display the image
+plt.show()
+```
+
+  </TabItem>
+</Tabs>
+
+<div align="center">
+  <img 
+    src="/IT/w1-aiml15.avif"
+    alt="AIML-3"
+    width="350px"
+    height="350px"
+  />
+</div>
+
+---
+
+## Video Reference
+
+<div style="display: flex; justify-content: center;">
+  <iframe
+    width="350"
+    height="350"
+    src="https://www.youtube.com/embed/3Xc3CA655Y4"
+    title="YouTube video player"
+    frameborder="0"
+    allowfullscreen
+  ></iframe>
+</div>
+
+---
