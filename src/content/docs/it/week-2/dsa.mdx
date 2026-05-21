@@ -13,606 +13,6 @@ pre {
 }
 `}</style>
 
-## Hashing
-
-Hashing is a technique used in data structures that efficiently stores and retrieves data in a way that allows for quick access.
-
-Hashing involves mapping data to a specific index in a hash table (an array of items) using a hash function. It enables fast retrieval of information based on its key.
-
-The great thing about hashing is, we can achieve all three operations (**search, insert and delete**) in **O(1)** time on average.
-
-Hashing is mainly used to implement:
-
-- Sets of distinct items (only keys)
-- Dictionaries (key value pairs)
-
-Here's an example of hashing using the modulo method.
-
-```math
-H(x) = x \% 10
-```
-
-The hash function converts any large number into a smaller value between `0` and `9`.
-
-<img
-  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/DSA/1stimg%20dsa.webp?raw=true"
-  alt="Diagram"
-  style={{
-    width: "70%",
-    display: "block",
-    margin: "auto"
-  }}
-/>
-
----
-
-### A. Applications of Hashing
-
-Hashing is a technique that converts data of any size into a fixed-size value, known as a hash, which can be used for quick data retrieval and comparison.
-
----
-
-#### 1. Data Integrity & Security
-
-Hashing acts as a digital seal and lock, focusing on the verification and privacy of sensitive data.
-
-##### a. Password Storage
-
-Stores non-reversible "fingerprints" instead of plain text, allowing secure verification while keeping passwords hidden from attackers.
-
-##### b. File Comparison and Message Digest
-
-Generates unique signatures to verify file integrity, allowing users to instantly detect any corruption or malicious tampering.
-
-##### c. Blockchain & Consensus
-
-Links blocks via hashes to ensure permanent immutability, where any alteration breaks the chain and alerts the network.
-
-##### d. Fraud Detection & Cybersecurity
-
-Matches data patterns against known threat databases to identify and block malicious files the moment their hashes are detected.
-
----
-
-#### 2. Database & Search Optimization
-
-This category leverages hashing to eliminate slow searches, jumping directly to the required data for high-performance computing.
-
-##### a. Database Indexing
-
-Enables near-instant record retrieval by using hashes as direct indices, bypassing slow sorting to speed up massive database queries.
-
-##### b. Distinct Elements & Counting Frequencies
-
-Tracks unique items and occurrences by using hash values as keys, providing a massive speed advantage over comparison methods.
-
-##### c. Dictionaries & Associative Arrays
-
-Facilitates immediate access to data via high-speed key mapping, ensuring lookups remain fast regardless of dataset size.
-
-##### d. Rabin-Karp Algorithm
-
-Optimizes string-searching by hashing text segments to quickly filter out non-matches and focus only on potential pattern hits.
-
----
-
-#### 3. Network & System Infrastructure
-
-Hashing optimizes traffic movement and resource usage to ensure minimal lag and disruption across complex systems.
-
-##### a. Load Balancing
-
-Uses consistent hashing to distribute traffic evenly across servers, ensuring stability and minimal data remapping during server changes.
-
-##### b. Bloom Filters
-
-A memory-efficient structure that trades a tiny margin of error for extreme speed when testing membership in massive data sets.
-
-##### c. Network Routing
-
-Hashes destination attributes to determine optimal data paths, minimizing latency and ensuring smooth transmission across global infrastructure.
-
-##### d. Caching Mechanisms
-
-Stores frequently accessed data under hash-based keys to reduce retrieval times and decrease server load by bypassing slow lookups.
-
----
-
-#### 4. Specialized Processing
-
-These applications apply hashing to complex pattern recognition and low-level system organization.
-
-##### a. Image Processing
-
-Employs perceptual hashing to find duplicate images by comparing structural features, identifying matches even after resizing or compression.
-
-##### b. Symbol Tables
-
-Maps code identifiers to memory locations during compilation, which is essential for accurate variable management and program execution.
-
-##### c. Graphics & Grid Storage
-
-Organizes graphical objects into spatial grids via hash functions to enable accelerated rendering and object management in 3D environments.
-
----
-
-## Example Programs
-
-### A. Max Distance Between Two Occurrences
-
-Given an array `arr[]`, the task is to find the maximum distance between two occurrences of any element.
-
-If no element occurs twice, return `0`.
-
----
-
-#### 1. Examples
-
-##### a. Example 1
-
-```text
-Input: arr = [1, 1, 2, 2, 2, 1]
-Output: 5
-```
-
-**Explanation**
-
-- Distance for `1` is `5 - 0 = 5`
-- Distance for `2` is `4 - 2 = 2`
-
-So maximum distance is `5`.
-
----
-
-##### b. Example 2
-
-```text
-Input: arr = [3, 2, 1, 2, 1, 4, 5, 8, 6, 7, 4, 2]
-Output: 10
-```
-
-**Explanation**
-
-- Max distance for `2` is `11 - 1 = 10`
-- Max distance for `1` is `4 - 2 = 2`
-- Max distance for `4` is `10 - 5 = 5`
-
----
-
-##### c. Example 3
-
-```text
-Input: arr = [1, 2, 3, 6, 5, 4]
-Output: 0
-```
-
-**Explanation**
-
-No element occurs twice, so maximum distance is `0`.
-
----
-
-#### 2. Naive Approach — Exploring All Pairs
-
-- **Time Complexity:** `O(n²)`
-- **Space Complexity:** `O(1)`
-
-One by one, pick each element from the array and find its first and last occurrence in the array and take the difference between the first and last occurrence for maximum distance.
-
-<Tabs>
-  <TabItem label="C++">
-
-```cpp
-// C++ Program to find max distance between two occurrences
-// in array by exploring all pairs
-
-#include <iostream>
-#include <vector>
-using namespace std;
-
-// function to find the maximum distance
-int maxDistance(vector<int>& arr) {
-    int res = 0;
-
-    for (int i = 0; i < arr.size() - 1; i++) {
-        for (int j = i + 1; j < arr.size(); j++) {
-
-            // check if two elements are equal
-            if (arr[i] == arr[j]) {
-
-                // calculate the distance and update res
-                res = max(res, j - i);
-            }
-        }
-    }
-
-    return res;
-}
-
-// Driver code
-int main() {
-    vector<int> arr = {1, 2, 4, 1, 3, 4, 2, 5, 6, 5};
-
-    cout << maxDistance(arr) << endl;
-
-    return 0;
-}
-```
-
-  </TabItem>
-
-  <TabItem label="Java">
-
-```java
-// Java Program to find max distance between two occurrences
-// in array by exploring all pairs
-
-import java.util.Arrays;
-
-class GfG {
-
-    // function to find the maximum distance
-    static int maxDistance(int[] arr) {
-
-        int res = 0;
-
-        for (int i = 0; i < arr.length - 1; i++) {
-            for (int j = i + 1; j < arr.length; j++) {
-
-                // check if two elements are equal
-                if (arr[i] == arr[j]) {
-
-                    // calculate the distance and update res
-                    res = Math.max(res, j - i);
-                }
-            }
-        }
-
-        return res;
-    }
-
-    public static void main(String[] args) {
-
-        int[] arr = {1, 2, 4, 1, 3, 4, 2, 5, 6, 5};
-
-        System.out.println(maxDistance(arr));
-    }
-}
-```
-
-  </TabItem>
-
-  <TabItem label="Python">
-
-```python
-# Python Program to find max distance between two occurrences
-# in array by exploring all pairs
-
-def maxDistance(arr):
-
-    res = 0
-
-    for i in range(len(arr) - 1):
-        for j in range(i + 1, len(arr)):
-
-            # check if two elements are equal
-            if arr[i] == arr[j]:
-
-                # calculate the distance and update res
-                res = max(res, j - i)
-
-    return res
-
-
-if __name__ == "__main__":
-
-    arr = [1, 2, 4, 1, 3, 4, 2, 5, 6, 5]
-
-    print(maxDistance(arr))
-```
-
-  </TabItem>
-</Tabs>
-
----
-
-**Output**
-
-```text
-5
-
-```
-
----
-
-#### 3. Using Hash Map or Dictionary
-
-- **Time Complexity:** `O(n)`
-- **Space Complexity:** `O(n)`
-
-An efficient solution to this problem is to use hashing.
-
-The idea is to:
-
-1. Traverse the input array
-2. Store the index of the first occurrence in a hash map
-3. For every other occurrence:
-   - Find the difference between the current index and the first index
-   - Update the maximum distance if needed
-
----
-
-<Tabs>
-  <TabItem label="C++">
-
-```cpp
-// C++ Program to find max distance between two occurrences
-// in array using hashing
-
-#include <iostream>
-#include <vector>
-#include <unordered_map>
-using namespace std;
-
-int maxDistance(vector<int>& arr) {
-
-    // Stores element to first index mapping
-    unordered_map<int, int> mp;
-
-    int res = 0;
-
-    for (int i = 0; i < arr.size(); i++) {
-
-        // If first occurrence
-        if (mp.find(arr[i]) == mp.end())
-            mp[arr[i]] = i;
-
-        // Else update max distance
-        else
-            res = max(res, i - mp[arr[i]]);
-    }
-
-    return res;
-}
-
-int main() {
-
-    vector<int> arr = {1, 1, 2, 2, 2, 1};
-
-    cout << maxDistance(arr);
-
-    return 0;
-}
-```
-  </TabItem>
-
-  <TabItem label="Java">
-
-```java
-// Java Program to find max distance between two occurrences
-// in array using hashing
-
-import java.util.*;
-
-class GfG {
-
-    static int maxDistance(int[] arr) {
-
-        // Stores element to first index mapping
-        HashMap<Integer, Integer> mp = new HashMap<>();
-
-        int res = 0;
-
-        for (int i = 0; i < arr.length; i++) {
-
-            // If first occurrence
-            if (!mp.containsKey(arr[i]))
-                mp.put(arr[i], i);
-
-            // Else update max distance
-            else
-                res = Math.max(res, i - mp.get(arr[i]));
-        }
-
-        return res;
-    }
-
-    public static void main(String[] args) {
-
-        int[] arr = {1, 1, 2, 2, 2, 1};
-
-        System.out.println(maxDistance(arr));
-    }
-}
-```
-
-  </TabItem>
-
-  <TabItem label="Python">
-
-```python
-# Python Program to find max distance between two occurrences
-# in array using hashing
-
-def maxDistance(arr):
-
-    # Stores element to first index mapping
-    mp = {}
-
-    res = 0
-
-    for i in range(len(arr)):
-
-        # If first occurrence
-        if arr[i] not in mp:
-            mp[arr[i]] = i
-
-        # Else update max distance
-        else:
-            res = max(res, i - mp[arr[i]])
-
-    return res
-
-
-if __name__ == "__main__":
-
-    arr = [1, 1, 2, 2, 2, 1]
-
-    print(maxDistance(arr))
-```
-
-  </TabItem>
-</Tabs>
-
----
-
-**Output**
-
-```text
-5
-```
-
----
-
-#### 4. Using Hash Map or Dictionary — O(n) Time and O(n) Space
-
-An efficient solution to this problem is to use hashing.
-
-The idea is to:
-
-1. Traverse the input array
-2. Store the index of the first occurrence in a hash map
-3. For every other occurrence:
-   - Find the difference between the current index and the first index stored in the hash map
-   - If the difference is greater than the current result, update the result
-
-<Tabs>
-  <TabItem label="C++">
-
-```cpp
-// C++ Program to find max distance between two occurrences
-// in array using hashing
-
-#include <iostream>
-#include <vector>
-#include <unordered_map>
-using namespace std;
-
-int maxDistance(vector<int>& arr) {
-
-    // Stores element to first index mapping
-    unordered_map<int, int> mp;
-
-    int res = 0;
-
-    for (int i = 0; i < arr.size(); i++) {
-
-        // If this is the first occurrence
-        // of the element, store its index
-        if (mp.find(arr[i]) == mp.end())
-            mp[arr[i]] = i;
-
-        // Else update max distance
-        else
-            res = max(res, i - mp[arr[i]]);
-    }
-
-    return res;
-}
-
-int main() {
-
-    vector<int> arr = {1, 1, 2, 2, 2, 1};
-
-    cout << maxDistance(arr);
-
-    return 0;
-}
-```
-
-  </TabItem>
-
-  <TabItem label="Java">
-
-```java
-// Java Program to find max distance between two occurrences
-// in array using hashing
-
-import java.util.*;
-
-class GfG {
-
-    static int maxDistance(int[] arr) {
-
-        // Stores element to first index mapping
-        HashMap<Integer, Integer> mp = new HashMap<>();
-
-        int res = 0;
-
-        for (int i = 0; i < arr.length; i++) {
-
-            // If this is the first occurrence
-            // of the element, store its index
-            if (!mp.containsKey(arr[i]))
-                mp.put(arr[i], i);
-
-            // Else update max distance
-            else
-                res = Math.max(res, i - mp.get(arr[i]));
-        }
-
-        return res;
-    }
-
-    public static void main(String[] args) {
-
-        int[] arr = {1, 1, 2, 2, 2, 1};
-
-        System.out.println(maxDistance(arr));
-    }
-}
-```
-
-  </TabItem>
-
-  <TabItem label="Python">
-
-```python
-# Python Program to find max distance between two occurrences
-# in array using hashing
-
-def maxDistance(arr):
-
-    # Stores element to first index mapping
-    mp = {}
-
-    res = 0
-
-    for i in range(len(arr)):
-
-        # If this is the first occurrence
-        # of the element, store its index
-        if arr[i] not in mp:
-            mp[arr[i]] = i
-
-        # Else update max distance
-        else:
-            res = max(res, i - mp[arr[i]])
-
-    return res
-
-
-if __name__ == "__main__":
-
-    arr = [1, 1, 2, 2, 2, 1]
-
-    print(maxDistance(arr))
-```
-
-  </TabItem>
-</Tabs>
-
----
 
 ## String
 
@@ -759,30 +159,36 @@ A single character is also considered a string.
 
 ### D. Examples
 
-#### 1. C++
+<Tabs>
+
+<TabItem label="C++">
 
 ```cpp
 char ch = 'A';
 string str = "Hello";
 ```
 
----
+</TabItem>
 
-#### 2. Java
+<TabItem label="Java">
 
 ```java
 char ch = 'A';
 String str = "Hello";
 ```
 
----
+</TabItem>
 
-#### 3. Python
+<TabItem label="Python">
 
 ```python
 ch = 'A'
 str1 = "Hello"
 ```
+
+</TabItem>
+
+</Tabs>
 
 ---
 
@@ -1877,9 +1283,6 @@ Given a string `s`, check if it is Pangram or not.
 
 A pangram is a sentence containing all letters of the English alphabet.
 
----
-
-#### 1. Examples
 
 ##### a. Example 1
 
@@ -1895,7 +1298,6 @@ true
 
 The input string contains all characters from `'a'` to `'z'`.
 
----
 
 ##### b. Example 2
 
@@ -1911,7 +1313,6 @@ false
 
 The input string does not contain all characters from `'a'` to `'z'`, as `'l'`, `'z'`, `'y'` are missing.
 
----
 
 <Tabs>
   <TabItem label="C++">
@@ -2956,6 +2357,606 @@ if __name__ == "__main__":
 
     for i in range(len(res)):
         print(res[i], end=" ")
+```
+
+  </TabItem>
+</Tabs>
+
+---
+## Hashing
+
+Hashing is a technique used in data structures that efficiently stores and retrieves data in a way that allows for quick access.
+
+Hashing involves mapping data to a specific index in a hash table (an array of items) using a hash function. It enables fast retrieval of information based on its key.
+
+The great thing about hashing is, we can achieve all three operations (**search, insert and delete**) in **O(1)** time on average.
+
+Hashing is mainly used to implement:
+
+- Sets of distinct items (only keys)
+- Dictionaries (key value pairs)
+
+Here's an example of hashing using the modulo method.
+
+```math
+H(x) = x \% 10
+```
+
+The hash function converts any large number into a smaller value between `0` and `9`.
+
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/DSA/1stimg%20dsa.webp?raw=true"
+  alt="Diagram"
+  style={{
+    width: "70%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+---
+
+###  Applications of Hashing
+
+Hashing is a technique that converts data of any size into a fixed-size value, known as a hash, which can be used for quick data retrieval and comparison.
+
+---
+
+#### 1. Data Integrity & Security
+
+Hashing acts as a digital seal and lock, focusing on the verification and privacy of sensitive data.
+
+##### a. Password Storage
+
+Stores non-reversible "fingerprints" instead of plain text, allowing secure verification while keeping passwords hidden from attackers.
+
+##### b. File Comparison and Message Digest
+
+Generates unique signatures to verify file integrity, allowing users to instantly detect any corruption or malicious tampering.
+
+##### c. Blockchain & Consensus
+
+Links blocks via hashes to ensure permanent immutability, where any alteration breaks the chain and alerts the network.
+
+##### d. Fraud Detection & Cybersecurity
+
+Matches data patterns against known threat databases to identify and block malicious files the moment their hashes are detected.
+
+---
+
+#### 2. Database & Search Optimization
+
+This category leverages hashing to eliminate slow searches, jumping directly to the required data for high-performance computing.
+
+##### a. Database Indexing
+
+Enables near-instant record retrieval by using hashes as direct indices, bypassing slow sorting to speed up massive database queries.
+
+##### b. Distinct Elements & Counting Frequencies
+
+Tracks unique items and occurrences by using hash values as keys, providing a massive speed advantage over comparison methods.
+
+##### c. Dictionaries & Associative Arrays
+
+Facilitates immediate access to data via high-speed key mapping, ensuring lookups remain fast regardless of dataset size.
+
+##### d. Rabin-Karp Algorithm
+
+Optimizes string-searching by hashing text segments to quickly filter out non-matches and focus only on potential pattern hits.
+
+---
+
+#### 3. Network & System Infrastructure
+
+Hashing optimizes traffic movement and resource usage to ensure minimal lag and disruption across complex systems.
+
+##### a. Load Balancing
+
+Uses consistent hashing to distribute traffic evenly across servers, ensuring stability and minimal data remapping during server changes.
+
+##### b. Bloom Filters
+
+A memory-efficient structure that trades a tiny margin of error for extreme speed when testing membership in massive data sets.
+
+##### c. Network Routing
+
+Hashes destination attributes to determine optimal data paths, minimizing latency and ensuring smooth transmission across global infrastructure.
+
+##### d. Caching Mechanisms
+
+Stores frequently accessed data under hash-based keys to reduce retrieval times and decrease server load by bypassing slow lookups.
+
+---
+
+#### 4. Specialized Processing
+
+These applications apply hashing to complex pattern recognition and low-level system organization.
+
+##### a. Image Processing
+
+Employs perceptual hashing to find duplicate images by comparing structural features, identifying matches even after resizing or compression.
+
+##### b. Symbol Tables
+
+Maps code identifiers to memory locations during compilation, which is essential for accurate variable management and program execution.
+
+##### c. Graphics & Grid Storage
+
+Organizes graphical objects into spatial grids via hash functions to enable accelerated rendering and object management in 3D environments.
+
+---
+
+## Example Programs
+
+### Max Distance Between Two Occurrences
+
+Given an array `arr[]`, the task is to find the maximum distance between two occurrences of any element.
+
+If no element occurs twice, return `0`.
+
+---
+
+#### 1. Examples
+
+##### a. Example 1
+
+```text
+Input: arr = [1, 1, 2, 2, 2, 1]
+Output: 5
+```
+
+**Explanation**
+
+- Distance for `1` is `5 - 0 = 5`
+- Distance for `2` is `4 - 2 = 2`
+
+So maximum distance is `5`.
+
+---
+
+##### b. Example 2
+
+```text
+Input: arr = [3, 2, 1, 2, 1, 4, 5, 8, 6, 7, 4, 2]
+Output: 10
+```
+
+**Explanation**
+
+- Max distance for `2` is `11 - 1 = 10`
+- Max distance for `1` is `4 - 2 = 2`
+- Max distance for `4` is `10 - 5 = 5`
+
+---
+
+##### c. Example 3
+
+```text
+Input: arr = [1, 2, 3, 6, 5, 4]
+Output: 0
+```
+
+**Explanation**
+
+No element occurs twice, so maximum distance is `0`.
+
+---
+
+#### 2. Naive Approach — Exploring All Pairs
+
+- **Time Complexity:** `O(n²)`
+- **Space Complexity:** `O(1)`
+
+One by one, pick each element from the array and find its first and last occurrence in the array and take the difference between the first and last occurrence for maximum distance.
+
+<Tabs>
+  <TabItem label="C++">
+
+```cpp
+// C++ Program to find max distance between two occurrences
+// in array by exploring all pairs
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+// function to find the maximum distance
+int maxDistance(vector<int>& arr) {
+    int res = 0;
+
+    for (int i = 0; i < arr.size() - 1; i++) {
+        for (int j = i + 1; j < arr.size(); j++) {
+
+            // check if two elements are equal
+            if (arr[i] == arr[j]) {
+
+                // calculate the distance and update res
+                res = max(res, j - i);
+            }
+        }
+    }
+
+    return res;
+}
+
+// Driver code
+int main() {
+    vector<int> arr = {1, 2, 4, 1, 3, 4, 2, 5, 6, 5};
+
+    cout << maxDistance(arr) << endl;
+
+    return 0;
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Java">
+
+```java
+// Java Program to find max distance between two occurrences
+// in array by exploring all pairs
+
+import java.util.Arrays;
+
+class GfG {
+
+    // function to find the maximum distance
+    static int maxDistance(int[] arr) {
+
+        int res = 0;
+
+        for (int i = 0; i < arr.length - 1; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+
+                // check if two elements are equal
+                if (arr[i] == arr[j]) {
+
+                    // calculate the distance and update res
+                    res = Math.max(res, j - i);
+                }
+            }
+        }
+
+        return res;
+    }
+
+    public static void main(String[] args) {
+
+        int[] arr = {1, 2, 4, 1, 3, 4, 2, 5, 6, 5};
+
+        System.out.println(maxDistance(arr));
+    }
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Python">
+
+```python
+# Python Program to find max distance between two occurrences
+# in array by exploring all pairs
+
+def maxDistance(arr):
+
+    res = 0
+
+    for i in range(len(arr) - 1):
+        for j in range(i + 1, len(arr)):
+
+            # check if two elements are equal
+            if arr[i] == arr[j]:
+
+                # calculate the distance and update res
+                res = max(res, j - i)
+
+    return res
+
+
+if __name__ == "__main__":
+
+    arr = [1, 2, 4, 1, 3, 4, 2, 5, 6, 5]
+
+    print(maxDistance(arr))
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+**Output**
+
+```text
+5
+
+```
+
+---
+
+#### 3. Using Hash Map or Dictionary
+
+- **Time Complexity:** `O(n)`
+- **Space Complexity:** `O(n)`
+
+An efficient solution to this problem is to use hashing.
+
+The idea is to:
+
+1. Traverse the input array
+2. Store the index of the first occurrence in a hash map
+3. For every other occurrence:
+   - Find the difference between the current index and the first index
+   - Update the maximum distance if needed
+
+---
+
+<Tabs>
+  <TabItem label="C++">
+
+```cpp
+// C++ Program to find max distance between two occurrences
+// in array using hashing
+
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+using namespace std;
+
+int maxDistance(vector<int>& arr) {
+
+    // Stores element to first index mapping
+    unordered_map<int, int> mp;
+
+    int res = 0;
+
+    for (int i = 0; i < arr.size(); i++) {
+
+        // If first occurrence
+        if (mp.find(arr[i]) == mp.end())
+            mp[arr[i]] = i;
+
+        // Else update max distance
+        else
+            res = max(res, i - mp[arr[i]]);
+    }
+
+    return res;
+}
+
+int main() {
+
+    vector<int> arr = {1, 1, 2, 2, 2, 1};
+
+    cout << maxDistance(arr);
+
+    return 0;
+}
+```
+  </TabItem>
+
+  <TabItem label="Java">
+
+```java
+// Java Program to find max distance between two occurrences
+// in array using hashing
+
+import java.util.*;
+
+class GfG {
+
+    static int maxDistance(int[] arr) {
+
+        // Stores element to first index mapping
+        HashMap<Integer, Integer> mp = new HashMap<>();
+
+        int res = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+
+            // If first occurrence
+            if (!mp.containsKey(arr[i]))
+                mp.put(arr[i], i);
+
+            // Else update max distance
+            else
+                res = Math.max(res, i - mp.get(arr[i]));
+        }
+
+        return res;
+    }
+
+    public static void main(String[] args) {
+
+        int[] arr = {1, 1, 2, 2, 2, 1};
+
+        System.out.println(maxDistance(arr));
+    }
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Python">
+
+```python
+# Python Program to find max distance between two occurrences
+# in array using hashing
+
+def maxDistance(arr):
+
+    # Stores element to first index mapping
+    mp = {}
+
+    res = 0
+
+    for i in range(len(arr)):
+
+        # If first occurrence
+        if arr[i] not in mp:
+            mp[arr[i]] = i
+
+        # Else update max distance
+        else:
+            res = max(res, i - mp[arr[i]])
+
+    return res
+
+
+if __name__ == "__main__":
+
+    arr = [1, 1, 2, 2, 2, 1]
+
+    print(maxDistance(arr))
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+**Output**
+
+```text
+5
+```
+
+---
+
+#### 4. Using Hash Map or Dictionary — O(n) Time and O(n) Space
+
+An efficient solution to this problem is to use hashing.
+
+The idea is to:
+
+1. Traverse the input array
+2. Store the index of the first occurrence in a hash map
+3. For every other occurrence:
+   - Find the difference between the current index and the first index stored in the hash map
+   - If the difference is greater than the current result, update the result
+
+<Tabs>
+  <TabItem label="C++">
+
+```cpp
+// C++ Program to find max distance between two occurrences
+// in array using hashing
+
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+using namespace std;
+
+int maxDistance(vector<int>& arr) {
+
+    // Stores element to first index mapping
+    unordered_map<int, int> mp;
+
+    int res = 0;
+
+    for (int i = 0; i < arr.size(); i++) {
+
+        // If this is the first occurrence
+        // of the element, store its index
+        if (mp.find(arr[i]) == mp.end())
+            mp[arr[i]] = i;
+
+        // Else update max distance
+        else
+            res = max(res, i - mp[arr[i]]);
+    }
+
+    return res;
+}
+
+int main() {
+
+    vector<int> arr = {1, 1, 2, 2, 2, 1};
+
+    cout << maxDistance(arr);
+
+    return 0;
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Java">
+
+```java
+// Java Program to find max distance between two occurrences
+// in array using hashing
+
+import java.util.*;
+
+class GfG {
+
+    static int maxDistance(int[] arr) {
+
+        // Stores element to first index mapping
+        HashMap<Integer, Integer> mp = new HashMap<>();
+
+        int res = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+
+            // If this is the first occurrence
+            // of the element, store its index
+            if (!mp.containsKey(arr[i]))
+                mp.put(arr[i], i);
+
+            // Else update max distance
+            else
+                res = Math.max(res, i - mp.get(arr[i]));
+        }
+
+        return res;
+    }
+
+    public static void main(String[] args) {
+
+        int[] arr = {1, 1, 2, 2, 2, 1};
+
+        System.out.println(maxDistance(arr));
+    }
+}
+```
+
+  </TabItem>
+
+  <TabItem label="Python">
+
+```python
+# Python Program to find max distance between two occurrences
+# in array using hashing
+
+def maxDistance(arr):
+
+    # Stores element to first index mapping
+    mp = {}
+
+    res = 0
+
+    for i in range(len(arr)):
+
+        # If this is the first occurrence
+        # of the element, store its index
+        if arr[i] not in mp:
+            mp[arr[i]] = i
+
+        # Else update max distance
+        else:
+            res = max(res, i - mp[arr[i]])
+
+    return res
+
+
+if __name__ == "__main__":
+
+    arr = [1, 1, 2, 2, 2, 1]
+
+    print(maxDistance(arr))
 ```
 
   </TabItem>
