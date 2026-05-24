@@ -2,6 +2,8 @@
 title: AIML Week 2
 ---
 
+import { Code, Tabs, TabItem } from '@astrojs/starlight/components';
+
 ##  Machine Learning Fundamentals
 ### A. Introduction to Machine Learning
 At its core, Machine Learning (ML) is the science and art of programming computers so they can learn directly from data. Instead of writing a traditional program with a long, complex list of strict rules, you feed the computer examples, and it automatically learns to identify the patterns.
@@ -24,13 +26,30 @@ Supervised Learning = Learning with correct answers already given.
 
 
 ##### a. Classification
-Classification is a type of supervised learning where the goal is to sort data into specific, predefined categories.
+Classification is a type of supervised learning where the goal is to sort data into specific, predefined categories. Depending on the problem, this can be broken down into two main types:
 
+**Example:**
+If we give many emails marked as “Spam” and “Not Spam,” the computer learns how to classify new emails.
 
-**Examples:** Classification is like sorting fruits into different baskets. Apples are kept in one basket, bananas in another, and oranges in another.
-Similarly, in machine learning, classification means placing data into different categories or classes based on its features.
-Example: Email → Spam or Not Spam, Photo → Cat or Dog, Student Result → Pass or Fail. Classification means identifying which category something belongs to.
+- **Binary Classification**
+    Binary Classification is a type of classification where the output has only two possible classes.
+    It usually answers a Yes/No type question.
 
+    **Examples:**
+    Email → Spam / Not Spam
+    Exam Result → Pass / Fail
+    Transaction → Fraud / Genuine
+    Weather → Rain / No Rain
+
+- **Multiclass Classification**
+    Multiclass Classification is a type of classification where the output has more than two classes.
+    The model selects one category from multiple possible categories.
+
+    **Examples:**
+    Handwritten Digit Recognition → Digits 0–9
+    Animal Classification → Cat, Dog, Horse, Elephant
+    Flower Classification → Different Iris flower species
+    Traffic Sign Recognition → Stop, Turn Left, No Entry, Speed Limit
 
 ##### b. Regression
 Regression is a supervised learning task designed to predict a continuous, target numeric value based on a set of given input features (also called predictors).    
@@ -57,6 +76,13 @@ Anomaly detection involves showing the system mostly normal data instances durin
 
 **Example:** A system can be trained on normal purchasing patterns to automatically detect unusual credit card transactions and catch fraud. It can also be used to automatically catch manufacturing defects on a production line, or to remove extreme outliers from a dataset.
 
+##### c. Dimensionality Reduction and Visualization
+Dimensionality Reduction is a technique used to reduce the number of input features (dimensions) in a dataset while keeping the most important information.
+In Machine Learning large datasets may contain many unnecessary or highly related features. This increases complexity slows down training and makes data harder to analyze. Dimensionality reduction helps simplify the dataset improve performance and save storage space.
+It is also used for Data Visualization where high-dimensional data is converted into 2D or 3D graphs so hidden patterns and relationships can be understood easily.
+
+**Example:** While predicting car prices features like car age and mileage are closely related. Dimensionality reduction can combine them into a single feature representing the car’s overall condition or wear and tear.
+It is also used in Data Visualization to convert large datasets into simple 2D or 3D graphs for easier understanding of patterns and trends.
 
 #### 3. Reinforcement
 This type of learning works completely differently. The learning system, called an agent, is placed in an environment where it learns through trial and error. It gets rewards for good actions and penalties for bad ones, ultimately learning the best strategy to maximize its rewards over time.
@@ -93,12 +119,43 @@ These are two common ways a model can fail to generalize to new data. Overfittin
 
 **Example:** Overfitting is like a student memorizing exact answers for one exam and failing when questions change slightly. Underfitting is like a student studying too little and not understanding the subject properly.
 
+### J. Cost Function and Loss Function
+Cost Function and Loss Function are mathematical methods used to measure how wrong a Machine Learning model’s predictions are compared to the actual answers.
+The main goal of a learning algorithm is to reduce this error as much as possible so the model becomes more accurate.
+Loss Function measures error for a single data point.
+Cost Function measures the average error for the entire dataset.
+These functions help algorithms like Gradient Descent improve the model step by step.
+
+**Example:**
+- For Regression Problems   
+   If a model predicts house prices:
+   Actual Price = ₹50 Lakhs
+   Predicted Price = ₹45 Lakhs
+   The cost function calculates the difference between actual and predicted values.
+   - Common regression cost functions:  
+      Mean Squared Error (MSE)  
+      Mean Absolute Error (MAE)  
+      Huber Loss  
+- For Classification Problems   
+    In spam email detection:
+    Actual Output = Spam
+    Predicted Output = Not Spam
+    The loss function gives a high penalty for wrong predictions.
+   - Common classification cost functions:  
+      Binary Cross Entropy  
+      Categorical Cross Entropy  
+
+**Important Point**
+Cost Functions are used to train the model because they are mathematically smooth and easy to optimize.
+Metrics like Accuracy are mainly used to evaluate the final performance of the model.
+
+---
 
 ## Algorithms
 ### A. Linear Regression
 A. Linear Regression
 Linear Regression is one of the simplest models used for predicting a numeric value. It works by computing a weighted sum of the input features (plus a constant bias term) and drawing a straight line (or a flat plane) that best fits the training data.
-
+<br />
 <img
   src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/ml1.png?raw=true"
   alt="Diagram"
@@ -109,6 +166,22 @@ Linear Regression is one of the simplest models used for predicting a numeric va
   }}
 />
 
+**Code snippet:**
+<Tabs>
+  <TabItem label="Python">
+
+```python
+from sklearn.linear_model import LinearRegression
+
+model = LinearRegression()
+
+model.fit(X_train, y_train)
+
+predictions = model.predict(X_new)
+```
+
+  </TabItem>
+</Tabs>
 
 
 **Example:** Linear Regression is like predicting a student’s marks based on the number of hours studied. Usually, as study hours increase, marks also increase in a straight-line pattern.
@@ -125,7 +198,7 @@ Linear Regression is one of the simplest models used for predicting a numeric va
 
 ### B. Logistic Regression
 Despite its name, Logistic Regression is used for classification, not regression. It computes a weighted sum of the inputs just like Linear Regression, but instead of outputting the raw result, it runs the result through a function to output a probability between 0 and 1.
-
+<br />
 <img
   src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/ml2.png?raw=true"
   alt="Diagram"
@@ -136,7 +209,22 @@ Despite its name, Logistic Regression is used for classification, not regression
   }}
 />
 
+**Code snippet:**
+<Tabs>
+  <TabItem label="Python">
 
+```python
+from sklearn.linear_model import LogisticRegression
+
+model = LogisticRegression()
+
+model.fit(X_train, y_train)
+
+predictions = model.predict(X_new)
+```
+
+  </TabItem>
+</Tabs>
 
 **Example:** Logistic Regression is like predicting whether a student will pass or fail based on study hours. If the student studies enough hours, the result is “Pass”; otherwise, it is “Fail.” It is used when the output belongs to categories instead of numerical values.
 
@@ -147,8 +235,9 @@ Despite its name, Logistic Regression is used for classification, not regression
 
 
 ### C. K Nearest Neighbour
-KNN is an "instance-based" learning algorithm. It doesn't build a complex mathematical model; instead, it basically learns the training data by heart. When asked to make a prediction for a new, unseen instance, it simply looks at the "K" closest (most similar) instances in the training data and takes an average or majority vote.
-
+KNN is an "instance-based" learning algorithm. It does not build a complex mathematical model. Instead it memorizes the training data and makes predictions based on the nearest similar data points.
+When a new data point is given the algorithm finds the "K" closest neighbors and predicts the output using majority voting or averaging.
+<br />
 <img
   src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/ml3.png?raw=true"
   alt="Diagram"
@@ -159,7 +248,32 @@ KNN is an "instance-based" learning algorithm. It doesn't build a complex mathem
   }}
 />
 
+**Distance Formula in KNN**
+KNN uses distance formulas to find the closest data points to the new input.
 
+**Common Distance Formulas**
+- Euclidean Distance: Measures straight-line distance between points.
+- Manhattan Distance: Measures distance using horizontal and vertical paths.
+Different formulas affect how KNN handles data. Euclidean Distance is sensitive to large differences while Manhattan Distance works better with outliers.
+
+**Code snippet:**
+**Code Snippets:**
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+from sklearn.neighbors import KNeighborsClassifier
+
+model = KNeighborsClassifier(n_neighbors=3)
+
+model.fit(X_train, y_train)
+
+predictions = model.predict(X_new)
+```
+
+  </TabItem>
+</Tabs>
 
 **Example:** K-Nearest Neighbour (KNN) is like choosing friends with similar interests. If most nearby students like cricket, a new student near them is also likely to like cricket. Similarly, KNN predicts the category of new data based on the nearest similar data points.
 
@@ -176,7 +290,7 @@ KNN is an "instance-based" learning algorithm. It doesn't build a complex mathem
 ### D. Support Vector Machine
 SVM is a powerful classifier that separates different classes of data by fitting the widest possible "street" (or margin) between them. The boundary is completely determined by the data points located right on the edge of the street, which are called support vectors.
 
-
+<br />
 <img
   src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/ml4.png?raw=true"
   alt="Diagram"
@@ -187,6 +301,22 @@ SVM is a powerful classifier that separates different classes of data by fitting
   }}
 />
 
+**Code snippet:**
+<Tabs>
+  <TabItem label="Python">
+
+```python
+from sklearn.svm import SVC
+
+model = SVC(kernel="rbf")
+
+model.fit(X_train, y_train)
+
+predictions = model.predict(X_new)
+```
+
+  </TabItem>
+</Tabs>
 
 **Example:** Support Vector Machine (SVM) is like drawing the best boundary between two groups, such as separating apples and oranges with the maximum possible gap between them.
 
@@ -210,6 +340,22 @@ A highly intuitive, "white box" model that makes predictions by asking a sequenc
   }}
 />
 
+**Code snippet:**
+<Tabs>
+  <TabItem label="Python">
+
+```python
+from sklearn.tree import DecisionTreeClassifier
+
+model = DecisionTreeClassifier(max_depth=2)
+
+model.fit(X_train, y_train)
+
+predictions = model.predict(X_new)
+```
+
+  </TabItem>
+</Tabs>
 
 **Example:** Decision trees work just like deciding what to wear in the morning.
 You ask a series of yes/no questions:
@@ -226,7 +372,7 @@ You ask a series of yes/no questions:
 ### F. Random Forest
 A Random Forest is an "Ensemble Learning" method. Instead of relying on one Decision Tree, it trains a massive collection (a "forest") of Decision Trees on different random subsets of the data. To make a prediction, it asks all the trees and predicts the class that gets the most votes.
 
-
+<br />
 <img
   src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/ml6.png?raw=true"
   alt="Diagram"
@@ -237,6 +383,22 @@ A Random Forest is an "Ensemble Learning" method. Instead of relying on one Deci
   }}
 />
 
+**Code snippet:**
+<Tabs>
+  <TabItem label="Python">
+
+```python
+from sklearn.ensemble import RandomForestClassifier
+
+model = RandomForestClassifier(n_estimators=100)
+
+model.fit(X_train, y_train)
+
+predictions = model.predict(X_new)
+```
+
+  </TabItem>
+</Tabs>
 
 **Example:** Random Forest is like asking multiple decision trees for their opinion and choosing the majority answer, similar to taking advice from many people before making a decision.
 
@@ -249,7 +411,7 @@ A Random Forest is an "Ensemble Learning" method. Instead of relying on one Deci
 
 ### G. XGBoost
 XGBoost (Extreme Gradient Boosting) is a highly optimized, fast, and scalable open-source software library that implements the Gradient Boosting algorithm. It is incredibly popular because it frequently powers the winning models in Machine Learning competitions.
-
+<br />
 <img
   src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/ml7.png?raw=true"
   alt="Diagram"
@@ -260,6 +422,22 @@ XGBoost (Extreme Gradient Boosting) is a highly optimized, fast, and scalable op
   }}
 />
 
+**Code snippet:**
+<Tabs>
+  <TabItem label="Python">
+
+```python
+import xgboost
+
+model = xgboost.XGBRegressor()
+
+model.fit(X_train, y_train)
+
+predictions = model.predict(X_new)
+```
+
+  </TabItem>
+</Tabs>
 
 **Example:**  XGBoost is like learning from previous mistakes again and again to become more accurate, similar to a student improving after correcting errors in mock tests.
 
@@ -272,7 +450,7 @@ XGBoost (Extreme Gradient Boosting) is a highly optimized, fast, and scalable op
 
 ### H. Gradient Boosting
 Gradient Boosting is another ensemble method, but instead of training models independently, it trains them sequentially. Each new predictor in the chain tries to specifically correct the residual errors (the mistakes) made by the predictor that came right before it.
-
+<br />
 <img
   src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/ml8.png?raw=true"
   alt="Diagram"
@@ -283,7 +461,22 @@ Gradient Boosting is another ensemble method, but instead of training models ind
   }}
 />
 
+**Code snippet:**
+<Tabs>
+  <TabItem label="Python">
 
+```python
+from sklearn.ensemble import GradientBoostingRegressor
+
+model = GradientBoostingRegressor()
+
+model.fit(X_train, y_train)
+
+predictions = model.predict(X_new)
+```
+
+  </TabItem>
+</Tabs>
 
 
 **Example:** Gradient Boosting is like a teacher helping a weak student by focusing more on the mistakes made in previous tests to improve performance step by step.
@@ -302,7 +495,7 @@ These are the two main ways to build an ensemble of models:
 #### 1. Bagging
 
 Trains multiple predictors independently and in parallel on random samples of the data, then averages them (e.g., Random Forest).
-
+<br />
 <img
   src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/ml9.png?raw=true"
   alt="Diagram"
@@ -313,8 +506,22 @@ Trains multiple predictors independently and in parallel on random samples of th
   }}
 />
 
+**Code Snippets:**
 
+<Tabs>
+  <TabItem label="Python">
 
+```python
+from sklearn.ensemble import BaggingClassifier
+from sklearn.tree import DecisionTreeClassifier
+
+model = BaggingClassifier(DecisionTreeClassifier())
+
+model.fit(X_train, y_train)
+```
+
+  </TabItem>
+</Tabs>
 
 **Algorithm Steps:**
 1. Train multiple models independently and in parallel on random data subsets.
@@ -326,21 +533,47 @@ Trains multiple predictors independently and in parallel on random samples of th
 
 Trains predictors sequentially, where each model learns from the mistakes of the previous one (e.g., Gradient Boosting).
 
- 
+**Code Snippets:**
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+from sklearn.ensemble import AdaBoostClassifier
+
+model = AdaBoostClassifier()
+
+model.fit(X_train, y_train)
+```
+
+  </TabItem>
+</Tabs>
+
 **Algorithm Steps:**
 1. Train multiple models sequentially.
 2. Each new model specifically focuses on correcting the mistakes (errors or misclassified weights) of the model that came right before it..
 3. Goal: Combine weak learners into a strong learner, reducing bias.
-
-
 
 **Example:** Bagging is like many students solving different questions independently and combining answers, while Boosting is like students solving one after another where each student focuses on previous mistakes.
 
 ### J. Cross Entropy
 Originating from information theory, cross entropy is a cost function used to measure how well a classification model's predicted probabilities match the true answers. If the model makes a highly confident wrong prediction, the cross entropy is very high, heavily penalizing the model.
 
+**Code Snippets:**
 
+<Tabs>
+  <TabItem label="Python">
 
+```python
+model.compile(
+    loss="sparse_categorical_crossentropy",
+    optimizer="sgd",
+    metrics=["accuracy"]
+)
+```
+
+  </TabItem>
+</Tabs>
 
 **Example:** Cross Entropy is like checking how wrong a prediction is. If a model predicts “cat” with high confidence but the image is actually a dog, the error becomes large.
 
@@ -354,7 +587,7 @@ Originating from information theory, cross entropy is a cost function used to me
 
 ### K. K-Means Clustering
 An unsupervised algorithm that groups similar, unlabeled data into 'K' distinct clusters. It places random center points (centroids) in the data, assigns each data point to the closest center, and continuously adjusts the centers until the clusters stabilize.
-
+<br />
 <img
   src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/ml10.png?raw=true"
   alt="Diagram"
@@ -366,7 +599,21 @@ An unsupervised algorithm that groups similar, unlabeled data into 'K' distinct 
 />
 
 
+**Code Snippets:**
 
+<Tabs>
+  <TabItem label="Python">
+
+```python
+from sklearn.cluster import KMeans
+
+model = KMeans(n_clusters=5)
+
+clusters = model.fit_predict(X_train)
+```
+
+  </TabItem>
+</Tabs>
 
 **Example:** K-Means Clustering is like grouping people into K groups based on similarities, such as grouping students by marks or interests.
 
@@ -380,6 +627,21 @@ An unsupervised algorithm that groups similar, unlabeled data into 'K' distinct 
 ### L. Hierarchical Clustering
 An unsupervised algorithm that builds a hierarchy of clusters from the bottom up. At each step, it connects the nearest pair of clusters together until all the data is eventually merged into one massive group.
 
+**Code Snippets:**
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+from sklearn.cluster import AgglomerativeClustering
+
+model = AgglomerativeClustering(n_clusters=5)
+
+clusters = model.fit_predict(X_train)
+```
+
+  </TabItem>
+</Tabs>
 
 **Example:** Hierarchical Clustering is like forming groups step by step, similar to creating family trees where closely related members are grouped first.
 
@@ -394,6 +656,21 @@ An unsupervised algorithm that builds a hierarchy of clusters from the bottom up
 #### 1. DB-SCAN
 A density-based clustering algorithm. Instead of just looking at distance, it defines clusters as continuous regions of highly dense data. Any data points floating alone in low-density, empty spaces are flagged as anomalies/outliers.
 
+**Code Snippets:**
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+from sklearn.cluster import DBSCAN
+
+model = DBSCAN(eps=0.2, min_samples=5)
+
+clusters = model.fit_predict(X_train)
+```
+
+  </TabItem>
+</Tabs>
 
 **Example:** DB-SCAN is like identifying crowded groups in a playground. Students standing close together form a group, while isolated students are treated as outliers.
 
@@ -407,6 +684,7 @@ A density-based clustering algorithm. Instead of just looking at distance, it de
 #### 2. Dimensionality Reduction
 The process of simplifying a dataset by reducing the number of features (dimensions) it has, while preserving as much useful information as possible. This makes training models much faster and allows humans to visualize highly complex data.
 
+<br />
 <img
   src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/ml11.png?raw=true"
   alt="Diagram"
@@ -417,6 +695,21 @@ The process of simplifying a dataset by reducing the number of features (dimensi
   }}
 />
 
+**Code Snippets:**
+
+<Tabs>
+  <TabItem label="Python">
+
+```python
+from sklearn.decomposition import PCA
+
+pca = PCA(n_components=2)
+
+X_reduced = pca.fit_transform(X_train)
+```
+
+  </TabItem>
+</Tabs>
 
 **Example:** Dimensionality Reduction is like summarizing a long book into short notes by keeping only the most important information and removing unnecessary details.
 
@@ -426,6 +719,7 @@ The process of simplifying a dataset by reducing the number of features (dimensi
 3. Project the data: To reduce the data down to 'd' dimensions, mathematically project the original high-dimensional training set onto the hyperplane defined by the first 'd' principal components.
 
 ---
+
 ## Video Reference
 
 <div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -456,4 +750,5 @@ The process of simplifying a dataset by reducing the number of features (dimensi
     />
   </div>
 </div>
+
 ---

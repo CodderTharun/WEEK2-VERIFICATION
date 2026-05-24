@@ -511,106 +511,8 @@ Where:
   }}
 />
 
----
 
-## Derivation of the Torsion Equation
-
-$$\frac{T}{I_p} = \frac{\tau}{r} = \frac{G \cdot \theta}{L}$$
-
-### A. Part 1: Kinematic Analysis
-
-Consider a solid circular shaft of length $L$ and radius $R$, fixed rigidly at one end and subjected to an external twisting torque $T$ at the free end.
-
-- Imagine a longitudinal surface line $LM$ drawn along the outer skin parallel to the central axis before loading.
-- Upon applying the torque, the plane containing point $M$ undergoes a rigid rotation through an angle $\theta$ (the **Angle of Twist**) to position $M'$.
-- Consequently, the longitudinal line $LM$ deflects through a surface shear angle $\phi$, shifting to $LM'$.
-
-From the geometry of the deformed surface cylinder:
-
-$$\text{Arc Length } MM' = R \cdot \theta \quad \text{(using the cross-sectional face angle)}$$
-
-$$\text{Arc Length } MM' = L \cdot \phi \quad \text{(using the longitudinal surface angle)}$$
-
-Equating the two geometric expressions for the arc displacement $MM'$:
-
-$$L \cdot \phi = R \cdot \theta \implies \phi = \frac{R \cdot \theta}{L}$$
-
-By definition, the surface shear strain ($\gamma$) equals the angular distortion $\phi$:
-
-$$\gamma = \frac{R \cdot \theta}{L}$$
-
-#### 1. Using Hooke's Law
-
-According to Hooke's Law for shearing components, shear stress ($\tau$) is directly proportional to shear strain ($\gamma$) via the material's Modulus of Rigidity ($G$):
-
-$$\tau = G \cdot \gamma \implies \gamma = \frac{\tau}{G}$$
-
-Equating the structural shear strain expressions:
-
-$$\frac{\tau}{G} = \frac{R \cdot \theta}{L}$$
-
-Rearranging terms establishes the first governing elastic relationship for the extreme outer fiber:
-
-$$\frac{\tau}{R} = \frac{G \cdot \theta}{L} \quad \text{--- (Equation 1)}$$
-
-Since the angular deformation gradient ($\frac{\theta}{L}$) and material stiffness ($G$) are uniform constants across the entire cross-section, the internal shear stress ($\tau_x$) at any arbitrary internal radius $x$ scales linearly:
-
-$$\frac{\tau}{R} = \frac{\tau_x}{x} \implies \tau_x = \frac{\tau}{R} \cdot x \quad \text{--- (Equation 2)}$$
-
-### B. Part 2: Static Equilibrium (Internal Resisting Torque)
-
-To find the total twisting moment capacity ($T$), we evaluate the summation of internal rotational forces across the transverse cross-sectional plane.
-
-Consider an elementary concentric ring of radius $x$ and elemental radial thickness $dx$:
-
-- **Elemental Area ($dA$):** $2\pi x \cdot dx$
-- **Shear Stress ($\tau_x$):** The stress localized at radius $x$
-
-The internal turning force acting tangentially across this thin ring is:
-
-$$dF = \tau_x \cdot dA = \tau_x \cdot (2\pi x \cdot dx)$$
-
-Substituting Equation 2 ($\tau_x = \frac{\tau}{R} \cdot x$) into the tangential force equation:
-
-$$dF = \left( \frac{\tau}{R} \cdot x \right) \cdot 2\pi x \cdot dx = \frac{2\pi \tau}{R} \cdot x^2 \cdot dx$$
-
-The elemental internal resisting torque ($dT$) produced by this force about the central axis is found by multiplying the force by its perpendicular lever arm $x$:
-
-$$dT = dF \cdot x = \left( \frac{2\pi \tau}{R} \cdot x^2 \cdot dx \right) \cdot x$$
-
-$$dT = \frac{2\pi \tau}{R} \cdot x^3 \cdot dx$$
-
-#### 1. Integration Across the Profile Boundary
-
-To capture the net torque ($T$), integrate the elemental moment expression across the entire radius from $x = 0$ to $x = R$:
-
-$$T = \int_{0}^{R} dT = \int_{0}^{R} \frac{2\pi \tau}{R} \cdot x^3 \cdot dx$$
-
-Factoring out the cross-sectional constants:
-
-$$T = \frac{2\pi \tau}{R} \int_{0}^{R} x^3 \cdot dx$$
-
-$$T = \frac{2\pi \tau}{R} \left[ \frac{x^4}{4} \right]_{0}^{R} = \frac{2\pi \tau}{R} \cdot \frac{R^4}{4}$$
-
-$$T = \frac{\tau}{R} \cdot \left( \frac{\pi R^4}{2} \right)$$
-
-By definition, the mathematical term $\frac{\pi R^4}{2}$ represents the geometric **Polar Moment of Inertia ($I_p$)** for a solid circular cross-section:
-
-$$I_p = \int x^2 \cdot dA = \frac{\pi R^4}{2} = \frac{\pi D^4}{32}$$
-
-Substituting $I_p$ into the integrated torque equation yields:
-
-$$T = \frac{\tau}{R} \cdot I_p$$
-
-Rearranging terms establishes the second fundamental cross-sectional relationship:
-
-$$\frac{T}{I_p} = \frac{\tau}{R} \quad \text{--- (Equation 3)}$$
-
-By compiling the parallel static and kinematic equalities (**Equation 1** and **Equation 3**), we achieve the classical **Euler-Bernoulli Torsion Equation**:
-
-$$\frac{T}{I_p} = \frac{\tau}{R} = \frac{G \cdot \theta}{L}$$
-
-#### 2. Special Variation: Hollow Circular Shafts
+### D. Special Variation: Hollow Circular Shafts
 
 For a hollow circular section of outer radius $R$ and inner radius $r$, the evaluation parameters change purely during the integration steps from boundary $x = r$ to $x = R$:
 
@@ -630,7 +532,7 @@ $$T = \frac{2\pi \tau}{R} \int_{r}^{R} x^3 \cdot dx = \frac{2\pi \tau}{R} \left[
 
 $$T = \frac{\tau}{R} \cdot \left[ \frac{\pi}{2}(R^4 - r^4) \right] \implies \frac{T}{I_p} = \frac{\tau}{R}$$
 
-### C. Torsional Rigidity and Stiffness Reference
+### E. Torsional Rigidity and Stiffness Reference
 
 From the fundamental theory of pure torsion, the geometric and material resistance to twisting is governed by the following relationships:
 
@@ -644,7 +546,7 @@ $$\frac{T}{I_p} = \frac{G \cdot \theta}{l}$$
 
    $$k = \frac{G \cdot I_p}{l} = \frac{T}{\theta}$$
 
-### D. Power Transmitted by Shafts
+### F. Power Transmitted by Shafts
 
 Once the expression for torque ($T$) for a solid or hollow shaft is obtained, power transmitted by the shafts can be determined.
 
@@ -656,7 +558,7 @@ $$\text{Power} = \frac{2\pi N T}{60} \text{ watts}$$
 
 $$\text{Power} = \omega T = T \times \omega$$
 
-### E. Industrial Applications of Torsion
+### G. Industrial Applications of Torsion
 
 - **Power Transmission Shafts:** The primary application involves designing circular shafts that support gears, sprockets, wheels, and rotors to transmit mechanical power through twisting moments.
 
@@ -664,7 +566,7 @@ $$\text{Power} = \omega T = T \times \omega$$
 
 - **Non-Circular Shafts:** In specific machinery applications, regular polygonal cross-section members transmit torque to a gear or pulley that needs to slide axially. This geometry avoids the use of a key or keyway, entirely eliminating the risk of a lost key.
 
-### F. Advantages and Limitations
+### H. Advantages and Limitations
 
 #### 1. Advantages
 
