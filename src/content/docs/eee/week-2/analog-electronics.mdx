@@ -475,3 +475,167 @@ Used for amplification.
 - Compact design
 
 
+## Problems
+
+**1. PN Junction Diode Numerical**
+
+Question: A silicon diode has:
+
+Reverse saturation current $I_s = 1 \, \mu A$
+
+Applied voltage $V = 0.25V$
+
+Ideality factor $\eta = 2$
+
+Thermal voltage $V_T = 26mV$
+
+Find the diode current.
+
+Formula:
+
+$$
+I = I_s \left(e^{\frac{V}{\eta V_T}} - 1\right)
+$$
+
+Calculation:
+
+$$
+I = 1 \times 10^{-6} \left[e^{\frac{0.25}{2 \times 0.026}} - 1\right]
+$$
+
+$$
+I = 1 \times 10^{-6} \left[e^{4.81} - 1\right]
+$$
+
+$$
+e^{4.81} \approx 122.8
+$$
+
+$$
+I = 1 \times 10^{-6} (122.8 - 1)
+$$
+
+$$
+I = 121.8 \times 10^{-6} \, A
+$$
+
+$$
+I = 0.122 \, mA
+$$
+
+---
+
+**2. BJT Current Gain Numerical**
+
+Question: A transistor has:
+
+Emitter current $I_E = 15mA$
+
+Collector current $I_C = 14.7mA$
+
+Find:
+
+1. Base current  
+2. $\alpha$  
+3. $\beta$
+
+Formula:
+
+$$
+I_E = I_B + I_C
+$$
+
+$$
+\alpha = \frac{I_C}{I_E}
+$$
+
+$$
+\beta = \frac{I_C}{I_B}
+$$
+
+Calculation:
+
+$$
+I_B = I_E - I_C
+$$
+
+$$
+I_B = 15 - 14.7
+$$
+
+$$
+I_B = 0.3mA
+$$
+
+$$
+\alpha = \frac{14.7}{15}
+$$
+
+$$
+\alpha = 0.98
+$$
+
+$$
+\beta = \frac{14.7}{0.3}
+$$
+
+$$
+\beta = 49
+$$
+
+---
+
+**3. Zener Diode Numerical**
+
+Question: A Zener diode regulator has:
+
+Input voltage $V_{in} = 18V$
+
+Series resistor $R = 600\Omega$
+
+Zener voltage $V_z = 9V$
+
+Find:
+
+1. Current through resistor  
+2. Zener current (no load connected)
+
+Calculation:
+
+Voltage across resistor:
+
+$$
+V_R = V_{in} - V_z
+$$
+
+$$
+V_R = 18 - 9
+$$
+
+$$
+V_R = 9V
+$$
+
+Current through resistor:
+
+$$
+I_R = \frac{V_R}{R}
+$$
+
+$$
+I_R = \frac{9}{600}
+$$
+
+$$
+I_R = 0.015A
+$$
+
+$$
+I_R = 15mA
+$$
+
+Since no load:
+
+$$
+I_Z = I_R
+$$

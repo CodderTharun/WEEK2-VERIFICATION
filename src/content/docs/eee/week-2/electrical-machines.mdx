@@ -841,3 +841,403 @@ Direct-on-line starting applies full voltage. Star-delta reduces voltage and cur
 #### 2. Speed Control
 
 Speed can be controlled by changing voltage, frequency, or rotor resistance. V/f control is widely used because it maintains constant flux and efficiency.
+
+---
+
+
+## Single Phase Induction Motor
+ 
+A single-phase induction motor is a small-size motor with a **fractional-kilowatt rating**. It works on the principle of electromagnetic induction to create a rotating magnetic field.
+ 
+ <br />
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/EEE/EM14.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+**Common applications:**   
+Fans, hair dryers, washing machines, vacuum cleaners, mixers, refrigerators, food processors.
+ 
+ 
+### A. Construction of Single-Phase Induction Motor
+ 
+#### 1. Stator
+ 
+The stationary component that receives a single-phase alternating current source.
+ - Contains **primary winding** and **auxiliary winding**
+- Primary winding produces a magnetic field when AC voltage is applied
+- Auxiliary winding provides a phase shift to create a rotating magnetic field
+- Two windings are in **spatial quadrature** to one another
+Synchronous speed:
+ 
+```
+Ns = 120f / P
+```
+ 
+#### 2. Rotor
+ 
+The rotating component made of a **squirrel cage** construction:
+ - Conductive bars embedded in slots around rotor's periphery
+- Bars short-circuited at both ends by **end rings**
+- RMF from stator induces currents in bars → generates rotor magnetic field → produces rotation
+- No slip rings or brushes → simplified, stronger construction
+- Rotor electrical resistance is very low; external resistance cannot be added
+
+#### 3. Bearings
+ - Support the rotor and allow it to rotate within the stator
+- Reduce friction
+ 
+### B. Operation and Working
+ - Single-phase AC supply → alternating current flows through stator winding
+- Alternating current generates flux which links with rotor conductors
+- EMF induced in rotor (Faraday's law) → rotor current flows
+- Rotor flux + main flux → produces torque → motor rotates
+- Motor runs at a speed slightly less than synchronous speed Ns
+
+ 
+### C. Why Single Phase Induction Motor is Not Self-Starting
+- Unlike three-phase motors, single-phase motors produce a **pulsating magnetic field**, not a rotating one
+- At starting: forward flux component (φf) and backward flux component (φb) are **equal in magnitude but opposite in direction**
+- They cancel each other → **zero net torque** at starting condition
+- Therefore, the motor is **not self-starting**
+
+ 
+### D. Starting Methods and Types
+
+#### 1. Split-Phase Motor   
+ 
+Uses a resistance-start auxiliary winding to create a phase difference for starting torque.
+ 
+#### 2. Capacitor-Start Motor   
+ 
+Uses a capacitor in series with the auxiliary winding for higher starting torque.
+ 
+#### 3. Capacitor-Start Capacitor-Run Motor   
+ 
+Also called **two-value capacitor motor** — uses capacitor for both starting and running.
+ 
+#### 4. Permanent-Split Capacitor (PSC) Motor   
+ 
+Also called **single-value capacitor motor** — capacitor remains in circuit during running.
+ 
+#### 5. Shaded-Pole Motor  
+ 
+Uses a shading coil (copper ring) on each pole for starting. Simplest and most economical.
+ 
+---
+ 
+## Transformer
+ 
+ ### A. Introduction
+ 
+A **transformer** is a device that transfers electrical energy from one circuit to another by **electromagnetic induction**.
+ 
+- Electrical energy is transferred **without a change in frequency**
+- May involve changes in magnitudes of voltage and current
+- Must be used with an input source voltage that **varies in amplitude**
+
+ 
+### B. Types of Transformer
+ 
+#### 1. Based on Voltage Levels
+ 
+##### a. Step-Up Transformer
+ 
+- Secondary output voltage is **higher** than input voltage
+- Used between power generator and the power grid
+
+##### b. Step-Down Transformer
+ 
+- Converts high voltage primary supply to **low voltage** secondary output
+- Used in distribution and end-use applications
+
+#### 2. Based on Working Voltage Range
+ 
+Classified according to the voltage range they are designed to handle.
+ 
+#### 3. Based on Medium Used in Core
+ 
+Classified based on the core material (air core, iron core, ferrite core).
+ 
+#### 4. Based on Winding Arrangement
+ 
+Classified by how windings are arranged (core type, shell type).
+ 
+#### 5. Based on Installation Location
+ 
+Indoor or outdoor type transformers.
+
+ 
+### C. Construction of Transformer
+ 
+#### 1. Core
+ 
+- Provides a **low reluctance path** for magnetic flux
+- Made of **laminated silicon steel** to reduce eddy current losses
+
+#### 2. Windings
+ 
+- **Primary winding**: Input side
+- **Secondary winding**: Output side
+- Made of **copper** for high conductivity and low losses
+
+#### 3. Insulation
+ 
+- Prevents short circuits between windings
+- Materials: oil, paper, tape
+
+ 
+### D. EMF Equation
+ 
+```
+E = 4.44 × f × N × Φ
+```
+ 
+- **E** = Induced EMF
+- **f** = Frequency
+- **N** = Number of turns
+- **Φ** = Flux
+
+ 
+### E. Losses in Transformer
+ 
+#### 1. Core Loss (Iron Loss)
+ 
+##### a. Hysteresis Loss
+ 
+Due to magnetization cycle of the core.
+ 
+##### b. Eddy Current Loss
+ 
+Due to circulating currents in the core.
+ 
+#### 2. Copper Loss
+ 
+- Due to resistance of windings
+- **Varies with load**
+
+#### 3. Stray Loss
+ 
+Due to leakage flux.
+ 
+#### 4. Dielectric Loss
+ 
+Occurs in the insulation material.
+ 
+---
+ 
+## Universal Motor
+ 
+ 
+### A. Definition
+ 
+A **Universal Motor** is a single-phase series motor that can operate on both **AC and DC supply**.
+ 
+
+### B. Construction
+ 
+#### 1. Main Parts
+ 
+- **Stator (Field winding)** — produces magnetic field
+- **Rotor (Armature)** — rotates due to interaction
+- **Commutator** — converts AC to DC within motor
+- **Brushes** — supply current to armature
+- **Laminated Core** — reduces eddy current losses
+#### 2. Special Features
+ 
+- Laminated core → reduces AC losses
+- Series field → same current in armature and field
+
+### C. Working Principle
+ 
+Based on **Lorentz force**. When current flows through field and armature, torque is produced.
+ 
+**On AC supply:**
+ 
+- Current reverses → Field also reverses → Torque direction remains **same** → Continuous rotation
+Hence works on both AC and DC.
+ 
+
+### D. Advantages and Disadvantages
+ 
+#### 1. Advantages
+ 
+- High speed
+- High starting torque
+- Compact and lightweight
+- Operates on AC and DC
+#### 2. Disadvantages
+ 
+- High noise
+- Brush sparking
+- Requires maintenance
+- Shorter life
+
+
+### E. Applications
+ 
+- Mixers
+- Vacuum cleaners
+- Electric drills
+- Hair dryers
+
+ 
+## Stepper Motor
+ 
+
+### A. Definition
+ 
+A **Stepper Motor** is a digital motor that rotates in **discrete steps** based on input pulses.
+ 
+
+ 
+### B. Construction
+ 
+#### 1. Parts
+ 
+- **Stator** — multiple windings
+- **Rotor** — permanent magnet or soft iron
+- **Controller** — generates pulse signals
+
+ 
+### C. Types
+ 
+#### 1. Variable Reluctance Stepper Motor
+ 
+Uses a soft iron rotor; steps occur due to variable reluctance.
+ 
+#### 2. Permanent Magnet Stepper Motor
+ 
+Uses a permanent magnet rotor; provides higher holding torque.
+ 
+#### 3. Hybrid Stepper Motor
+ 
+Combination of variable reluctance and permanent magnet types. **Most commonly used.**
+ 
+
+ 
+### D. Working Principle
+ 
+- Input pulses → stator windings energized sequentially
+- Rotor aligns with the magnetic field
+- Each pulse → fixed angle rotation
+**Step Angle Formula:**
+ 
+```
+Step angle = 360° / Number of steps
+```
+ 
+Example: 200 steps → **1.8° per step**
+ 
+
+ 
+### E. Modes of Operation
+ 
+#### 1. Full Step
+ 
+One step per pulse — maximum torque.
+ 
+#### 2. Half Step
+ 
+Alternates between one and two windings — smoother motion, smaller step angle.
+ 
+#### 3. Micro Stepping
+ 
+Very small incremental steps — highest resolution and smoothest motion.
+ 
+
+ 
+### F. Advantages and Disadvantages
+ 
+#### 1. Advantages
+ 
+- Precise position control
+- No feedback system required
+- Simple control
+- Reliable
+#### 2. Disadvantages
+ 
+- Low efficiency
+- Limited speed
+- Resonance problem
+
+### G. Applications
+ 
+- CNC machines
+- 3D printers
+- Robotics
+- Camera positioning systems
+
+---
+ 
+## Servo Motor
+ 
+
+### A. Definition
+ 
+A **Servo Motor** is a **closed-loop control motor** used for precise control of position, speed, and torque.
+ 
+
+ 
+### B. Construction
+ 
+#### 1. Components
+ 
+- Motor (DC/AC)
+- Gear system
+- Position sensor (encoder or potentiometer)
+- Controller
+
+ 
+### C. Working Principle
+ 
+- Input signal → desired position
+- Sensor → actual position
+- Error = Desired − Actual
+- Controller corrects motor accordingly
+This is a **closed-loop feedback system**.
+ 
+
+### D. Control Method
+ 
+- Controlled using **PWM (Pulse Width Modulation)**
+- Pulse width determines the position
+
+### E. Types
+ 
+#### 1. DC Servo Motor
+ 
+Operates on DC supply; widely used in robotics and automation.
+ 
+#### 2. AC Servo Motor
+ 
+Operates on AC supply; used in high-performance industrial applications.
+ 
+
+### F. Advantages and Disadvantages
+ 
+#### 1. Advantages
+ 
+- High accuracy
+- Fast response
+- Smooth operation
+- High efficiency
+
+#### 2. Disadvantages
+ 
+- Expensive
+- Complex control system
+- Requires tuning
+
+### G. Applications
+ 
+- Robotics
+- CNC machines
+- Industrial automation
+- Antenna positioning
+- Aircraft control systems

@@ -1,39 +1,40 @@
 ---
-title: DBMS - Week 2
+title: DBMS
 description: SQL Queries and Joins
 ---
----
 
-## Database Management Systems
-
-### A. Types of DBMS
+## Types of DBMS
 
 There are various types of databases used for storing different varieties of data:
 
-#### 1. Relational Databases
+***
+
+### A. Relational Databases
 
 A relational database (RDB) is a method of organizing data into tables, rows and columns to show relationships between data points. This structure makes it straightforward to access, create, read, modify and delete data using a querying language such as SQL. Each table, also known as a relation, has rows (records) and columns (fields), where each row represents an entity and each column represents an attribute of that entity. You can establish relationships between entities through primary and foreign keys by guaranteeing data integrity and enabling complex queries.
 
-##### a. Strengths of Relational Databases
+#### Strengths of Relational Databases
 
-- The structured, table-like schema is easy to understand.
-- Follow ACID (Atomicity, Consistency, Isolation, Durability) properties which makes them reliable.
-- SQL language is standardized, widely used and applicable to a variety of database management systems.
+* The structured, table-like schema is easy to understand.
+* Follow ACID (Atomicity, Consistency, Isolation, Durability) properties which makes them reliable.
+* SQL language is standardized, widely used and applicable to a variety of database management systems.
 
-##### b. Weaknesses of Relational Databases
+#### Weaknesses of Relational Databases
 
-- Can be difficult to scale out on multiple servers (horizontal scaling).
-- Each table requires a predefined schema which means all data inserted into the table must follow the same structure. This is not optimal when dealing with complex data structures.
+* Can be difficult to scale out on multiple servers (horizontal scaling).
+* Each table requires a predefined schema which means all data inserted into the table must follow the same structure. This is not optimal when dealing with complex data structures.
 
-##### c. Common Use Cases
+#### Common Use Cases
 
-- Widely used in the financial industry thanks to the ACID properties that ensure data reliability in financial transactions and support complex financial analysis.
-- In healthcare, relational databases are used to manage structured data such as patient records, medical histories and test results, aiding healthcare workflows.
-- Used to manage structured data such as customer, order, product and payment data in e-commerce.
+* Widely used in the financial industry thanks to the ACID properties that ensure data reliability in financial transactions and support complex financial analysis.
+* In healthcare, relational databases are used to manage structured data such as patient records, medical histories and test results, aiding healthcare workflows.
+* Used to manage structured data such as customer, order, product and payment data in e-commerce.
 
-#### 2. NoSQL Databases
+***
 
-NoSQL databases were developed as an alternative to traditional SQL databases. NoSQL databases are especially useful when working with large or fast-moving data that may not fit neatly into a table.
+### B. NoSQL Databases
+
+NoSQL databases were developed as an alternative to traditional SQL databases, NoSQL databases are especially useful when working with large or fast-moving data that may not fit neatly into a table.
 
 NoSQL databases use various data models for accessing and managing data. These databases are optimized for applications needing flexible data models, handling large volumes of data and achieving low latency.
 
@@ -41,117 +42,129 @@ They accomplish this by relaxing some of the data consistency restrictions found
 
 Instead of tables, NoSQL databases use more flexible data models, such as key-value pairs, documents or graphs. They offer scalability and flexibility, making them suitable for handling large amounts of unstructured or semi-structured data. Examples include MongoDB, CouchBase, Cassandra and Redis.
 
-##### a. Strengths of NoSQL Databases
+#### Strengths of NoSQL Databases
 
-- Flexible and scalable, ideal for handling large amounts of unstructured or semi-structured data.
-- Scale horizontally across multiple servers, making them highly scalable and fault-tolerant.
-- Well-suited for use cases such as social media, e-commerce and big data analytics.
+* Flexible and scalable, ideal for handling large amounts of unstructured or semi-structured data.
+* Scale horizontally across multiple servers, making them highly scalable and fault-tolerant.
+* Well-suited for use cases such as social media, e-commerce and big data analytics.
 
-##### b. Weaknesses of NoSQL Databases
+#### Weaknesses of NoSQL Databases
 
-- Lack of standardized query language: each type of NoSQL database has its own method for querying data, which can make these systems more challenging to learn, integrate and communicate with.
-- Not well-suited for complex transactions or querying relationships between data.
+* Lack of standardized query language: each type of NoSQL database has its own method for querying data, which can make these systems more challenging to learn, integrate and communicate with.
+* Not well-suited for complex transactions or querying relationships between data.
 
-##### c. Common Use Cases
+#### Common Use Cases
 
-- Social media platforms employ NoSQL databases to store and manage user-generated content, facilitating efficient storage and processing of diverse content types.
-- In e-commerce, NoSQL databases are crucial for handling product recommendations and customer analytics, enabling personalized recommendations and improved customer experiences.
-- NoSQL databases excel in big data analytics, handling high-velocity and high-volume data streams and extracting valuable insights from rapidly changing data sources.
+* Social media platforms employ NoSQL databases to store and manage user-generated content, facilitating efficient storage and processing of diverse content types.
+* In e-commerce, NoSQL databases are crucial for handling product recommendations and customer analytics, enabling personalized recommendations and improved customer experiences.
+* NoSQL databases excel in big data analytics, handling high-velocity and high-volume data streams and extracting valuable insights from rapidly changing data sources.
 
-#### 3. Graph Databases
+***
+
+### C. Graph Databases
 
 Graph databases, a type of NoSQL database, are designed to handle complex relationships between data points, making them ideal for use cases where relationships are as important as the data itself, like in social networks or recommendation systems. They excel at representing and querying graph-like structures, using nodes to represent entities and edges to represent relationships. Popular examples include Neo4j, OrientDB, and ArangoDB.
 
-##### a. Strength of Graph Databases
+#### Strength of Graph Databases
 
-- Excel in storing relationships and finding patterns in interconnected data.
-- Ideal for use cases where relationships are crucial.
+* Excel in storing relationships and finding patterns in interconnected data.
+* Ideal for use cases where relationships are crucial.
 
-##### b. Weaknesses of Graph Databases
+#### Weaknesses of Graph Databases
 
-- Limited efficiency for non-relationship-based queries.
-- Learning curve and specialized skills.
-- Not the best choice for use cases that primarily involve simple data storage or retrieval without complex relationships.
+* Limited efficiency for non-relationship-based queries.
+* Learning curve and specialized skills.
+* Not the best choice for use cases that primarily involve simple data storage or retrieval without complex relationships.
 
-##### c. Common Use Cases
+#### Common Use Cases
 
-- Graph databases are used to track relationships between users on social networks (friends, followers, etc.), model interactions (likes, shares, comments) and deliver personalized content and recommendations. They are especially good at the "friend-of-a-friend" types of queries that are common in social networks.
-- In e-commerce, they are used for handling product recommendations and customer analytics.
-- In logistics, they are used for tracking shipments and optimizing routes. They can handle the complex, multi-point routing requirements common in logistics and delivery systems.
+* Graph databases are used to track relationships between users on social networks (friends, followers, etc.), model interactions (likes, shares, comments) and deliver personalized content and recommendations. They are especially good at the "friend-of-a-friend" types of queries that are common in social networks.
+* In e-commerce, they are used for handling product recommendations and customer analytics.
+* In logistics, they are used for tracking shipments and optimizing routes. They can handle the complex, multi-point routing requirements common in logistics and delivery systems.
 
-#### 4. Document-Oriented Databases
+***
+
+### D. Document-Oriented Databases
 
 Category within NoSQL databases, characterized by its schema-less design, where each document (data record) can have a different structure and is typically stored in a format like JSON or XML. This structure is highly flexible and adaptable to complex data structures. Examples include MongoDB and CouchDB.
 
-##### a. Strengths of Document-Oriented Databases
+#### Strengths of Document-Oriented Databases
 
-- Flexible and dynamic, able to handle unstructured and semi-structured data.
-- Don't enforce a rigid schema, allowing documents to evolve and accommodate changes.
-- Can handle simple relationships through embedded documents or references.
-- Widely used in various applications without a specific industry focus.
+* Flexible and dynamic, able to handle unstructured and semi-structured data.
+* Don't enforce a rigid schema, allowing documents to evolve and accommodate changes.
+* Can handle simple relationships through embedded documents or references.
+* Widely used in various applications without a specific industry focus.
 
-##### b. Weaknesses of Document-Oriented Databases
+#### Weaknesses of Document-Oriented Databases
 
-- Limited efficiency for complex relationship queries.
-- Lack of standardization and interoperability between different document-oriented databases.
-- It may not be the best choice for applications that heavily rely on complex relationships or require extensive relational querying capabilities.
-- It is challenging to maintain data consistency and integrity without a predefined schema.
-- It may not be suitable for applications with extensive relational querying requirements.
+* Limited efficiency for complex relationship queries.
+* Lack of standardization and interoperability between different document-oriented databases.
+* It may not be the best choice for applications that heavily rely on complex relationships or require extensive relational querying capabilities.
+* It is challenging to maintain data consistency and integrity without a predefined schema.
+* It may not be suitable for applications with extensive relational querying requirements.
 
-##### c. Common Use Cases
+#### Common Use Cases
 
-- Used for handling product catalogs and customer orders in e-commerce.
-- Used for storing and managing web content.
-- Used for storing and processing user-generated content and tracking user activity on social media.
+* Used for handling product catalogs and customer orders in e-commerce.
+* Used for storing and managing web content.
+* Used for storing and processing user-generated content and tracking user activity on social media.
 
-#### 5. Object-Oriented Databases
+***
+
+### E. Object-Oriented Databases
 
 Store data in the form of objects, the same as in object-oriented programming. An object consists of two elements: data (or attributes) and methods (functions that define what operations can be performed on the data). Objects can be grouped into classes and can inherit properties from classes, making it easy to reuse code and more accurately model complex data relationships. Commonly used in domains like finance and healthcare, and popular examples include Versant Object Database, ZODB, db4o.
 
-##### a. Strengths of Object-Oriented Databases
+#### Strengths of Object-Oriented Databases
 
-- Can store complex data and relationships between data.
-- Often better suited for object-oriented programming languages like Java, C++, etc. because they use the same model.
+* Can store complex data and relationships between data.
+* Often better suited for object-oriented programming languages like Java, C++, etc. because they use the same model.
 
-##### b. Weaknesses of Object-Oriented Databases
+#### Weaknesses of Object-Oriented Databases
 
-- There is no standardized query language, making it harder to perform complex queries and transactions.
-- Less common than relational databases, which can lead to fewer resources, tools, and community support.
+* There is no standardized query language, making it harder to perform complex queries and transactions.
+* Less common than relational databases, which can lead to fewer resources, tools, and community support.
 
-#### 6. Hierarchical Databases
+***
+
+### F. Hierarchical Databases
 
 Organize data in a hierarchical tree-like structure with parent-child relationships. Each record has a single parent and can have multiple children. This structure is suitable for data with clear hierarchical relationships, such as organizational charts or file systems. Hierarchical databases were much more prevalent in the past, but they are still used in legacy systems or specific industries where it fits the data model requirements. Popular hierarchical databases include IBM Information Management System (IMS) and Windows Registry.
 
-##### a. Strengths of Hierarchical Databases
+#### Strengths of Hierarchical Databases
 
-- Simple and easy to use.
-- Ideal for data with clear hierarchies like organizational charts or file systems.
-- Efficient data retrieval but limited flexibility in handling complex relationships.
-- Used in industries such as logistics and finance for tracking shipments and managing financial accounts.
+* Simple and easy to use.
+* Ideal for data with clear hierarchies like organizational charts or file systems.
+* Efficient data retrieval but limited flexibility in handling complex relationships.
+* Used in industries such as logistics and finance for tracking shipments and managing financial accounts.
 
-##### b. Weaknesses of Hierarchical Databases
+#### Weaknesses of Hierarchical Databases
 
-- Limited flexibility in handling complex data relationships.
-- Decreased industry usage and limited support compared to other database structures.
+* Limited flexibility in handling complex data relationships.
+* Decreased industry usage and limited support compared to other database structures.
 
-#### 7. Network Databases
+***
+
+### G. Network Databases
 
 Use a graph-like structure to represent data with complex relationships. They allow for many-to-many relationships between entities and are often used in applications like social networks or airline reservation systems. Examples include Integrated Data Store (IDS), Integrated Definition Language (IDL).
 
 Network databases, also known as graph databases, represent data using nodes and edges to establish complex relationships between entities. They can handle many-to-many relationships and are suitable for applications like social networks or airline reservation systems.
 
-##### a. Strengths of Network Databases
+#### Strengths of Network Databases
 
-- Can easily handle complex data relationships.
-- Suitable for data with many-to-many relationships like social networks or airline reservation systems.
-- Efficient in handling complex relationships but can be complex to design and maintain.
-- Used in telecommunications and transportation for call routing, network topology, and shipment tracking.
+* Can easily handle complex data relationships.
+* Suitable for data with many-to-many relationships like social networks or airline reservation systems.
+* Efficient in handling complex relationships but can be complex to design and maintain.
+* Used in telecommunications and transportation for call routing, network topology, and shipment tracking.
 
-##### b. Weaknesses of Network Databases
+#### Weaknesses of Network Databases
 
-- May require careful design and management to ensure efficient data retrieval and performance.
+* May require careful design and management to ensure efficient data retrieval and performance.
 
-#### 8. Vector Databases
+***
+
+### H. Vector Databases
 
 Vector databases are specialized systems designed to handle high-dimensional vector data, essential for AI applications like similarity searches and recommendation systems. They efficiently store, index, and query vector data, which are numeric representations from machine learning models.
 
@@ -159,328 +172,307 @@ Vector databases excel in similarity searches for tasks such as image and docume
 
 There are a few dedicated Vector Databases out there such as Pinecone and Weaviate, but data warehouses and data lakes like PostgreSQL, Snowflake and Databricks can also store vector types of data.
 
-##### a. Strengths of Vector Databases
+#### Strengths of Vector Databases
 
-- **Fast Similarity Search:** Optimized for high-dimensional data and real-time nearest neighbor search, ideal for AI-driven applications like recommendations and image retrieval.
-- **AI and Machine Learning Integration:** Seamlessly works with vector embeddings from models (e.g., BERT, CLIP), supporting natural language processing and computer vision tasks.
-- **Scalable and Efficient:** Built for massive datasets, with support for hybrid queries and approximate searches to balance speed and accuracy.
+* **Fast Similarity Search:** Optimized for high-dimensional data and real-time nearest neighbor search, ideal for AI-driven applications like recommendations and image retrieval.
+* **AI and Machine Learning Integration:** Seamlessly works with vector embeddings from models (e.g., BERT, CLIP), supporting natural language processing and computer vision tasks.
+* **Scalable and Efficient:** Built for massive datasets, with support for hybrid queries and approximate searches to balance speed and accuracy.
 
-##### b. Weaknesses of Vector Databases
+#### Weaknesses of Vector Databases
 
-- **Complex Setup and Maintenance:** Requires specialized knowledge to configure, tune, and maintain, especially when handling large-scale deployments and ensuring query efficiency.
-- **Limited Use Cases:** Primarily suited for high-dimensional and unstructured data, making it less effective for traditional structured data queries compared to relational databases.
-
-<html>
-<div style={{ textAlign: "center" }}>
-  <img src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/DBMS/1.png?raw=true" alt="Diagram" width="60%" />
-</div>
-</html>
----
+* **Complex Setup and Maintenance:** Requires specialized knowledge to configure, tune, and maintain, especially when handling large-scale deployments and ensuring query efficiency.
+* **Limited Use Cases:** Primarily suited for high-dimensional and unstructured data, making it less effective for traditional structured data queries compared to relational databases.
+  ***
 
 ## Mapping from ER Model to Relational Model
 
 Converting an Entity-Relationship (ER) diagram to a Relational Model is an important step in database design. The ER model represents the conceptual structure of a database and the Relational Model is a physical representation that can be directly implemented using a Relational Database Management System (RDBMS) like Oracle or MySQL.
 
-### A. Step 1: Strong/Regular Entities
+***
 
-Figure out all the regular/strong entities from the diagram and then create a corresponding relation (table) that includes all the simple attributes. Choose one of the attributes as a primary key. If composite, the simple attributes together form the primary key.
+### Step 1: Mapping Regular / Strong Entities
 
-For the given ER-Diagram we have Employee, Department and Project as strong/regular entities, as they are enclosed in a single rectangle. So, we create respective relations that are depicted in the figure below.
+1. Figure out all the regular/strong entities from the diagram and then create a corresponding relation (table) that includes all the simple attributes.
+2. Choose one of the attributes as a primary key. If composite, the simple attributes together form the primary key.
+3. For the given ER-Diagram we have Employee, Department and Project as strong/regular entities, as they are enclosed in a single rectangle.
+4. So, we create respective relations that are depicted in the figure below.
 
-<html>
-<div style={{ textAlign: "center" }}>
-  <img src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/DBMS/2.png?raw=true" alt="Diagram" width="60%" />
-</div>
-</html>
+***
 
-### B. Step 2: Weak Entity Types
+### Step 2: Mapping Weak Entity Types
 
-Figure out the weak entity types from the diagram and create a corresponding relation (table) that includes all its simple attributes. Add as foreign key all of the primary key attributes in the entity corresponding to the owner entity. The primary key is a combination of all the primary key attributes from the owner and the primary key of the weak entity.
+1. Figure out the weak entity types from the diagram and create a corresponding relation (table) that includes all its simple attributes.
+2. Add as foreign key all of the primary key attributes in the entity corresponding to the owner entity.
+3. The primary key is a combination of all the primary key attributes from the owner and the primary key of the weak entity.
+4. For the given ER-Diagram we have Dependent as a weak entity, as it is enclosed in a double rectangle that is indicative of an entity being weak.
+5. The Dependent relation (table) is created that is shown in the figure below.
 
-For the given ER-Diagram we have Dependent as a weak entity, as it is enclosed in a double rectangle that is indicative of an entity being weak. The Dependent relation (table) is created that is shown in the figure below.
+***
 
-<html>
-<div style={{ textAlign: "center" }}>
-  <img src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/DBMS/3.png?raw=true" alt="Diagram" width="60%" />
-</div>
-</html>
+### Step 3: Mapping 1-to-1 (One-to-One) Relationships
 
-### C. Step 3: 1-to-1 Relationships
+1. Now we need to figure out the entities from the ER diagram for which there exists a 1-to-1 relationship.
+2. The entities for which there exists a 1-to-1 relationship, choose one relation (table) as S, the other as T.
+3. Better if S has total participation (reduces the number of NULL values).
+4. Then we need to add to S all the simple attributes of the relationship if there exists any.
+5. After that, we add as a foreign key in S the primary key attributes of T.
+6. For the given ER-Diagram there exists a 1-to-1 relationship between Employee and Department entity.
+7. Here the Department has total participation therefore consider it as relation S and Employee as relation T.
+8. The 1-to-1 mapping between Employee and Department is depicted in the figure below.
 
-Now we need to figure out the entities from the ER diagram for which there exists a 1-to-1 relationship. The entities for which there exists a 1-to-1 relationship, choose one relation (table) as S, the other as T. Better if S has total participation (reduces the number of NULL values). Then we need to add to S all the simple attributes of the relationship if there exists any. After that, we add as a foreign key in S the primary key attributes of T.
+***
 
-For the given ER-Diagram there exists a 1-to-1 relationship between Employee and Department entity. Here the Department has total participation therefore consider it as relation S and Employee as relation T. The 1-to-1 mapping between Employee and Department is depicted in the figure below.
+### Step 4: Mapping 1-to-N (One-to-Many) Relationships
 
-<html>
-<div style={{ textAlign: "center" }}>
-  <img src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/DBMS/4.png?raw=true" alt="Diagram" width="60%" />
-</div>
-</html>
+1. Now we need to figure out the entities from the ER diagram for which there exists a 1-to-N relationship.
+2. The entities for which there exists a 1-to-N relationship, choose a relation as S as the type at N-side of relationship and other as T.
+3. Then we add as a foreign key to S all of the primary key attributes of T.
+4. In the given ER diagram there are two 1-to-N relationships that exist between Employee-Department and Employee-Dependent entity.
+5. The 1-to-N mapping between Employee-Department and Employee-Dependent is depicted in the figure below.
 
-### D. Step 4: 1-to-N Relationships
+***
 
-Now we need to figure out the entities from the ER diagram for which there exists a 1-to-N relationship. The entities for which there exists a 1-to-N relationship, choose a relation as S as the type at N-side of relationship and other as T. Then we add as a foreign key to S all of the primary key attributes of T.
+### Step 5: Mapping M-to-N (Many-to-Many) Relationships
 
-In the given ER diagram there are two 1-to-N relationships that exist between Employee-Department and Employee-Dependent entity. The 1-to-N mapping between Employee-Department and Employee-Dependent is depicted in the figure below.
+1. Now we need to figure out the entities from the ER diagram for which there exists an M-to-N relationship.
+2. Create a new relation (table) S.
+3. The primary keys of relations (tables) between which M-to-N relationship exists, are added to the new relation S created, which acts as a foreign key.
+4. Then we add any simple attributes of the M-to-N relationship to S.
+5. For the given ER-Diagram there exists an M-to-N relationship between Employee and Project entity.
+6. The new table Works\_On is created for mapping the relationship between Employee and Project relation (table).
 
-<html>
-<div style={{ textAlign: "center" }}>
-  <img src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/DBMS/5.png?raw=true" alt="Diagram" width="60%" />
-</div>
-</html>
+***
 
-### E. Step 5: M-to-N Relationships
+### Step 6: Mapping Multi-Valued Attributes
 
-Now we need to figure out the entities from the ER diagram for which there exists an M-to-N relationship. Create a new relation (table) S. The primary keys of relations (tables) between which M-to-N relationship exists, are added to the new relation S created, which acts as a foreign key. Then we add any simple attributes of the M-to-N relationship to S.
+1. Now identify the relations (tables) that contain multi-valued attributes.
+2. Then we need to create a new relation S.
+3. In the new relation S we add as foreign keys the primary keys of the corresponding relation.
+4. Then we add the multi-valued attribute to S; the combination of all attributes in S forms the primary key.
+5. For the given ER-Diagram there exists a multi-valued attribute (Locations) in Department relation (table).
+6. So, we create a new relation called Dept\_Locations. To this new relation we add the primary key of the Department Table that is D\_Number and the multi-valued attribute Locations.
 
-For the given ER-Diagram there exists an M-to-N relationship between Employee and Project entity. The new table Works_On is created for mapping the relationship between Employee and Project relation (table).
+***
 
-<html>
-<div style={{ textAlign: "center" }}>
-  <img src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/DBMS/6.png?raw=true" alt="Diagram" width="60%" />
-</div>
-</html>
+## What is a Relational Model?
 
-### F. Step 6: Multi-Valued Attributes
+Relational Model is a key concept in Database Management Systems (DBMS) that organizes data in a structured and efficient way.
 
-Now identify the relations (tables) that contain multi-valued attributes. Then we need to create a new relation S. In the new relation S we add as foreign keys the primary keys of the corresponding relation. Then we add the multi-valued attribute to S; the combination of all attributes in S forms the primary key.
+An RDBMS is a database management system that stores data in the form of related tables (relations) consisting of rows and columns, and provides tools and languages (such as SQL) to access, manipulate and maintain the data efficiently.
 
-For the given ER-Diagram there exists a multi-valued attribute (Locations) in Department relation (table). So, we create a new relation called Dept_Locations. To this new relation we add the primary key of the Department Table that is D_Number and the multi-valued attribute Locations.
+***
 
-<html>
-<div style={{ textAlign: "center" }}>
-  <img src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/DBMS/7.png?raw=true" alt="Diagram" width="60%" />
-</div>
-</html>
-
----
-
-## Introduction of Relational Model
-
-### A. What is a Relational Model?
-
-Relational Model is a key concept in Database Management Systems (DBMS) that organizes data in a structured and efficient way. An RDBMS is a database management system that stores data in the form of related tables (relations) consisting of rows and columns, and provides tools and languages (such as SQL) to access, manipulate and maintain the data efficiently.
-
-### B. RDBMS Terminologies
-
-| Term | Definition | Example |
-|---|---|---|
-| Attribute | Properties that define an entity (columns in a table) | ROLL_NO, NAME, ADDRESS |
-| Relation Schema | Structure of a relation showing table name and attributes | STUDENT(ROLL_NO, NAME, ADDRESS, PHONE, AGE) |
-| Tuple | A single row in a relation | 1, RAM, DELHI, 9772667313, 18 |
-| Relation Instance | Set of tuples at a specific time | Current data present in STUDENT table |
-| Degree | Number of attributes (columns) in a relation | STUDENT has degree = 5 |
-| Cardinality | Number of tuples (rows) in a relation | STUDENT has cardinality = 4 |
-| Column | Set of values for a particular attribute | Column ROLL_NO = {1,2,3,4} |
-| NULL Value | Missing or unknown value | PHONE = NULL |
-| Relation Key | Attributes used to uniquely identify rows | Primary Key, Foreign Key, etc. |
-
-### C. Difference between DBMS and RDBMS
-
-| Feature | DBMS | RDBMS |
-|---|---|---|
-| Full Form | Database Management System | Relational Database Management System |
-| Data Storage | Files or hierarchical form | Tables (rows & columns) |
-| Relationship | No relationship between data | Supports relationships (using keys) |
-| Data Redundancy | High | Low (uses normalization) |
-| Data Integrity | Less | High |
-| Security | Basic | Advanced security |
-| Multi-user Support | Limited | Supports multiple users |
-| Normalization | Not supported | Supported |
-| Examples | File system, XML DB | MySQL, Oracle, SQL Server |
-
-### D. RDBMS Terminologies (Detailed)
+### RDBMS Terminologies
 
 #### 1. Attribute
 
-Attributes are the properties that define an entity. They represent columns in a table.
+* Attributes are the properties that define an entity.
+* They represent columns in a table.
 
-Example: ROLL_NO, NAME, ADDRESS
+**Example:** `ROLL_NO`, `NAME`, `ADDRESS`
+
+***
 
 #### 2. Relation Schema
 
-A relation schema defines the structure of a relation. It consists of the relation name along with its attributes. If multiple relations are present, it is called a relational schema.
+* A relation schema defines the structure of a relation.
+* It consists of the relation name along with its attributes.
+* If multiple relations are present, it is called a relational schema.
 
-Example: STUDENT (ROLL_NO, NAME, ADDRESS, PHONE, AGE)
+**Example:** `STUDENT (ROLL_NO, NAME, ADDRESS, PHONE, AGE)`
+
+***
 
 #### 3. Tuple
 
-A tuple is a single row in a relation. It represents one complete record in the table.
+* A tuple is a single row in a relation.
+* It represents one complete record in the table.
 
-Example: 1, RAM, DELHI, 9772667313, 18
+**Example:** `1, RAM, DELHI, 9772667313, 18`
+
+***
 
 #### 4. Relation Instance
 
-A relation instance is the set of tuples in a relation at a particular point in time. It changes whenever there is insertion, deletion, or update in the database.
+* A relation instance is the set of tuples in a relation at a particular point in time.
+* It changes whenever there is insertion, deletion, or update in the database.
+
+***
 
 #### 5. Degree
 
-Degree refers to the number of attributes (columns) in a relation.
+* Degree refers to the number of attributes (columns) in a relation.
 
-Example: STUDENT has 5 attributes → Degree = 5
+**Example:** STUDENT has 5 attributes → Degree \= 5
+
+***
 
 #### 6. Cardinality
 
-Cardinality refers to the number of tuples (rows) in a relation.
+* Cardinality refers to the number of tuples (rows) in a relation.
 
-Example: STUDENT has 4 tuples → Cardinality = 4
+**Example:** STUDENT has 4 tuples → Cardinality \= 4
+
+***
 
 #### 7. Column
 
-A column represents the set of values for a particular attribute.
+* A column represents the set of values for a particular attribute.
 
-Example: ROLL_NO column: 1, 2, 3, 4
+**Example:** ROLL\_NO column: `1  2  3  4`
+
+***
 
 #### 8. NULL Values
 
-NULL represents a value that is unknown, missing, or not available. It is different from zero or an empty string.
+* NULL represents a value that is unknown, missing, or not available.
+* It is different from zero or an empty string.
 
-Example: PHONE of student with ROLL_NO 4 is NULL
+**Example:** PHONE of student with ROLL\_NO 4 is NULL
+
+***
 
 #### 9. Relation Key
 
 Keys are used to uniquely identify rows and to establish relationships between tables.
 
-##### a. Types of Keys
+#### Types of Keys
 
-- **Primary Key:** Uniquely identifies each tuple (no NULL, no duplicates)
-- **Candidate Key:** Minimal set of attributes that uniquely identify tuples
-- **Super Key:** Set of attributes that uniquely identify tuples (may include extra attributes)
-- **Foreign Key:** Attribute used to link one table to another
-- **Alternate Key:** Candidate key not chosen as primary key
-- **Composite Key:** Key formed using more than one attribute
+| Key Type          | Description                                                                    |   |
+| ----------------- | ------------------------------------------------------------------------------ | - |
+| **Primary Key**   | Uniquely identifies each tuple (no NULL, no duplicates)                        |   |
+| **Candidate Key** | Minimal set of attributes that uniquely identify tuples                        |   |
+| **Super Key**     | Set of attributes that uniquely identify tuples (may include extra attributes) |   |
+| **Foreign Key**   | Attribute used to link one table to another                                    |   |
+| **Alternate Key** | Candidate key not chosen as primary key                                        |   |
+| **Composite Key** | Key formed using more than one attribute                                       | . |
 
-<html>
-<div style={{ textAlign: "center" }}>
-  <img src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/DBMS/8.png?raw=true" alt="Diagram" width="60%" />
-</div>
-</html>
-
----
+***
 
 ## Relational Algebra
 
-Relational Algebra is a formal query language used to retrieve and manipulate data in relational databases. It uses operations like selection, projection, union, and join to work on tables. It provides a mathematical foundation for database queries, which helps in efficient data retrieval. Relational Algebra is also the basis for SQL, meaning SQL queries are built using these operations to access data easily.
+Relational Algebra is a formal query language used to retrieve and manipulate data in relational databases. It uses operations like selection, projection, union, and join to work on tables.
 
-### A. SELECT ($\sigma$)
+It provides a mathematical foundation for database queries, which helps in efficient data retrieval.
+
+Relational Algebra is also the basis for SQL, meaning SQL queries are built using these operations to access data easily.
+
+***
+
+### 1. SELECT (σ)
 
 SELECT operation is used to filter rows (tuples) from a relation based on a given condition.
 
-Syntax:
+|             |                          |
+| ----------- | ------------------------ |
+| **Syntax**  | `σ condition (Relation)` |
+| **Example** | `σ Age > 20 (STUDENT)`   |
 
-$$\sigma_{\text{condition}}(\text{Relation})$$
+**Explanation**
 
-Example:
+* Returns only those rows where Age > 20
+* Does not change columns, only filters rows
 
-$$\sigma_{\text{Age} > 20}(\text{STUDENT})$$
+***
 
-Returns only those rows where Age > 20. Does not change columns, only filters rows.
-
-### B. PROJECT ($\pi$)
+### 2. PROJECT (π)
 
 PROJECT operation is used to select specific columns (attributes) from a relation.
 
-Syntax:
+|             |                                 |
+| ----------- | ------------------------------- |
+| **Syntax**  | `π column1, column2 (Relation)` |
+| **Example** | `π Name, Age (STUDENT)`         |
 
-$$\pi_{\text{column1, column2}}(\text{Relation})$$
+**Explanation**
 
-Example:
+* Returns only selected columns
+* Removes duplicate values automatically
 
-$$\pi_{\text{Name, Age}}(\text{STUDENT})$$
+***
 
-Returns only selected columns. Removes duplicate values automatically.
-
-### C. JOIN ($\bowtie$)
+### 3. JOIN (⨝)
 
 JOIN operation is used to combine two relations based on a related attribute (condition).
 
-##### a. Types (basic idea)
+**Types (basic idea)**
 
-- Natural Join
-- Theta Join
-- Equi Join
+* Natural Join
+* Theta Join
+* Equi Join
 
-Syntax:
+|             |                                                       |
+| ----------- | ----------------------------------------------------- |
+| **Syntax**  | `R ⨝ condition S`                                     |
+| **Example** | `STUDENT ⨝ STUDENT.CourseID = COURSE.CourseID COURSE` |
 
-$$R \bowtie_{\text{condition}} S$$
+**Explanation**
 
-Example:
+* Combines rows from both tables where condition matches
+* Used to retrieve related data from multiple tables
 
-$$\text{STUDENT} \bowtie_{\text{STUDENT.CourseID = COURSE.CourseID}} \text{COURSE}$$
+***
 
-Combines rows from both tables where condition matches. Used to retrieve related data from multiple tables.
-
-### D. DIVISION ($\div$)
+### 4. DIVISION (÷)
 
 DIVISION operation is used to find tuples in one relation that are related to all tuples in another relation.
 
-Syntax: $R \div S$
+|                     |                                                |
+| ------------------- | ---------------------------------------------- |
+| **Syntax**          | `R ÷ S`                                        |
+| **Example Concept** | Find students who have enrolled in all courses |
 
-Example Concept: Find students who have enrolled in all courses.
-
-Used for "for all" type queries.
-
----
+***
 
 ## SQL
 
-### A. What is SQL?
+### What is SQL?
 
 SQL (Structured Query Language) is a standard language used to access and manage databases. It helps users to retrieve, insert, update, and delete data in a database.
 
-### B. Components of a SQL System
+***
 
-#### 1. Tables
+### Components of a SQL System
 
-Store data and apply rules to keep it accurate and consistent.
+Here are some key components of SQL system:
 
-#### 2. Indexes
+1. **Tables:** Store data and apply rules to keep it accurate and consistent.
+2. **Indexes:** Help the database find data faster without scanning the whole table.
+3. **Views:** Virtual tables created from SELECT queries for easy access to data.
+4. **Stored Procedures:** Pre-saved SQL code that runs tasks and improves performance and security.
+5. **Transactions:** Group of SQL actions that either all succeed or all fail to keep data safe.
+6. **Security & Permissions:** Control who can view, change, or manage database data.
+7. **Joins:** Combine data from different tables based on relationships.
 
-Help the database find data faster without scanning the whole table.
+***
 
-#### 3. Views
-
-Virtual tables created from SELECT queries for easy access to data.
-
-#### 4. Stored Procedures
-
-Pre-saved SQL code that runs tasks and improves performance and security.
-
-#### 5. Transactions
-
-Group of SQL actions that either all succeed or all fail to keep data safe.
-
-#### 6. Security & Permissions
-
-Control who can view, change, or manage database data.
-
-#### 7. Joins
-
-Combine data from different tables based on relationships.
-
-### C. Rules for Writing SQL Queries
+### Rules for Writing SQL Queries
 
 #### 1. Semicolon (;)
 
-A semicolon is used to terminate an SQL statement. It indicates the end of a query.
+* A semicolon is used to terminate an SQL statement.
+* It indicates the end of a query.
 
 #### 2. Case-Insensitive Nature
 
-SQL keywords are not case-sensitive. Keywords like SELECT, INSERT, UPDATE can be written in any case.
+* SQL keywords are not case-sensitive.
+* Keywords like `SELECT`, `INSERT`, `UPDATE` can be written in any case.
 
 #### 3. Use of Whitespace
 
-Spaces and line breaks are allowed to improve readability. They do not affect the execution of the query.
+* Spaces and line breaks are allowed to improve readability.
+* They do not affect the execution of the query.
 
 #### 4. Reserved Words
 
-SQL keywords should not be used as identifiers (table or column names). If used, they must be enclosed in quotes or backticks.
+* SQL keywords should not be used as identifiers (table or column names).
+* If used, they must be enclosed in quotes or backticks.
 
 #### 5. Comments in SQL
 
-Comments are used to explain or document queries.
+* Comments are used to explain or document queries.
 
-##### a. Types of Comments
+**Types of Comments:**
 
 Single-line comment:
 
@@ -496,123 +488,118 @@ Multi-line comment:
 
 #### 6. Data Constraints
 
-Constraints are used to maintain accuracy and integrity of data.
+* Constraints are used to maintain accuracy and integrity of data.
 
-##### a. Common Constraints
-
-- NOT NULL
-- UNIQUE
-- PRIMARY KEY
+**Common Constraints:** `NOT NULL`, `UNIQUE`, `PRIMARY KEY`
 
 #### 7. String Values
 
-String values must be enclosed in single quotes (`' '`).
+* String values must be enclosed in single quotes (`' '`).
 
-Example: `'John'`
+**Example:** `'John'`
 
 #### 8. Naming Rules
 
-- Must start with a letter
-- Maximum length is 30 characters
-- Only the following are allowed: Letters, Numbers, Underscore (_)
+* Must start with a letter
+* Maximum length is 30 characters
+* Only the following are allowed: Letters, Numbers, Underscore (`_`)
 
-### D. Different SQL Queries
+***
 
-Structured Query Language (SQL) commands are standardized instructions used by developers to interact with data stored in relational databases. These commands allow for the creation, manipulation, retrieval and control of data, as well as database structures. SQL commands are categorized based on their specific functionalities:
+### Different SQL Queries
 
-| Command | Description | Example |
-|---|---|---|
-| CREATE | Creates a new table, view, or other database object | `CREATE TABLE Students (ID INT, Name VARCHAR(50));` |
-| ALTER | Modifies an existing database object such as a table | `ALTER TABLE Students ADD Age INT;` |
-| DROP | Deletes an entire table, view, or other database objects | `DROP TABLE Students;` |
-| TRUNCATE | Removes all records from a table but keeps its structure | `TRUNCATE TABLE Students;` |
-| RENAME | Changes the name of an existing database | — |
+Structured Query Language (SQL) commands are standardized instructions used by developers to interact with data stored in relational databases. These commands allow for the creation, manipulation, retrieval and control of data, as well as database structures. SQL commands are categorized based on their specific functionalities.
 
-### E. Data Types
+***
+
+### Data Types
 
 #### 1. Numeric Data Types
 
 Used to store numbers for calculations.
 
-##### a. Types
-
-- **Exact (precise values):** INT, SMALLINT, BIGINT, DECIMAL, NUMERIC
-- **Approximate (not exact):** FLOAT, REAL
+| Type                                              | Description             |
+| ------------------------------------------------- | ----------------------- |
+| `INT`, `SMALLINT`, `BIGINT`, `DECIMAL`, `NUMERIC` | Exact (precise values)  |
+| `FLOAT`, `REAL`                                   | Approximate (not exact) |
 
 #### 2. Character and String Data Types
 
 Used to store text data.
 
-##### a. Types
-
-- CHAR – Fixed length
-- VARCHAR – Variable length
-- TEXT – Large text
-
-Unicode Types: NCHAR, NVARCHAR – Support multiple languages
+| Type                | Description                          |
+| ------------------- | ------------------------------------ |
+| `CHAR`              | Fixed length                         |
+| `VARCHAR`           | Variable length                      |
+| `TEXT`              | Large text                           |
+| `NCHAR`, `NVARCHAR` | Unicode — support multiple languages |
 
 #### 3. Date and Time Data Types
 
 Used to store date and time values.
 
-- DATE – Stores date
-- TIME – Stores time
-- DATETIME – Stores both date and time
+| Type       | Description               |
+| ---------- | ------------------------- |
+| `DATE`     | Stores date               |
+| `TIME`     | Stores time               |
+| `DATETIME` | Stores both date and time |
 
 #### 4. Binary Data Types
 
 Used to store files like images and videos.
 
-- BINARY – Fixed size
-- VARBINARY – Variable size
-- IMAGE – Large binary data
+| Type        | Description       |
+| ----------- | ----------------- |
+| `BINARY`    | Fixed size        |
+| `VARBINARY` | Variable size     |
+| `IMAGE`     | Large binary data |
 
 #### 5. Boolean Data Type
 
 Used to store logical values.
 
-- TRUE = 1
-- FALSE = 0
+| Value   | Representation |
+| ------- | -------------- |
+| `TRUE`  | 1              |
+| `FALSE` | 0              |
 
 #### 6. Special Data Types
 
 Used for advanced data storage.
 
-- XML – Stores XML data
-- GEOMETRY – Stores spatial data (shapes, locations)
+| Type       | Description                             |
+| ---------- | --------------------------------------- |
+| `XML`      | Stores XML data                         |
+| `GEOMETRY` | Stores spatial data (shapes, locations) |
 
-<html>
-<div style={{ textAlign: "center" }}>
-  <img src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/IT/DBMS/9.png?raw=true" alt="Diagram" width="70%" />
-</div>
-</html>
+***
 
----
-
-### F. SQL Queries (SELECT, WHERE, ORDER BY, GROUP BY, HAVING)
+### SQL Queries
 
 #### 1. SELECT
 
 Used to retrieve data from a table.
 
-Syntax:
+**Syntax:**
 
 ```sql
 SELECT column1, column2
 FROM table_name;
 ```
 
-Example:
+**Example:**
 
 ```sql
 SELECT name, salary FROM Employees;
 ```
 
+***
+
 #### 2. WHERE
 
 Used to filter records based on a condition.
 
-Syntax:
+**Syntax:**
 
 ```sql
 SELECT column_name
@@ -620,18 +607,20 @@ FROM table_name
 WHERE condition;
 ```
 
-Example:
+**Example:**
 
 ```sql
 SELECT * FROM Employees
 WHERE salary > 50000;
 ```
 
+***
+
 #### 3. ORDER BY
 
 Used to sort the result in ascending or descending order.
 
-Syntax:
+**Syntax:**
 
 ```sql
 SELECT column_name
@@ -639,18 +628,20 @@ FROM table_name
 ORDER BY column_name ASC|DESC;
 ```
 
-Example:
+**Example:**
 
 ```sql
 SELECT * FROM Employees
 ORDER BY salary DESC;
 ```
 
+***
+
 #### 4. GROUP BY
 
-Used to group rows with same values (mostly used with functions like COUNT, SUM).
+Used to group rows with the same values (mostly used with functions like `COUNT`, `SUM`).
 
-Syntax:
+**Syntax:**
 
 ```sql
 SELECT column_name, aggregate_function(column_name)
@@ -658,7 +649,7 @@ FROM table_name
 GROUP BY column_name;
 ```
 
-Example:
+**Example:**
 
 ```sql
 SELECT department, COUNT(*)
@@ -666,11 +657,13 @@ FROM Employees
 GROUP BY department;
 ```
 
+***
+
 #### 5. HAVING
 
-Used to filter grouped data (used after GROUP BY).
+Used to filter grouped data (used after `GROUP BY`).
 
-Syntax:
+**Syntax:**
 
 ```sql
 SELECT column_name, aggregate_function(column_name)
@@ -679,7 +672,7 @@ GROUP BY column_name
 HAVING condition;
 ```
 
-Example:
+**Example:**
 
 ```sql
 SELECT department, COUNT(*)
@@ -688,8 +681,9 @@ GROUP BY department
 HAVING COUNT(*) > 5;
 ```
 
-**Note: Key Difference (Important for Exams)**
+***
 
-- **WHERE** → filters rows before grouping
-- **HAVING** → filters data after grouping
-
+> **Note: Key Difference (Important for Exams)**
+>
+> * `WHERE` → filters rows **before** grouping
+> * `HAVING` → filters data **after** grouping

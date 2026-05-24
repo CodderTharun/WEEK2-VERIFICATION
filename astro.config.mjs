@@ -429,62 +429,53 @@ items: [
           ],
         },
 
-       // {
-         // label: "Answer Keys",
-          //collapsed: true,
-          //items: [
-            //{
-             // label: "IT",
-             // items: [
-                //{ label: "Week 1", link: "/answer-keys/it/week-1" },
+       {
+        label: "Answer Keys",
+       collapsed: true,
+       items: [
+       {
+        label: "IT",
+        items: [
+       { label: "Week 1", link: "/answer-keys/it/week-1" },
                 //{ label: "Week 2", link: "/answer-keys/it/week-2" },
                 //{ label: "Week 3", link: "/answer-keys/it/week-3" },
                 //{ label: "Week 4", link: "/answer-keys/it/week-4" },
                 //{ label: "Week 5", link: "/answer-keys/it/week-5" },
-          //    ],
-          //  },
-          //  {
-           //   label: "ECE",
-            //  items: [
-                //{ label: "Week 1", link: "/answer-keys/ece/week-1" },
+            ],
+           },
+         {
+         label: "ECE",
+        items: [
+        { label: "Week 1", link: "/answer-keys/ece/week-1" },
                 //{ label: "Week 2", link: "/answer-keys/ece/week-2" },
                 //{ label: "Week 3", link: "/answer-keys/ece/week-3" },
                 //{ label: "Week 4", link: "/answer-keys/ece/week-4" },
                 //{ label: "Week 5", link: "/answer-keys/ece/week-5" },
-          //    ],
-          //  },
-          //  {
-          //    label: "EEE",
-           //   items: [
-                //{ label: "Week 1", link: "/answer-keys/eee/week-1" },
+            ],
+          },
+           {
+              label: "EEE",
+             items: [
+          { label: "Week 1", link: "/answer-keys/eee/week-1" },
                 //{ label: "Week 2", link: "/answer-keys/eee/week-2" },
                 //{ label: "Week 3", link: "/answer-keys/eee/week-3" },
                 //{ label: "Week 4", link: "/answer-keys/eee/week-4" },
                 //{ label: "Week 5", link: "/answer-keys/eee/week-5" },
-           //   ],
-          //  },
-          //  {
-           //   label: "Mechanical",
-            //  items: [
-                //{ label: "Week 1", link: "/answer-keys/mech/week-1" },
+             ],
+            },
+            {
+             label: "Mechanical",
+            items: [
+          { label: "Week 1", link: "/answer-keys/mech/week-1" },
                 //{ label: "Week 2", link: "/answer-keys/mech/week-2" },
                 //{ label: "Week 3", link: "/answer-keys/mech/week-3" },
                 //{ label: "Week 4", link: "/answer-keys/mech/week-4" },
                 //{ label: "Week 5", link: "/answer-keys/mech/week-5" },
-           //   ],
-          //  },
-          //  {
-           //   label: "Aptitude",
-           //   items: [
-                //{ label: "Week 1", link: "/answer-keys/aptitude/week-1" },
-                //{ label: "Week 2", link: "/answer-keys/aptitude/week-2" },
-                //{ label: "Week 3", link: "/answer-keys/aptitude/week-3" },
-                //{ label: "Week 4", link: "/answer-keys/aptitude/week-4" },
-                //{ label: "Week 5", link: "/answer-keys/aptitude/week-5" },
-             // ],
-          //  },
-         // ],
-       // },
+             ],
+           },
+           
+          ],
+        },
         
       ],
     }),

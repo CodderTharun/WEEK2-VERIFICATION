@@ -2,105 +2,1002 @@
 title: IT Department - Week 1 Answer Keys
 description: Solutions and answer keys for IT Department Week 1 problems
 ---
+## Test 1 (IT)
 
-# IT Department - Week 1 Answer Keys
+**Total Questions: 45**
 
-## Data Structures and Algorithms (DSA)
+---
 
-### Problem Set 1: Arrays and Sorting
-**Q1: Sort array using merge sort**
-```
-Answer: Merge sort implementation with O(n log n) complexity
-- Divide array into halves recursively
-- Merge sorted halves
-```
+### Question 1
 
-**Q2: Find longest increasing subsequence**
-```
-Answer: Dynamic programming approach
-- dp[i] = length of LIS ending at i
-- Time: O(n²), Space: O(n)
-```
+**x is a positive integer such that x² + 12 is exactly divisible by x. Find all the possible values of x.**
 
-### Problem Set 2: Linked Lists
-**Q1: Reverse a linked list**
-```
-Answer: Iterative reversal
-- Keep track of previous, current, next nodes
-- Update pointers in reverse direction
-- Time: O(n), Space: O(1)
-```
+- A) 1, 2, 3, 4, 6, 12
+- B) 1, 2, 4, 8, 12
+- C) 2, 3, 5, 6, 12
+- D) 1, 3, 6, 9, 12
 
-**Q2: Detect cycle in linked list**
-```
-Answer: Floyd's cycle detection algorithm
-- Use two pointers: slow and fast
-- If they meet, cycle exists
-```
+**Correct Answer:** A) 1, 2, 3, 4, 6, 12
 
-## Computer Networks (CN)
+**Explanation:**  
+Given: (x² + 12) is exactly divisible by x.  
+⇒ (x² + 12) / x is an integer  
+⇒ x²/x + 12/x is an integer  
+⇒ x + 12/x is an integer.
 
-### Problem Set 1: OSI Model
-**Q1: Packets at different layers**
-- Application: Data
-- Transport: Segment/Datagram
-- Network: Packet
-- Link: Frame
+Since x is already an integer, 12/x must also be an integer.
 
-**Q2: TCP vs UDP**
-- TCP: Connection-oriented, reliable, ordered delivery
-- UDP: Connectionless, unreliable, faster
+Therefore, x must be a divisor of 12.
 
-## Object-Oriented Programming (OOPS)
+The positive divisors of 12 are: 1, 2, 3, 4, 6, 12.
 
-### Problem Set 1: Classes and Objects
-**Q1: Encapsulation example**
-```
-Answer: Getters and setters private data members
-- Hide internal implementation
-- Provide controlled access
-```
+Hence, the possible values of x are: 1, 2, 3, 4, 6, 12.
 
-**Q2: Inheritance hierarchy**
-```
-Answer: Create base class and derived classes
-- Parent: Vehicle
-- Children: Car, Bike, Truck
-```
+---
 
-## Operating Systems (OS)
+### Question 2
 
-### Problem Set 1: Process Scheduling
-**Q1: Round Robin scheduling (Time quantum = 2)**
-- Process order and wait times calculated
-- Context switches tracked
+**Find the unit's digit in the product (2467)¹⁵³ × (341)⁷².**
 
-**Q2: Deadlock conditions**
-- Mutual exclusion, Hold and wait, No preemption, Circular wait
+- A) 1
+- B) 3
+- C) 7
+- D) 9
 
-## Database Management Systems (DBMS)
+**Correct Answer:** C) 7
 
-### Problem Set 1: SQL Queries
-**Q1: Find employees earning above average**
-```sql
-SELECT name, salary FROM employees 
-WHERE salary > (SELECT AVG(salary) FROM employees);
+**Explanation:**  
+The unit's digit in the given product depends only on the unit digits of the numbers.
+
+So, we consider: 7¹⁵³ × 1⁷².
+
+7⁴ gives unit digit 1, therefore 7¹⁵² gives unit digit 1, hence 7¹⁵³ gives unit digit 1 × 7 = 7.
+
+Also, 1⁷² gives unit digit 1.
+
+Therefore, the unit digit in the product is: 7 × 1 = 7.
+
+---
+
+### Question 3
+
+**Simplify: (789×789×789 + 211×211×211) / (789×789 – 789×211 + 211×211)**
+
+- A) 211
+- B) 578
+- C) 1000
+- D) 789
+
+**Correct Answer:** C) 1000
+
+**Explanation:**  
+Given expression:
+
+```text
+(789³ + 211³) / (789² – 789×211 + 211²)
 ```
 
-**Q2: Department-wise employee count**
-```sql
-SELECT dept_id, COUNT(*) FROM employees GROUP BY dept_id;
+Using the identity:
+
+```text
+(a³ + b³) / (a² – ab + b²) = a + b
+```
+
+Here, a = 789 and b = 211.
+
+Therefore:
+
+```text
+789 + 211 = 1000
 ```
 
 ---
 
-## Quick Reference Answers
+### Question 4
 
-| Topic | Key Answer |
-|-------|-----------|
-| Merge Sort | O(n log n) |
-| Binary Search | O(log n) |
-| TCP Handshake | 3-way |
-| Process States | New, Ready, Running, Blocked, Terminated |
+**Two numbers are in the ratio 3 : 4. Their L.C.M. is 84. Find the numbers.**
 
-**Review Date:** Complete and verify all solutions
+- A) 14 and 21
+- B) 21 and 28
+- C) 28 and 35
+- D) 18 and 24
+
+**Correct Answer:** B) 21 and 28
+
+**Explanation:**  
+Let the numbers be 3x and 4x.
+
+Since 3 and 4 are co-prime, L.C.M. of the numbers = 12x.
+
+Given:
+
+```text
+12x = 84
+```
+
+```text
+x = 7
+```
+
+Therefore, the numbers are:
+
+```text
+3 × 7 = 21
+4 × 7 = 28
+```
+
+---
+
+### Question 5
+
+**Find the H.C.F. and L.C.M. of the fractions: 2/3, 8/9, 16/81 and 10/27**
+
+- A) H.C.F. = 2/81, L.C.M. = 80
+- B) H.C.F. = 2/81, L.C.M. = 80/3
+- C) H.C.F. = 2/27, L.C.M. = 80/81
+- D) H.C.F. = 1/81, L.C.M. = 80/27
+
+**Correct Answer:** B) H.C.F. = 2/81, L.C.M. = 80/3
+
+**Explanation:**  
+
+H.C.F. of fractions:
+
+```text
+(H.C.F. of numerators) / (L.C.M. of denominators)
+```
+
+L.C.M. of fractions:
+
+```text
+(L.C.M. of numerators) / (H.C.F. of denominators)
+```
+
+H.C.F. of numerators (2, 8, 16, 10) = 2.
+
+L.C.M. of denominators (3, 9, 81, 27) = 81.
+
+Therefore:
+
+```text
+H.C.F. = 2/81
+```
+
+L.C.M. of numerators (2, 8, 16, 10) = 80.
+
+H.C.F. of denominators (3, 9, 81, 27) = 3.
+
+Therefore:
+
+```text
+L.C.M. = 80/3
+```
+
+---
+
+### Question 6
+
+**13 chairs and 5 tables were bought for ₹8280. If the average cost of a table is ₹1227, what is the average cost of a chair?**
+
+- A) ₹145
+- B) ₹155
+- C) ₹165
+- D) ₹175
+
+**Correct Answer:** C) ₹165
+
+**Explanation:**  
+
+Total cost of 5 tables:
+
+```text
+1227 × 5 = ₹6135
+```
+
+Total cost of 13 chairs:
+
+```text
+8280 − 6135 = ₹2145
+```
+
+Average cost of a chair:
+
+```text
+2145 / 13 = ₹165
+```
+
+---
+
+### Question 7
+
+**The average age of a man and his son is 40 years. The ratio of their ages is 11 : 5 respectively. What is the son's age?**
+
+- A) 20 years
+- B) 25 years
+- C) 30 years
+- D) 35 years
+
+**Correct Answer:** B) 25 years
+
+**Explanation:**  
+
+Let the ages be 11x and 5x years respectively.
+
+Average age:
+
+```text
+(11x + 5x) / 2 = 8x
+```
+
+Given:
+
+```text
+8x = 40
+```
+
+```text
+x = 5
+```
+
+Son's age:
+
+```text
+5 × 5 = 25 years
+```
+
+---
+
+### Question 8
+
+**If 7 : x = 17.5 : 22.5, then find the value of x.**
+
+- A) 7
+- B) 8
+- C) 9
+- D) 10
+
+**Correct Answer:** C) 9
+
+**Explanation:**  
+
+```text
+7/x = 17.5/22.5
+```
+
+```text
+17.5x = 7 × 22.5
+```
+
+```text
+x = (7 × 22.5) / 17.5
+```
+
+```text
+x = 9
+```
+
+---
+
+### Question 9
+
+**A sum of ₹427 is divided among A, B and C such that 3 times A's share, 4 times B's share and 7 times C's share are equal. Find the share of each.**
+
+- A) ₹196, ₹147, ₹84
+- B) ₹180, ₹147, ₹100
+- C) ₹200, ₹140, ₹87
+- D) ₹210, ₹126, ₹91
+
+**Correct Answer:** A) ₹196, ₹147, ₹84
+
+**Explanation:**  
+
+Let:
+
+```text
+3A = 4B = 7C = k
+```
+
+Then:
+
+```text
+A = k/3
+B = k/4
+C = k/7
+```
+
+Therefore:
+
+```text
+A : B : C = 1/3 : 1/4 : 1/7
+```
+
+Multiplying by L.C.M. = 84:
+
+```text
+A : B : C = 28 : 21 : 12
+```
+
+Sum of ratio terms:
+
+```text
+28 + 21 + 12 = 61
+```
+
+A's share:
+
+```text
+(28/61) × 427 = ₹196
+```
+
+B's share:
+
+```text
+(21/61) × 427 = ₹147
+```
+
+C's share:
+
+```text
+(12/61) × 427 = ₹84
+```
+
+---
+
+### Question 10
+
+**A retailer buys 40 pens at the marked price of 36 pens from a wholesaler. If he sells these pens giving a discount of 1%, what is the profit percent?**
+
+- A) 8%
+- B) 9%
+- C) 10%
+- D) 11%
+
+**Correct Answer:** C) 10%
+
+**Explanation:**  
+
+Let the marked price of each pen be ₹1.
+
+Cost Price of 40 pens:
+
+```text
+Marked price of 36 pens = ₹36
+```
+
+Selling Price of 40 pens:
+
+```text
+99% of ₹40 = ₹39.60
+```
+
+Profit:
+
+```text
+39.60 − 36 = ₹3.60
+```
+
+Profit percentage:
+
+```text
+(3.60 / 36) × 100 = 10%
+```
+### Question 11
+
+**Which NumPy operation provides the MOST performance improvement compared to traditional Python loops for numerical computations?**
+
+A) Reshaping arrays  
+B) Vectorization  
+C) Indexing  
+D) Aggregation functions  
+
+**Correct Answer: B) Vectorization**
+
+**Explanation:**  
+Operations are applied directly on entire arrays without Python-level loops.  
+Vectorization leverages optimized C-level routines, making it significantly faster than traditional loops.
+
+---
+
+### Question 12
+
+**Which Pandas operation is MOST suitable when calculating department-wise average salary from a dataset?**
+
+A) Indexing  
+B) Slicing  
+C) Grouping and Aggregation  
+D) Handling Missing Data  
+
+**Correct Answer: C) Grouping and Aggregation**
+
+**Explanation:**  
+Grouping and Aggregation (`groupby + mean`) is used for category-wise computations.  
+It groups rows by a column (department) and applies an aggregation function (average salary).
+
+---
+
+### Question 13
+
+**Which Matplotlib plot is MOST appropriate for showing the relationship between two continuous variables?**
+
+A) Pie Chart  
+B) Histogram  
+C) Scatter Plot  
+D) Bar Chart  
+
+**Correct Answer: C) Scatter Plot**
+
+**Explanation:**  
+Scatter plots display the relationship between two continuous variables clearly.  
+Each point represents a pair of values, making trends and correlations easy to identify.
+
+---
+
+### Question 14
+
+**In Pandas, filtering is mainly used to:**
+
+A) Change DataFrame dimensions  
+B) Extract rows or columns satisfying conditions  
+C) Convert Series into arrays  
+D) Remove aggregation operations  
+
+**Correct Answer: B) Extract rows or columns satisfying conditions**
+
+**Explanation:**  
+Filtering selects rows or columns based on boolean conditions applied to the data.
+
+---
+
+### Question 15
+
+**In NumPy linear algebra operations, matrices are mainly used for:**
+
+A) Plotting graphs  
+B) Performing mathematical transformations and computations  
+C) Storing missing values  
+D) Displaying image histograms  
+
+**Correct Answer: B) Performing mathematical transformations and computations**
+
+**Explanation:**  
+NumPy's linear algebra module (`numpy.linalg`) supports matrix-based mathematical operations.  
+These include dot products, matrix inversion, eigenvalues, and solving linear equations.
+
+---
+
+### Question 16
+
+**In an ER model, you have entities Student, Course, and Enrollment, where Enrollment captures attributes like grade and enrollment_date. A new requirement states that a student may enroll in the same course multiple times across different semesters and each Enrollment must be uniquely identifiable, even if the same student repeats the same course in the same semester due to withdrawal and re-enrollment. Which design best preserves normalization and captures this requirement?**
+
+A) Model Enrollment as a regular entity with a surrogate primary key `enrollment_id`, and enforce uniqueness on `(student_id, course_id, semester, attempt_number)` via a unique constraint.  
+
+B) Merge Student and Enrollment into a single entity to avoid composite keys and track attempts as a repeating multivalued attribute `attempts` per Course.  
+
+C) Model Enrollment as a weak entity with a composite key `(student_id, course_id, semester)` and add a surrogate key `enrollment_id` only as a non-key attribute.  
+
+D) Model Enrollment as a ternary relationship between Student, Course and Semester with primary key `(student_id, course_id, semester_id)` and store `attempt_number` in Student.  
+
+**Correct Answer: A) Model Enrollment as a regular entity with a surrogate primary key `enrollment_id`, and enforce uniqueness on `(student_id, course_id, semester, attempt_number)` via a unique constraint.**
+
+**Explanation:**  
+This design uses Enrollment as a regular entity with a surrogate primary key `enrollment_id` while imposing a unique constraint on `(student_id, course_id, semester, attempt_number)`. The surrogate key ensures that each enrollment row is uniquely and stably identifiable, even if business rules around attempts or semesters change over time. The unique constraint enforces that, for a given student, course and semester, each `attempt_number` is distinct, allowing multiple enrollments in the same semester while disallowing exact duplicates. This approach preserves normalization because Enrollment remains a separate entity capturing its own attributes (`grade`, `enrollment_date`, `status`, etc.), avoids redundant data and does not rely on composite natural keys that cannot express repeated attempts.
+
+### Question 17
+
+**A relation R(A, B, C, D) has the following functional dependencies: A → B, B → C, A → D. Which of the following is a Candidate Key?**
+
+A\) B  
+B\) C  
+C\) A  
+D\) D
+
+**Correct Answer: C) \$A\$**
+
+**Explanation:**  
+Attribute A can determine B and D directly using A → B and A → D. Since B → C, A can also determine C indirectly. Thus, A determines all attributes \{A, B, C, D\}, making it a Super Key. Since A alone is sufficient and minimal, it is the Candidate Key.
+
+---
+
+### Question 18
+
+**Which of the following SQL statements is correctly classified as a DML command?**
+
+A) `ALTER TABLE Student ADD Address VARCHAR(50);`  
+B) `DROP TABLE Employee;`  
+C) `UPDATE Employee SET Salary = Salary + 5000 WHERE Department = 'HR';`  
+D) `CREATE DATABASE CompanyDB;`  
+
+**Correct Answer: C) `UPDATE Employee SET Salary = Salary + 5000 WHERE Department = 'HR';`**
+
+**Explanation:**  
+UPDATE is a DML (Data Manipulation Language) command because it modifies data stored in a table.  
+ALTER, DROP and CREATE are DDL (Data Definition Language) commands since they define or modify database structures.
+
+---
+
+### Question 19
+
+**In a 3-tier web application architecture, which tier is responsible for enforcing business rules and processing user requests before interacting with the database?**
+
+A) Presentation Tier  
+B) Data Tier  
+C) Application Tier  
+D) Network Tier  
+
+**Correct Answer: C) Application Tier**
+
+**Explanation:**  
+The application tier (middle tier) contains the business logic. It receives requests from the presentation tier and processes them, then communicates with the data tier database server.
+
+---
+
+### Question 20
+
+**In hierarchical databases, each child node can have:**
+
+A) Multiple parent nodes only  
+B) Exactly one parent node  
+C) No parent and no child  
+D) Infinite parent nodes  
+
+**Correct Answer: B) Exactly one parent node**
+
+**Explanation:**  
+In a hierarchical database model, data is organized in a tree-like structure. Each child node is connected to only one parent node, though a parent can have multiple child nodes. Therefore, a child node can have exactly one parent node.
+
+---
+
+### Question 21
+
+**Which command rewrites commit history?**
+
+A) `git fetch`  
+B) `git rebase`  
+C) `git stash`  
+D) `git diff`  
+
+**Correct Answer: B) `git rebase`**
+
+**Explanation:**  
+`git rebase` rewrites commit history by replaying commits on top of another base commit. It helps maintain a cleaner linear history.
+
+---
+
+### Question 22
+
+**Which command combines changes from one branch into another?**
+
+A) `git fetch`  
+B) `git commit`  
+C) `git merge`  
+D) `git stash`  
+
+**Correct Answer: C) `git merge`**
+
+**Explanation:**  
+`git merge` combines changes from one branch into another while preserving commit history.
+
+---
+
+### Question 23
+
+**What causes a merge conflict in Git?**
+
+A) Deleting the repository  
+B) Two branches modifying the same section differently  
+C) Pushing without internet  
+D) Using too many branches  
+
+**Correct Answer: B) Two branches modifying the same section differently**
+
+**Explanation:**  
+A merge conflict occurs when two branches modify the same lines differently and Git cannot automatically resolve the changes.
+
+---
+
+### Question 24
+
+**Which Git command creates a cleaner linear commit history?**
+
+A) `git fetch`  
+B) `git stash`  
+C) `git rebase`  
+D) `git diff`  
+
+**Correct Answer: C) `git rebase`**
+
+**Explanation:**  
+`git rebase` places commits on top of another base commit to create a clean linear history. Unlike merge, it avoids extra merge commits in the history.
+
+---
+
+### Question 25
+
+**After running: `git add file.txt`, where is `file.txt` stored before commit?**
+
+A) Remote repository  
+B) Working directory  
+C) Staging area  
+D) GitHub  
+
+**Correct Answer: C) Staging area**
+
+**Explanation:**  
+`git add file.txt` moves the changes of `file.txt` to the staging area (also called the index). Files remain in the staging area until committed with `git commit`.
+
+---
+
+### Question 26
+
+**Which component of an operating system provides core abstractions like files, processes and sockets while executing with full privileges in supervisor mode?**
+
+A\) Shell  
+B\) Kernel  
+C\) BIOS  
+D\) Command Interpreter  
+
+**Correct Answer: B\) Kernel**
+
+**Explanation:**  
+The kernel is the central core of an OS that manages hardware interactions and runs in the CPU's protected supervisor/kernel mode.
+
+---
+
+### Question 27
+
+**Which of the following scheduling algorithms can lead to a 'starvation' problem?**
+
+A\) Round Robin  
+B\) Shortest Remaining Time First \(SRTF\)  
+C\) First-Come, First-Served \(FCFS\)  
+D\) Preemptive Priority  
+
+**Correct Answer: D\) Preemptive Priority**
+
+**Explanation:**  
+In Preemptive Priority Scheduling, processes with lower priority may never get CPU time if higher-priority processes keep arriving continuously. This situation is called starvation or indefinite blocking.
+
+---
+
+### Question 28
+
+**Which mechanism provides the fastest data sharing between processes on the same machine?**
+
+A\) Pipes  
+B\) Message queues  
+C\) Shared memory  
+D\) Sockets  
+
+**Correct Answer: C\) Shared memory**
+
+**Explanation:**  
+Shared memory allows two or more processes to map the same block of physical memory to their address spaces, letting them read/write directly without kernel intervention.
+
+---
+
+### Question 29
+
+**Which of the following statements best describes thread cancellation in an operating system?**
+
+A\) The process of stopping a thread that is currently waiting for CPU allocation  
+B\) The process of terminating a thread before it has completed its assigned task  
+C\) The process of moving a blocked thread into the ready queue for execution  
+D\) The process of suspending all threads of a process until I/O completion  
+
+**Correct Answer: B\) The process of terminating a thread before it has completed its assigned task**
+
+**Explanation:**  
+Thread cancellation refers to terminating a thread before it has completed its execution. It is used when a thread is no longer needed or must be stopped due to some condition.
+
+---
+
+### Question 30
+
+**Match the List I with List II**
+
+| **LIST-I \(CPU Scheduling Algorithm\)** | **LIST-II \(Primary Scheduling Criteria\)** |
+|---|---|
+| A. Round Robin \(RR\) | I. Remaining Burst Time |
+| B. First Come First Serve \(FCFS\) | II. Fixed Time Quantum |
+| C. Shortest Remaining Time First \(SRTF\) | III. Priority Value |
+| D. Priority Scheduling | IV. Arrival Time |
+
+A\) A-II, B-IV, C-I, D-III  
+B\) A-IV, B-II, C-I, D-III  
+C\) A-II, B-I, C-IV, D-III  
+D\) A-III, B-IV, C-I, D-II  
+
+**Correct Answer: A\) A-II, B-IV, C-I, D-III**
+
+**Explanation:**  
+In Round Robin scheduling, each process is given CPU execution for a fixed time quantum \(II\). In FCFS scheduling, the process that arrives first gets executed first — Arrival Time \(IV\). SRTF is the preemptive version of SJF and uses Remaining Burst Time \(I\). Priority Scheduling assigns each process a priority number \(III\).
+
+---
+
+### Question 31
+
+**Why can't an object of an abstract class be created directly?**
+
+A\) Abstract classes do not contain constructors  
+B\) Abstract classes may contain incomplete behavior  
+C\) Abstract classes cannot contain data members  
+D\) Abstract classes are inherited privately by default  
+
+**Correct Answer: B\) Abstract classes may contain incomplete behavior**
+
+**Explanation:**  
+Abstract methods may not have implementation, leaving the class behavior incomplete. Instantiating such a class would result in undefined behavior for unimplemented methods.
+
+---
+
+### Question 32
+
+**Which situation is the BEST use case for an interface instead of an abstract class?**
+
+A\) When multiple unrelated classes must follow the same contract  
+B\) When common code implementation must be shared among subclasses  
+C\) When constructors must be inherited by child classes  
+D\) When protected members need to be accessed frequently  
+
+**Correct Answer: A\) When multiple unrelated classes must follow the same contract**
+
+**Explanation:**  
+Interfaces define a common behavior contract without forcing an inheritance relationship. Multiple unrelated classes can implement the same interface, providing maximum flexibility.
+
+### Question 33
+
+**How does encapsulation help in achieving abstraction?**
+
+A\) By increasing inheritance hierarchy depth  
+B\) By exposing all internal implementation details  
+C\) By restricting direct data access and exposing only essential operations  
+D\) By allowing multiple classes to share the same constructor  
+
+**Correct Answer: C\) By restricting direct data access and exposing only essential operations**
+
+**Explanation:**  
+Encapsulation hides implementation details using access modifiers \(private, protected\). Only essential operations are exposed via public methods, achieving abstraction.
+
+---
+
+### Question 34
+
+**What is the major problem associated with multiple inheritance?**
+
+A\) Increased runtime memory allocation  
+B\) Ambiguity caused by identical inherited members  
+C\) Inability to override methods in child classes  
+D\) Restriction on constructor overloading  
+
+**Correct Answer: B\) Ambiguity caused by identical inherited members**
+
+**Explanation:**  
+When the same member \(method/attribute\) is inherited from multiple parent classes, ambiguity arises. The compiler cannot determine which parent's version to use — known as the Diamond Problem.
+
+---
+
+### Question 35
+
+**In OOP, message passing mainly represents:**
+
+A\) Direct memory sharing between objects  
+B\) Communication between objects through method invocation  
+C\) Accessing parent class variables using super keyword  
+D\) Dynamic allocation of objects during runtime  
+
+**Correct Answer: B\) Communication between objects through method invocation**
+
+**Explanation:**  
+Message passing in OOP means objects communicate with each other by calling \(invoking\) methods. The calling object sends a message; the receiving object executes the corresponding method.
+
+---
+
+### Question 36
+
+**Consider the following array: \[64, 25, 12, 22, 11\]. After the first pass of the Selection Sort algorithm, what will be the updated array?**
+
+A\) \[11, 25, 12, 22, 64\]  
+B\) \[25, 12, 22, 11, 64\]  
+C\) \[64, 25, 12, 22, 11\]  
+D\) \[11, 12, 22, 25, 64\]  
+
+**Correct Answer: A\) \[11, 25, 12, 22, 64\]**
+
+**Explanation:**  
+In Selection Sort, the smallest element in the unsorted portion of the array is selected and swapped with the first unsorted position.  
+For the array \[64, 25, 12, 22, 11\], the minimum element is 11.  
+11 is swapped with the first element 64.  
+So, after the first pass, the array becomes: \[11, 25, 12, 22, 64\].
+
+---
+
+### Question 37
+
+**Consider the below program. What is the expected output?**
+
+```
+void fun(int arr[], int start, int end)
+{
+  while (start < end) {
+    int temp = arr[start];
+    arr[start] = arr[end];
+    arr[end] = temp;
+    start++;
+    end--;
+  }
+}
+```
+
+A\) Swapping the elements pairwise  
+B\) Sorting the elements  
+C\) Reverse an array  
+D\) None  
+
+**Correct Answer: C\) Reverse an array**
+
+**Explanation:**  
+The function swaps the first and last elements, then moves inward until the entire array is reversed.
+
+---
+
+### Question 38
+
+**Time complexity of Kadane's Algorithm is:**
+
+A\) O\(n^2\)  
+B\) O\(log n\)  
+C\) O\(n\)  
+D\) O\(1\)  
+
+**Correct Answer: C\) O\(n\)**
+
+**Explanation:**  
+Kadane's Algorithm traverses the array only once to find the maximum subarray sum. Since there is a single pass through \(n\) elements, the time complexity is O\(n\).
+
+---
+
+### Question 39
+
+**Consider the following array: \[8, 3, 5, 1\]. In the first division step of the Merge Sort algorithm, how will the array be split?**
+
+A\) \[8, 3\] and \[5, 1\]  
+B\) \[8\], \[3\], \[5\], \[1\]  
+C\) \[8, 3, 5\] and \[1\]  
+D\) \[8\] and \[3, 5, 1\]  
+
+**Correct Answer: A\) \[8, 3\] and \[5, 1\]**
+
+**Explanation:**  
+Merge Sort works by recursively dividing the array into two equal halves.  
+For the array \[8, 3, 5, 1\], the first split divides it into:  
+
+Left Half → \[8, 3\]  
+Right Half → \[5, 1\]  
+
+These subarrays are then further divided and later merged in sorted order.A\) Swapping the elements pairwise  
+B\) Sorting the elements  
+C\) Reverse an array  
+D\) None  
+
+**Correct Answer: C\) Reverse an array**
+
+**Explanation:**  
+The function swaps the first and last elements, then moves inward until the entire array is reversed.
+
+---
+
+### Question 40
+
+**Fill in the blanks for completing the program to rotate an array by d elements.**
+
+```c
+void Rotate(int arr[], int d, int n)
+{
+  int p = 1;
+
+  while (p <= d) {
+    int last = arr[0];
+
+    for (int i = 0; i < n - 1; i++) {
+      arr[i] = arr[i + 1];
+    }
+
+    arr[n - 1] = last;
+    p++;
+  }
+}
+```
+
+A) p &lt; d, i &lt; n - 1, arr[n - 1] = last;  
+B) p &lt; d, i &lt; n, arr[n] = last;  
+C) p &gt; d, i &gt; n, arr[n] = last;  
+D) None  
+
+**Correct Answer: A) p &lt; d, i &lt; n - 1, arr[n - 1] = last;**
+
+**Explanation:**  
+
+For left rotation:
+
+- Rotation runs d times → `p <= d`
+- Elements shift till n-1 → `i < n - 1`
+- Last element becomes stored value → `arr[n - 1] = last`
+
+
+### Question 41
+
+**What is the primary purpose of the Framing function in the Data Link Layer?**
+
+A\) To assign IP addresses to data packets  
+B\) To divide raw bit-streams into structured data units called frames  
+C\) To regulate the speed of data transmission  
+D\) To detect and correct errors in data  
+
+**Correct Answer: B\) To divide raw bit-streams into structured data units called frames**
+
+**Explanation:**  
+Framing is the process of dividing the raw bit-stream received from the Physical Layer into structured data units called frames, making data manageable for node-to-node delivery.
+
+---
+
+### Question 42
+
+**In ARP, when System A wants to find the MAC address of System B, how does it send the request and how does System B respond?**
+
+A\) Unicast request — Broadcast response  
+B\) Multicast request — Unicast response  
+C\) Broadcast request — Unicast response  
+D\) Broadcast request — Broadcast response  
+
+**Correct Answer: C\) Broadcast request — Unicast response**
+
+**Explanation:**  
+ARP Request is broadcasted to all devices on the network asking "Who has this IP?". Only the matching device SystemB responds with a Unicast reply containing its MAC address directly back to System A.
+
+---
+
+### Question 43
+
+**What does CSMA/CD do immediately after detecting a collision on the channel?**
+
+A\) Drops the frame permanently and waits for retransmission request  
+B\) Continues transmitting and ignores the collision  
+C\) Stops transmitting, sends a jam signal, and waits a random backoff time before retrying  
+D\) Switches to CSMA/CA mode automatically  
+
+**Correct Answer: C\) Stops transmitting, sends a jam signal, and waits a random backoff time before retrying**
+
+**Explanation:**  
+On collision detection, CSMA/CD stops transmission immediately, sends a jam signal to notify all stations of the collision, then waits for a random backoff time period before attempting retransmission.
+
+---
+
+### Question 44
+
+**Why does Simple Parity Check fail to detect even-numbered bit errors?**
+
+A) Because it only checks the last bit of the data  
+B) Because it uses multiplication instead of addition  
+C) Because two flipped bits cancel each other out, keeping the parity count even  
+D) Because it cannot handle data longer than 8 bits  
+
+**Correct Answer: C) Because two flipped bits cancel each other out, keeping the parity count even**
+
+**Explanation:**  
+Simple parity works by ensuring the count of 1s is even. If two bits flip simultaneously, the total count of 1s remains even — so the receiver incorrectly assumes no error occurred. For example, `1010101` with two bits flipped to `1111101` still has an even number of 1s.
+
+---
+
+### Question 45
+
+**In CRC error detection, how does the receiver confirm that received data is error-free?**
+
+A) By comparing the received data with a stored copy of the original  
+B) By checking if the division of received data by the divisor gives zero remainder  
+C) By recalculating the checksum and comparing it with the sent checksum  
+D) By counting the number of 1s in the received data  
+
+**Correct Answer: B) By checking if the division of received data by the divisor gives zero remainder**
+
+**Explanation:**  
+CRC works on binary division. The sender appends CRC bits so the data is exactly divisible by a predetermined divisor. At the receiver's end, the same division is performed — if the remainder is zero, data is accepted as correct; any non-zero remainder means the data was corrupted in transit.

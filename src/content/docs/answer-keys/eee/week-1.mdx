@@ -1,101 +1,891 @@
 ---
-title: EEE Department - Week 1 Answer Keys
-description: Solutions and answer keys for EEE Department Week 1 problems
+title: EEE - Week 1 Answer Keys
+description: Solutions and answer keys for ECE Week 1 problems
 ---
 
-# EEE Department - Week 1 Answer Keys
-
-## Circuit Theory
-
-**Q1: Mesh Analysis**
-```
-Step 1: Assign mesh currents
-Step 2: Apply KVL around each mesh
-Step 3: Solve simultaneous equations
-Example: 3-mesh circuit → 3 equations
-```
-
-**Q2: Node Voltage Method**
-```
-Step 1: Select reference node
-Step 2: Apply KCL at each node
-Step 3: Solve for node voltages
-Advantage: Fewer equations if fewer nodes
-```
-
-## Power Systems
-
-**Q1: Transformer Turns Ratio**
-```
-Vs/Vp = Ns/Np
-Is/Ip = Np/Ns
-Impedance ratio = (Ns/Np)²
-```
-
-**Q2: Three-phase Power**
-```
-Total Power = √3 × VL × IL × cos(φ)
-Reactive Power = √3 × VL × IL × sin(φ)
-Apparent Power = √3 × VL × IL
-```
-
-## Electrical Machines
-
-**Q1: DC Motor Equations**
-```
-Back EMF: E = φ × Z × N / 60 × P
-Torque: T = φ × Z × I / 60 × P × 2
-Motor equation: V = E + Ia × Ra
-```
-
-**Q2: Induction Motor Slip**
-```
-s = (Ns - N) / Ns
-Ns = 120f / P
-Rotor frequency = s × f
-Speed N = Ns(1 - s)
-```
-
-## Control Systems
-
-**Q1: Transfer Function**
-```
-For RC circuit: H(s) = 1 / (1 + RCs)
-For RL circuit: H(s) = R / (R + Ls)
-Time constant τ = L/R or RC
-```
-
-**Q2: Steady-State Error**
-```
-Type 0: ess = 1/(1+Kp)
-Type 1: ess = 0, ess_ramp = 1/Kv
-Type 2: ess_ramp = 0, ess_accel = 1/Ka
-```
-
-## Power Generation
-
-**Q1: Generator EMF**
-```
-EMF = φ × Z × N × P / 60
-Terminal voltage = EMF - Ia × Ra
-Efficiency = Pout / Pin
-```
-
-**Q2: Load Flow Analysis**
-```
-Active power: P = |V|² × G + |V1||V2|cos(δ)
-Reactive power: Q = -|V|² × B + |V1||V2|sin(δ)
-Voltage regulation = (VNL - VFL) / VFL
-```
+# Test 1 (EEE)
+**Total Questions: 45**
 
 ---
 
-## Circuit Reference
+## Question 1
 
-| Element | Voltage | Current | Power |
-|---------|---------|---------|-------|
-| Resistor | V=IR | I=V/R | P=I²R |
-| Inductor | L·dI/dt | V=L·dI/dt | P=LI·dI |
-| Capacitor | Q/C | C·dV/dt | P=V·C·dV |
+**x is a positive integer such that x² + 12 is exactly divisible by x. Find all the possible values of x.**
 
-**Week 1 Complete:** Basic circuit fundamentals mastered
+A) 1, 2, 3, 4, 6, 12  
+B) 1, 2, 4, 8, 12  
+C) 2, 3, 5, 6, 12  
+D) 1, 3, 6, 9, 12  
+
+**Correct Answer: A) 1, 2, 3, 4, 6, 12**  
+**Explanation:**  
+Given: (x² + 12) is exactly divisible by x. ⇒ (x² + 12) / x is an integer ⇒ x²/x + 12/x is an integer ⇒ x + 12/x is an integer.  
+Since x is already an integer, 12/x must also be an integer.  
+Therefore, x must be a divisor of 12.  
+The positive divisors of 12 are: 1, 2, 3, 4, 6, 12.  
+Hence, the possible values of x are: 1, 2, 3, 4, 6, 12.  
+
+---
+
+## Question 2
+
+**Find the unit's digit in the product (2467)¹⁵³ × (341)⁷².**
+
+A) 1  
+B) 3  
+C) 7  
+D) 9  
+
+**Correct Answer: C) 7**  
+**Explanation:**  
+The unit's digit in the given product depends only on the unit digits of the numbers.  
+So, we consider: 7¹⁵³ × 1⁷².  
+7⁴ gives unit digit 1, therefore 7¹⁵² gives unit digit 1, hence 7¹⁵³ gives unit digit 1 × 7 = 7.  
+Also, 1⁷² gives unit digit 1.  
+Therefore, the unit digit in the product is: 7 × 1 = 7.  
+
+---
+
+## Question 3
+
+**Simplify: (789×789×789 + 211×211×211) / (789×789 – 789×211 + 211×211)**
+
+A) 211  
+B) 578  
+C) 1000  
+D) 789  
+
+**Correct Answer: C) 1000**  
+**Explanation:**  
+Given expression: (789³ + 211³) / (789² – 789×211 + 211²).  
+Using the identity: (a³ + b³) / (a² – ab + b²) = a + b.  
+Here, a = 789 and b = 211.  
+Therefore: 789 + 211 = 1000.  
+
+---
+
+## Question 4
+
+**Two numbers are in the ratio 3 : 4. Their L.C.M. is 84. Find the numbers.**
+
+A) 14 and 21  
+B) 21 and 28  
+C) 28 and 35  
+D) 18 and 24  
+
+**Correct Answer: B) 21 and 28**  
+**Explanation:**  
+Let the numbers be 3x and 4x. Since 3 and 4 are co-prime, L.C.M. of the numbers = 12x.  
+Given: 12x = 84 ⇒ x = 7.  
+Therefore, the numbers are: 3 × 7 = 21 and 4 × 7 = 28.  
+
+---
+
+## Question 5
+
+**Find the H.C.F. and L.C.M. of the fractions: 2/3, 8/9, 16/81 and 10/27**
+
+A) H.C.F. = 2/81, L.C.M. = 80  
+B) H.C.F. = 2/81, L.C.M. = 80/3  
+C) H.C.F. = 2/27, L.C.M. = 80/81  
+D) H.C.F. = 1/81, L.C.M. = 80/27  
+
+**Correct Answer: B) H.C.F. = 2/81, L.C.M. = 80/3**  
+**Explanation:**  
+H.C.F. of fractions = (H.C.F. of numerators) / (L.C.M. of denominators).  
+L.C.M. of fractions = (L.C.M. of numerators) / (H.C.F. of denominators).  
+H.C.F. of numerators (2, 8, 16, 10) = 2. L.C.M. of denominators (3, 9, 81, 27) = 81.  
+Therefore H.C.F. = 2/81.  
+L.C.M. of numerators (2, 8, 16, 10) = 80. H.C.F. of denominators (3, 9, 81, 27) = 3. Therefore L.C.M. = 80/3.  
+
+---
+
+## Question 6
+
+**13 chairs and 5 tables were bought for ₹8280. If the average cost of a table is ₹1227, what is the average cost of a chair?**
+
+A) ₹145  
+B) ₹155  
+C) ₹165  
+D) ₹175  
+
+**Correct Answer: C) ₹165**  
+**Explanation:**  
+Total cost of 5 tables = 1227 × 5 = ₹6135.  
+Total cost of 13 chairs = 8280 – 6135 = ₹2145.  
+Average cost of a chair = 2145 / 13 = ₹165.  
+
+---
+
+## Question 7
+
+**The average age of a man and his son is 40 years. The ratio of their ages is 11 : 5 respectively. What is the son's age?**
+
+A) 20 years  
+B) 25 years  
+C) 30 years  
+D) 35 years  
+
+**Correct Answer: B) 25 years**  
+**Explanation:**  
+Let the ages be 11x and 5x years respectively.  
+Average age = (11x + 5x) / 2 = 8x.  
+Given: 8x = 40 ⇒ x = 5.  
+Son's age = 5 × 5 = 25 years.  
+
+---
+
+## Question 8
+
+**If 7 : x = 17.5 : 22.5, then find the value of x.**
+
+A) 7  
+B) 8  
+C) 9  
+D) 10  
+
+**Correct Answer: C) 9**  
+**Explanation:**  
+7/x = 17.5/22.5 ⇒ 17.5x = 7 × 22.5 ⇒ x = (7 × 22.5) / 17.5 = 9.  
+
+---
+
+## Question 9
+
+**A sum of ₹427 is divided among A, B and C such that 3 times A's share, 4 times B's share and 7 times C's share are equal. Find the share of each.**
+
+A) ₹196, ₹147, ₹84  
+B) ₹180, ₹147, ₹100  
+C) ₹200, ₹140, ₹87  
+D) ₹210, ₹126, ₹91  
+
+**Correct Answer: A) ₹196, ₹147, ₹84**  
+**Explanation:**  
+Let 3A = 4B = 7C = k.  
+Then: A = k/3, B = k/4, C = k/7.  
+A : B : C = 1/3 : 1/4 : 1/7 = 28 : 21 : 12 (multiplying by L.C.M. = 84).  
+Sum of ratio terms = 28 + 21 + 12 = 61.  
+A's share = (28/61) × 427 = ₹196. B's share = (21/61) × 427 = ₹147. C's share = (12/61) × 427 = ₹84.  
+
+---
+
+## Question 10
+
+**A retailer buys 40 pens at the marked price of 36 pens from a wholesaler. If he sells these pens giving a discount of 1%, what is the profit percent?**
+
+A) 8%  
+B) 9%  
+C) 10%  
+D) 11%  
+
+**Correct Answer: C) 10%**  
+**Explanation:**  
+Let the marked price of each pen be ₹1.  
+Cost Price of 40 pens = Marked price of 36 pens = ₹36.  
+Selling Price of 40 pens = 99% of ₹40 = ₹39.60. Profit = 39.60 − 36 = ₹3.60.  
+Profit % = (3.60 / 36) × 100 = 10%.  
+
+---
+
+## Question 11
+
+**A sum of ₹12,500 amounts to ₹15,500 in 4 years at simple interest. What is the rate of interest?**
+
+A) 3%  
+B) 4%  
+C) 5%  
+D) 6%  
+
+**Correct Answer: D) 6%**  
+**Explanation:**  
+Principal (P) = ₹12,500. Amount (A) = ₹15,500. SI = 15,500 − 12,500 = ₹3,000. Time (T) = 4 years.  
+Using SI = (P × R × T) / 100: 3000 = (12500 × R × 4) / 100 ⇒ 3000 = 500R ⇒ R = 6%.  
+
+---
+
+## Question 12
+
+**There is a 60% increase in an amount in 6 years at simple interest. What will be the compound interest on ₹12,000 after 3 years at the same rate?**
+
+A) ₹2160  
+B) ₹3120  
+C) ₹3972  
+D) ₹6240  
+
+**Correct Answer: C) ₹3972**  
+**Explanation:**  
+Rate = 60% / 6 = 10% per annum. A = P(1 + R/100)ⁿ = 12000 × (1.1)³ = 12000 × 1.331 = ₹15,972.  
+CI = 15,972 − 12,000 = ₹3972.  
+
+---
+
+## Question 13
+
+**Pipe A can fill a tank in 30 hours and Pipe B can fill it in 45 hours. If both the pipes are opened together, in how much time will the tank be filled?**
+
+A) 15 hours  
+B) 18 hours  
+C) 20 hours  
+D) 25 hours  
+
+**Correct Answer: B) 18 hours**  
+**Explanation:**  
+Part filled by Pipe A in 1 hour = 1/30. Part filled by Pipe B in 1 hour = 1/45.  
+Part filled by both together = 1/30 + 1/45 = 3/90 + 2/90 = 5/90 = 1/18.  
+Therefore, both pipes together fill the tank in 18 hours.  
+
+---
+
+## Question 14
+
+**A can do a certain job in 12 days. B is 60% more efficient than A. How many days will B alone take to complete the same job?**
+
+A) 6 days  
+B) 7 1/2 days  
+C) 8 days  
+D) 9 days  
+
+**Correct Answer: B) 7 1/2 days**  
+**Explanation:**  
+B is 60% more efficient than A, so efficiency ratio A : B = 100 : 160 = 5 : 8.  
+Since time is inversely proportional to efficiency, ratio of time A : B = 8 : 5.  
+Let B take x days. Then 8 : 5 :: 12 : x ⇒ 8x = 60 ⇒ x = 7 1/2 days.  
+
+---
+
+## Question 15
+
+**Excluding stoppages, the speed of a bus is 54 kmph and including stoppages, it is 45 kmph. For how many minutes does the bus stop per hour?**
+
+A) 9 minutes  
+B) 10 minutes  
+C) 12 minutes  
+D) 20 minutes  
+
+**Correct Answer: B) 10 minutes**  
+**Explanation:**  
+Let the bus run for x minutes in 1 hour.  
+Distance covered while running: 54 × (x/60) = 45 ⇒ 54x = 2700 ⇒ x = 50 minutes.  
+Stoppage time per hour = 60 − 50 = 10 minutes.  
+
+---
+
+## Question 16
+
+**Find R-value from the below circuit.**
+<br />
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Answer%20Keys/wee1.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+A) 17.5 Ω  
+B) 17.2 Ω  
+C) 17.4 Ω  
+D) 17.8 Ω  
+
+**Correct Answer: A) 17.5 Ω**  
+**Explanation:**  
+KVL: 70 – 5I – 7(I – 2) = 0 ⇒ I = 7A.  
+KVL to 2nd loop: 7(I – 2) – 2R = 0 ⇒ R = 17.5 Ω.  
+
+---
+
+## Question 17
+
+**Find I₀ in the following circuit. R1 = 1.1 kΩ, R2 = 3.25 kΩ, V = 3.7 V.**
+<br />
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Answer%20Keys/wee2.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+
+A) 1.5 mA  
+B) 2 mA  
+C) 0.5 mA  
+D) 1.2 mA  
+
+**Correct Answer: D) 1.2 mA**  
+**Explanation:**  
+By using the fact that current is the same in series-connected resistors and voltage is the same across parallel branches, the problem can be solved.  
+I₀ is divided into αIx and Ix. Calculating these two gives the required current value of 1.2 mA.  
+
+---
+
+## Question 18
+
+**Convert the given Delta circuit to a star circuit and give the Ra, Rb and Rc values.**
+<br />
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Answer%20Keys/wee3.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+
+A) Ra = 5 Ω, Rb = 4.5 Ω, Rc = 4.67 Ω  
+B) Ra = 4 Ω, Rb = 4.30 Ω, Rc = 4.66 Ω  
+C) Ra = 3 Ω, Rb = 4 Ω, Rc = 5 Ω  
+D) Ra = 5.2 Ω, Rb = 4.2 Ω, Rc = 4.89 Ω  
+
+**Correct Answer: B) Ra = 4 Ω, Rb = 4.30 Ω, Rc = 4.66 Ω**  
+**Explanation:**  
+By using the standard formulae, the delta circuit can be converted into a star circuit.  
+
+---
+
+## Question 19
+
+**What will be the resistance between B and C when the network given below is converted into delta?**
+<br />
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Answer%20Keys/wee4.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+
+A) 13 Ω  
+B) 8.66 Ω  
+C) 6.5 Ω  
+D) 7.33 Ω  
+
+**Correct Answer: B) 8.66 Ω**  
+**Explanation:**  
+Resistance between B and C = 2 + 4 + (2 × 4)/3 = 8.66 Ω.  
+
+---
+
+## Question 20
+
+**Find the current through (5 + j4) Ω resistor.**
+<br />
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Answer%20Keys/wee5.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+
+A) 0.9 − j0.2 A  
+B) 0.78 − j0.1 A  
+C) 2.7 − j0.5 A  
+D) 1 A  
+
+**Correct Answer: A) 0.9 − j0.2 A**  
+**Explanation:**  
+Remove the (5 + j4) Ω branch and calculate Thevenin's voltage: V = voltage across 6 Ω − voltage across 8 Ω.  
+Calculate Z_th: (10 ∥ 6) and (8 ∥ 8).  
+Current = V_th / (Z_th + Z) = 0.9 − j0.2 A.  
+
+---
+
+## Question 21
+
+**Calculate Vab for the network given.**
+<br />
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Answer%20Keys/wee6.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+A) 20 V  
+B) 30 V  
+C) 40 V  
+D) 50 V  
+
+**Correct Answer: C) 40 V**  
+**Explanation:**  
+Find Norton resistance: 20V source → short circuit; 6A source → open circuit. 5 Ω ∥ 20 Ω = 4 Ω; Rₙ = 4 Ω + 3 Ω = 7 Ω.  
+Find Norton current by shorting terminals a and b using KCL: (V−20)/5 + V/20 + V/3 = 6 → Iₙ = 40/7 A.  
+Vab = Iₙ × Rₙ = (40/7) × 7 = 40 V.  
+
+---
+
+## Question 22
+
+**Calculate IN for the given network.**
+<br />
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Answer%20Keys/wee7.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+A) 0 A  
+B) 1 A  
+C) 4.37 A  
+D) 0.37 A  
+
+**Correct Answer: A) 0 A**  
+**Explanation:**  
+Since a and b are shorted, the 4 Ω resistor is connected to ground. Applying KCL at the top node: (Vx − 4Vx)/2 + Vx/5 + Vx/4 = 0.  
+Multiplying by 20: 10Vx − 40Vx + 4Vx + 5Vx = 0 → −21Vx = 0 → Vx = 0.  
+Norton current: IN = Vx/4 = 0 A.  
+
+---
+
+## Question 23
+
+**Determine the maximum power delivered to the load in the network given.**
+<br />
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Answer%20Keys/wee8.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+A) 4.68 W  
+B) 5.75 W  
+C) 3.16 W  
+D) 6.84 W  
+
+**Correct Answer: A) 4.68 W**  
+**Explanation:**  
+Load is given across node V2 and reference path, so the Thevenin voltage is V2. Using nodal analysis this voltage is found out.  
+R_th = R_L = (10 Ω ∥ 5 Ω) in series with 2 Ω, then parallel with 3 Ω = 1.92 Ω.  
+Max power = (V_th)² / 4R_L = 4.688 W.  
+
+---
+
+## Question 24
+
+**Find the current in 5 Ω resistor near 12V source using superposition principle in the network given.**
+<br />
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Answer%20Keys/wee9.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+
+A) 2.9 A  
+B) −2.9 A  
+C) 1 A  
+D) −1 A  
+
+**Correct Answer: B) −2.9 A**  
+**Explanation:**  
+Only 3 independent sources are considered (12V, 10A, 20V); the dependent source (10I) is retained.  
+12V source: I = 0.6A. 10A source: I = −2.5A through 5 Ω resistor. 20V source: I = −1A.  
+Total current = 0.6 + (−2.5) + (−1) = −2.9 A.  
+
+---
+
+## Question 25
+
+**Find the power delivered by the voltage source in the network given below.**
+<br />
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Answer%20Keys/wee10.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+
+A) 65 W  
+B) 72 W  
+C) 63 W  
+D) 76 W  
+
+**Correct Answer: C) 63 W**  
+**Explanation:**  
+3 loops with a supermesh between loop 1 and loop 3. Using KVL: I1 = 9A, I2 = 2.5A, I3 = 2A.  
+As voltage source is in 1st loop, Power delivered by voltage source = V × I1 = 63 W.  
+
+---
+
+## Question 26
+
+**For a symmetrical reciprocal two-port network having ABCD parameters, which relation is correct?**
+
+A) A = B and C = D  
+B) AD + BC = 1  
+C) A = D and AD − BC = 1  
+D) B = C only  
+
+**Correct Answer: C) A = D and AD − BC = 1**  
+**Explanation:**  
+For a symmetrical network: A = D.  
+For a reciprocal network: AD − BC = 1.  
+Hence both conditions are satisfied together.  
+
+---
+
+## Question 27
+
+**For a two-port reciprocal network, the ABCD parameters are: A = 2, B = 4 Ω, C = 0.5 S. Find the value of D.**
+
+A) 0.5  
+B) 1.5  
+C) 2  
+D) 4  
+
+**Correct Answer: B) 1.5**  
+**Explanation:**  
+For a reciprocal network: AD − BC = 1.  
+2D − (4 × 0.5) = 1 ⇒ 2D − 2 = 1 ⇒ 2D = 3 ⇒ D = 1.5.  
+
+---
+
+## Question 28
+
+**For the parallel circuit shown below, find the node voltage using Millman's theorem.**
+<br />
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Answer%20Keys/wee11.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+
+A) 10 V  
+B) 12 V  
+C) 14 V  
+D) 16 V  
+
+**Correct Answer: B) 12 V**  
+**Explanation:**  
+V = [(12/6) + (18/3) + (0/6)] / [(1/6) + (1/3) + (1/6)].  
+V = (2 + 6 + 0) / (1/6 + 2/6 + 1/6) = 8 / (4/6) = 12 V.  
+
+---
+
+## Question 29
+
+**A circuit has a 24V voltage source in series with a 6 Ω resistor. A 12 Ω resistor is connected in parallel with a 3A current source across terminals a and b. Find the Thevenin equivalent resistance R_th seen from terminals a and b.**
+
+A) 3 Ω  
+B) 4 Ω  
+C) 6 Ω  
+D) 8 Ω  
+
+**Correct Answer: B) 4 Ω**  
+**Explanation:**  
+To find R_th: replace 24V source with short circuit and replace 3A current source with open circuit.  
+Now 6 Ω and 12 Ω are in parallel: R_th = (6 × 12) / (6 + 12) = 72 / 18 = 4 Ω.  
+
+---
+
+## Question 30
+
+**A circuit has two meshes sharing a 4 Ω resistor. Mesh currents are I1 and I2 in clockwise direction. What is the voltage drop across the shared resistor in Mesh 1 equation?**
+<br />
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Answer%20Keys/wee12.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+
+A) 4I1  
+B) 4I2  
+C) 4(I1 − I2)  
+D) 4(I1 + I2)  
+
+**Correct Answer: C) 4(I1 − I2)**  
+**Explanation:**  
+In a shared resistor, current is the difference of mesh currents.  
+Voltage drop = R(I1 − I2) = 4(I1 − I2).  
+
+---
+
+## Question 31
+
+**2's complement of binary number 0101 is:**
+
+A) 1011  
+B) 1111  
+C) 1101  
+D) 1110  
+
+**Correct Answer: A) 1011**  
+**Explanation:**  
+1's complement of 0101 is 1010.  
+2's complement = 1010 + 1 = 1011.  
+
+---
+
+## Question 32
+
+**An OR gate has 4 inputs. One input is high and the other three are low. The output:**
+
+A) is low  
+B) is high  
+C) is alternately high and low  
+D) may be high or low depending on relative magnitude of inputs  
+
+**Correct Answer: B) is high**  
+**Explanation:**  
+In an OR gate, if any one input is HIGH, the output becomes HIGH.  
+
+---
+
+## Question 33
+
+**A device which converts BCD to seven segment is called:**
+
+A) encoder  
+B) decoder  
+C) multiplexer  
+D) none of these  
+
+**Correct Answer: B) decoder**  
+**Explanation:**  
+A decoder converts BCD or binary input into seven-segment display outputs.  
+
+---
+
+## Question 34
+
+**A ring counter with 5 flip flops will have:**
+
+A) 5 states  
+B) 10 states  
+C) 32 states  
+D) infinite states  
+
+**Correct Answer: A) 5 states**  
+**Explanation:**  
+A ring counter with 5 flip-flops has 5 states because only one flip-flop is HIGH at a time, and this HIGH bit circulates through all flip-flops.  
+
+---
+
+## Question 35
+
+**For the gate in the given figure, the output will be:**
+<br />
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Answer%20Keys/wee13.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+
+A) 0  
+B) 1  
+C) A  
+D) A̅  
+
+**Correct Answer: D) A̅**  
+**Explanation:**  
+If A = 0, output Y = 1 and if A = 1, output Y = 0. Therefore, Y = A̅.  
+
+---
+
+## Question 36
+
+**In the expression A + BC, the total number of minterms will be:**
+
+A) 2  
+B) 3  
+C) 4  
+D) 5  
+
+**Correct Answer: D) 5**  
+**Explanation:**  
+The expression A + BC expands into 5 minterms.  
+
+---
+
+## Question 37
+
+**The circuit in the given figure is:**
+<br />
+<img
+  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Answer%20Keys/wee14.png?raw=true"
+  alt="Diagram"
+  style={{
+    width: "60%",
+    display: "block",
+    margin: "auto"
+  }}
+/>
+
+
+A) positive logic XOR gate  
+B) negative logic OR gate  
+C) negative logic AND gate  
+D) positive logic AND gate  
+
+**Correct Answer: C) negative logic AND gate**  
+**Explanation:**  
+Since the circuit uses negative logic and behaves as an AND operation, it is a negative logic AND gate.  
+
+---
+
+## Question 38
+
+**The expression Y = ΠM(0,1,3,4) is:**
+
+A) POS  
+B) SOP  
+C) Hybrid  
+D) none of the above  
+
+**Correct Answer: A) POS**  
+**Explanation:**  
+ΠM represents the Product of Sums (POS) form.  
+
+---
+
+## Question 39
+
+**For a NOR SR latch the normal resting state of inputs is:**
+
+A) S = R = 1  
+B) S = 0, R = 1  
+C) S = 0, R = 0  
+D) S = 1, R = 0  
+
+**Correct Answer: C) S = 0, R = 0**  
+**Explanation:**  
+In a NOR SR latch, both inputs remain LOW during the normal resting condition.  
+
+---
+
+## Question 40
+
+**A full adder adds:**
+
+A) 2 bits  
+B) 3 bits  
+C) 4 bits  
+D) any number of bits  
+
+**Correct Answer: B) 3 bits**  
+**Explanation:**  
+A full adder adds two input bits and one carry input, making a total of 3 bits.  
+
+---
+
+## Question 41
+
+**In a JK flip flop, toggle means:**
+
+A) Set Q = 1 and Q̅ = 0  
+B) Set Q = 0 and Q̅ = 1  
+C) change the output to the opposite state  
+D) no change in output  
+
+**Correct Answer: C) change the output to the opposite state**  
+**Explanation:**  
+When J = K = 1, the output changes to its opposite state on every clock pulse.  
+
+---
+
+## Question 42
+
+**Consider the following statements about a multiplexer: (1) Selects one of the several inputs and steers it to the output. (2) Routes the data from a single input to many outputs. (3) Converts parallel data into serial data. (4) Is a combinational circuit. Which are correct?**
+
+A) 1, 2, 4  
+B) 2, 3, 4  
+C) 1, 3, 4  
+D) 1, 2, 3  
+
+**Correct Answer: C) 1, 3, 4**  
+**Explanation:**  
+A multiplexer selects one input and sends it to the output. It can also convert parallel data into serial data and is a combinational circuit.  
+Statement 2 describes a demultiplexer, not a multiplexer.  
+
+---
+
+## Question 43
+
+**In the full adder, denoting Sum by S and carry by C:**
+
+A) S = 1 when two or more inputs are unity  
+B) C = 1 when two or more inputs are unity  
+C) C = 1 when all the inputs are unity  
+D) S = 1 when all the inputs are unity  
+
+**Correct Answer: B) C = 1 when two or more inputs are unity**  
+**Explanation:**  
+Carry output becomes 1 when two or more inputs are HIGH.  
+
+---
+
+## Question 44
+
+**Which of the following characteristics is not true for TTL Logic?**
+
+A) Good speed  
+B) Low power dissipation per gate  
+C) High cost  
+D) None of these  
+
+**Correct Answer: C) High cost**  
+**Explanation:**  
+TTL logic provides good speed and moderate power dissipation and is not considered highly expensive.  
+
+---
+
+## Question 45
+
+**The number of flip-flops required for a divide-by-12 circuit is:**
+
+A) 16  
+B) 12  
+C) 6  
+D) 4  
+
+**Correct Answer: D) 4**  
+**Explanation:**  
+A divide-by-12 circuit must count 12 states. The number of states possible with n flip-flops is 2ⁿ.  
+Since 2³ = 8 < 12 and 2⁴ = 16 > 12, 4 flip-flops are required.
