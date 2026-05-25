@@ -171,13 +171,31 @@ Linear Regression is one of the simplest models used for predicting a numeric va
   <TabItem label="Python">
 
 ```python
-from sklearn.linear_model import LinearRegression
+from sklearn import linear_model
+import pandas as pd
 
-model = LinearRegression()
+# Dataset
+data = {
+    "Hours": [1, 2, 3, 4, 5],
+    "Marks": [20, 30, 40, 50, 60]
+}
 
-model.fit(X_train, y_train)
+df = pd.DataFrame(data)
 
-predictions = model.predict(X_new)
+# Input and Output
+X = df[["Hours"]]
+y = df["Marks"]
+
+# Creating Model
+model = linear_model.LinearRegression()
+
+# Training
+model.fit(X, y)
+
+# Prediction
+result = model.predict([[6]])
+
+print(result)
 ```
 
   </TabItem>
@@ -214,13 +232,30 @@ Despite its name, Logistic Regression is used for classification, not regression
   <TabItem label="Python">
 
 ```python
-from sklearn.linear_model import LogisticRegression
+from sklearn import linear_model
+import pandas as pd
 
-model = LogisticRegression()
+# Dataset
+data = {
+    "Hours": [1, 2, 3, 4, 5],
+    "Pass": [0, 0, 0, 1, 1]
+}
 
-model.fit(X_train, y_train)
+df = pd.DataFrame(data)
 
-predictions = model.predict(X_new)
+X = df[["Hours"]]
+y = df["Pass"]
+
+# Creating Model
+model = linear_model.LogisticRegression()
+
+# Training
+model.fit(X, y)
+
+# Prediction
+result = model.predict([[4]])
+
+print(result)
 ```
 
   </TabItem>
@@ -263,13 +298,31 @@ Different formulas affect how KNN handles data. Euclidean Distance is sensitive 
   <TabItem label="Python">
 
 ```python
-from sklearn.neighbors import KNeighborsClassifier
+from sklearn import neighbors
+import pandas as pd
 
-model = KNeighborsClassifier(n_neighbors=3)
+# Dataset
+data = {
+    "Height": [150, 160, 170, 180],
+    "Weight": [50, 60, 70, 80],
+    "Type": ["Small", "Medium", "Medium", "Large"]
+}
 
-model.fit(X_train, y_train)
+df = pd.DataFrame(data)
 
-predictions = model.predict(X_new)
+X = df[["Height", "Weight"]]
+y = df["Type"]
+
+# Creating Model
+model = neighbors.KNeighborsClassifier(n_neighbors=3)
+
+# Training
+model.fit(X, y)
+
+# Prediction
+result = model.predict([[175, 75]])
+
+print(result)
 ```
 
   </TabItem>
@@ -306,13 +359,30 @@ SVM is a powerful classifier that separates different classes of data by fitting
   <TabItem label="Python">
 
 ```python
-from sklearn.svm import SVC
+from sklearn import svm
+import pandas as pd
 
-model = SVC(kernel="rbf")
+# Dataset
+data = {
+    "Marks": [20, 30, 40, 70, 80],
+    "Result": ["Fail", "Fail", "Fail", "Pass", "Pass"]
+}
 
-model.fit(X_train, y_train)
+df = pd.DataFrame(data)
 
-predictions = model.predict(X_new)
+X = df[["Marks"]]
+y = df["Result"]
+
+# Creating Model
+model = svm.SVC()
+
+# Training
+model.fit(X, y)
+
+# Prediction
+result = model.predict([[75]])
+
+print(result)
 ```
 
   </TabItem>
@@ -345,13 +415,31 @@ A highly intuitive, "white box" model that makes predictions by asking a sequenc
   <TabItem label="Python">
 
 ```python
-from sklearn.tree import DecisionTreeClassifier
+from sklearn import tree
+import pandas as pd
 
-model = DecisionTreeClassifier(max_depth=2)
+# Dataset
+data = {
+    "Age": [18, 25, 30, 40],
+    "Salary": [20000, 30000, 50000, 70000],
+    "Buy": ["No", "No", "Yes", "Yes"]
+}
 
-model.fit(X_train, y_train)
+df = pd.DataFrame(data)
 
-predictions = model.predict(X_new)
+X = df[["Age", "Salary"]]
+y = df["Buy"]
+
+# Creating Model
+model = tree.DecisionTreeClassifier()
+
+# Training
+model.fit(X, y)
+
+# Prediction
+result = model.predict([[35, 60000]])
+
+print(result)
 ```
 
   </TabItem>
@@ -388,13 +476,31 @@ A Random Forest is an "Ensemble Learning" method. Instead of relying on one Deci
   <TabItem label="Python">
 
 ```python
-from sklearn.ensemble import RandomForestClassifier
+from sklearn import ensemble
+import pandas as pd
 
-model = RandomForestClassifier(n_estimators=100)
+# Dataset
+data = {
+    "Age": [18, 25, 30, 40, 50],
+    "Salary": [20000, 30000, 50000, 70000, 90000],
+    "Buy": ["No", "No", "Yes", "Yes", "Yes"]
+}
 
-model.fit(X_train, y_train)
+df = pd.DataFrame(data)
 
-predictions = model.predict(X_new)
+X = df[["Age", "Salary"]]
+y = df["Buy"]
+
+# Creating Model
+model = ensemble.RandomForestClassifier()
+
+# Training
+model.fit(X, y)
+
+# Prediction
+result = model.predict([[32, 65000]])
+
+print(result)
 ```
 
   </TabItem>
@@ -427,13 +533,30 @@ XGBoost (Extreme Gradient Boosting) is a highly optimized, fast, and scalable op
   <TabItem label="Python">
 
 ```python
-import xgboost
+import xgboost as xgb
+import pandas as pd
 
-model = xgboost.XGBRegressor()
+# Dataset
+data = {
+    "Experience": [1, 2, 3, 4, 5],
+    "Salary": [25000, 35000, 45000, 55000, 65000]
+}
 
-model.fit(X_train, y_train)
+df = pd.DataFrame(data)
 
-predictions = model.predict(X_new)
+X = df[["Experience"]]
+y = df["Salary"]
+
+# Creating Model
+model = xgb.XGBRegressor()
+
+# Training
+model.fit(X, y)
+
+# Prediction
+result = model.predict([[6]])
+
+print(result)
 ```
 
   </TabItem>
@@ -466,13 +589,30 @@ Gradient Boosting is another ensemble method, but instead of training models ind
   <TabItem label="Python">
 
 ```python
-from sklearn.ensemble import GradientBoostingRegressor
+from sklearn import ensemble
+import pandas as pd
 
-model = GradientBoostingRegressor()
+# Dataset
+data = {
+    "Experience": [1, 2, 3, 4, 5],
+    "Salary": [25000, 35000, 45000, 55000, 65000]
+}
 
-model.fit(X_train, y_train)
+df = pd.DataFrame(data)
 
-predictions = model.predict(X_new)
+X = df[["Experience"]]
+y = df["Salary"]
+
+# Creating Model
+model = ensemble.GradientBoostingRegressor()
+
+# Training
+model.fit(X, y)
+
+# Prediction
+result = model.predict([[6]])
+
+print(result)
 ```
 
   </TabItem>
@@ -512,12 +652,35 @@ Trains multiple predictors independently and in parallel on random samples of th
   <TabItem label="Python">
 
 ```python
-from sklearn.ensemble import BaggingClassifier
-from sklearn.tree import DecisionTreeClassifier
+from sklearn import ensemble
+from sklearn import tree
+import pandas as pd
 
-model = BaggingClassifier(DecisionTreeClassifier())
+# Dataset
+data = {
+    "Age": [18, 25, 30, 40, 50],
+    "Salary": [20000, 30000, 50000, 70000, 90000],
+    "Buy": ["No", "No", "Yes", "Yes", "Yes"]
+}
 
-model.fit(X_train, y_train)
+df = pd.DataFrame(data)
+
+X = df[["Age", "Salary"]]
+y = df["Buy"]
+
+# Base Model
+base_model = tree.DecisionTreeClassifier()
+
+# Creating Bagging Model
+model = ensemble.BaggingClassifier(base_model)
+
+# Training
+model.fit(X, y)
+
+# Prediction
+result = model.predict([[35, 60000]])
+
+print(result)
 ```
 
   </TabItem>
@@ -539,11 +702,31 @@ Trains predictors sequentially, where each model learns from the mistakes of the
   <TabItem label="Python">
 
 ```python
-from sklearn.ensemble import AdaBoostClassifier
+from sklearn import ensemble
+import pandas as pd
 
-model = AdaBoostClassifier()
+# Dataset
+data = {
+    "Age": [18, 25, 30, 40, 50],
+    "Salary": [20000, 30000, 50000, 70000, 90000],
+    "Buy": ["No", "No", "Yes", "Yes", "Yes"]
+}
 
-model.fit(X_train, y_train)
+df = pd.DataFrame(data)
+
+X = df[["Age", "Salary"]]
+y = df["Buy"]
+
+# Creating Model
+model = ensemble.AdaBoostClassifier()
+
+# Training
+model.fit(X, y)
+
+# Prediction
+result = model.predict([[35, 60000]])
+
+print(result)
 ```
 
   </TabItem>
@@ -565,11 +748,40 @@ Originating from information theory, cross entropy is a cost function used to me
   <TabItem label="Python">
 
 ```python
+from tensorflow import keras
+from tensorflow.keras import layers
+import numpy as np
+
+# Sample Dataset
+X = np.array([
+    [0, 0],
+    [0, 1],
+    [1, 0],
+    [1, 1]
+])
+
+y = np.array([0, 1, 1, 0])
+
+# Creating Model
+model = keras.Sequential([
+    layers.Dense(8, activation="relu", input_shape=(2,)),
+    layers.Dense(2, activation="softmax")
+])
+
+# Compiling Model with Cross Entropy Loss
 model.compile(
+    optimizer="adam",
     loss="sparse_categorical_crossentropy",
-    optimizer="sgd",
     metrics=["accuracy"]
 )
+
+# Training
+model.fit(X, y, epochs=10)
+
+# Prediction
+result = model.predict([[1, 0]])
+
+print(result)
 ```
 
   </TabItem>
@@ -605,11 +817,26 @@ An unsupervised algorithm that groups similar, unlabeled data into 'K' distinct 
   <TabItem label="Python">
 
 ```python
-from sklearn.cluster import KMeans
+from sklearn import cluster
+import pandas as pd
 
-model = KMeans(n_clusters=5)
+# Dataset
+data = {
+    "Income": [15, 18, 25, 40, 45, 60],
+    "Spending": [20, 25, 30, 50, 55, 70]
+}
 
-clusters = model.fit_predict(X_train)
+df = pd.DataFrame(data)
+
+X = df[["Income", "Spending"]]
+
+# Creating Model
+model = cluster.KMeans(n_clusters=2)
+
+# Training and Prediction
+result = model.fit_predict(X)
+
+print(result)
 ```
 
   </TabItem>
@@ -633,11 +860,26 @@ An unsupervised algorithm that builds a hierarchy of clusters from the bottom up
   <TabItem label="Python">
 
 ```python
-from sklearn.cluster import AgglomerativeClustering
+from sklearn import cluster
+import pandas as pd
 
-model = AgglomerativeClustering(n_clusters=5)
+# Dataset
+data = {
+    "Income": [15, 18, 25, 40, 45, 60],
+    "Spending": [20, 25, 30, 50, 55, 70]
+}
 
-clusters = model.fit_predict(X_train)
+df = pd.DataFrame(data)
+
+X = df[["Income", "Spending"]]
+
+# Creating Model
+model = cluster.AgglomerativeClustering(n_clusters=2)
+
+# Prediction
+result = model.fit_predict(X)
+
+print(result)
 ```
 
   </TabItem>
@@ -662,11 +904,26 @@ A density-based clustering algorithm. Instead of just looking at distance, it de
   <TabItem label="Python">
 
 ```python
-from sklearn.cluster import DBSCAN
+from sklearn import cluster
+import pandas as pd
 
-model = DBSCAN(eps=0.2, min_samples=5)
+# Dataset
+data = {
+    "X": [1, 2, 2, 8, 8, 25],
+    "Y": [2, 2, 3, 8, 9, 30]
+}
 
-clusters = model.fit_predict(X_train)
+df = pd.DataFrame(data)
+
+X = df[["X", "Y"]]
+
+# Creating Model
+model = cluster.DBSCAN(eps=3, min_samples=2)
+
+# Prediction
+result = model.fit_predict(X)
+
+print(result)
 ```
 
   </TabItem>
@@ -701,11 +958,27 @@ The process of simplifying a dataset by reducing the number of features (dimensi
   <TabItem label="Python">
 
 ```python
-from sklearn.decomposition import PCA
+from sklearn import decomposition
+import pandas as pd
 
-pca = PCA(n_components=2)
+# Dataset
+data = {
+    "Maths": [90, 80, 70, 60],
+    "Science": [88, 78, 68, 58],
+    "English": [85, 75, 65, 55]
+}
 
-X_reduced = pca.fit_transform(X_train)
+df = pd.DataFrame(data)
+
+X = df[["Maths", "Science", "English"]]
+
+# Creating Model
+model = decomposition.PCA(n_components=2)
+
+# Reducing Dimensions
+result = model.fit_transform(X)
+
+print(result)
 ```
 
   </TabItem>
