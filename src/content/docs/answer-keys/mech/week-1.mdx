@@ -1,5 +1,5 @@
 ---
-title: Mech - Week 1
+title: Mech Answer Keys
 description: Solutions and answer keys for Mechanical Engineering Week 1 problems
 ---
 
@@ -458,15 +458,7 @@ Using E = 2G(1 + μ): 200 = 2G(1 + 0.25) = 2.5G ⇒ G = 80 GPa.
 
 **A body is subjected to stresses σx = 100 MPa, σy = 40 MPa, and shear stress τxy = 30 MPa. The maximum shear stress is:**
 <br />
-<img
-  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Answer%20Keys/w5.png?raw=true"
-  alt="Diagram"
-  style={{
-    width: "60%",
-    display: "block",
-    margin: "auto"
-  }}
-/>
+
 
 A) 20 MPa  
 B) 30 MPa  
@@ -601,15 +593,7 @@ D) Shear deformation is dominant
 **Correct Answer: B) Plane sections remain plane after bending**  
 **Explanation:**  
 <br />
-<img
-  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Answer%20Keys/w6.png?raw=true"
-  alt="Diagram"
-  style={{
-    width: "60%",
-    display: "block",
-    margin: "auto"
-  }}
-/>
+
 
 The bending equation is based on Bernoulli-Euler beam theory, which assumes plane sections remain plane after bending.
 
@@ -1030,16 +1014,34 @@ D) 100.0 kJ
 
 **Correct Answer: B) 219.7 kJ**  
 **Explanation:**  
-<br />
-<img
-  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Answer%20Keys/w8.png?raw=true"
-  alt="Diagram"
-  style={{
-    width: "60%",
-    display: "block",
-    margin: "auto"
-  }}
-/> 
+
+For a quasi-static process, the boundary work done ($W$) is expressed by the integral:
+
+$$W = \int_{V_1}^{V_2} P \, dV$$
+
+ **Substitution:**
+
+Substituting the pressure function $P = \frac{200}{V}$ and the limits of integration from $V_1 = 0.2$ to $V_2 = 0.6$:
+
+$$W = \int_{0.2}^{0.6} \frac{200}{V} \, dV$$
+
+Factoring out the constant:
+
+$$W = 200 \int_{0.2}^{0.6} \frac{1}{V} \, dV$$
+
+Evaluating the integral using the natural logarithm:
+
+$$W = 200 \ln \left( \frac{0.6}{0.2} \right)$$
+
+$$W = 200 \ln(3)$$
+
+Given that:
+
+$$\ln(3) = 1.0986$$
+
+We calculate the final work done:
+
+$$W = 200 \times 1.0986 = 219.7 \text{ kJ}$$
 
 
 ---
@@ -1056,13 +1058,60 @@ D) 1650 kW
 **Correct Answer: B) 1550 kW**  
 **Explanation:**  
 
-<br />
-<img
-  src="https://github.com/CodderTharun/-WEEK-2-IMAGES/blob/main/Answer%20Keys/w9.png?raw=true"
-  alt="Diagram"
-  style={{
-    width: "60%",
-    display: "block",
-    margin: "auto"
-  }}
-/> 
+
+
+Neglecting changes in kinetic and potential energy, the simplified Steady Flow Energy Equation is written as:
+
+$$Q - W = m(h_2 - h_1)$$
+
+**Substitute Values**
+
+Substituting the given values into the equation:
+
+## Solution
+
+Given:
+
+$$
+-50 - W = 2(2400 - 3200)
+$$
+
+First solve the bracket:
+
+$$
+2400 - 3200 = -800
+$$
+
+Multiply by 2:
+
+$$
+2(-800) = -1600
+$$
+
+Substitute back:
+
+$$
+-50 - W = -1600
+$$
+
+Add 50 to both sides:
+
+$$
+-W = -1600 + 50
+$$
+
+$$
+-W = -1550
+$$
+
+Multiply both sides by \(-1\):
+
+$$
+W = 1550 \text{ kW}
+$$
+
+Therefore,
+
+$$
+\boxed{W = 1550 \text{ kW}}
+$$
